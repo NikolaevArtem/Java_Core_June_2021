@@ -7,7 +7,7 @@
 /.DS_Store/
 
 # Compiled class file
-/---------/*.class
+*.class
 
 # Log file
 *.log
