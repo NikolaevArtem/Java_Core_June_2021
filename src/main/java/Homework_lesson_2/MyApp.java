@@ -27,7 +27,7 @@ public class MyApp {
                         System.out.println(arg + ": " + arg.length() + " букв");
                         break;
                     default:
-                        System.out.println("Тут должна быть ошибка, но обойдемся этим сообщением");
+                        System.err.println("Тут должна быть ошибка, но обойдемся этим сообщением");
                 }
             }
         }
