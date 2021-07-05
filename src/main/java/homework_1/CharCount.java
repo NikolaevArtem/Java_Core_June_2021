@@ -10,7 +10,7 @@ public class CharCount {
                 System.out.println(RED_BOLD + "Тревога!");
                 break;
             } else {
-                System.out.println(arg + ": " + arg.toCharArray().length);
+                System.out.println(arg + ": " + arg.length());
             }
         }
     }
