@@ -6,8 +6,8 @@
 /gradle/
 /.DS_Store/
 
-# Compiled class file1
-*.class
+# Compiled class file
+//*.class
 
 # Log file
 *.log
