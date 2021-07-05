@@ -2,3 +2,32 @@
 /.gradle/
 /build/
 /build/classes/java/main/
+
+# Default ignored files
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Eclipse
+**/*.project
+**/*.classpath
+**/*.settings
+
+# Mac
+.DS_Store
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.log
+
+out
+target
+build
+.gradle
+gradle
+gradle*
+
+*.class
