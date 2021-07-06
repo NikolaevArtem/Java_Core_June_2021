@@ -1,8 +1,8 @@
 package Homework1;
 
 public class Homework1 {
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_RED = "\u001B[31m";
+    static final String ANSI_RESET = "\u001B[0m";
+    static final String ANSI_RED = "\u001B[31m";
 
     public static void main(String[] args) {
         for (String arg : args) {
@@ -10,14 +10,23 @@ public class Homework1 {
                 System.out.println(ANSI_RED + "Тревога!" + ANSI_RESET);
                 return;
             }
-            int len = arg.length();
-            String add = "букв";
-            if (len == 1) {
-                add = "буква";
-            } else if (len > 1 && len < 5) {
-                add = "буквы";
-            }
-            System.out.println(arg + ": " + arg.length() + " " + add);
+            print(arg);
         }
+    }
+
+    static String ending(int len) {
+        String word = "букв";
+        switch (len % 100) {
+            case 1: return word + "а";
+            case 2:
+            case 3:
+            case 4: return word + "ы";
+            default: return word;
+        }
+    }
+
+    static void print(String str) {
+        int len = str.length();
+        System.out.println(str + ": " + len + " " + ending(len));
     }
 }
