@@ -4,18 +4,18 @@ public class Main {
     public static void main(String[] args) {
         if (args.length == 0) return;
         for (String arg : args) {
-            if (arg.equals("ошибка")) {
-                System.err.println("Тревога!");
+            if (arg.equals("РѕС€РёР±РєР°")) {
+                System.err.println("РўСЂРµРІРѕРіР°!");
                 return;
             } else {
                 String result = arg + ": " + arg.length() + " ";
                 switch (arg.length() % 10) {
                     case 1: {
                         if (arg.length() != 11) {
-                            result += "буква";
+                            result += "Р±СѓРєРІР°";
                             break;
                         } else {
-                            result += "букв";
+                            result += "Р±СѓРєРІ";
                             break;
                         }
                     }
@@ -23,15 +23,15 @@ public class Main {
                     case 3:
                     case 4: {
                         if (arg.length() != 12 && arg.length() != 13 && arg.length() != 14) {
-                            result += "буквы";
+                            result += "Р±СѓРєРІС‹";
                             break;
                         } else {
-                            result += "букв";
+                            result += "Р±СѓРєРІ";
                             break;
                         }
                     }
                     default: {
-                        result += "букв";
+                        result += "Р±СѓРєРІ";
                         break;
                     }
                 }
