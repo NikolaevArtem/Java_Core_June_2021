@@ -9,7 +9,10 @@ public class Homework_1 {
                 System.out.println(ANSI_RED + "Alarm!"); // Working on Ubuntu.
                 break;
             }
-            System.out.println(str + ": " + str.length());
+            if (str.length() >= 2) {
+            System.out.println(str + ": " + str.length() + " letters");
+            }
+            else System.out.println(str + ": " + str.length() + " letter");
         }
     }
 }
