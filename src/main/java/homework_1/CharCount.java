@@ -6,8 +6,8 @@ public class CharCount {
     public static void main(String[] args) {
         System.out.println("Count of Char's in words:");
         for (String arg : args) {
-            if (arg.equals("ошибка")) {
-                System.out.println(RED_BOLD + "Тревога!");
+            if (arg.equals("error")) {
+                System.out.println(RED_BOLD + "Alarm!");
                 break;
             } else {
                 System.out.println(arg + ": " + arg.length());
