@@ -1,9 +1,9 @@
 package homework_1;
 
 public class Homework {
-    private static final String WARNING_MESSAGE = "Тревога!";
-    private static final String NOT_FOUND_MESSAGE = "Аргументы не найдены! Задайте аргументы при запуске программы!";
-    private static final String INVALID_ARGUMENT = "ошибка";
+    private static final String WARNING_MESSAGE = "Alarm!";
+    private static final String NOT_FOUND_MESSAGE = "Arguments have not been found! Please enter arguments when starting the program!";
+    private static final String INVALID_ARGUMENT = "error";
     private static final String OUTPUT_PATTERN = "%s: %d %s\n";
 
     public static void main(String[] args) {
@@ -21,18 +21,6 @@ public class Homework {
     }
 
     private static String generateNumerator(int wordLength) {
-        if (wordLength % 10 == 1 && wordLength != 11) {
-            return "буква";
-        }
-        return getPlural(wordLength);
-    }
-
-    private static String getPlural(int wordLength){
-        if ((wordLength % 10 == 2 && wordLength != 12) ||
-                (wordLength % 10 == 3 && wordLength != 13) ||
-                (wordLength % 10 == 4 && wordLength != 14)) {
-            return "буквы";
-        }
-        return "букв";
+        return wordLength == 1 ? "letter" : "letters";
     }
 }
