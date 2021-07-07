@@ -6,7 +6,7 @@ public class Man extends Human {
     final Man man = new Man();
     /**
      * public - доступен везде
-     * protected - класс Man является наследником Human* или лежит в одном же пакете
+     * protected - класс Man является наследником Human или лежит в одном же пакете
      * package - лежит в одном же пакете с классом Human
      * private - вызывать нелья так как private работает только на уровне класса
      */

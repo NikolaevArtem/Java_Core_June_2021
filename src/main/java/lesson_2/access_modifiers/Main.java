@@ -8,8 +8,8 @@ public class Main {
     final Human human = new Human();
     /**
      * public - доступен везде
-     * protected - нельзя так как класс Example1 не находится в пакете model, также не является наследником класса Human
-     * package - нельзя так как класс Example1 не находится в пакете model
+     * protected - нельзя так как класс Main не находится в пакете models, также не является наследником класса Human
+     * package - нельзя так как класс Main не находится в пакете models
      * private - можно использовать только на уровне класса, то есть только в самом Human
      */
     human.publicMove();
