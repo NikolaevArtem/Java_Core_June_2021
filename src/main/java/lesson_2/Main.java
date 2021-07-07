@@ -1,3 +1,4 @@
+/*
 package lesson_2;
 
 import lesson_2.catbox.Cat1;
@@ -10,3 +11,4 @@ public class Main {
   }
 
 }
+*/
