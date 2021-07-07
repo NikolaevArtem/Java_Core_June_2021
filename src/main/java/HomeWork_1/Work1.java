@@ -1,4 +1,4 @@
-package HomeWork1;
+package HomeWork_1;
 
 public class Work1 {
     public static void main(String[] args) {
@@ -6,10 +6,10 @@ public class Work1 {
             if(args == null) return;
             for (String str: args){
                 if(str.equals("ошибка")){
-                    System.out.println("Тревога!");
+                    System.out.println("\u001B[31m"+"Тревога!");
                     return;
                 }
-                System.out.println(str + ":" + str.length());
+                System.out.println(str + ": " + str.length() + " букв");
             }
 
 
