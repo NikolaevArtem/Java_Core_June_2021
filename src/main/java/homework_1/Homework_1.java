@@ -1,4 +1,4 @@
-package Homework_1;
+package homework_1;
 
 public class Homework_1 {
     static final String ANSI_RESET = "\u001B[0m";

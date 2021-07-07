@@ -2,7 +2,8 @@
 /.gradle/
 /build/
 /build/classes/java/main/
-/.idea/
+/.idea/*
+/.idea
 /gradle/
 /.DS_Store/
 
