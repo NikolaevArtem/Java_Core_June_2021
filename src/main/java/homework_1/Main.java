@@ -1,6 +1,6 @@
 package homework_1;
 
-public class Homework {
+public class Main {
     private static final String WARNING_MESSAGE = "Alarm!";
     private static final String NOT_FOUND_MESSAGE = "Arguments have not been found! Please enter arguments when starting the program!";
     private static final String INVALID_ARGUMENT = "error";
