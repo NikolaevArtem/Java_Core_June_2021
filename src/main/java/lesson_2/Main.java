@@ -2,10 +2,19 @@ package lesson_2;
 
 public class Main {
 
-  public static void main(String[] args) {
-    System.out.println("Hello, World!");
+  public static void main(String[] args) throws Exception {
 
-    System.out.println("Hello World2!");
+    try {
+      for (String str : args) {
+
+        if (str.equalsIgnoreCase("error")) {
+          System.out.println("\u001B[31m" + "Alarm!" + "\u001B[0m");
+          throw new RuntimeException();
+        }
+        System.out.println(str + " " + str.length() + " letters");
+      }
+    } catch (Exception e) {
+    }
   }
 
 }
