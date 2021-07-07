@@ -4,6 +4,12 @@ public class CharCount {
     public static final String RED_BOLD = "\033[1;31m";
 
     public static void main(String[] args) {
+        if (args.length == 0)
+        {
+            System.out.println("There is no parameters, exit program.");
+        }
+        else {
+
         System.out.println("Count of Char's in words:");
         for (String arg : args) {
             if (arg.equals("error")) {
@@ -12,6 +18,7 @@ public class CharCount {
             } else {
                 System.out.println(arg + ": " + arg.length());
             }
+        }
         }
     }
 
