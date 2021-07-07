@@ -10,7 +10,7 @@ public class Main {
                 System.out.println(ANSI_RED + "Alarm!" + ANSI_RESET);
                 break;
             }
-            System.out.println(arg + ": " + arg.length() + " letters");
+            System.out.println(arg + ": " + arg.length() + " letter(s)");
         }
     }
 }
