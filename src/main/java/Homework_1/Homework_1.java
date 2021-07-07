@@ -1,6 +1,6 @@
-package Homework1;
+package Homework_1;
 
-public class Homework1 {
+public class Homework_1 {
     static final String ANSI_RESET = "\u001B[0m";
     static final String ANSI_RED = "\u001B[31m";
 
