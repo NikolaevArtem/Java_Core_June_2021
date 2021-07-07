@@ -3,7 +3,17 @@ package homework_1;
 public class Main {
 
   public static void main(String[] args) {
-    System.out.println("Hello homework!");
+
+    for (String arg : args) {
+      if (arg.equals("error")) {
+        System.out.println("\u001B[41m" + "Alarm!" + "\u001B[0m");
+        break;
+      }
+      if (arg.length() != 8) {
+        continue;
+      }
+      System.out.println(arg);
+    }
   }
 
 }
