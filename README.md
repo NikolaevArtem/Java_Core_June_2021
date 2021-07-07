@@ -1,6 +1,6 @@
 # Java Core June 2021
 
-## *Slavinskij Dmitriy*
+## *Slavinskiy Dmitriy*
 
 | Number | Solution  | Short description
 | --- | --- | --- |
