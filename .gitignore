@@ -35,9 +35,7 @@ out
 target
 *.iml
 .idea
-/.idea/
-/gradle/
-/.DS_Store/
 /gradlew
 /gradlew.bat
 /settings.gradle
+/build.gradle
