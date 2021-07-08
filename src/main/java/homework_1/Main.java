@@ -1,9 +1,15 @@
 package homework_1;
 
 public class Main {
+    public static void main(String[] args) {
 
-  public static void main(String[] args) {
-    System.out.println("Hello homework!");
-  }
-
+        for (String word : args) {
+            if (word.equals("Error") | word.equals("error")) {
+                System.out.println("Alarm");
+                break;
+            }
+            System.out.println(word + ":" + word.length());
+        }
+    }
 }
+
