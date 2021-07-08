@@ -11,6 +11,7 @@
 *.iws
 *.iml
 *.ipr
+*.xml
 
 # Compiled class file
 *.class
