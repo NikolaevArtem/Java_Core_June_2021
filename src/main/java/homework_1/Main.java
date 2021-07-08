@@ -13,6 +13,7 @@ public class Main {
         System.out.println(str + ": " + str.length() + " letters");
       }
       else System.out.println(str + ": " + str.length() + " letter");
+
     }
   }
 }
