@@ -12,6 +12,7 @@
 *.iml
 *.ipr
 *.xml
+/.idea/misc.xml
 
 # Compiled class file
 *.class
@@ -40,5 +41,3 @@ hs_err_pid*
 #Ignore files
 out
 target
-*.iml
-.idea
