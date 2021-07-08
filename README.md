@@ -1,7 +1,6 @@
       # Java Core June 2021
 
 ## *Rog Elena*
-## *Rog Elena*
 
 | Number | Solution  | Short description
 | --- | --- | --- |
