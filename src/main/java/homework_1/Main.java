@@ -2,7 +2,7 @@ package homework_1;
 
 public class Main {
 
-  private static void main(String[] args) {
+  public static void main(String[] args) {
     //Домашняя работа от 05.07.2021
     if (args == null || args.length < 1) {
       return;
