@@ -12,7 +12,7 @@ public class Main {
       if (arg.length() != 8) {
         continue;
       }
-      System.out.println(arg);
+      System.out.println(arg + ": " + arg.length());
     }
   }
 
