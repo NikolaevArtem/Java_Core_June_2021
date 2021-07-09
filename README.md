@@ -1,6 +1,6 @@
 # Java Core June 2021
 
-##**_Alexandr Kirshin_**
+##*_Alexandr Kirshin_*
 
 | Number       | Solution           | Short description  |
 | ------------- |:-------------:| -----:|
