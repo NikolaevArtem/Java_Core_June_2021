@@ -11,6 +11,7 @@
 *.iws
 *.iml
 *.ipr
+/.idea/workspace.xml
 
 # Compiled class file
 *.class
@@ -39,8 +40,6 @@ hs_err_pid*
 #Ignore files
 out
 target
-*.iml
-.idea
 build.gradle
 gradlew
 gradlew.bat
