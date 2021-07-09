@@ -25,7 +25,8 @@ public class Main {
 
     Integer i2 = 128;
     Integer l2 = 128;
-    System.out.println(i1 == l1); // false, out of cache
+    System.out.println(i2 == l2); // false, out of cache
+    System.out.println(i2.equals(l2)); // true, good way of comparing objects
   }
 
 }
