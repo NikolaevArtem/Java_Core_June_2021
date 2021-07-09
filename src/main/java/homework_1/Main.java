@@ -1,36 +1,27 @@
 package homework_1;
 
 public class Main {
-    static final String ANSI_RESET = "\u001B[0m";
-    static final String ANSI_RED = "\u001B[31m";
 
     public static void main(String[] args) {
         for (String arg : args) {
-            if (arg.equals("ошибка")) {
-                System.out.println(ANSI_RED + "Тревога!" + ANSI_RESET);
+            if (arg.equals("ошибка") || arg.equals("error")) {
+                System.err.println("Тревога!");
                 return;
             }
-            print(arg);
+            System.out.println(arg + ": " + arg.length() + ending(arg.length()));
         }
     }
 
     static String ending(int len) {
-        String word = "букв";
-        if (len > 9 && len < 21) {
-            return word;
-        }
-        switch (len % 10) {
-            case 1: return word + "а";
-            case 2:
-            case 3:
-            case 4: return word + "ы";
-
-            default: return word;
-        }
-    }
-
-    static void print(String str) {
-        int len = str.length();
-        System.out.println(str + ": " + len + " " + ending(len));
+        String word = " букв";
+        // First check to avoid creating new variable(less memory)
+        // and no more if statements (better performance)
+        if (len >= 5 && len < 20) { return word; }
+        //
+        int n = Math.abs(len) % 100;
+        n = n%10;
+        if (n > 1 && n < 5) { return word + "ы"; }
+        if (n == 1) { return word + "а"; }
+        return word;
     }
 }
