@@ -35,3 +35,6 @@ out
 target
 *.iml
 .idea
+build.gradle
+gradlew
+settings.gradle
