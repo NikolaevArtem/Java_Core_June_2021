@@ -5,6 +5,7 @@
 /.idea/
 /gradle/
 /.DS_Store/
+/.gitignore
 
 # Compiled class file
 *.class
