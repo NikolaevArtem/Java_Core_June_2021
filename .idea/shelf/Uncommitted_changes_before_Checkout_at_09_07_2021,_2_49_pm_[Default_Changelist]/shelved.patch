@@ -1,0 +1,49 @@
+Index: src/main/java/homework_1/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package homework_1;\n\npublic class Main {\n    static final String ANSI_RESET = \"\\u001B[0m\";\n    static final String ANSI_RED = \"\\u001B[31m\";\n\n    public static void main(String[] args) {\n        for (String arg : args) {\n            if (arg.equals(\"ошибка\")) {\n                System.out.println(ANSI_RED + \"Тревога!\" + ANSI_RESET);\n                return;\n            }\n            print(arg);\n        }\n    }\n\n    static String ending(int len) {\n        String word = \"букв\";\n        if (len > 9 && len < 21) {\n            return word;\n        }\n        switch (len % 10) {\n            case 1: return word + \"а\";\n            case 2:\n            case 3:\n            case 4: return word + \"ы\";\n\n            default: return word;\n        }\n    }\n\n    static void print(String str) {\n        int len = str.length();\n        System.out.println(str + \": \" + len + \" \" + ending(len));\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/homework_1/Main.java b/src/main/java/homework_1/Main.java
+--- a/src/main/java/homework_1/Main.java	(revision bd31d39c876911d3a3549101e60243304d0a362a)
++++ b/src/main/java/homework_1/Main.java	(date 1625831254875)
+@@ -1,36 +1,14 @@
+ package homework_1;
+ 
+ public class Main {
+-    static final String ANSI_RESET = "\u001B[0m";
+-    static final String ANSI_RED = "\u001B[31m";
+ 
+     public static void main(String[] args) {
+         for (String arg : args) {
+             if (arg.equals("ошибка")) {
+-                System.out.println(ANSI_RED + "Тревога!" + ANSI_RESET);
++                System.err.println("Тревога!");
+                 return;
+             }
+-            print(arg);
+-        }
+-    }
+-
+-    static String ending(int len) {
+-        String word = "букв";
+-        if (len > 9 && len < 21) {
+-            return word;
+-        }
+-        switch (len % 10) {
+-            case 1: return word + "а";
+-            case 2:
+-            case 3:
+-            case 4: return word + "ы";
+-
+-            default: return word;
++            System.out.println(arg + ": " + arg.length() + " букв");
+         }
+     }
+-
+-    static void print(String str) {
+-        int len = str.length();
+-        System.out.println(str + ": " + len + " " + ending(len));
+-    }
+ }
