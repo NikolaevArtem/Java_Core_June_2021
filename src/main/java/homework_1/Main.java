@@ -1,6 +1,6 @@
-package Homework_lesson_2;
+package homework_1;
 
-public class MyApp {
+public class Main {
     public static void main(String... args) {
         if (args.length == 0) return;
         StringBuilder strBuilder = new StringBuilder();
