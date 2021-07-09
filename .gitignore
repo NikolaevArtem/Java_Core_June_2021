@@ -6,6 +6,12 @@
 /gradle/
 /.DS_Store/
 
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
 # Compiled class file
 *.class
 
@@ -37,4 +43,5 @@ target
 .idea
 build.gradle
 gradlew
+gradlew.bat
 settings.gradle
