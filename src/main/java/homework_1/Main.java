@@ -16,7 +16,7 @@ public class Main {
                 if (arg.matches("error")) {
                     throw new IOException("Alarm!");
                 }
-                System.out.printf("%s : %s letter(s)!\n", arg, arg.length());
+                System.out.printf("%s : %s letter(s)\n", arg, arg.length());
             }
         } catch (IOException e) {
             System.err.println("Error!");
