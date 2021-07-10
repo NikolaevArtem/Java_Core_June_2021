@@ -9,7 +9,7 @@ public class Work1 {
 
                     if(str.equals("ошибка")){
                         System.out.println("\u001B[31m"+"Тревога!");
-                        return;
+                        break;
                     }
                     System.out.println(str + ": " + str.length() + " букв");
 
