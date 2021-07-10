@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         for (String arg : args) {
-            if ("error".equalsIgnoreCase(arg) || "ошибка".equalsIgnoreCase(arg)) {
+            if ("error".equalsIgnoreCase(arg)) {
                 System.out.println(ANSI_RED + "Alarm!" + ANSI_RESET);
                 break;
             }
