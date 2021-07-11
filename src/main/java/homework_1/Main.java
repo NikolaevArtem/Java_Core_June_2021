@@ -6,7 +6,7 @@ public class Main {
         for (String arg : args) {
             if (arg.equals("ошибка")) {
                 System.err.println("Тревога!");
-                return;
+                break;
             }
             System.out.println(arg + ": " + arg.length() + " букв");
         }
