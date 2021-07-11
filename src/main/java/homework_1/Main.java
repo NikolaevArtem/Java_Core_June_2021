@@ -8,14 +8,18 @@ public class Main {
                 System.err.println("Тревога!");
                 return;
             } else {
-                String result = arg + ": " + arg.length() + " ";
+                StringBuilder result = new StringBuilder();
+                result
+                        .append(arg)
+                        .append(": ")
+                        .append(arg.length());
                 switch (arg.length() % 10) {
                     case 1: {
                         if (arg.length() != 11) {
-                            result += "буква";
+                            result.append(" буква");
                             break;
                         } else {
-                            result += "букв";
+                            result.append(" букв");
                             break;
                         }
                     }
@@ -23,15 +27,15 @@ public class Main {
                     case 3:
                     case 4: {
                         if (arg.length() != 12 && arg.length() != 13 && arg.length() != 14) {
-                            result += "буквы";
+                            result.append(" буквы");
                             break;
                         } else {
-                            result += "букв";
+                            result.append(" букв");
                             break;
                         }
                     }
                     default: {
-                        result += "букв";
+                        result.append(" букв");
                         break;
                     }
                 }
