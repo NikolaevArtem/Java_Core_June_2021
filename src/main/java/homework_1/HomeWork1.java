@@ -2,8 +2,8 @@ package homework_1;
 
 public class HomeWork1 {
 
-    private static final String RED = (char) 27 + "[31m";
-    private static final String RESET = (char) 27 + "[0m";
+    private static final String RED = "\u001B[31m";
+    private static final String RESET = "\u001B[0m";
 
     public static void main(String[] args) {
         for(String argument: args){
