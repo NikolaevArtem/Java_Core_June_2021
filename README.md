@@ -1,6 +1,6 @@
 # Java Core June 2021
 
-## *Nikolaev Artem*
+## *Anton Segodnik*
 
 | Number | Solution  | Short description
 | --- | --- | --- |
