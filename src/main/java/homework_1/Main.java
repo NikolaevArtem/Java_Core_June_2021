@@ -42,7 +42,9 @@ public class Main {
             return;
         for (String arg : args) {
             if (arg.equals("ошибка")) {
-                System.out.println((char) 27 + "[31m" + "Тревога!"  + (char)27 + "[0m");
+                String ANSI_RESET = "\u001B[0m";
+                String ANSI_RED = "\u001B[31m";
+                System.out.println(ANSI_RED + "Тревога!" + ANSI_RESET);
                 return;
             } else {
                 System.out.println(StringMaker(arg));
