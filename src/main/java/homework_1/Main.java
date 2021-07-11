@@ -2,8 +2,13 @@ package homework_1;
 
 public class Main {
 
-  public static void main(String[] args) {
-    System.out.println("Hello homework!");
-  }
-
+    public static void main(String[] args) {
+        for (String arg : args) {
+            if (arg.equals("ошибка")) {
+                System.err.println("Тревога!");
+                return;
+            }
+            System.out.println(arg + ": " + arg.length() + " букв");
+        }
+    }
 }
