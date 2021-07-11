@@ -42,7 +42,7 @@ public class Main {
             return;
         for (String arg : args) {
             if (arg.equals("ошибка")) {
-                System.err.println("Тревога!");
+                System.out.println((char) 27 + "[31m" + "Тревога!"  + (char)27 + "[0m");
                 return;
             } else {
                 System.out.println(StringMaker(arg));
