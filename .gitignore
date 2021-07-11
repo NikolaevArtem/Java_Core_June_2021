@@ -2,32 +2,36 @@
 /.gradle/
 /build/
 /build/classes/java/main/
+/.idea/
+/gradle/
+/.DS_Store/
 
-# Default ignored files
-# Intellij
-.idea/
-*.iml
-*.iws
+# Compiled class file
+*.class
 
-# Eclipse
-**/*.project
-**/*.classpath
-**/*.settings
+# Log file
+*.log
 
-# Mac
-.DS_Store
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
 
 # Package Files #
 *.jar
 *.war
+*.nar
 *.ear
-*.log
+*.zip
+*.tar.gz
+*.rar
 
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+#Ignore files
 out
 target
-build
-.gradle
-gradle
-gradle*
-
-*.class
+*.iml
+.idea
