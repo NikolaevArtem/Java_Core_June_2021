@@ -9,10 +9,7 @@ public class Main {
         System.out.println("\u001B[41m" + "Alarm!" + "\u001B[0m");
         break;
       }
-      if (arg.length() != 8) {
-        continue;
-      }
-      System.out.println(arg + ": " + arg.length());
+      System.out.println(arg + ": " + arg.length() + "letters");
     }
   }
 
