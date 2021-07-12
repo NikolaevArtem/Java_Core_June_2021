@@ -5,15 +5,16 @@ public class Main {
     private static final String NOT_FOUND_MESSAGE = "Arguments have not been found! Please enter arguments when starting the program!";
     private static final String INVALID_ARGUMENT = "error";
     private static final String OUTPUT_PATTERN = "%s: %d %s\n";
+    public static final String ANSI_RED = "\u001B[31m";
 
     public static void main(String[] args) {
         if (args.length < 1) {
-            System.err.println(NOT_FOUND_MESSAGE);
+            System.out.println(ANSI_RED + NOT_FOUND_MESSAGE + ANSI_RED);
             return;
         }
         for (String s : args) {
             if (s.equals(INVALID_ARGUMENT)) {
-                System.err.println(WARNING_MESSAGE);
+                System.out.println(ANSI_RED + WARNING_MESSAGE + ANSI_RED);
                 return;
             }
             System.out.printf(OUTPUT_PATTERN, s, s.length(), generateNumerator(s.length()));
