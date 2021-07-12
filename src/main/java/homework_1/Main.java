@@ -9,12 +9,12 @@ public class Main {
 
     public static void main(String[] args) {
         if (args.length < 1) {
-            System.out.println(ANSI_RED + NOT_FOUND_MESSAGE);
+            System.out.println(ANSI_RED + NOT_FOUND_MESSAGE + ANSI_RED);
             return;
         }
         for (String s : args) {
             if (s.equals(INVALID_ARGUMENT)) {
-                System.out.println(ANSI_RED + WARNING_MESSAGE);
+                System.out.println(ANSI_RED + WARNING_MESSAGE + ANSI_RED);
                 return;
             }
             System.out.printf(OUTPUT_PATTERN, s, s.length(), generateNumerator(s.length()));
