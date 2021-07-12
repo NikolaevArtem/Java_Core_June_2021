@@ -6,8 +6,9 @@ public class CharCount {
             if (arg.equals("error")) {
                 System.err.println("Alarm!");
                 break;
+            } else {
+                System.out.println(arg + ": " + arg.length() + " letters");
             }
-            System.out.println(arg + ": " + arg.length() + " letters");
         }
     }
 }
