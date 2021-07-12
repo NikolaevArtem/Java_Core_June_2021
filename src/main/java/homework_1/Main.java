@@ -1,3 +1,5 @@
+package homework_1;
+
 public class Main {
 
     public static final String ANSI_RESET = "\u001B[0m";
@@ -9,7 +11,7 @@ public class Main {
                 System.out.println(ANSI_RED + "Alarm!" + ANSI_RESET);
                 break;
             }
-            System.out.println(arg + ": " + arg.length() + " letters");
+            System.out.println(arg + ": " + arg.length() + " letter/s");
         }
     }
 }
