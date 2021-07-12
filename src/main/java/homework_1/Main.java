@@ -7,7 +7,7 @@ public class Main {
         for (String arg :
                 args) {
             if (arg. equals("ошибка")) {
-                System.out.println(redColorOutString + "Тревога!" + redColorOutString);
+                System.out.println(redColorOutString + "Тревога!" + closeColorOutString);
                 return;
             } else {
                 System.out.println(createStringResult(arg));
