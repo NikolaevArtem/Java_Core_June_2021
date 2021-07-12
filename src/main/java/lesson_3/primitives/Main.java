@@ -52,6 +52,11 @@ public class Main {
     char ch3 = 42711;
 //    System.out.println(ch3);
 //    charOperations();
+
+    // переполнение целочисленного значения приводит к противоположному наибольшему/наименьшему значению
+    //    byte b5 = 127;
+//    b5++;
+//    System.out.println(b5); // -128
   }
 
   public static void charOperations() {
