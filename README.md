@@ -5,7 +5,7 @@
 | Number | Solution  | Short description
 | --- | --- | --- |
 | HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/RomanPopov/src/main/java/homework_1) | The app that reads input arguments and prints them, until "error" argument |
-| HW2 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/RomanPopov/src/main/java/homework_2) | Three apps: TrafficLight, PyramidPrinter, RandomCharsTable|
+| HW2 | [Three apps](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/RomanPopov/src/main/java/homework_2) | Three apps: TrafficLight, PyramidPrinter, RandomCharsTable|
 
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
