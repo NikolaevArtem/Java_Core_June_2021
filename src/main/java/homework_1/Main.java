@@ -6,15 +6,16 @@ public class Main {
     private static final String INVALID_ARGUMENT = "error";
     private static final String OUTPUT_PATTERN = "%s: %d %s\n";
     public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_RESET = "\u001B[0m";
 
     public static void main(String[] args) {
         if (args.length < 1) {
-            System.out.println(ANSI_RED + NOT_FOUND_MESSAGE + ANSI_RED);
+            System.out.println(ANSI_RED + NOT_FOUND_MESSAGE + ANSI_RESET);
             return;
         }
         for (String s : args) {
             if (s.equals(INVALID_ARGUMENT)) {
-                System.out.println(ANSI_RED + WARNING_MESSAGE + ANSI_RED);
+                System.out.println(ANSI_RED + WARNING_MESSAGE + ANSI_RESET);
                 return;
             }
             System.out.printf(OUTPUT_PATTERN, s, s.length(), generateNumerator(s.length()));
