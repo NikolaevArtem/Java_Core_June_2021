@@ -5,12 +5,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-public abstract class TrafficLight {
+public class TrafficLight {
 
-    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_RED = "\u001b[31m";
     public static final String ANSI_YELLOW = "\u001b[33m";
     public static final String ANSI_GREEN = "\u001b[32m";
-    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RESET = "\u001b[0m";
     public static final String errorMsg = ANSI_RED + "Error!" + ANSI_RESET;
 
     public static void main(String[] args) throws IOException {
