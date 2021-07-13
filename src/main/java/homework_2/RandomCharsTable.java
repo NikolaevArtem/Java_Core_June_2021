@@ -35,10 +35,8 @@ public class RandomCharsTable {
                 }
                 System.out.println();
             }
-
             message.deleteCharAt(message.length() - 1);
             System.out.println(message);
-
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Next time enter two integers" +
                     " and a strategy: \"even\" or \"odd\" without quotes. ");
