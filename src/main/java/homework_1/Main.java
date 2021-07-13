@@ -1,14 +1,16 @@
 package homework_1;
 
 public class Main {
+    private static final String RED = "\u001B[31m";
+    private static final String RESET = "\u001B[0m";
+
     public static void main(String[] args) {
-        final String ANSI_RED = "\u001B[31m";
-        final String ANSI_RESET = "\u001B[0m";
-        for (String arg : args) {
-            if (arg.equals("Alarm")) {
-                System.out.println(ANSI_RED + "Alarm!" + ANSI_RESET);
+        for(String argument: args){
+            if(argument.equals("ошибка")){
+                System.out.println(RED + "Тревога!" + RESET);
                 break;
-            } System.out.println(arg + ":" + arg.length());
+            }
+            System.out.println(argument + ": " + argument.length() + " букв");
         }
     }
 }
