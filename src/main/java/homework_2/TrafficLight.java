@@ -30,7 +30,7 @@ public class TrafficLight {
                 System.out.println("Error: integer only");
             }
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
