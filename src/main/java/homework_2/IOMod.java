@@ -14,36 +14,22 @@ public class IOMod {
     static int bufferedReaderIntReader() throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             int i = Integer.parseInt(reader.readLine());
-            if (i >= 0 && i < 86400) {
-                return i;
-            }
-            if (i < 0) {
-                System.out.println(ANSI_YELLOW + "WARNING: " + ANSI_RESET +
-                        "INCORRECT VALUE! ONLY POSITIVE INTEGER NUMBERS AVAILABLE AS A VALUE");
-            } else {
-                System.out.println(ANSI_YELLOW + "WARNING: " + ANSI_RESET +
-                        "INCORRECT VALUE! SHOULD BE IN RANGE: 0 <= value < 86400");
-            }
-            return -1;
+            return i;
         } catch (NumberFormatException e) {
-            // throw new RuntimeException(e);
-            System.out.println(ANSI_RED + "ERROR: " + ANSI_RESET +
-                    "ONLY INTEGER NUMBERS AVAILABLE AS A VALUE");
-            return -1;
+            System.out.println(ANSI_YELLOW + "WARNING: " + ANSI_RESET +
+                    "ONLY INTEGER NUMBER AS VALUE AVAILABLE.");
+            throw new IOException(e);
         }
     }
 
-    static int bufferedReaderPyramidHeight() throws IOException {
+    static String bufferedReaderStringReader() throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            int i = Integer.parseInt(reader.readLine());
-            if (i > 0) {
-                return i;
-            }
-            return -1;
-        } catch (NumberFormatException e) {
-            //throw new RuntimeException(e);
-            return -1;
+            String s = reader.readLine();
+            return s;
+        } catch (IOException e) {
+            System.out.println("Something is wrong: " + e);
         }
+        return "";
     }
 
 }
