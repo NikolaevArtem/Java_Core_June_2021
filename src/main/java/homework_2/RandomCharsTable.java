@@ -7,37 +7,18 @@ import java.util.Random;
 
 public class RandomCharsTable {
 
+    private static int arg1;
+    private static int arg2;
+    private static String arg3;
+    private static boolean even;
+
     public static void main(String[] args) {
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
 
             String s = reader.readLine();
-            String[] as = s.split(" ");
-            if (as.length > 2) {
 
-                int arg1;
-                int arg2;
-                String arg3;
-
-                try {
-                    arg1 = Integer.parseInt(as[0]);
-                    arg2 = Integer.parseInt(as[1]);
-                } catch (NumberFormatException e) {
-                    System.out.println("Error: first and second args must be integer");
-                    return;
-                }
-
-                if (arg1 < 0 || arg2 < 0) {
-                    System.out.println("Error: first and second args must be positive");
-                    return;
-                }
-
-                arg3 = as[2];
-
-                if (!arg3.equals("even") && !arg3.equals("odd")) {
-                    System.out.println("Error: third arg must be even or odd now <" + arg3 + ">");
-                    return;
-                }
+            if (chekOk(s)) {
 
                 char[][] arr = new char[arg1][arg2];
                 Random r = new Random();
@@ -48,9 +29,9 @@ public class RandomCharsTable {
                     for (char c2 : c1) {
                         int num = 65 + r.nextInt(26);
                         c2 = (char) (num);
-                        if (num%2==0 && arg3.equals("even")) {
+                        if (num % 2 == 0 && even) {
                             b.append(c2);
-                        } else if (num%2>0 && arg3.equals("odd")) {
+                        } else if (num % 2 > 0 && !even) {
                             b.append(c2);
                         }
                         log.append("|" + c2);
@@ -58,14 +39,47 @@ public class RandomCharsTable {
                     log.append("|" + "\n");
                 }
                 System.out.println(log);
-                System.out.println(arg3.substring(0,1).toUpperCase() +
+                System.out.println(arg3.substring(0, 1).toUpperCase() +
                         arg3.substring(1) + " letters - " + b);
 
-            } else {
-                System.out.println("Error: less when 3 args");
             }
-        }  catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
+    }
+
+    private static boolean chekOk(String s) {
+
+        String[] as = s.split(" ");
+
+        if (as.length < 3) {
+            System.out.println("Error: less when 3 args");
+            return false;
+        }
+
+        try {
+            arg1 = Integer.parseInt(as[0]);
+            arg2 = Integer.parseInt(as[1]);
+            arg3 = as[2];
+        } catch (NumberFormatException e) {
+            System.out.println("Error: first and second args must be integer");
+            return false;
+        }
+
+        if (arg1 < 0 || arg2 < 0) {
+            System.out.println("Error: first and second args must be positive");
+            return false;
+        }
+
+        if (arg3.equals("even")) {
+            even = true;
+        } else if (arg3.equals("odd")) {
+            even = false;
+        } else {
+            System.out.println("Error: third arg must be even or odd now <" + arg3 + ">");
+            return false;
+        }
+
+        return true;
     }
 }
