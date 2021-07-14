@@ -1,9 +1,9 @@
-package homework;
+package homework.task2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Homework_2_1 {
+public class Task_2_1 {
     public static void main(String[] args) {
 
         int allSeconds = getInput();
