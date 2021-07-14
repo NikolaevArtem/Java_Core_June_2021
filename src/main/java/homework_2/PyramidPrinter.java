@@ -15,10 +15,12 @@ public class PyramidPrinter {
                 if (i < 0) {
                     System.out.println("Error: positive only");
                 } else {
+                    StringBuilder b = new StringBuilder();
                     for (int n = 0; n < i; n++) {
                         x += "x";
-                        System.out.println(x);
+                        b.append(x + "\n");
                     }
+                    System.out.println(b);
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Error: integer only");
