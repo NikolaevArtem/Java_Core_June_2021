@@ -1,6 +1,5 @@
 package homework_1;
 
-import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
@@ -11,12 +10,14 @@ public class Main {
         }
         if (args.length == 0) {
             System.out.println("No arguments provided!");
-        } else for (String arg : args) {
-            if (arg.matches("error")) {
-                System.err.println("Alarm!");
-                break;
+        } else {
+            for (String arg : args) {
+                if (arg.matches("error")) {
+                    System.out.println("\u001B[31m" + "Alarm!" + "\u001B[0m");
+                    break;
+                }
+                System.out.printf("%s: %s letter(s)\n", arg, arg.length());
             }
-            System.out.printf("%s: %s letter(s)\n", arg, arg.length());
         }
     }
 }
