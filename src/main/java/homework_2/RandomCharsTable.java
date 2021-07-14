@@ -39,8 +39,6 @@ public class RandomCharsTable {
         scan.close();
     }
 
-
-
     private static void validateInput(int r, int c, String s) {
         if (r <= 0) {
             throw new IllegalArgumentException("Illegal length value");
