@@ -5,11 +5,11 @@ import java.util.InputMismatchException;
 import java.util.LinkedList;
 
 public class RandomCharsTable {
-    static int rows;
-    static int columns;
-    static String strategy;
-    static int remains;
-    static LinkedList<Character> list;
+    private static int rows;
+    private static int columns;
+    private static String strategy;
+    private static int remains;
+    private static LinkedList<Character> charList;
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -54,13 +54,13 @@ public class RandomCharsTable {
     }
 
     private static void printTable() {
-        list = new LinkedList<>();
+        charList = new LinkedList<>();
         for (int i = 0; i < rows; i++) {
             System.out.print("| ");
             for (int j = 0; j < columns; j++) {
                 char ch = (char) (Math.round(Math.random() * 25) + 65);
-                if (ch % 2 == remains && !list.contains(ch)) {
-                    list.add(ch);
+                if (ch % 2 == remains && !charList.contains(ch)) {
+                    charList.add(ch);
                 }
                 System.out.print(ch + " | ");
             }
@@ -70,11 +70,11 @@ public class RandomCharsTable {
 
     private static void printLetters() {
         System.out.print(strategy + " letters - ");
-        for (int i = 0; i < list.size(); i++) {
-            if (i == list.size() - 1) {
-                System.out.println(list.get(i));
+        for (int i = 0; i < charList.size(); i++) {
+            if (i == charList.size() - 1) {
+                System.out.println(charList.get(i));
             } else {
-                System.out.print(list.get(i) + ", ");
+                System.out.print(charList.get(i) + ", ");
             }
         }
     }
