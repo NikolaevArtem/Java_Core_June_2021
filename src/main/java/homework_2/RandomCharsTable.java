@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 
 public class RandomCharsTable {
-    public static boolean strategyFlag;
+    public static int strategyFlag;
     public static StringBuilder stringLetters = new StringBuilder();
 
 
@@ -26,11 +26,13 @@ public class RandomCharsTable {
     }
 
     private static void lettersPrint() {
-        if (strategyFlag) {
-            System.out.println("Even letters: " + stringLetters);
+        if (strategyFlag == 1) {
+            System.out.println("Even letters - " +
+                    stringLetters.replace(stringLetters.length()-2,stringLetters.length()-1, " ") );
         }
         else {
-            System.out.println("Odd letters: " + stringLetters);
+            System.out.println("Odd letters - " +
+                    stringLetters.replace(stringLetters.length()-2,stringLetters.length()-1, " ") );
         }
         stringLetters.setLength(0);
     }
@@ -41,10 +43,10 @@ public class RandomCharsTable {
 
     public static void strategyFlag(String strategy) {
         if ("even".equals(strategy)) {
-            strategyFlag = true;
+            strategyFlag = 0;
         }
         else if ("odd".equals(strategy)) {
-            strategyFlag = false;
+            strategyFlag = 1;
         }
         else {
            throw new IllegalArgumentException();
@@ -52,20 +54,10 @@ public class RandomCharsTable {
     }
 
     private static void stratStringBuilder(char currentChar) {
-        if (strategyFlag){
-            if(currentChar % 2 == 0){
-                if(stringLetters.indexOf(String.valueOf(currentChar)) == -1){
+        if(currentChar % 2 == strategyFlag){
+            if(stringLetters.indexOf(String.valueOf(currentChar)) == -1){
                     stringLetters.append(currentChar);
                     stringLetters.append(", ");
-                }
-            }
-        }
-        if (!strategyFlag) {
-            if(currentChar % 2 == 1){
-                if(stringLetters.indexOf(String.valueOf(currentChar)) == -1){
-                    stringLetters.append(currentChar);
-                    stringLetters.append(", ");
-                }
             }
         }
     }
