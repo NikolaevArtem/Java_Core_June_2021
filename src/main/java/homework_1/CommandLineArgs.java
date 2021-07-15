@@ -6,11 +6,11 @@ public class CommandLineArgs {
 
     public static void main(String[] args) {
         for(String str: args){
-            if(!str.equals("ошибка")){
-                System.out.println(str + ": " + str.length());
-            } else {
+            if(str.equals("ошибка")){
                 System.out.println(ANSI_RED + "Тревога!" + ANSI_RESET);
                 break;
+            } else {
+                System.out.println(str + ": " + str.length() + " букв.");
             }
         }
     }
