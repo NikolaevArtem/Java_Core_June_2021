@@ -2,14 +2,13 @@ package Homework_1;
 
 public class Main {
     public static void main(String[] args) {
-        for (int i = 0; i < args.length; i++) {
-            if (args[i].equals("error")) {
-                System.out.println("Alarm!");
+        for (String arg : args) {
+            if (arg.equals("error")) {
+                System.out.println("\u001B[31m" + "Alarm!" + "\u001B[0m\n");
                 break;
+            } else {
+                System.out.println(arg + " : " + arg.length() + " letters");
             }
-            else{
-                System.out.println(args[i] + " : " + args[i].length() + " letters");
-                }
-            }
+        }
             }
         }
