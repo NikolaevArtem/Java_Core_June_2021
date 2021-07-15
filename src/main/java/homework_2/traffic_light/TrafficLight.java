@@ -1,5 +1,7 @@
 package homework_2.traffic_light;
 
+import homework_2.Utils;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,7 +19,7 @@ public class TrafficLight {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             while (true) {
                 String input = br.readLine();
-                if (!isInt(input)) {
+                if (!Utils.isInt(input)) {
                     if (input.trim().equals("exit")) {
                         break;
                     }
@@ -47,17 +49,5 @@ public class TrafficLight {
                 }
             }
         }
-    }
-
-    private static boolean isInt(String str) {
-        if (str == null) {
-            return false;
-        }
-        try {
-            int i = Integer.parseInt(str);
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return true;
     }
 }
