@@ -26,7 +26,7 @@ public class RandomCharsTable {
     }
 
     private static void lettersPrint() {
-        if (strategyFlag == 1) {
+        if (strategyFlag == 0) {
             System.out.println("Even letters - " +
                     stringLetters.replace(stringLetters.length()-2,stringLetters.length()-1, " ") );
         }
