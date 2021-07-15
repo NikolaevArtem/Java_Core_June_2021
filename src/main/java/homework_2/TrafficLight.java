@@ -6,18 +6,6 @@ import java.io.InputStreamReader;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 
-enum LIGHTS {
-    GREEN(35),
-    YELLOW(40),
-    RED(60);
-
-    final int seconds;
-
-    LIGHTS(int seconds) {
-        this.seconds = seconds;
-    }
-}
-
 public class TrafficLight {
 
     private static boolean isDigits(String str) {
@@ -41,11 +29,11 @@ public class TrafficLight {
     private static void showTheLight(int seconds) {
         LocalTime time = LocalTime.ofSecondOfDay(seconds);
         seconds %= 60;
-        if (seconds < LIGHTS.GREEN.seconds) {
+        if (seconds < 35) {
             System.out.println("\u001B[32m" + "Green light." + "\u001B[0m" + " Time: " + time);
-        } else if (seconds < LIGHTS.YELLOW.seconds) {
+        } else if (seconds < 40 || seconds >= 55) {
             System.out.println("\u001B[33m" + "Yellow light." + "\u001B[0m" + " Time: " + time);
-        } else if (seconds < LIGHTS.RED.seconds) {
+        } else {
             System.out.println("\u001B[31m" + "Red light." + "\u001B[0m" + " Time: " + time);
         }
     }
