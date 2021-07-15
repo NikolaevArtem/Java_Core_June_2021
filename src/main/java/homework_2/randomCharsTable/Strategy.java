@@ -30,7 +30,7 @@ public class Strategy {
         printingResult();
     }
 
-    public static void arrayInitialization() {
+    private static void arrayInitialization() {
         rows = Integer.parseInt(inputData.substring(0, 1));
         columns = Integer.parseInt(inputData.substring(2, 3));
         array = new char[rows][columns];
@@ -64,7 +64,7 @@ public class Strategy {
         }
     }
 
-    public static void printingResult() {
+    private static void printingResult() {
         if (inputData.endsWith("even")) {
             System.out.print("Even letters - ");
         } else System.out.print("Odd letters - ");
