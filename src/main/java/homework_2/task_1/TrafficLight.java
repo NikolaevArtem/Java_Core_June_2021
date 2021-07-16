@@ -16,39 +16,35 @@ public class TrafficLight {
     public TrafficLight(int numberOfSeconds) {
     }
 
+    public int getNumberOfSeconds() {
+        return numberOfSeconds;
+    }
+
     public void setNumberOfSeconds(int numberOfSeconds) {
         this.numberOfSeconds = numberOfSeconds;
     }
 
-    public boolean go() {
-        return checkEnter();
-    }
-
-    private boolean checkEnter() {
-        if (numberOfSeconds == -1) {
-            return false;
-        }
+    public boolean checkEnter() {
         if (numberOfSeconds < 0) {
             System.out.println(ANSI_RED + "Number must be positive" + ANSI_RESET);
-            return true;
+            return false;
         }
         if (numberOfSeconds > 86399) {
             System.out.println(ANSI_RED + "Day is over" + ANSI_RESET);
-            return true;
+            return false;
         }
-        getTrafficLight(numberOfSeconds);
         return true;
     }
 
-    private void getTrafficLight(int light) {
-        light -= 60 * (light / 60);
-        if (light >= 0 && light < 35) {
+    public void getTrafficLight() {
+        numberOfSeconds -= 60 * (numberOfSeconds / 60);
+        if (numberOfSeconds >= 0 && numberOfSeconds < 35) {
             System.out.println(ANSI_GREEN_BACKGROUND + "Green light" + ANSI_RESET);
         }
-        if ((light >= 35 && light < 40) || (light >= 55 && light < 60)) {
+        if ((numberOfSeconds >= 35 && numberOfSeconds < 40) || (numberOfSeconds >= 55 && numberOfSeconds < 60)) {
             System.out.println(ANSI_YELLOW_BACKGROUND + "Yellow light" + ANSI_RESET);
         }
-        if (light >= 40 && light < 55) {
+        if (numberOfSeconds >= 40 && numberOfSeconds < 55) {
             System.out.println(ANSI_RED_BACKGROUND + "Red light" + ANSI_RESET);
         }
     }

@@ -14,8 +14,11 @@ public class Main {
         while (scanner.hasNext()) {
             if (scanner.hasNextInt()) {
                 trafficLight.setNumberOfSeconds(scanner.nextInt());
-                if (!trafficLight.go()) {
+                if (trafficLight.getNumberOfSeconds() == -1) {
                     break;
+                }
+                if (trafficLight.checkEnter()) {
+                    trafficLight.getTrafficLight();
                 }
             } else {
                 String s = scanner.next();
