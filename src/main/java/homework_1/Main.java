@@ -1,7 +1,7 @@
 package homework_1;
 
 public class Main {
-    public static String StringMaker (String arg){
+    public static String StringMaker(String arg) {
         int length = arg.length();
         StringBuilder result = new StringBuilder();
         result
@@ -12,22 +12,20 @@ public class Main {
             case 1: {
                 if (length != 11) {
                     result.append(" буква");
-                    break;
                 } else {
                     result.append(" букв");
-                    break;
                 }
+                break;
             }
             case 2:
             case 3:
             case 4: {
                 if (length != 12 && length != 13 && length != 14) {
                     result.append(" буквы");
-                    break;
                 } else {
                     result.append(" букв");
-                    break;
                 }
+                break;
             }
             default: {
                 result.append(" букв");
@@ -38,12 +36,10 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        if (args.length == 0)
-            return;
         for (String arg : args) {
             if (arg.equals("ошибка")) {
-                String ANSI_RESET = "\u001B[0m";
-                String ANSI_RED = "\u001B[31m";
+                final String ANSI_RESET = "\u001B[0m";
+                final String ANSI_RED = "\u001B[31m";
                 System.out.println(ANSI_RED + "Тревога!" + ANSI_RESET);
                 return;
             } else {
