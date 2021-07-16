@@ -1,15 +1,16 @@
 package homework_2;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class RandomCharsTable {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalArgumentException {
         randomCharsTable();
     }
 
-    private static void randomCharsTable() {
+    private static void randomCharsTable() throws IllegalArgumentException {
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Please type size of a table: 2 numbers and strategy: even or odd");
+            System.out.println("Please type size of a table: 2 numbers and strategy - even or odd:");
 
             int lengthOfTable = scanner.nextInt();
             int widthOfTable = scanner.nextInt();
@@ -57,6 +58,8 @@ public class RandomCharsTable {
             stringBuffer.deleteCharAt(stringBuffer.length() - 1);
 
             System.out.print(stringBuffer);
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException(e);
         }
     }
 }

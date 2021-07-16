@@ -11,7 +11,7 @@ public class PyramidPrinter {
 
     private static void printPyramid() throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            System.out.println("Please type a positive integer number");
+            System.out.println("Please type a positive integer number:");
             int levelsOfPyramid = Integer.parseInt(reader.readLine());
             for (int i = 1; i <= levelsOfPyramid; i++) {
                 for (int j = 1; j <= i; j++) {
@@ -19,6 +19,8 @@ public class PyramidPrinter {
                 }
                 System.out.println();
             }
+        } catch (NumberFormatException e) {
+            throw new RuntimeException(e);
         }
     }
 
