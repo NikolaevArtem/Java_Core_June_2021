@@ -1,6 +1,5 @@
 package homework_2;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class RandomCharsTable {
@@ -18,15 +17,46 @@ public class RandomCharsTable {
 
             char[][] randomCharsTable = new char[lengthOfTable][widthOfTable];
 
-            int min = 'A';
-            int max = 'Z';
+            int minRand = 'A';
+            int maxRand = 'Z';
             for (int i = 0; i < lengthOfTable; i++) {
                 for (int j = 0; j < widthOfTable; j++) {
-                    randomCharsTable[i][j] = (char) ((int) (Math.random() * (max - min + 1) + min));
-                    System.out.print(randomCharsTable[i][j] + " ");
+                    randomCharsTable[i][j] = (char) ((int) (Math.random() * (maxRand - minRand + 1) + minRand));
+                    System.out.print(" | " + randomCharsTable[i][j] + " |");
                 }
                 System.out.println();
             }
+
+            if ("even".equals(strategy.toLowerCase())) {
+                System.out.print("Even letters: ");
+            }
+
+            if ("odd".equals(strategy.toLowerCase())) {
+                System.out.print("Odd letters: ");
+            }
+
+            StringBuffer stringBuffer = new StringBuffer();
+
+            for (int i = 0; i < lengthOfTable; i++) {
+                for (int j = 0; j < widthOfTable; j++) {
+                    int codeOfChar = randomCharsTable[i][j];
+                    if ("even".equals(strategy.toLowerCase())) {
+                        if (codeOfChar % 2 == 0) {
+                            stringBuffer.append(" ").append((char) codeOfChar).append(" ,");
+                        }
+                    }
+
+                    if ("odd".equals(strategy.toLowerCase())) {
+                        if (codeOfChar % 2 != 0) {
+                            stringBuffer.append(" ").append((char) codeOfChar).append(" ,");
+                        }
+                    }
+                }
+            }
+
+            stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+
+            System.out.print(stringBuffer);
         }
     }
 }
