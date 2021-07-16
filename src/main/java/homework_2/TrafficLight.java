@@ -6,8 +6,9 @@ import java.io.InputStreamReader;
 
 public class TrafficLight {
     public static void main(String[] args) {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
-            try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
+            try {
                 System.out.println("Enter seconds or \"stop\"");
                 String inputStr = bufferedReader.readLine();
                 try {
