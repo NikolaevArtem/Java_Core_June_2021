@@ -59,8 +59,8 @@ public class RandomCharsTable {
             stringBuffer.deleteCharAt(stringBuffer.length() - 1);
 
             System.out.print(stringBuffer);
-        } catch (InputMismatchException e) {
-            System.out.println("Please follow to the correct format: 2 numbers + even/odd word");
+        } catch (InputMismatchException | NegativeArraySizeException e) {
+            System.out.println("Please follow to the correct format: 2 positive numbers + even/odd word");
         }
     }
 }
