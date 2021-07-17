@@ -89,19 +89,19 @@ public class TrafficLight {
     private static void validateMode2(int hours, int minutes, int seconds, int length) {
         if (hours < 0 || hours >= 24) {
             System.out.println("You are input incorrect hours field.");
-            System.exit(0);
+            secondMode();
         }
         if (minutes < 0 || minutes >= 60) {
             System.out.println("You are input incorrect minutes field.");
-            System.exit(0);
+            secondMode();
         }
         if (seconds < 0 || seconds >= 60) {
             System.out.println("You are input incorrect seconds field.");
-            System.exit(0);
+            secondMode();
         }
         if (length > 3) {
             System.out.println("There is an extra field");
-            System.exit(0);
+            secondMode();
         }
     }
 
