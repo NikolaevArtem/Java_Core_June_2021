@@ -23,16 +23,14 @@ public class TrafficLight {
                 arr = str.split(":");
                 int hoursSec = Integer.parseInt(arr[0]) * 60 * 60;
                 int minutesSec = Integer.parseInt(arr[1]) * 60;
-                int secondsSec = Integer.parseInt(arr[2]);
+                int seconds = Integer.parseInt(arr[2]);
 
-                if (hoursSec < 0 || minutesSec < 0 || secondsSec < 0) {
-                    System.out.println("Please type positive numbers");
-                }
-                if (hoursSec > 24 * 60 * 60 || minutesSec > 60 * 60 || secondsSec >= 60) {
-                    System.out.println("Unfortunately this day has already finished");
+                if (hoursSec > 24 * 60 * 60 || minutesSec > 60 * 60 || seconds >= 60) {
+                    System.out.println("Unfortunately this day has already finished, please check");
+                    return;
                 }
 
-                int timeInSeconds = secondsSec + minutesSec * 60 + hoursSec * 60 * 60;
+                int timeInSeconds = seconds + minutesSec * 60 + hoursSec * 60 * 60;
                 int cycleOfTrafficLight = 60;
                 int secForLight = timeInSeconds % cycleOfTrafficLight;
 
@@ -46,7 +44,7 @@ public class TrafficLight {
                     System.out.println(ANSI_RED + "RED" + ANSI_RESET);
                 }
             } else {
-                System.out.println("Wrong format. Please type your current time as HH:MM:SS");
+                System.out.println("You typed negative numbers or time not according to the format HH:MM:SS");
             }
         } catch (NumberFormatException e) {
             throw new RuntimeException(e);
