@@ -14,7 +14,9 @@ public class Main {
       if (str.length() >= 2) {
         System.out.println(str + ": " + str.length() + " letters");
       }
-      else System.out.println(str + ": " + str.length() + " letter");
+      else {
+        System.out.println(str + ": " + str.length() + " letter");
+      }
     }
   }
 }
