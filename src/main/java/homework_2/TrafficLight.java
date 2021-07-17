@@ -7,11 +7,11 @@ import java.io.InputStreamReader;
 
 public class TrafficLight {
 
-    public static final String ANSI_RED = "\u001b[31m";
-    public static final String ANSI_YELLOW = "\u001b[33m";
-    public static final String ANSI_GREEN = "\u001b[32m";
-    public static final String ANSI_RESET = "\u001b[0m";
-    public static final String errorMsg = ANSI_RED + "Error!" + ANSI_RESET;
+    private static final String ANSI_RED = "\u001b[31m";
+    private static final String ANSI_YELLOW = "\u001b[33m";
+    private static final String ANSI_GREEN = "\u001b[32m";
+    private static final String ANSI_RESET = "\u001b[0m";
+    private static final String errorMsg = ANSI_RED + "Error!" + ANSI_RESET;
 
     public static void main(String[] args) throws IOException {
         System.out.println("Traffic Light App. \nTo exit enter - \"exit\".");
@@ -41,7 +41,7 @@ public class TrafficLight {
                     if (seconds < 0 ) {
                         System.out.println(errorMsg + " Enter only  positive integers.");
                     }
-                    else if (seconds > 86399){
+                    else if (seconds > 86399) {
                         System.out.println(errorMsg + " Day is already over.");
                     }
                     else {
@@ -51,7 +51,7 @@ public class TrafficLight {
                     }
                 }
                 else if ("exit".equalsIgnoreCase(str)) {
-                    System.exit(0);
+                    break;
                 }
                 else {
                     System.out.println(errorMsg
