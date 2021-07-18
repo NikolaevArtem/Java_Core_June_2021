@@ -10,7 +10,7 @@ import java.util.Random;
 public class RandomCharsTable {
 
 
-    public static final Random random = new Random();
+    static final Random random = new Random();
 
     public static void main(String[] args) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
@@ -41,7 +41,7 @@ public class RandomCharsTable {
     }
 
 
-    public static char[][] getTableWithRandomLetters(int length, int width) {
+    static char[][] getTableWithRandomLetters(int length, int width) {
         char[][] randomLetters = new char[length][width];
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j++) {
@@ -51,16 +51,11 @@ public class RandomCharsTable {
         return randomLetters;
     }
 
-    public static char getRandomLetter() {
-        int min = 65;
-        int max = 90;
-        int diff = max - min;
-        int randomInt = random.nextInt(diff + 1);
-        randomInt += min;
-        return (char) randomInt;
+    static char getRandomLetter() {
+        return (char)(random.nextInt(90 - 65 + 1) + 65);
     }
 
-    public static List<Character> getEvenLetters(char[][] letters) {
+    static List<Character> getEvenLetters(char[][] letters) {
         List<Character> evenLetters = new ArrayList<>();
         for (char[] row : letters) {
             for (char column : row) {
@@ -73,11 +68,11 @@ public class RandomCharsTable {
     }
 
 
-    public static List<Character> getOddLetters(char[][] letters) {
+    static List<Character> getOddLetters(char[][] letters) {
         List<Character> oddLetters = new ArrayList<>();
         for (char[] row : letters) {
             for (char column : row) {
-                if ((int) column % 2 != 0) {
+                if (column % 2 != 0) {
                     oddLetters.add(column);
                 }
             }
@@ -85,7 +80,7 @@ public class RandomCharsTable {
         return oddLetters;
     }
 
-    public static void printLetters(char[][] letters, String strategy){
+    static void printLetters(char[][] letters, String strategy){
         if (strategy.equalsIgnoreCase("even")) {
             System.out.println("Even letters - "
                     + getEvenLetters(letters).toString().replaceAll("[\\[\\]]", ""));
@@ -97,7 +92,7 @@ public class RandomCharsTable {
         }
     }
 
-    public static void printTable(char[][] letters) {
+    static void printTable(char[][] letters) {
         for (char[] row : letters) {
             System.out.print("| ");
             for (char column : row) {
