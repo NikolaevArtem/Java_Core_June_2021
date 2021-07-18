@@ -5,16 +5,23 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class RandomCharsTable {
-    public static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
     private static int length;
     private static int width;
 
     public static void main(String[] args) {
         System.out.println("Enter valid length, width and strategy in format \"length width strategy\" ");
-        printRandomCharsTable();
+        try {
+            printRandomCharsTable();
+        } catch (NegativeArraySizeException e) {
+            System.out.println("Array size cannot be negative, try again.");
+            System.out.println("Enter valid length, width and strategy in format \"length width strategy\" ");
+            printRandomCharsTable();
+        }
+        scanner.close();
     }
 
-    public static void printRandomCharsTable() {
+    public static void printRandomCharsTable() throws NegativeArraySizeException {
         try {
             length = scanner.nextInt();
             width = scanner.nextInt();
@@ -33,7 +40,6 @@ public class RandomCharsTable {
             checkStratAndExecute(strategy, table);
         } catch (InputMismatchException e) {
             System.out.println("You entered invalid value, try again.");
-            System.exit(0);
         }
     }
 

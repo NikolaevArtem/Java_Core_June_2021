@@ -1,6 +1,5 @@
 package homework_2.traffic_light;
 
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -75,7 +74,7 @@ public class TrafficLight {
             getSeconds(globalseconds);
 
         } catch (InputMismatchException e) {
-            System.out.println("You are input incorrect date, try again");
+            System.out.println("You entered an invalid date, try again");
             secondMode();
         } catch (NumberFormatException e) {
             System.out.println("Only numbers is allow, try again");
@@ -88,19 +87,19 @@ public class TrafficLight {
 
     private static void validateMode2(int hours, int minutes, int seconds, int length) {
         if (hours < 0 || hours >= 24) {
-            System.out.println("You are input incorrect hours field.");
+            System.out.println("You entered an invalid hours field.");
             secondMode();
         }
         if (minutes < 0 || minutes >= 60) {
-            System.out.println("You are input incorrect minutes field.");
+            System.out.println("You entered an invalid minutes field.");
             secondMode();
         }
         if (seconds < 0 || seconds >= 60) {
-            System.out.println("You are input incorrect seconds field.");
+            System.out.println("You entered an invalid seconds field.");
             secondMode();
         }
         if (length > 3) {
-            System.out.println("There is an extra field");
+            System.out.println("You entered an extra field.");
             secondMode();
         }
     }
