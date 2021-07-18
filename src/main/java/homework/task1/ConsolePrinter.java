@@ -13,7 +13,7 @@ public class ConsolePrinter {
                     break;
                 }
 
-                System.out.println("Argument: " + toPrint +", "+ toPrint.length() + " letter(s)");
+                System.out.println(toPrint +" : "+ toPrint.length() + " letter(s)");
             }
         }
     }
