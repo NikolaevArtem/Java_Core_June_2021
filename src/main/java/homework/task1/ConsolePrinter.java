@@ -1,6 +1,7 @@
 package homework.task1;
+import homework.ConsoleColors;
 
-public class Task1 {
+public class ConsolePrinter {
     public static void main(String[] args){
 
         if(args.length > 0) {
@@ -8,7 +9,7 @@ public class Task1 {
 
                 String toPrint = args[i];
                 if (toPrint.matches("error")){                                //checking for error
-                    System.out.println(ConsoleCollors.RED + "Alarm!" + ConsoleCollors.RESET);
+                    System.out.println(ConsoleColors.RED + "Alarm!" + ConsoleColors.RESET);
                     break;
                 }
 
@@ -16,11 +17,5 @@ public class Task1 {
             }
         }
     }
-    public static class ConsoleCollors{
-        // Reset
-        public static final String RESET = "\033[0m";  // Text Reset
 
-        // Red
-        public static final String RED = "\033[0;31m";     // RED
-    }
 }

@@ -1,6 +1,6 @@
 # Java Core June 2021
 
-## *Vaschenko Dmitriy*
+## *Vashchenko Dmitriy*
 
 | Number | Solution  | Short description
 | --- | --- | --- |

@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Task_2_2 {
+public class PyramidPrinter {
     // The Pyramid printer, or rather triangle printer.
 
    public static void main(String[] args){
@@ -36,8 +36,7 @@ public class Task_2_2 {
     }
 
     public static void printPyramid(int i){
-       int rows = i;
-       for (int j = 0; j < rows; j++ ){
+        for (int j = 0; j < i; j++ ){
            System.out.println(getRow(j));
        }
     }
