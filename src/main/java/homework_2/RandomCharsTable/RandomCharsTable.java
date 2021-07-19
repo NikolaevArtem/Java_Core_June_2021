@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class RandomCharsTable {
+
     public static int strategyFlag;
     public static Set<String> setLetters = new HashSet<>();
 
