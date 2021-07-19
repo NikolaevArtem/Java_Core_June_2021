@@ -1,4 +1,4 @@
-package homework_2.trafficlight;
+package homework_3.trafficlight;
 
 import java.time.Instant;
 import java.util.regex.Pattern;

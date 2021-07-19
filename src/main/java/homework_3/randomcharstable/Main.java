@@ -1,4 +1,4 @@
-package homework_2.randomcharstable;
+package homework_3.randomcharstable;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package homework_2.randomcharstable;
+package homework_3.randomcharstable;
 
 import java.util.Random;
 import java.util.regex.Pattern;
