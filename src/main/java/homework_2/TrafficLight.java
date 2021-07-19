@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Traffic_light {
+public class TrafficLight {
 //    считывает количество секунд с начала дня с командной строки во время работы, переводит в инт,
 //    выводит в командную строку цвет светофора (любым вариантом/сообщением,
 //    главное чтобы было различие зеленый-желтый-красный).
