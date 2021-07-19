@@ -7,6 +7,10 @@ import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 
 public class TrafficLight {
+    private static final String  RED_COLOUR = "\u001B[31m";
+    private static final String GREEN_COLOUR = "\u001B[32m";
+    private static final String YELLOW_COLOUR = "\u001B[33m";
+    private static final String RESET_COLOUR = "\u001B[0m";
 
     private static boolean isDigits(String str) {
         try {
@@ -30,11 +34,11 @@ public class TrafficLight {
         LocalTime time = LocalTime.ofSecondOfDay(seconds);
         seconds %= 60;
         if (seconds < 35) {
-            System.out.println("\u001B[32m" + "Green light." + "\u001B[0m" + " Time: " + time);
+            System.out.println(GREEN_COLOUR + "Green light." + RESET_COLOUR + " Time: " + time);
         } else if (seconds < 40 || seconds >= 55) {
-            System.out.println("\u001B[33m" + "Yellow light." + "\u001B[0m" + " Time: " + time);
+            System.out.println(YELLOW_COLOUR + "Yellow light." + RESET_COLOUR + " Time: " + time);
         } else {
-            System.out.println("\u001B[31m" + "Red light." + "\u001B[0m" + " Time: " + time);
+            System.out.println(RED_COLOUR + "Red light." + RESET_COLOUR + " Time: " + time);
         }
     }
 
@@ -66,7 +70,7 @@ public class TrafficLight {
                     }
                 }
             }
-        } catch (IOException e) {
+        } catch (IOException | NullPointerException e) {
             System.out.println("Error.");
         }
     }

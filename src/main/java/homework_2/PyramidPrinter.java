@@ -9,9 +9,11 @@ public class PyramidPrinter {
         System.out.println("How many levels should the pyramid be?");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             try {
+                StringBuilder s = new StringBuilder("x");
                 int levels = Integer.parseInt(reader.readLine());
                 for (int i = 1; i <= levels; i++) {
-                    System.out.println("x".repeat(i));
+                    System.out.println(s);
+                    s.append("x");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("It's not a number. Next time enter a positive integer.");
