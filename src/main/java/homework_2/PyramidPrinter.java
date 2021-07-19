@@ -15,6 +15,9 @@ public class PyramidPrinter {
                     System.out.println(s);
                     s.append("x");
                 }
+                if (levels < 0) {
+                    System.out.println("Such a pyramid doesn't exist");
+                }
             } catch (NumberFormatException e) {
                 System.out.println("It's not a number. Next time enter a positive integer.");
             }
