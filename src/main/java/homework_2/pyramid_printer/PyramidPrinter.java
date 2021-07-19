@@ -11,11 +11,7 @@ public class PyramidPrinter {
     private static final String INFO_MESSAGE = "Please enter a positive integer for rows";
     private static final String ERROR_MESSAGE = "Something went wrong. Please restart the program!";
 
-    public static void main(String[] args) {
-        printPyramid();
-    }
-
-    private static void printPyramid() {
+    public void run() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             int rows = -1;
             while (rows == -1) {
@@ -29,7 +25,7 @@ public class PyramidPrinter {
         }
     }
 
-    private static boolean isValidNumber(String number) {
+    private boolean isValidNumber(String number) {
         try {
             if (Integer.parseInt(number) < 1) {
                 return false;
@@ -40,7 +36,7 @@ public class PyramidPrinter {
         return true;
     }
 
-    private static void generatePyramid(int rows) {
+    private void generatePyramid(int rows) {
         for (int i = 1; i <= rows; i++) {
             for (int j = 1; j <= i; j++) {
                 printMessage(LETTER);
@@ -49,7 +45,7 @@ public class PyramidPrinter {
         }
     }
 
-    private static void printMessage(String text) {
+    private void printMessage(String text) {
         System.out.print(text);
     }
 }

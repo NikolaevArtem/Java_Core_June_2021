@@ -25,11 +25,7 @@ public class TrafficLight {
     private static final int SECONDS_IN_HOUR = 3600;
     private static final int SECONDS_IN_MINUTE = 60;
 
-    public static void main(String[] args) {
-        crossRoad();
-    }
-
-    private static void crossRoad() {
+    public void run() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             printMessage(INFO_MESSAGE);
             int mode = getMode(reader);
@@ -39,7 +35,7 @@ public class TrafficLight {
         }
     }
 
-    private static int getMode(BufferedReader reader) throws IOException {
+    private int getMode(BufferedReader reader) throws IOException {
         while (true) {
             String choice = reader.readLine();
             if (choice.equals("1") || choice.equals("2")) {
@@ -49,7 +45,7 @@ public class TrafficLight {
         }
     }
 
-    private static void checkLight(int mode, BufferedReader reader) throws IOException {
+    private void checkLight(int mode, BufferedReader reader) throws IOException {
         String line;
         if (mode == 1) {
             printMessage(INFO_MESSAGE_TO_MODE_1);
@@ -70,7 +66,7 @@ public class TrafficLight {
         }
     }
 
-    private static boolean isValidString(String time) {
+    private boolean isValidString(String time) {
         String[] timeArray = time.trim().split(":");
         if (timeArray.length != 3) {
             printMessage(WARNING_MESSAGE_INCORRECT_FORMAT + lineSeparator());
@@ -89,7 +85,7 @@ public class TrafficLight {
         return true;
     }
 
-    private static boolean isValidSeconds(String time) {
+    private boolean isValidSeconds(String time) {
         int seconds;
         try {
             seconds = Integer.parseInt(time);
@@ -104,7 +100,7 @@ public class TrafficLight {
         return seconds <= SECONDS_IN_DAY;
     }
 
-    private static int parseToSeconds(String time) {
+    private int parseToSeconds(String time) {
         String[] timeArray = time.split(":");
         int hours = Integer.parseInt(timeArray[0]);
         int minutes = Integer.parseInt(timeArray[1]);
@@ -112,7 +108,7 @@ public class TrafficLight {
         return hours * SECONDS_IN_HOUR + minutes * SECONDS_IN_MINUTE + seconds;
     }
 
-    private static void printLight(int seconds) {
+    private void printLight(int seconds) {
         int reminder = seconds % SECONDS_IN_MINUTE;
         if (reminder >= 0 && reminder < 35) {
             printMessage(LIGHT_GREEN);
@@ -123,7 +119,7 @@ public class TrafficLight {
         }
     }
 
-    private static void printMessage(String text) {
+    private void printMessage(String text) {
         System.out.print(text);
     }
 }

@@ -19,11 +19,7 @@ public class RandomCharsTable {
     private static final String ERROR_MESSAGE = "Something went wrong. Please restart the program!";
     private static final String STRATEGY_ERROR_MESSAGE = "It was not a word \"odd\" or \"even\"! Please try again: ";
 
-    public static void main(String[] args) {
-        printCharsTable();
-    }
-
-    private static void printCharsTable() {
+    public void run() {
         int columns = -1;
         int rows = -1;
         String strategy = "";
@@ -50,7 +46,7 @@ public class RandomCharsTable {
         }
     }
 
-    private static void showCharsTable(int columns, int rows, String strategy) {
+    private void showCharsTable(int columns, int rows, String strategy) {
         Set<Character> charsByStrategySet = new HashSet<>();
         for (int i = 0; i < rows; i++) {
             printMessage("|");
@@ -66,11 +62,11 @@ public class RandomCharsTable {
         printMessage(getFormattedStringForPrinting(strategy, charsByStrategySet));
     }
 
-    private static char getRandomChar() {
+    private char getRandomChar() {
         return (char) ThreadLocalRandom.current().nextInt(MIN_CHAR, MAX_CHAR + 1);
     }
 
-    private static boolean isValidNumber(String number) {
+    private boolean isValidNumber(String number) {
         try {
             if (Integer.parseInt(number) < 1) {
                 printMessage(INTEGER_ERROR_MESSAGE);
@@ -83,7 +79,7 @@ public class RandomCharsTable {
         return true;
     }
 
-    private static boolean isOddOrEven(String line) {
+    private boolean isOddOrEven(String line) {
         if (line.toLowerCase().equals("odd") || line.toLowerCase().equals("even")) {
             return true;
         }
@@ -91,11 +87,11 @@ public class RandomCharsTable {
         return false;
     }
 
-    private static boolean isCharFitsStrategy(char ch, String strategy) {
+    private boolean isCharFitsStrategy(char ch, String strategy) {
         return strategy.equals("even") == (ch % 2 == 0);
     }
 
-    private static String getFormattedStringForPrinting(String strategy, Set<Character> letters) {
+    private String getFormattedStringForPrinting(String strategy, Set<Character> letters) {
         String capFirst = strategy.substring(0, 1).toUpperCase() + strategy.substring(1);
         StringBuilder result = new StringBuilder(capFirst + " letters - ");
         for (Character ch : letters) {
@@ -104,7 +100,7 @@ public class RandomCharsTable {
         return result.substring(0, result.toString().trim().length() - 1);
     }
 
-    private static void printMessage(String text) {
+    private void printMessage(String text) {
         System.out.print(text);
     }
 }
