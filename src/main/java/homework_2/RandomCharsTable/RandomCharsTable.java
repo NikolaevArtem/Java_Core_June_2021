@@ -1,4 +1,4 @@
-package homework_2;
+package homework_2.RandomCharsTable;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,7 +14,7 @@ public class RandomCharsTable {
         System.out.println("RandomCharTable App");
         System.out.println("Enter table length, width and strategy separated by a space:");
 
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))){
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             String [] subString = bufferedReader.readLine().split(" ");
             int tableLength = Integer.parseInt(subString[0]);
             int tableWidth = Integer.parseInt(subString[1]);
@@ -52,18 +52,18 @@ public class RandomCharsTable {
         }
     }
 
-    private static void stratStringBuilder(char currentChar) {
+    private static void strategyStringBuilder(char currentChar) {
         if(currentChar % 2 == strategyFlag){
             setLetters.add(Character.toString(currentChar));
             }
         }
 
-    private static void tableCharPrinter(int tableLength, int tableWidth){
+    private static void tableCharPrinter(int tableLength, int tableWidth) {
         for (int i = 0; i < tableLength; i++) {
             System.out.print("|");
             for (int j = 0; j < tableWidth; j++) {
                 char currentChar = randomChar();
-                stratStringBuilder(currentChar);
+                strategyStringBuilder(currentChar);
                 System.out.print(currentChar + "|");
             }
             System.out.print("\n");

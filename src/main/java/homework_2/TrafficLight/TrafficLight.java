@@ -1,4 +1,4 @@
-package homework_2;
+package homework_2.TrafficLight;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -61,7 +61,7 @@ public class TrafficLight {
         }
     }
 
-    public static boolean isStringNumeric( String str ){
+    public static boolean isStringNumeric(String str) {
         try {
             Integer.parseInt(str);
         } catch(NumberFormatException | NullPointerException e) {
