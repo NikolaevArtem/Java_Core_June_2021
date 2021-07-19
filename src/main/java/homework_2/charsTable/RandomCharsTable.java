@@ -1,45 +1,30 @@
 package homework_2.charsTable;
 
-import homework_2.utils.ResultPrinter;
+import homework_2.utils.App;
+import homework_2.utils.Executable;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class RandomCharsTable {
-    String inputStr;
+public class RandomCharsTable extends App {
     int length;
     int width;
     boolean isOdd;
-    char[][] tableChars;
 
     public static void main(String[] args) {
-        RandomCharsTable rct = new RandomCharsTable();
+        Executable rct = new RandomCharsTable();
         rct.execute();
     }
-
-    public void execute() {
-        ResultPrinter rp = new ResultPrinter();
-        readData();
-        parseData();
-        rp.printResult(generateResult(), inputStr);
-    }
-
-    private void readData() {
-        try(Scanner sc = new Scanner(System.in)) {
-            System.out.println("Введите данные");
-            inputStr = sc.nextLine();
-        }
-    }
-
-    private void parseData() {
+    @Override
+    protected void parseData() {
         try(Scanner sc = new Scanner(inputStr)) {
             length = sc.nextInt();
             width = sc.nextInt();
             isOdd = sc.next().equalsIgnoreCase("odd");
         }
     }
-
-    private String generateResult() {
+    @Override
+    protected String calculate() {
         int check;
         Random random = new Random();
         StringBuilder charTable = new StringBuilder("\n");
