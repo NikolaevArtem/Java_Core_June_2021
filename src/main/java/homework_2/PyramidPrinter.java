@@ -7,14 +7,23 @@ public class PyramidPrinter {
 
     public static void main(String[] args) throws IOException {
         System.out.print("Please, input pyramids height value: ");
-        int pyramidHeight = bufferedReaderIntReader();
-        assert (pyramidHeight > 0); // need nothing to do if input is less then 1
-        for (int i = 1; i <= pyramidHeight; i++) {
-            for (int j = 1; j <= i; j++) {
-                System.out.print("x");
-            }
-            System.out.println();
+        int pyramidHeight = Math.abs(bufferedReaderIntReader());
+        assert (pyramidHeight != 0) : "the plane is still a plane";
+        printPyramid(pyramidHeight);
+    }
+
+    private static void printPyramid(int height) {
+        for (int i = 1; i <= height; i ++) {
+            System.out.println(genPyramidRow(i));
         }
+    }
+
+    private static String genPyramidRow(int row_len) {
+        StringBuilder x_row = new StringBuilder();
+        for (int i = 0; i < row_len; i++) {
+            x_row.append('x');
+        }
+        return x_row.toString();
     }
 
 }
