@@ -17,6 +17,11 @@ public class RandomCharsTable {
             int widthOfTable = scanner.nextInt();
             String strategy = scanner.next();
 
+            if (!"even".equalsIgnoreCase(strategy) && !"odd".equalsIgnoreCase(strategy)) {
+                System.out.println("Please type a correct strategy: even or odd");
+                return;
+            }
+
             char[][] randomCharsTable = new char[lengthOfTable][widthOfTable];
 
             int minRand = 'A';
