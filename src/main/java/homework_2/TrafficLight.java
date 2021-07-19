@@ -7,7 +7,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 
 public class TrafficLight {
-    private static final String  RED_COLOUR = "\u001B[31m";
+    private static final String RED_COLOUR = "\u001B[31m";
     private static final String GREEN_COLOUR = "\u001B[32m";
     private static final String YELLOW_COLOUR = "\u001B[33m";
     private static final String RESET_COLOUR = "\u001B[0m";
