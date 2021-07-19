@@ -15,35 +15,37 @@ public class TrafficLight {
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int time;
+        String str;
 
         while (true) {
             System.out.println("Введите целое число от 0 до 86399");
-            time = Integer.parseInt(reader.readLine());
-            if (time < 0){
-                System.out.println("Число отрицательное. Введите целое число от 0 до 86399");
-            }
-            else if (time > 86399){
-                System.out.println("Число слишком большое. Введите целое число от 0 до 86399");
-            }
-            else {
-                break;
-            }
-        }
+            str = reader.readLine();
 
-        int light  = time % 60;
+            try {
+                int time = Integer.parseInt(str);
+                if (time < 0){
+                    System.out.println("Разрешено вводить только положительные числа");
+                }
+                else if (time > 86399) {
+                    System.out.println("Вы ввели слишком большое число. День закончился");
+                }
+                else {
+                    int light = time % 60;
 
-        if (light < 35){
-            System.out.println(" Зеленый");
-        }
-        else if (light < 40){
-            System.out.println("Желтый");
-        }
-        else if (light < 55){
-            System.out.println("Красный");
-        }
-        else {
-            System.out.println("Желтый");
+                    if (light < 35) {
+                        System.out.println(" Зеленый");
+                    } else if (light < 40) {
+                        System.out.println("Желтый");
+                    } else if (light < 55) {
+                        System.out.println("Красный");
+                    } else {
+                        System.out.println("Желтый");
+                    }
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Разрешено вводить только числа");
+            }
         }
     }
 }
