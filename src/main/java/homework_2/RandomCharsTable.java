@@ -3,12 +3,12 @@ package homework_2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+import java.util.HashSet;
+import java.util.Set;
 
 public class RandomCharsTable {
     public static int strategyFlag;
-    public static StringBuilder stringLetters = new StringBuilder();
-
+    public static Set<String> setLetters = new HashSet<>();
 
     public static void main(String[] args) throws IOException {
         System.out.println("RandomCharTable App");
@@ -28,13 +28,12 @@ public class RandomCharsTable {
     private static void lettersPrint() {
         if (strategyFlag == 0) {
             System.out.println("Even letters - " +
-                    stringLetters.replace(stringLetters.length()-2,stringLetters.length()-1, " ") );
+                    String.join(",", setLetters));
         }
         else {
             System.out.println("Odd letters - " +
-                    stringLetters.replace(stringLetters.length()-2,stringLetters.length()-1, " ") );
+                    String.join(",", setLetters));
         }
-        stringLetters.setLength(0);
     }
 
     private static char randomChar() {
@@ -55,12 +54,9 @@ public class RandomCharsTable {
 
     private static void stratStringBuilder(char currentChar) {
         if(currentChar % 2 == strategyFlag){
-            if(stringLetters.indexOf(String.valueOf(currentChar)) == -1){
-                    stringLetters.append(currentChar);
-                    stringLetters.append(", ");
+            setLetters.add(Character.toString(currentChar));
             }
         }
-    }
 
     private static void tableCharPrinter(int tableLength, int tableWidth){
         for (int i = 0; i < tableLength; i++) {
