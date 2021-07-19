@@ -20,11 +20,15 @@ public class RandomCharsTable extends App {
         try(Scanner sc = new Scanner(inputStr)) {
             length = sc.nextInt();
             width = sc.nextInt();
+            // if you enter not "odd" or "even", it will be "even"
             isOdd = sc.next().equalsIgnoreCase("odd");
+        } catch (RuntimeException  ex) {
+            error = ex.getClass().getSimpleName();
         }
     }
     @Override
     protected String calculate() {
+        if (error != null) return error;
         int check;
         Random random = new Random();
         StringBuilder charTable = new StringBuilder("\n");

@@ -18,10 +18,8 @@ public class TrafficLight extends AppWithIntInput {
 
     @Override
     protected String calculate() {
+        if (error != null) return error;
 
-        if(error != null) {
-            return error;
-        }
         if (data > MAX_VALUE) {
             return (ERR_MAX_MSG);
         } else {
