@@ -1,4 +1,4 @@
-package Homework2_1;
+package Homework2.Pyramid_Printer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
