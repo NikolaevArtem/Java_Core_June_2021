@@ -10,7 +10,7 @@ public class TrafficLight {
     private static final String ANSI_YELLOW = "\u001b[33m";
     private static final String ANSI_GREEN = "\u001b[32m";
     private static final String ANSI_RESET = "\u001b[0m";
-    private static final String errorMsg = ANSI_RED + "Error!" + ANSI_RESET;
+    public static final String errorMsg = ANSI_RED + "Error!" + ANSI_RESET;
 
     public void showLight(int tmp) {
         if (0 <= tmp && tmp < 35) {
@@ -23,13 +23,13 @@ public class TrafficLight {
     }
 
     public void start() {
+        System.out.println("Traffic Light App.");
+        System.out.println("Enter the number of seconds between 0 and 86399 inclusive:");
+
         input();
     }
 
     public void input() {
-        System.out.println("Traffic Light App.");
-        System.out.println("Enter the number of seconds between 0 and 86399 inclusive:");
-
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             String str = bufferedReader.readLine();
             if (isStringNumeric(str)) {
