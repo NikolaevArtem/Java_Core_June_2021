@@ -3,22 +3,29 @@ package homework_2.random_chars_table;
 import homework_2.utils.App;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class RandomCharsTable extends App {
+
+    protected final String ERR_MSG = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
+
     int length;
     int width;
     boolean isOdd;
 
     @Override
     protected void parseData() {
-        try(Scanner sc = new Scanner(inputStr)) {
-            length = sc.nextInt();
-            width = sc.nextInt();
-            // if you enter not "odd" or "even", it will be "even"
-            isOdd = sc.next().equalsIgnoreCase("odd");
-        } catch (RuntimeException  ex) {
-            error = ex.getClass().getSimpleName();
+
+        if (!inputStr.matches("[1-9][0-9]*\\s+[1-9][0-9]*\\s+(even|odd)")) {
+            error = ERR_MSG;
+            return;
+        }
+        String[] arguments = inputStr.split("\\s");
+        isOdd = arguments[2].equalsIgnoreCase("odd");
+        try {
+            length = Integer.parseInt(arguments[0]);
+            width = Integer.parseInt(arguments[1]);
+        } catch (NumberFormatException ex) {
+            error = ERR_MSG;
         }
     }
     @Override
