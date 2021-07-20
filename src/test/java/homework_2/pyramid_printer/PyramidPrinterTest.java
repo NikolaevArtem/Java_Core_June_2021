@@ -5,8 +5,10 @@ import org.junit.jupiter.api.Test;
 public class PyramidPrinterTest {
 
     @Test
-    void asd() {
-
+    void test() {
+        final String[] args = new String[0];
+        final String actual = new PyramidPrinter(args).checkAndPrint();
+        final String expected = "x";
     }
 
 }

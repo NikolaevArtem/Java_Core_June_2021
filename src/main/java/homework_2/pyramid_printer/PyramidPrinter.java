@@ -28,22 +28,27 @@ public class PyramidPrinter {
 
     public void run() {
         System.out.println("How many levels should the pyramid be?");
+        System.out.println(checkAndPrint());
+    }
+
+     String checkAndPrint() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             try {
                 final int levels = Integer.parseInt(reader.readLine());
                 if (levels < 0) {
                     throw new NumberFormatException();
                 }
-                print(levels);
+                return print(levels);
             } catch (NumberFormatException e) {
-                System.out.println("Only 1 non-negative integer is allowed as passed parameter");
+                return "Only 1 non-negative integer is allowed as passed parameter";
             }
         } catch (IOException e) {
-            System.out.println("Error");
+            return "Error.";
         }
     }
 
-    private void print(int levels) {
+     String print(int levels) throws NumberFormatException{
+
         StringBuilder s = new StringBuilder();
         if ("symmetric".equals(mode)) {
             symmetricMode(s, levels);
@@ -54,7 +59,7 @@ public class PyramidPrinter {
         } else if ("default".equals(mode)) {
             defaultMode(s, levels);
         }
-        System.out.println(s);
+        return s.toString();
     }
 
     private void symmetricMode(StringBuilder s, int levels) {
