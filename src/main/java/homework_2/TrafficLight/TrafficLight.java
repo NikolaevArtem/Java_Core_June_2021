@@ -12,58 +12,49 @@ public class TrafficLight {
     private static final String ANSI_RESET = "\u001b[0m";
     private static final String errorMsg = ANSI_RED + "Error!" + ANSI_RESET;
 
-    public static void main(String[] args) throws IOException {
-        System.out.println("Traffic Light App. \nTo exit enter - \"exit\".");
-        System.out.println("Enter the number of seconds between 0 and 86399 inclusive:");
-        inPut();
-    }
-
-    public static void showLight(int tmp){
+    public void showLight(int tmp) {
         if (0 <= tmp && tmp < 35) {
-            System.out.println(ANSI_GREEN+ "Green Light" + ANSI_RESET);
-        }
-        else if ((35 <= tmp && tmp < 40 ) || (55 <= tmp && tmp < 60)) {
-            System.out.println(ANSI_YELLOW + "Yellow Light" + ANSI_RESET);
-        }
-        else if (40 <= tmp && tmp < 55) {
-            System.out.println(ANSI_RED + "Red Light" + ANSI_RESET);
+            System.out.println(ANSI_GREEN + "GREEN" + ANSI_RESET);
+        } else if ((35 <= tmp && tmp < 40) || (55 <= tmp && tmp < 60)) {
+            System.out.println(ANSI_YELLOW + "YELLOW" + ANSI_RESET);
+        } else if (40 <= tmp && tmp < 55) {
+            System.out.println(ANSI_RED + "RED" + ANSI_RESET);
         }
     }
 
-    public static void inPut () throws IOException {
-        try ( BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
-            while (true) {
-                String str = bufferedReader.readLine();
-                if (isStringNumeric(str)){
-                    int seconds = Integer.parseInt(str);
+    public void start() {
+        input();
+    }
 
-                    if (seconds < 0 ) {
-                        System.out.println(errorMsg + " Enter only  positive integers.");
-                    }
-                    else if (seconds > 86399) {
-                        System.out.println(errorMsg + " Day is already over.");
-                    }
-                    else {
-                        int tmp = seconds % 60;
-                        showLight(tmp);
-                        System.out.println("Enter value you are interested in next:");
-                    }
+    public void input() {
+        System.out.println("Traffic Light App.");
+        System.out.println("Enter the number of seconds between 0 and 86399 inclusive:");
+
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
+            String str = bufferedReader.readLine();
+            if (isStringNumeric(str)) {
+                int seconds = Integer.parseInt(str);
+                if (seconds < 0) {
+                    System.out.println(errorMsg + " Only positive integers.");
+                } else if (seconds > 86399) {
+                    System.out.println(errorMsg + " Day is over.");
+                } else {
+                    int tmp = seconds % 60;
+                    showLight(tmp);
                 }
-                else if ("exit".equalsIgnoreCase(str)) {
-                    break;
-                }
-                else {
-                    System.out.println(errorMsg
-                            + " Please, enter an integer numeric value of seconds!");
-                }
+            } else {
+                System.out.println(errorMsg + " Only integer numeric");
             }
         }
+        catch (IOException e){
+            System.out.println("Something went wrong");
+        }
     }
 
-    public static boolean isStringNumeric(String str) {
+    public boolean isStringNumeric(String str) {
         try {
             Integer.parseInt(str);
-        } catch(NumberFormatException | NullPointerException e) {
+        } catch (NumberFormatException | NullPointerException e) {
             return false;
         }
         return true;
