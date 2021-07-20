@@ -1,4 +1,4 @@
-package homework_2;
+package homework_2.traffic_light;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,20 +10,21 @@ public class TrafficLight {
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_YELLOW = "\u001B[33m";
 
-    public static void main(String[] args) throws IOException {
+
+    public void start() throws IOException {
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int count = 0;
-        while (count < 3) {
+        try {
             int light = Integer.parseInt(reader.readLine());
             int res = 60;
             int result = light % res;
             if (light < 0) {
                 System.out.println("Please use positive number");
-                count++;
+                return;
             }
             if (light > 86399) {
                 System.out.println("Please use number between 0 and 86399");
-                count++;
+                return;
             } else {
                 if (result >= 0 && result < 35) {
                     System.out.println(ANSI_GREEN + "green" + ANSI_RESET);
@@ -35,6 +36,11 @@ public class TrafficLight {
                     System.out.println(ANSI_RED + "red" + ANSI_RESET);
                 }
             }
+        } catch (NumberFormatException e) {
+            System.out.println("Please use number");
+            return;
+        } finally {
+            reader.close();
         }
     }
 }
