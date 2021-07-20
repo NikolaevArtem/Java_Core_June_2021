@@ -9,3 +9,5 @@
 | HW2 | [Pyramid Printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_2/pyramid_printer) | The app that reads console and prints a pyramid based on this  |
 |     | [Random Chars Table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_2/random_chars_table) | The app that reads console for length, width and strategy and prints table based on this|
 
+
+[CodingBat link](https://codingbat.com/done?user=slowly@live.ru&tag=8165639202)
