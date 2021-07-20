@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public abstract class App implements Executable{
 
-    protected final static String ERR_NEGATIVE_MSG = "Error: Отрицательное число недопустимо";
-    protected final static String ERR_STRING_MSG = "Error: Допустимо только число(max 2^31)";
-    protected final static String STRING_MSG = "Введите данные:";
+    protected final String ERR_NEGATIVE_MSG = "Error: Отрицательное число недопустимо";
+    protected final String ERR_STRING_MSG = "Error: Допустимо только число(max 2^31)";
+    protected final String STRING_MSG = "Введите данные:";
 
     protected final InputStream INPUT_STREAM = System.in;
     protected final PrintStream PRINT_STREAM = System.out;
@@ -17,8 +17,7 @@ public abstract class App implements Executable{
     protected String inputStr;
 
 
-    public void execute() {
-
+    public void start() {
         readData();
         parseData();
 

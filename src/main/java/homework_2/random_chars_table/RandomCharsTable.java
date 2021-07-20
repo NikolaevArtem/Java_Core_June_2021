@@ -1,7 +1,6 @@
-package homework_2.charsTable;
+package homework_2.random_chars_table;
 
 import homework_2.utils.App;
-import homework_2.utils.Executable;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -11,10 +10,6 @@ public class RandomCharsTable extends App {
     int width;
     boolean isOdd;
 
-    public static void main(String[] args) {
-        Executable rct = new RandomCharsTable();
-        rct.execute();
-    }
     @Override
     protected void parseData() {
         try(Scanner sc = new Scanner(inputStr)) {

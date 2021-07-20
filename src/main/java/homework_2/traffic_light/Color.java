@@ -1,6 +1,7 @@
-package homework_2.traffic;
+package homework_2.traffic_light;
 
 public enum Color {
+
     GREEN(0, 35),
     YELLOW,
     RED(40, 55);
