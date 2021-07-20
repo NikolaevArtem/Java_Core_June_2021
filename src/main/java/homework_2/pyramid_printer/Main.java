@@ -1,4 +1,4 @@
-package homework_2.PyramidPrinter;
+package homework_2.pyramid_printer;
 
 public class Main {
 

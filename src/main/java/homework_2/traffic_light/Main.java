@@ -1,6 +1,4 @@
-package homework_2.TrafficLight;
-
-import java.io.IOException;
+package homework_2.traffic_light;
 
 public class Main {
 
