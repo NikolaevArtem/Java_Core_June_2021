@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public abstract class App implements Executable{
 
-    protected final String ERR_NEGATIVE_MSG = "Error: Отрицательное число недопустимо";
-    protected final String ERR_STRING_MSG = "Error: Допустимо только число(max 2^31)";
+    protected final String ERR_NEGATIVE_MSG = "Only 1 non-negative integer is allowed as passed parameter";
+    protected final String ERR_STRING_MSG = "Only 1 non-negative integer is allowed as passed parameter";
     protected final String STRING_MSG = "Введите данные:";
 
     protected final InputStream INPUT_STREAM = System.in;

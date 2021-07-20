@@ -2,7 +2,7 @@ package homework_2.utils;
 
 import java.util.Scanner;
 
-public abstract class AppWithIntInput extends App{
+public abstract class AppWithOneIntInput extends App{
     protected int data;
     @Override
     protected void parseData() {
@@ -12,10 +12,8 @@ public abstract class AppWithIntInput extends App{
             if (data < 0) {
                 error = ERR_NEGATIVE_MSG;
             }
-        } else if (sc.hasNextDouble()) {
-            error = (sc.nextDouble() + " не целое число");
         } else {
-            error = (ERR_STRING_MSG);
+            error = ERR_STRING_MSG;
         }
     }
 }

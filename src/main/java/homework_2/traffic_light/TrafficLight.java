@@ -1,8 +1,8 @@
 package homework_2.traffic_light;
 
-import homework_2.utils.AppWithIntInput;
+import homework_2.utils.AppWithOneIntInput;
 
-public class TrafficLight extends AppWithIntInput {
+public class TrafficLight extends AppWithOneIntInput {
 
     protected final static String MAX_MSG = "The day is over";
     private final static int MAX_VALUE = 86399;

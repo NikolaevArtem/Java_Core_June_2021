@@ -1,8 +1,8 @@
 package homework_2.pyramid_printer;
 
-import homework_2.utils.AppWithIntInput;
+import homework_2.utils.AppWithOneIntInput;
 
-public class PyramidPrinter extends AppWithIntInput {
+public class PyramidPrinter extends AppWithOneIntInput {
 
     @Override
     protected String calculate() {
