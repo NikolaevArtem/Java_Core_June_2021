@@ -17,35 +17,30 @@ public class TrafficLight {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String str;
 
-        while (true) {
-            System.out.println("Введите целое число от 0 до 86399");
-            str = reader.readLine();
+        System.out.println("Введите целое число от 0 до 86399");
+        str = reader.readLine();
 
-            try {
-                int time = Integer.parseInt(str);
-                if (time < 0){
-                    System.out.println("Разрешено вводить только положительные числа");
+        try {
+            int time = Integer.parseInt(str);
+            if (time < 0) {
+                System.out.println("Разрешено вводить только положительные числа");
+            } else if (time > 86399) {
+                System.out.println("Вы ввели слишком большое число. День закончился");
+            } else {
+                int light = time % 60;
+                if (light < 35) {
+                    System.out.println(" Зеленый");
+                } else if (light < 40) {
+                    System.out.println("Желтый");
+                } else if (light < 55) {
+                    System.out.println("Красный");
+                } else {
+                    System.out.println("Желтый");
                 }
-                else if (time > 86399) {
-                    System.out.println("Вы ввели слишком большое число. День закончился");
-                }
-                else {
-                    int light = time % 60;
-
-                    if (light < 35) {
-                        System.out.println(" Зеленый");
-                    } else if (light < 40) {
-                        System.out.println("Желтый");
-                    } else if (light < 55) {
-                        System.out.println("Красный");
-                    } else {
-                        System.out.println("Желтый");
-                    }
-                    break;
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Разрешено вводить только числа");
             }
+        } catch (NumberFormatException e) {
+            System.out.println("Разрешено вводить только целые положительные числа");
         }
     }
 }
+
