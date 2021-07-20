@@ -10,9 +10,12 @@ public class TrafficLight {
     private static final String ANSI_YELLOW = "\u001b[33m";
     private static final String ANSI_GREEN = "\u001b[32m";
     private static final String ANSI_RESET = "\u001b[0m";
-    public static final String errorMsg = ANSI_RED + "Error!" + ANSI_RESET;
 
-    public void showLight(int tmp) {
+    private void errorMsg(){
+        System.out.println("Only 1 non-negative integer is allowed as passed parameter");
+    }
+
+    private void showLight(int tmp) {
         if (0 <= tmp && tmp < 35) {
             System.out.println(ANSI_GREEN + "GREEN" + ANSI_RESET);
         } else if ((35 <= tmp && tmp < 40) || (55 <= tmp && tmp < 60)) {
@@ -25,33 +28,32 @@ public class TrafficLight {
     public void start() {
         System.out.println("Traffic Light App.");
         System.out.println("Enter the number of seconds between 0 and 86399 inclusive:");
-
         input();
     }
 
-    public void input() {
+    private void input() {
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             String str = bufferedReader.readLine();
             if (isStringNumeric(str)) {
                 int seconds = Integer.parseInt(str);
                 if (seconds < 0) {
-                    System.out.println(errorMsg + " Only positive integers.");
+                    errorMsg();
                 } else if (seconds > 86399) {
-                    System.out.println(errorMsg + " Day is over.");
+                    System.out.println("The day is over");
                 } else {
                     int tmp = seconds % 60;
                     showLight(tmp);
                 }
             } else {
-                System.out.println(errorMsg + " Only integer numeric");
+                errorMsg();
             }
         }
-        catch (IOException e){
+        catch (IOException e) {
             System.out.println("Something went wrong");
         }
     }
 
-    public boolean isStringNumeric(String str) {
+    private boolean isStringNumeric(String str) {
         try {
             Integer.parseInt(str);
         } catch (NumberFormatException | NullPointerException e) {
