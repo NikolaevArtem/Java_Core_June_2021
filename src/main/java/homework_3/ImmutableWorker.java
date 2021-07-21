@@ -1,5 +1,7 @@
 package homework_3;
 
+import jdk.nashorn.internal.ir.annotations.Immutable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -37,7 +39,7 @@ public final class ImmutableWorker {
 
     public ImmutableWorker(String name, int id, Age age) {
         this.name = name;
-        this.department = null;
+        this.department = "No department";
         this.id = id;
         this.tasks = new ArrayList<>();
         this.age = new Age(age.getDay(), age.getMonth(), age.getYear());
