@@ -6,6 +6,6 @@ public class Main {
 
     public static void main(String[] args) {
         Executable trafficLight = new TrafficLight();
-        trafficLight.start();
+        trafficLight.run();
     }
 }

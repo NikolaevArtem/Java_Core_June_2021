@@ -19,7 +19,8 @@ public abstract class App implements Executable{
     protected abstract void parseData();
     protected abstract String calculate();
 
-    public void start() {
+    @Override
+    public void run() {
         readData();
         parseData();
         printStream.print(calculate().trim());

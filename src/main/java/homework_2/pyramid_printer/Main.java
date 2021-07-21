@@ -6,6 +6,6 @@ public class Main {
 
     public static void main(String[] args) {
         Executable pyramidPrinter = new PyramidPrinter();
-        pyramidPrinter.start();
+        pyramidPrinter.run();
     }
 }
