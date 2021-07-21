@@ -8,6 +8,7 @@
 | HW2.1 | [Traffic Light](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/TomShandrikov/src/main/java/homework_2/traffic_light) | This console app reads an integer of seconds and prints a color of traffic light.|
 | HW2.2 | [Pyramid Printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/TomShandrikov/src/main/java/homework_2/pyramid_printer) | This console app prints a pyramid of "x". |
 | HW2.3 | [Random Chars Table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/TomShandrikov/src/main/java/homework_2/random_chars_table) | This console app makes a table of chars from A to Z and shows evens/odds of them depending on the strategy we have chosen.  |
+| HW3 | [Immutable class](./src/main/java/homework_3) | This is an example of simple immutable class.  |
 
 [Link to CodingBat](https://codingbat.com/done?user=ashandrikov@gmail.com&tag=8115696431)
 
