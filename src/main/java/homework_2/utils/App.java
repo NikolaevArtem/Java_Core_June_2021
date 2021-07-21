@@ -6,16 +6,18 @@ import java.util.Scanner;
 
 public abstract class App implements Executable{
 
-    protected final String ERR_NEGATIVE_MSG = "Only 1 non-negative integer is allowed as passed parameter";
-    protected final String ERR_STRING_MSG = "Only 1 non-negative integer is allowed as passed parameter";
-    protected final String STRING_MSG = "Введите данные:";
-
-    protected final InputStream INPUT_STREAM = System.in;
-    protected final PrintStream PRINT_STREAM = System.out;
-
+    protected InputStream inputStream;
+    protected PrintStream printStream;
     protected String error;
     protected String inputStr;
 
+    {
+        inputStream = System.in;
+        printStream = System.out;
+    }
+
+    protected abstract void parseData();
+    protected abstract String calculate();
 
     public void start() {
         readData();
@@ -24,16 +26,13 @@ public abstract class App implements Executable{
         printResult(calculate(), inputStr);
     }
 
-    protected abstract void parseData();
-    protected abstract String calculate();
-
     /**
      *
      * @param result Result.
      * @param inputValue The value entered by the user.
      */
     protected void printResult(String result, String inputValue) {
-        printResult(result, inputValue, PRINT_STREAM);
+        printResult(result, inputValue, printStream);
     }
     /**
      *
@@ -51,9 +50,18 @@ public abstract class App implements Executable{
     }
 
     protected void readData() {
-        try(Scanner sc = new Scanner(INPUT_STREAM)) {
-            PRINT_STREAM.println(STRING_MSG);
+        final String STRING_MSG = "Введите данные:";
+        try(Scanner sc = new Scanner(inputStream)) {
+            printStream.println(STRING_MSG);
             inputStr = sc.nextLine();
         }
+    }
+
+    public void setInputStream(InputStream inputStream) {
+        this.inputStream = inputStream;
+    }
+
+    public void setPrintStream(PrintStream printStream) {
+        this.printStream = printStream;
     }
 }

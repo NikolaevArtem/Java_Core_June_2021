@@ -5,18 +5,16 @@ import homework_2.utils.App;
 import java.util.Random;
 
 public class RandomCharsTable extends App {
-
-    protected final String ERR_MSG = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
-
-    int length;
-    int width;
-    boolean isOdd;
+    private int length;
+    private int width;
+    private boolean isOdd;
 
     @Override
     protected void parseData() {
+        final String ERR_NON_VALID_DATA_MSG = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
 
-        if (!inputStr.matches("[1-9][0-9]*\\s+[1-9][0-9]*\\s+(even|odd)")) {
-            error = ERR_MSG;
+        if (!inputStr.matches("[1-9][0-9]*\\s[1-9][0-9]*\\s(even|odd)")) {
+            error = ERR_NON_VALID_DATA_MSG;
             return;
         }
         String[] arguments = inputStr.split("\\s");
@@ -25,7 +23,7 @@ public class RandomCharsTable extends App {
             length = Integer.parseInt(arguments[0]);
             width = Integer.parseInt(arguments[1]);
         } catch (NumberFormatException ex) {
-            error = ERR_MSG;
+            error = ERR_NON_VALID_DATA_MSG;
         }
     }
     @Override
