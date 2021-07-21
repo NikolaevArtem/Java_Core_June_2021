@@ -55,18 +55,20 @@ public class RandomCharsTable {
     }
 
     public static String getResultChar(ArrayList<Integer> words, boolean even) {
-
+        String result;
         if (even) {
-            return words.stream().filter(i -> i % 2 == 0)
+            result = words.stream().filter(i -> i % 2 == 0)
                     .distinct()
                     .map(i -> String.valueOf((char) i.intValue()))
                     .collect(Collectors.joining(","));
         } else {
-            return words.stream().filter(i -> i % 2 == 1)
+            result = words.stream().filter(i -> i % 2 == 1)
                     .distinct()
                     .map(i -> String.valueOf((char) i.intValue()))
                     .collect(Collectors.joining(","));
         }
+        if(result.isEmpty()) return  "Нет подходящих символов";
+        return result;
     }
 
     public void printTable(char[][] table, int x, int y) {
