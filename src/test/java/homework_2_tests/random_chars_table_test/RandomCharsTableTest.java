@@ -1,9 +1,9 @@
-package homework_2.random_chars_table;
+package homework_2_tests.random_chars_table_test;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class RandomCharsTable {
+public class RandomCharsTableTest {
 
     public void run() {
         int length;

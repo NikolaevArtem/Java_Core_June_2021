@@ -1,4 +1,4 @@
-package homework_2.traffic_light;
+package homework_2_tests.traffic_light_tests;
 
 public class Main {
 

@@ -1,11 +1,17 @@
-package homework_2.traffic_light;
+package homework_2_tests.traffic_light_tests;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-class TrafficLight {
-
+class TrafficLightTest {
+    @Test
+    void test() {
+        final actual = new TrafficLight().setTrafficLightColour(11);
+        final String expected = new TrafficLight().setTrafficLightColour(11);
+    }
     public static enum Colour {
         RED,
         YELLOW,

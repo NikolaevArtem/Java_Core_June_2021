@@ -1,10 +1,15 @@
-package homework_2.pyramid_printer;
+package homework_2_tests.pyramid_printer_test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-class PyramidPrinter {
-
+public class PyramidPrinterTest {
+@Test
+void test() {
+final String actual = new
+}
     public void run() {
 
         Scanner in = new Scanner(System.in);
