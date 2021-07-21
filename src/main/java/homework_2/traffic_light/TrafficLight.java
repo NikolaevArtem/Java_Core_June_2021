@@ -19,6 +19,7 @@ class TrafficLight {
         coloursForPrinting.put(Colour.YELLOW, "\u001B[33m");
         coloursForPrinting.put(Colour.GREEN,  "\u001B[32m");
     }
+
     public void run() {
 
         Scanner scanner = new Scanner(System.in);
