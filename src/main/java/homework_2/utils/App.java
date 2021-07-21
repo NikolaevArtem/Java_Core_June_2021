@@ -22,8 +22,8 @@ public abstract class App implements Executable{
     public void start() {
         readData();
         parseData();
-
-        printResult(calculate(), inputStr);
+        printStream.print(calculate().trim());
+//        printResult(calculate(), inputStr); // custom output
     }
 
     protected void printResult(String result, String inputValue) {
