@@ -5,13 +5,14 @@ public class Age {
     private int month;
     private int year;
 
-    public Age() {
-    }
-
     public Age(int day, int month, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
+    }
+
+    public Age(Age age) {
+        this(age.getDay(), age.getMonth(), age.getYear());
     }
 
     public int getDay() {
