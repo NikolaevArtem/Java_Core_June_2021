@@ -1,4 +1,4 @@
-package homework_2;
+package homework_2.random_chars_table;
 
 import java.io.IOException;
 import java.util.Random;
@@ -7,20 +7,24 @@ import static homework_2.IOMod.*;
 
 public class RandomCharsTable {
 
-    private static final int randMinValue = 65; // A
-    private static final int randMaxValue = 90; // Z
-    private static boolean strategy;
-    private static String result = "";
+    private static final int RAND_MIN_VALUE = 65; // A
+    private static final int RAND_MAX_VALUE = 90; // Z
+    private static boolean strategy; // even/odd
+    private static StringBuilder result = new StringBuilder();
 
-    public static void main(String[] args) throws IOException {
-        System.out.println("Input table length, table width, table strategy (even/odd):");
+    public void run() throws IOException {
+        menu();
+    }
+
+    private void menu() throws IOException {
+        System.out.print("Input table length, table width, table strategy (even/odd): ");
         String s = bufferedReaderStringReader();
         String[] parameters = s.split(" ");
-        int table_length = Integer.parseInt(parameters[0]);
-        int table_width = Integer.parseInt(parameters[1]);
-        if ("odd".equalsIgnoreCase(parameters[2])) {
+        int tableLength = Integer.parseInt(parameters[0]);
+        int tableWidth = Integer.parseInt(parameters[1]);
+        if (parameters[2].equalsIgnoreCase("odd")) {
             strategy = false;
-        } else if ("even".equalsIgnoreCase(parameters[2])) {
+        } else if (parameters[2].equalsIgnoreCase("even")) {
             strategy = true;
         } else {
             System.out.println(ANSI_YELLOW + "WARNING: " + ANSI_RESET +
@@ -28,7 +32,7 @@ public class RandomCharsTable {
             return;
         }
 
-        printRandomABC(table_length, table_width);
+        printRandomABC(tableLength, tableWidth);
         printResult();
     }
 
@@ -38,7 +42,7 @@ public class RandomCharsTable {
 
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j++) {
-                randAbc[i][j] = (char) (random.nextInt((randMaxValue - randMinValue) + 1) + randMinValue);
+                randAbc[i][j] = (char) (random.nextInt((RAND_MAX_VALUE - RAND_MIN_VALUE) + 1) + RAND_MIN_VALUE);
                 System.out.print(randAbc[i][j] + " ");
                 // result generating on-the-go
                 resultGen(randAbc[i][j]);
@@ -48,18 +52,14 @@ public class RandomCharsTable {
     }
 
     private static void resultGen(char ch) {
-        if (strategy) {
-            if ((ch % 2) == 0) { // even
-                // add if result doesn't contains value
-                if (!result.contains(String.valueOf(ch))) {
-                    result += ch;
-                }
+        if (strategy && (ch % 2) == 0) { //even
+            // add if result doesn't contains value
+            if (!String.valueOf(result).contains(String.valueOf(ch))) {
+                result.append(ch);
             }
-        } else {
-            if ((ch % 2) == 1) { // odd
-                if (!result.contains(String.valueOf(ch))) {
-                    result += ch;
-                }
+        } else { // odd
+            if (!String.valueOf(result).contains(String.valueOf(ch))) {
+                result.append(ch);
             }
         }
     }
@@ -70,7 +70,6 @@ public class RandomCharsTable {
         } else {
             System.out.print("Odd letters - ");
         }
-
         int i = 0;
         while (i < result.length()) { // to avoid exception in a case when result.length() = 0 ;)
             if (i == result.length() - 1) {

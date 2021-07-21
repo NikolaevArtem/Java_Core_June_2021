@@ -7,29 +7,29 @@ import java.io.InputStreamReader;
 public class IOMod {
 
     public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_RED = "\033[1;91m";
+    public static final String ANSI_GREEN = "\033[1;92m";
+    public static final String ANSI_YELLOW = "\033[1;93m";
+    public static final String BLUE_BG = "\033[0;104m";
+    public static final String PURPLE_BG = "\033[0;105m";
+    public static final String CYAN_BG = "\033[0;106m";
 
-    static int bufferedReaderIntReader() throws IOException {
+    public static int bufferedReaderIntReader() throws IOException, NumberFormatException {
+        int i;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            int i = Integer.parseInt(reader.readLine());
-            return i;
-        } catch (NumberFormatException e) {
-            System.out.println(ANSI_YELLOW + "WARNING: " + ANSI_RESET +
-                    "ONLY INTEGER NUMBER AS VALUE AVAILABLE.");
-            throw new IOException(e);
+            i = Integer.parseInt(reader.readLine());
         }
+        return i;
     }
 
-    static String bufferedReaderStringReader() throws IOException {
+    public static String bufferedReaderStringReader() {
+        String s = "";
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            String s = reader.readLine();
-            return s;
+            s = reader.readLine();
         } catch (IOException e) {
             System.out.println("Something is wrong: " + e);
         }
-        return "";
+        return s;
     }
 
 }
