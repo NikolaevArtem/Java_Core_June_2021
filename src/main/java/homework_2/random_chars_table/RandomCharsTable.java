@@ -26,7 +26,6 @@ public class RandomCharsTable {
             System.out.println("Wrong type parameter");
             return;
         }
-
         returnAnswer(generateArrays (row, column), typeOfParity);
     }
 

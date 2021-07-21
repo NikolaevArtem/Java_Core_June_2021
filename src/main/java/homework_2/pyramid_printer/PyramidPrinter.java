@@ -4,6 +4,7 @@ import homework_2.bufferReaders.BufferReader;
 import java.io.IOException;
 
 public class PyramidPrinter {
+
     public void run() throws IOException {
        BufferReader bufferReaderForPyramid = new BufferReader();
        int pyramidLength = bufferReaderForPyramid.bufferReaderForPyramid();

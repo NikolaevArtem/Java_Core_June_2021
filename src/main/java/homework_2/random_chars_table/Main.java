@@ -3,8 +3,8 @@ package homework_2.random_chars_table;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
 
+    public static void main(String[] args) throws IOException {
         RandomCharsTable randomCharsTable = new RandomCharsTable();
         randomCharsTable.run();
     }
