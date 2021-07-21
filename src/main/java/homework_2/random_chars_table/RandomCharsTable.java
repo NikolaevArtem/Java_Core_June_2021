@@ -9,6 +9,8 @@ public class RandomCharsTable extends App {
     private int width;
     private boolean isOdd;
 
+    private boolean isDebug;
+
     @Override
     protected void parseData() {
         final String ERR_NON_VALID_DATA_MSG = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
@@ -29,8 +31,13 @@ public class RandomCharsTable extends App {
     @Override
     protected String calculate() {
         if (error != null) return error;
+
         int check;
-        Random random = new Random();
+        Random random;
+
+        if (isDebug) random = new Random(1L);
+        else random = new Random();
+
         StringBuilder charTable = new StringBuilder("\n");
         StringBuilder answerBuilder = new StringBuilder();
 
@@ -49,7 +56,7 @@ public class RandomCharsTable extends App {
                         .append("| ")
                         .append(letter)
                         .append(" ");
-                if( (letter & check) == check) {
+                if (letter % 2 == check) {
                     answerBuilder
                             .append(letter)
                             .append(", ");
@@ -59,5 +66,10 @@ public class RandomCharsTable extends App {
         }
         answerBuilder.setLength(answerBuilder.length() - 2);
         return charTable.append(answerBuilder).toString();
+    }
+
+    public RandomCharsTable setDebug(boolean debug) {
+        isDebug = debug;
+        return this;
     }
 }
