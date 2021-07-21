@@ -4,36 +4,39 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import static homework_2.pyramid_printer.MessageType.ERROR_MESSAGE;
+import static homework_2.pyramid_printer.MessageType.ERROR_WRONG_FORMAT_MESSAGE;
+import static homework_2.pyramid_printer.MessageType.INFO_MESSAGE;
+import static homework_2.pyramid_printer.Utils.printMessage;
 import static java.lang.System.lineSeparator;
 
 public class PyramidPrinter {
     private static final String LETTER = "x";
-    private static final String INFO_MESSAGE = "Please enter a positive integer for rows";
-    private static final String ERROR_MESSAGE = "Something went wrong. Please restart the program!";
 
-    public void run() {
+    public void start() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            int rows = -1;
-            while (rows == -1) {
-                printMessage(INFO_MESSAGE);
-                String line = reader.readLine();
-                rows = isValidNumber(line) ? Integer.parseInt(line) : -1;
-            }
+            printMessage(INFO_MESSAGE.getMessage());
+            String line = reader.readLine();
+            int rows = getNumber(line);
             generatePyramid(rows);
         } catch (IOException e) {
-            printMessage(ERROR_MESSAGE);
+            printMessage(ERROR_MESSAGE.getMessage());
+        } catch (PyramidPrinterException e) {
+            printMessage(e.getMessage());
         }
     }
 
-    private boolean isValidNumber(String number) {
+    private int getNumber(String text) throws PyramidPrinterException {
+        int number;
         try {
-            if (Integer.parseInt(number) < 1) {
-                return false;
+            number = Integer.parseInt(text);
+            if (number < 1) {
+                throw new PyramidPrinterException(ERROR_WRONG_FORMAT_MESSAGE);
             }
         } catch (NumberFormatException e) {
-            return false;
+            throw new PyramidPrinterException(ERROR_WRONG_FORMAT_MESSAGE);
         }
-        return true;
+        return number;
     }
 
     private void generatePyramid(int rows) {
@@ -43,9 +46,5 @@ public class PyramidPrinter {
             }
             printMessage(lineSeparator());
         }
-    }
-
-    private void printMessage(String text) {
-        System.out.print(text);
     }
 }

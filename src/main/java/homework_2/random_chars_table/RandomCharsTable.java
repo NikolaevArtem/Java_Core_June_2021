@@ -7,42 +7,32 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
+import static homework_2.random_chars_table.MessageType.ERROR_MESSAGE;
+import static homework_2.random_chars_table.MessageType.INFO_MESSAGE_FOR_COLUMNS;
+import static homework_2.random_chars_table.MessageType.INFO_MESSAGE_FOR_ROWS;
+import static homework_2.random_chars_table.MessageType.INFO_MESSAGE_FOR_STRATEGY;
+import static homework_2.random_chars_table.MessageType.INTEGER_ERROR_MESSAGE;
+import static homework_2.random_chars_table.MessageType.STRATEGY_ERROR_MESSAGE;
+import static homework_2.random_chars_table.Utils.printMessage;
 import static java.lang.System.lineSeparator;
 
 public class RandomCharsTable {
     private static final int MAX_CHAR = 90;
     private static final int MIN_CHAR = 65;
-    private static final String INFO_MESSAGE_FOR_COLUMNS = "Enter a positive integer for columns: ";
-    private static final String INFO_MESSAGE_FOR_ROWS = "Enter a positive integer for rows: ";
-    private static final String INFO_MESSAGE_FOR_STRATEGY = "Enter the word \"odd\" or \"even\" without quotes for strategy: ";
-    private static final String INTEGER_ERROR_MESSAGE = "It was not a positive integer. Please try again: ";
-    private static final String ERROR_MESSAGE = "Something went wrong. Please restart the program!";
-    private static final String STRATEGY_ERROR_MESSAGE = "It was not a word \"odd\" or \"even\"! Please try again: ";
 
-    public void run() {
-        int columns = -1;
-        int rows = -1;
-        String strategy = "";
+    public void start() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            String line;
-            printMessage(INFO_MESSAGE_FOR_COLUMNS);
-            while (columns == -1) {
-                line = reader.readLine();
-                columns = isValidNumber(line) ? Integer.parseInt(line) : -1;
-            }
-            printMessage(INFO_MESSAGE_FOR_ROWS);
-            while (rows == -1) {
-                line = reader.readLine();
-                rows = isValidNumber(line) ? Integer.parseInt(line) : -1;
-            }
-            printMessage(INFO_MESSAGE_FOR_STRATEGY);
-            while (strategy.equals("")) {
-                line = reader.readLine();
-                strategy = isOddOrEven(line) ? line : "";
-            }
+            printMessage(INFO_MESSAGE_FOR_COLUMNS.getMessage());
+            int columns = getNumber(reader.readLine());
+            printMessage(INFO_MESSAGE_FOR_ROWS.getMessage());
+            int rows = getNumber(reader.readLine());
+            printMessage(INFO_MESSAGE_FOR_STRATEGY.getMessage());
+            String strategy = getStrategy(reader.readLine());
             showCharsTable(columns, rows, strategy);
         } catch (IOException e) {
-            printMessage(ERROR_MESSAGE);
+            throw new RandomCharsTableException(ERROR_MESSAGE);
+        } catch (RandomCharsTableException e) {
+            printMessage(e.getMessage());
         }
     }
 
@@ -66,25 +56,25 @@ public class RandomCharsTable {
         return (char) ThreadLocalRandom.current().nextInt(MIN_CHAR, MAX_CHAR + 1);
     }
 
-    private boolean isValidNumber(String number) {
+    private int getNumber(String text) throws RandomCharsTableException {
+        int number;
         try {
-            if (Integer.parseInt(number) < 1) {
-                printMessage(INTEGER_ERROR_MESSAGE);
-                return false;
+            number = Integer.parseInt(text);
+            if (number < 1) {
+                throw new RandomCharsTableException(INTEGER_ERROR_MESSAGE);
             }
         } catch (NumberFormatException e) {
-            printMessage(INTEGER_ERROR_MESSAGE);
-            return false;
+            throw new RandomCharsTableException(INTEGER_ERROR_MESSAGE);
         }
-        return true;
+        return number;
     }
 
-    private boolean isOddOrEven(String line) {
+    private String getStrategy(String line) throws RandomCharsTableException {
         if (line.toLowerCase().equals("odd") || line.toLowerCase().equals("even")) {
-            return true;
+            return line.toLowerCase();
+        } else {
+            throw new RandomCharsTableException(STRATEGY_ERROR_MESSAGE);
         }
-        printMessage(STRATEGY_ERROR_MESSAGE);
-        return false;
     }
 
     private boolean isCharFitsStrategy(char ch, String strategy) {
@@ -98,9 +88,5 @@ public class RandomCharsTable {
             result.append(ch).append(", ");
         }
         return result.substring(0, result.toString().trim().length() - 1);
-    }
-
-    private void printMessage(String text) {
-        System.out.print(text);
     }
 }
