@@ -1,25 +1,36 @@
-package homework_2;
+package homework_2.random_chars_table;
+
+import homework_2.bufferReaders.BufferReader;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static homework_2.BufferReader.bufferReaderConsoleForRandom;
-
 public class RandomCharsTable {
-    public static void main(String[] args) throws IOException {
-        String inputString = bufferReaderConsoleForRandom();
-        String[] arrayWithInputData = inputString.split(" ");
+
+    public void run() throws IOException {
+        BufferReader randomBufferReader = new BufferReader();
+        String inputString = randomBufferReader.bufferReaderConsoleForRandom();
+        String[] arrayWithInputData = inputString.trim().split(" ");
+
+        if(arrayWithInputData.length != 3){
+            System.out.println("Should be typed 3 parameters (e.g. 3 3 odd)");
+            return;
+        }
 
         int row = Integer.parseInt(arrayWithInputData[0]);
         int column = Integer.parseInt(arrayWithInputData[1]);
         String typeOfParity = arrayWithInputData[2];
 
+        if(!typeOfParity.equals("even") && !typeOfParity.equals("odd")){
+            System.out.println("Wrong type parameter");
+            return;
+        }
+
         returnAnswer(generateArrays (row, column), typeOfParity);
     }
 
-    private static char[][] generateArrays(int j, int k){
+    private char[][] generateArrays(int j, int k){
         char[][] arr = new char[j][k];
         for (int row = 0; row < j; row ++) {
             for (int col = 0; col < k; col++) {
@@ -29,7 +40,7 @@ public class RandomCharsTable {
         return arr;
     }
 
-    private static void returnAnswer(char[][] arr, String type){
+    private void returnAnswer(char[][] arr, String type){
         List<String > result = new ArrayList<> ();
         String array = "";
         for (int row = 0; row < arr.length; row ++) {

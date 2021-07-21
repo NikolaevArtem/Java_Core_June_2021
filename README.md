@@ -8,3 +8,4 @@
 |HW2 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_2) | The app that reads input arguments and prints them, until "error" argument |
 
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+[Link to CodingBat](https://codingbat.com/done?user=segodnik@gmail.com&tag=8130222420)
