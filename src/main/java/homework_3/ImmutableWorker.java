@@ -3,7 +3,6 @@ package homework_3;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public final class ImmutableWorker {
     private final String name;
     private final String department;
