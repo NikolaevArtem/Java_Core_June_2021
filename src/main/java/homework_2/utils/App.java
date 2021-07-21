@@ -26,26 +26,13 @@ public abstract class App implements Executable{
         printResult(calculate(), inputStr);
     }
 
-    /**
-     *
-     * @param result Result.
-     * @param inputValue The value entered by the user.
-     */
     protected void printResult(String result, String inputValue) {
         printResult(result, inputValue, printStream);
     }
-    /**
-     *
-     * @param result Result.
-     * @param inputValue The value entered by the user.
-     * @param outputStream Where to print the result.
-     */
+
     protected void printResult(String result, String inputValue, PrintStream outputStream) {
-        String str = "input - " +
-                inputValue +
-                ", " +
-                "output - " +
-                result;
+        String str = "input - " + inputValue +
+                     ", output - " + result;
         outputStream.println(str);
     }
 
