@@ -10,32 +10,36 @@ public class PyramidPrinter {
 
     public void run() {
         System.out.println("Please, input a number:");
-        int countX = bufferedReaderReadConsole();
-        if (countX < 0) {
-            System.out.println(ERROR);
-            return;
-        }
 
-        String s = "x";
-        for (int i = 1; i <= countX; i++) {
-            System.out.println(s);
-            s = s + "x";
+        try {
+            int countX = bufferedReaderReadConsole();
+            validateInput(countX);
+            printConsole(countX);
+        } catch (IOException | IllegalArgumentException e) {
+            System.out.println(ERROR);
         }
     }
 
-    private int bufferedReaderReadConsole() {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            int count = 0;
-            try {
-                count = Integer.parseInt(reader.readLine());
-            } catch (NumberFormatException e) {
-                return -1;
+    private void printConsole(int countX) {
+        StringBuilder result = new StringBuilder("");
+        for (int i = 1; i <= countX; i++) {
+            for (int j = 0; j < i; j++) {
+                result.append("x");
             }
-            return count;
-        } catch (IOException e) {
-            e.printStackTrace();
+            result.append("\n");
         }
-        // Что лучше возвращать в return?
-        return -1;
+        System.out.println(result);
+    }
+
+    private int bufferedReaderReadConsole() throws IOException, NumberFormatException {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            return Integer.parseInt(reader.readLine());
+        }
+    }
+
+    private void validateInput(int i) {
+        if (i < 0) {
+            throw new IllegalArgumentException();
+        }
     }
 }

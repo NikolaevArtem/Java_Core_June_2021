@@ -12,63 +12,26 @@ public class RandomCharsTable {
     private int width;
     private String strategy;
 
-    private String strategyEven = "Even letters -";
-    private String strategyOdd = "Odd letters -";
-
     public void run() {
 
         System.out.println("[Input example: 2 3 odd]");
         System.out.println("Please, input 2 positive numbers and a strategy (even/odd)");
 
-        String inputFull = bufferedReaderReadConsole();
         try {
+            String inputFull = bufferedReaderReadConsole();
             parseInput(inputFull);
             validateInputData(length, width, strategy);
-        } catch (IllegalArgumentException e) {
+            String strategyRes = createCharTable();
+            System.out.println(strategyRes);
+        } catch (IOException | IllegalArgumentException e) {
             System.out.println(ERROR);
-            return;
-        }
-
-        char[][] table = new char[length][width];
-
-        for (int i = 0; i < length; i++) {
-            System.out.print("|");
-
-            for (int j = 0; j < width; j++) {
-                int x = (int) (Math.random() * 26 + 65);
-                table[i][j] = (char) x;
-                if (x % 2 == 0) {
-                    strategyEven = strategyEven + " " + table[i][j] + ",";
-                } else {
-                    strategyOdd = strategyOdd + " " + table[i][j] + ",";
-                }
-                System.out.print(" " + table[i][j] + " |");
-            }
-
-            System.out.println();
-        }
-
-        strategyOdd = deleteLastCommaInStrategy(strategyOdd);
-        strategyEven = deleteLastCommaInStrategy(strategyEven);
-
-        if (strategy.equals("even")) {
-            System.out.print(strategyEven);
-        }
-
-        if (strategy.equals("odd")) {
-            System.out.print(strategyOdd);
         }
     }
 
-    private String bufferedReaderReadConsole() {
+    private String bufferedReaderReadConsole() throws IOException, NumberFormatException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            String input = reader.readLine();
-            return input;
-        } catch (IOException e) {
-            e.printStackTrace();
+            return reader.readLine();
         }
-        // Корректно ли здесь возвращать null или нет?
-        return null;
     }
 
     private void parseInput(String s) {
@@ -79,13 +42,9 @@ public class RandomCharsTable {
             throw new IllegalArgumentException();
         }
 
-        try {
-            length = Integer.parseInt(array[0]);
-            width = Integer.parseInt(array[1]);
-            strategy = array[2];
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
+        length = Integer.parseInt(array[0]);
+        width = Integer.parseInt(array[1]);
+        strategy = array[2];
     }
 
     private void validateInputData(int x, int y, String str) {
@@ -94,11 +53,31 @@ public class RandomCharsTable {
         }
     }
 
-    private String deleteLastCommaInStrategy(String str) {
-        if (str.endsWith(",")) {
-            return str.substring(0, str.length() - 1);
-        } else {
-            return str;
+    private String createCharTable() {
+
+        char[][] table = new char[length][width];
+        StringBuilder strategyEven = new StringBuilder("Even letters -");
+        StringBuilder strategyOdd = new StringBuilder("Odd letters -");
+
+        for (int i = 0; i < length; i++) {
+            System.out.print("|");
+
+            for (int j = 0; j < width; j++) {
+                int x = (int) (Math.random() * 26 + 65);
+                table[i][j] = (char) x;
+                if (x % 2 == 0) {
+                    strategyEven.append(" " + table[i][j] + ",");
+                } else {
+                    strategyOdd.append(" " + table[i][j] + ",");
+                }
+                System.out.print(" " + table[i][j] + " |");
+            }
+            System.out.println();
         }
+
+        strategyOdd = strategyOdd.deleteCharAt(strategyOdd.length() - 1);
+        strategyEven = strategyEven.deleteCharAt(strategyEven.length() - 1);
+
+        return "even".equals(strategy) ? strategyEven.toString() : strategyOdd.toString();
     }
 }

@@ -14,41 +14,31 @@ public class TrafficLight {
 
     public void run() {
         System.out.println("Please, input a number of seconds:");
-        int seconds = bufferedReaderReadConsole();
-
         try {
+            int seconds = bufferedReaderReadConsole();
             validateInput(seconds);
-        } catch (IllegalArgumentException e) {
-            return;
-        }
-
-        System.out.println(showLight(seconds));
-    }
-
-    private int bufferedReaderReadConsole() {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            int secondsIn = Integer.parseInt(reader.readLine());
-            return secondsIn;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        // Что лучше возвращать в return?
-        return -1;
-    }
-
-    // Как тестировать?
-    private void validateInput(int i) {
-        if (i < 0) {
+            System.out.println(showLight(seconds));
+        } catch (NumberFormatException | IOException ex) {
             System.out.println(ERROR);
-            throw new IllegalArgumentException();
-        } else if (i > 86399) {
-            System.out.println("The day is over");
-            throw new IllegalArgumentException();
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage());
         }
     }
 
-    // Можно ли здесь сделать метод статическим (для более короткого вызова метода в тестах),
-    // или это неправильно?
+    private int bufferedReaderReadConsole() throws IOException, NumberFormatException {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            return Integer.parseInt(reader.readLine());
+        }
+    }
+
+    private void validateInput(int i) throws IllegalArgumentException{
+        if (i < 0) {
+            throw new IllegalArgumentException(ERROR);
+        } else if (i > 86399) {
+            throw new IllegalArgumentException("The day is over");
+        }
+    }
+
     public static String showLight(int i) {
 
         int secondsMod = i % 60;
