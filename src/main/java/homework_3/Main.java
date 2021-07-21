@@ -15,5 +15,10 @@ public class Main {
         age.setDay(5);
         System.out.println(age.getDay());
         System.out.println(worker.getAge().getDay());
+        System.out.println(worker.getName());
+        worker = worker.updateWorker("Jackson", "Sales", 897, testList, age);
+        System.out.println(worker);
+        worker = worker.updateWorker(null, "Account", 0, null, null);
+        System.out.println(worker);
     }
 }
