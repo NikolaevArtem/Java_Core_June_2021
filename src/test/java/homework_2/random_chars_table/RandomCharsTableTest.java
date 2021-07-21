@@ -26,16 +26,6 @@ class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void InputValidArgumentsNotSameResults() {
-        setInput("3 3 even");
-
-        new RandomCharsTable().run();
-        printOut();
-        new RandomCharsTable().run();
-        printOut();
-    }
-
-    @Test
     void InputValidEvenArguments() {
         setInput("3 3 even");
 
