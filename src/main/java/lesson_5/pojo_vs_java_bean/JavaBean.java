@@ -21,4 +21,8 @@ public class JavaBean {
     this.field = field;
   }
 
+  public JavaBean() {
+
+  }
+
 }

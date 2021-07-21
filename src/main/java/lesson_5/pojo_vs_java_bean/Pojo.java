@@ -7,4 +7,7 @@ public class Pojo {
   public int in;
   public String field;
 
+  public static void main(String[] args) {
+  }
+
 }
