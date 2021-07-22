@@ -4,6 +4,7 @@ import base.UnitBase;
 import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -67,25 +68,10 @@ class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void InputFourRowsThreeColumnsAsArgument() {
-        setInput("4 3 odd");
-
-        new RandomCharsTable().run();
-        printOut();
-        removeFromOutput("Введите данные:");
-        assertTrue(getOutputLines()[0].matches("(\\|\\s[A-Z]\\s){3}\\|"));
-        assertTrue(getOutputLines()[1].matches("(\\|\\s[A-Z]\\s){3}\\|"));
-        assertTrue(getOutputLines()[2].matches("(\\|\\s[A-Z]\\s){3}\\|"));
-        assertTrue(getOutputLines()[3].matches("(\\|\\s[A-Z]\\s){3}\\|"));
-    }
-
-
-    // дальше тесты уродливы, но как иначе распарсить эти строки и сравнить все я не знаю
-    @Test
-    void InputCheckStrategyEven() {
-        final int ROWS = 3;
-        final int COLUMNS = 4;
+    void InputRandomRowsAndColumnsAsArgument() {
         final String STRATEGY = "even";
+        final int ROWS = 1 + new Random().nextInt(20);
+        final int COLUMNS = 1 + new Random().nextInt(20);
         final String input = "" + ROWS + " " + COLUMNS + " " + STRATEGY;
 
         setInput(input);
@@ -93,29 +79,32 @@ class RandomCharsTableTest extends UnitBase {
         new RandomCharsTable().run();
         printOut();
         removeFromOutput("Введите данные:");
-
-        final String[] strategyRow = getOutputLines()[ROWS].trim().split(" - ");
-        final char[] evenCharsInAnswerRow = strategyRow[1].trim().replaceAll(", ","").toCharArray();
-        StringBuffer charsInTable = new StringBuffer();
-        for (int i = 0; i < ROWS; i++){
-            charsInTable.append(getOutputLines()[i].trim().replaceAll("\\|", "").replace(" ", ""));
-        }
-
-        for (char c : evenCharsInAnswerRow) {
-            assertEquals(0, c % 2);
-            assertNotEquals(-1, charsInTable.indexOf("" + c));
-        }
-        assertEquals("Even letters", strategyRow[0]);
+        for (int i = 0; i < ROWS; i++)
+        assertTrue(getOutputLines()[i].matches("(\\|\\s[A-Z]\\s){" + COLUMNS + "}\\|"));
     }
 
-
-    // дальше тесты уродливы, но как иначе распарсить эти строки и сравнить все я не знаю
+    // дальше тест уродлив, но как иначе распарсить эти строки и сравнить все я не знаю
+    // за то покрывает все варианты.
     @Test
-    void InputCheckStrategyOdd() {
-        final int ROWS = 5;
-        final int COLUMNS = 4;
-        final String STRATEGY = "odd";
-        final String input = "" + ROWS + " " + COLUMNS + " " + STRATEGY;
+    void InputRandomCheckStrategy() {
+        final boolean isOdd = new Random().nextBoolean();
+
+        final int ROWS = 1 + new Random().nextInt(20);
+        final int COLUMNS = 1 + new Random().nextInt(20);
+
+        final String STRATEGY;
+        final char testChar;  // добавим точно валидное значение, что бы быть уверенным в тесте
+
+        if (isOdd) {
+            STRATEGY = "Odd";
+            testChar = 91;
+
+        } else {
+            STRATEGY = "Even";
+            testChar = 92;
+        }
+
+        final String input = "" + ROWS + " " + COLUMNS + " " + STRATEGY.toLowerCase();
 
         setInput(input);
 
@@ -124,17 +113,20 @@ class RandomCharsTableTest extends UnitBase {
         removeFromOutput("Введите данные:");
 
         final String[] strategyRow = getOutputLines()[ROWS].trim().split(" - ");
-        final char[] oddCharsInAnswerRow = strategyRow[1].trim().replaceAll(", ","").toCharArray();
+        final char[] charsInAnswerRow =
+                (strategyRow[1].replaceAll(",|\\s","") + testChar).toCharArray();
 
-        StringBuffer charsInTable = new StringBuffer();
+        StringBuilder charsInTable = new StringBuilder();
         for (int i = 0; i < ROWS; i++){
-            charsInTable.append(getOutputLines()[i].trim().replaceAll("\\|", "").replace(" ", ""));
+            charsInTable.append(getOutputLines()[i].replaceAll("\\||\\s" , ""));
         }
 
-        for (char c : oddCharsInAnswerRow) {
-            assertEquals(1, c % 2);
-            assertNotEquals(-1, charsInTable.indexOf("" + c));
+        charsInTable.append(testChar);
+
+        for (char aChar : charsInAnswerRow) {
+            assertEquals(testChar % 2, aChar % 2);
+            assertNotEquals(-1, charsInTable.indexOf("" + aChar));
         }
-        assertEquals("Odd letters", strategyRow[0]);
+        assertEquals(STRATEGY + " letters", strategyRow[0]);
     }
 }
