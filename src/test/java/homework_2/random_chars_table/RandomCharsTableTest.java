@@ -1,6 +1,7 @@
 package homework_2.random_chars_table;
 
 import base.UnitBase;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RandomCharsTableTest extends UnitBase {
     @Test
     void InputZeroAsArgument() {
-        setInput("0");
+        setInput("0 0 odd");
 
         new RandomCharsTable().run();
         printOut();
@@ -85,7 +86,7 @@ class RandomCharsTableTest extends UnitBase {
 
     // дальше тест уродлив, но как иначе распарсить эти строки и сравнить все я не знаю
     // за то покрывает все варианты.
-    @Test
+    @RepeatedTest(10)
     void InputRandomCheckStrategy() {
         final boolean isOdd = new Random().nextBoolean();
 
