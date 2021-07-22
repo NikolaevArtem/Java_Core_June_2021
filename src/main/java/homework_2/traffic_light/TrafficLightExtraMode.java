@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class TrafficLightExtraMode extends TrafficLight {
 
     @Override
-    public void start() {
+    public void run() {
         System.out.println("Enter the number");
         Scanner scanner = new Scanner(System.in);
         String inputStr = scanner.nextLine();

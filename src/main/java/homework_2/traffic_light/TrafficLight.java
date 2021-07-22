@@ -9,33 +9,35 @@ public class TrafficLight {
     protected static final String ANSI_RED_BACKGROUND = "\u001B[41m";
     protected static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     protected static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
+    private static final String ERROR_MESSAGE = "Only 1 non-negative integer is allowed as passed parameter";
 
-    public void start() {
+    public void run() {
         System.out.println("Enter the number");
         Scanner scanner = new Scanner(System.in);
         String inputStr = scanner.nextLine();
         if (isValid(inputStr)) {
             inputStr = inputStr.replaceAll("\\s+", "");
-            System.out.println(getTrafficLight(Integer.parseInt(inputStr)));
+            try {
+                if (Integer.parseInt(inputStr) < 86400) {
+                    System.out.println(getTrafficLight(Integer.parseInt(inputStr)));
+                } else {
+                    System.out.println(ANSI_RED + "Day is over" + ANSI_RESET);
+                }
+            } catch (NumberFormatException exception) {
+                System.out.println(ANSI_RED + ERROR_MESSAGE + ANSI_RESET);
+            }
+        } else {
+            System.out.println(ANSI_RED + ERROR_MESSAGE + ANSI_RESET);
         }
         scanner.close();
     }
 
     protected boolean isValid(String arg) {
-        if (!arg.matches("^\\s*[+]?[1-9][0-9]*\\s*$")) {
-            System.out.println(ANSI_RED + "Only 1 non-negative integer is allowed as passed parameter" + ANSI_RESET);
-            return false;
-        }
-
-        if (Integer.parseInt(arg) > 86399) {
-            System.out.println(ANSI_RED + "Day is over" + ANSI_RESET);
-            return false;
-        }
-        return true;
+        return arg.matches("^\\s*[+]?[0-9]*\\s*$");
     }
 
     protected String getTrafficLight(int numberOfSeconds) {
-        int cutNumberOfSeconds = numberOfSeconds - 60 * (numberOfSeconds / 60);
+        int cutNumberOfSeconds = numberOfSeconds % 60;
         if (cutNumberOfSeconds >= 0 && cutNumberOfSeconds < 35) {
             return ANSI_GREEN_BACKGROUND + "Green light" + ANSI_RESET;
         }
