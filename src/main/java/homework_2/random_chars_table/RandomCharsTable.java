@@ -8,7 +8,7 @@ public class RandomCharsTable {
     private static int length;
     private static int width;
 
-    protected static void greeting() {
+    protected static void run() {
         System.out.println("Enter valid table length, width and strategy(even or odd) in format \"length width strategy\" ");
         getParameters();
     }
