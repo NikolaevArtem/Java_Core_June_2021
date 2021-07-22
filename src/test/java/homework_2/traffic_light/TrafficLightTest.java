@@ -7,6 +7,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TrafficLightTest extends UnitBase {
 
+    void removeOutputDifference(){
+        removeFromOutput("Traffic Light App.");
+        removeFromOutput("Enter the number of seconds between 0 and 86399 inclusive:");
+        removeFromOutput("\u001b[32m");
+        removeFromOutput("\u001b[31m");
+        removeFromOutput("\u001b[33m");
+        removeFromOutput("\u001b[0m");
+    }
+
     @Test
     void givenSeconds0_whenRun_ThenReturnGreen() {
         setInput("0");
@@ -86,14 +95,5 @@ class TrafficLightTest extends UnitBase {
         printOut();
         removeOutputDifference();
         assertEquals("Only 1 non-negative integer is allowed as passed parameter.", getOutput());
-    }
-
-    void removeOutputDifference(){
-        removeFromOutput("Traffic Light App.");
-        removeFromOutput("Enter the number of seconds between 0 and 86399 inclusive:");
-        removeFromOutput("\u001b[32m");
-        removeFromOutput("\u001b[31m");
-        removeFromOutput("\u001b[33m");
-        removeFromOutput("\u001b[0m");
     }
 }

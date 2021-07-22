@@ -8,6 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PyramidPrinterTest extends UnitBase {
 
+    void removeOutputDifference() {
+        removeFromOutput("Pyramid Printer App \nEnter height: ");
+    }
+
     @Test
     void givenHeight5_whenRun_ThenReturn_Pyramid5Height() {
         setInput("5");
@@ -65,9 +69,4 @@ class PyramidPrinterTest extends UnitBase {
         removeOutputDifference();
         assertEquals("Only 1 non-negative integer is allowed as passed parameter.", getOutput());
     }
-
-    void removeOutputDifference(){
-        removeFromOutput("Pyramid Printer App \nEnter height: ");
-    }
-
 }
