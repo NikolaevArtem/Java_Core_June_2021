@@ -3,6 +3,7 @@ package homework_2.random_chars_table;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Random;
 
 public class RandomCharsTable {
 
@@ -63,7 +64,8 @@ public class RandomCharsTable {
             System.out.print("|");
 
             for (int j = 0; j < width; j++) {
-                int x = (int) (Math.random() * 26 + 65);
+                Random r = new Random();
+                int x = (r.nextInt(26) + 65);
                 table[i][j] = (char) x;
                 if (x % 2 == 0) {
                     strategyEven.append(" " + table[i][j] + ",");

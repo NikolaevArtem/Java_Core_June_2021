@@ -39,7 +39,7 @@ public class TrafficLight {
         }
     }
 
-    public static String showLight(int i) {
+    private String showLight(int i) {
 
         int secondsMod = i % 60;
         return secondsMod < 35 ? GREEN

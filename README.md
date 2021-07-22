@@ -8,8 +8,11 @@
 | HW2.1 | [Traffic Light](./src/main/java/homework_2/traffic_light) | This console app reads an integer of seconds and prints a color of traffic light.|
 | HW2.2 | [Pyramid Printer](./src/main/java/homework_2/pyramid_printer) | This console app prints a pyramid of "x". |
 | HW2.3 | [Random Chars Table](./src/main/java/homework_2/random_chars_table) | This console app makes a table of chars from A to Z and shows evens/odds of them depending on the strategy we have chosen.  |
-| HW3 | [Immutable class](./src/main/java/homework_3) | This is an example of simple immutable class.  |
+| HW3.1 | [Immutable class](./src/main/java/homework_3) | This is an example of simple immutable class.  |
+| HW3.2 | [JUnit Tests](./src/test/java/homework_2) | Tests for homework2.  |
 
-[Link to CodingBat](https://codingbat.com/done?user=ashandrikov@gmail.com&tag=8115696431)
+[Link to my CodingBat](https://codingbat.com/done?user=ashandrikov@gmail.com&tag=8115696431)
 
-[Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+[Link to markdown giude (article)](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) <br/>
+[Link to markdown giude (video)](https://www.youtube.com/watch?v=FFBTGdEMrQ4)
+
