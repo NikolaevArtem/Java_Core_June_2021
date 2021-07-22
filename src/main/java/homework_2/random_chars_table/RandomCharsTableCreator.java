@@ -2,9 +2,6 @@ package homework_2.random_chars_table;
 
 import java.util.Random;
 
-/**
- * todo Document type RandomCharsTableCreator
- */
 public class RandomCharsTableCreator {
 
     private RandomCharsTableCreator() {
