@@ -1,6 +1,6 @@
 package homework_2.traffic_light;
 
-import static homework_2.traffic_light.Utils.isExtraMode;
+import static homework_2.traffic_light.utils.Utils.isExtraMode;
 
 public class Main {
     public static void main(String[] args) {

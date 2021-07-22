@@ -1,16 +1,19 @@
 package homework_2.traffic_light;
 
-import static homework_2.traffic_light.MessageType.INFO_MESSAGE;
-import static homework_2.traffic_light.MessageType.INFO_MESSAGE_TO_MODE_0;
-import static homework_2.traffic_light.MessageType.INFO_MESSAGE_TO_MODE_1;
-import static homework_2.traffic_light.MessageType.LIGHT_GREEN_MESSAGE;
-import static homework_2.traffic_light.MessageType.LIGHT_RED_MESSAGE;
-import static homework_2.traffic_light.MessageType.LIGHT_YELLOW_MESSAGE;
-import static homework_2.traffic_light.MessageType.ERROR_MESSAGE_EXCEED_LIMIT;
-import static homework_2.traffic_light.MessageType.ERROR_MESSAGE_INCORRECT_FORMAT;
-import static homework_2.traffic_light.MessageType.ERROR_MESSAGE_NEGATIVE_NUMBERS;
-import static homework_2.traffic_light.Utils.getData;
-import static homework_2.traffic_light.Utils.printMessage;
+import homework_2.traffic_light.exception.TrafficLightException;
+import homework_2.traffic_light.utils.MessageType;
+
+import static homework_2.traffic_light.utils.MessageType.INFO_MESSAGE;
+import static homework_2.traffic_light.utils.MessageType.INFO_MESSAGE_TO_MODE_0;
+import static homework_2.traffic_light.utils.MessageType.INFO_MESSAGE_TO_MODE_1;
+import static homework_2.traffic_light.utils.MessageType.LIGHT_GREEN_MESSAGE;
+import static homework_2.traffic_light.utils.MessageType.LIGHT_RED_MESSAGE;
+import static homework_2.traffic_light.utils.MessageType.LIGHT_YELLOW_MESSAGE;
+import static homework_2.traffic_light.utils.MessageType.ERROR_MESSAGE_EXCEED_LIMIT;
+import static homework_2.traffic_light.utils.MessageType.ERROR_MESSAGE_INCORRECT_FORMAT;
+import static homework_2.traffic_light.utils.MessageType.ERROR_MESSAGE_NEGATIVE_NUMBERS;
+import static homework_2.traffic_light.utils.Utils.getData;
+import static homework_2.traffic_light.utils.Utils.printMessage;
 
 public class TrafficLight {
     private static final int SECONDS_IN_DAY = 86399;

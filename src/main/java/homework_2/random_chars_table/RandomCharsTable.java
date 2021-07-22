@@ -1,5 +1,7 @@
 package homework_2.random_chars_table;
 
+import homework_2.random_chars_table.exception.RandomCharsTableException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,13 +9,13 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static homework_2.random_chars_table.MessageType.ERROR_MESSAGE;
-import static homework_2.random_chars_table.MessageType.INFO_MESSAGE_FOR_COLUMNS;
-import static homework_2.random_chars_table.MessageType.INFO_MESSAGE_FOR_ROWS;
-import static homework_2.random_chars_table.MessageType.INFO_MESSAGE_FOR_STRATEGY;
-import static homework_2.random_chars_table.MessageType.INTEGER_ERROR_MESSAGE;
-import static homework_2.random_chars_table.MessageType.STRATEGY_ERROR_MESSAGE;
-import static homework_2.random_chars_table.Utils.printMessage;
+import static homework_2.random_chars_table.utils.MessageType.ERROR_MESSAGE;
+import static homework_2.random_chars_table.utils.MessageType.INFO_MESSAGE_FOR_COLUMNS;
+import static homework_2.random_chars_table.utils.MessageType.INFO_MESSAGE_FOR_ROWS;
+import static homework_2.random_chars_table.utils.MessageType.INFO_MESSAGE_FOR_STRATEGY;
+import static homework_2.random_chars_table.utils.MessageType.INTEGER_ERROR_MESSAGE;
+import static homework_2.random_chars_table.utils.MessageType.STRATEGY_ERROR_MESSAGE;
+import static homework_2.random_chars_table.utils.Utils.printMessage;
 import static java.lang.System.lineSeparator;
 
 public class RandomCharsTable {

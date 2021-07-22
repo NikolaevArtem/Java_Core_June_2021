@@ -1,4 +1,4 @@
-package homework_2.random_chars_table;
+package homework_2.random_chars_table.utils;
 
 public enum MessageType {
     INFO_MESSAGE_FOR_COLUMNS("Enter a positive integer for columns: "),

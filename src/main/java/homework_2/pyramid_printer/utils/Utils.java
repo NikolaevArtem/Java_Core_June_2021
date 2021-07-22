@@ -1,4 +1,4 @@
-package homework_2.random_chars_table;
+package homework_2.pyramid_printer.utils;
 
 public class Utils {
     public static void printMessage(String text) {

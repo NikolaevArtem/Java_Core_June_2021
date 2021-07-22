@@ -1,4 +1,4 @@
-package homework_2.pyramid_printer;
+package homework_2.pyramid_printer.utils;
 
 public enum MessageType {
     INFO_MESSAGE("Please enter a positive integer for rows"),

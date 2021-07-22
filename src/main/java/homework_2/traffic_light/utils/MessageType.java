@@ -1,4 +1,4 @@
-package homework_2.traffic_light;
+package homework_2.traffic_light.utils;
 
 public enum MessageType {
     ERROR_MESSAGE_NEGATIVE_NUMBERS("You should enter only positive numbers or 0."),

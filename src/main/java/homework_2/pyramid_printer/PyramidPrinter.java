@@ -1,13 +1,15 @@
 package homework_2.pyramid_printer;
 
+import homework_2.pyramid_printer.exception.PyramidPrinterException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static homework_2.pyramid_printer.MessageType.ERROR_MESSAGE;
-import static homework_2.pyramid_printer.MessageType.ERROR_WRONG_FORMAT_MESSAGE;
-import static homework_2.pyramid_printer.MessageType.INFO_MESSAGE;
-import static homework_2.pyramid_printer.Utils.printMessage;
+import static homework_2.pyramid_printer.utils.MessageType.ERROR_MESSAGE;
+import static homework_2.pyramid_printer.utils.MessageType.ERROR_WRONG_FORMAT_MESSAGE;
+import static homework_2.pyramid_printer.utils.MessageType.INFO_MESSAGE;
+import static homework_2.pyramid_printer.utils.Utils.printMessage;
 import static java.lang.System.lineSeparator;
 
 public class PyramidPrinter {

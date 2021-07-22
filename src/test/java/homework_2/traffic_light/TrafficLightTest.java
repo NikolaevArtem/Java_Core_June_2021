@@ -4,15 +4,15 @@ import base.UnitBase;
 import org.junit.jupiter.api.Test;
 
 
-import static homework_2.traffic_light.MessageType.ERROR_MESSAGE_EXCEED_LIMIT;
-import static homework_2.traffic_light.MessageType.ERROR_MESSAGE_INCORRECT_FORMAT;
-import static homework_2.traffic_light.MessageType.ERROR_MESSAGE_NEGATIVE_NUMBERS;
-import static homework_2.traffic_light.MessageType.INFO_MESSAGE;
-import static homework_2.traffic_light.MessageType.INFO_MESSAGE_TO_MODE_0;
-import static homework_2.traffic_light.MessageType.INFO_MESSAGE_TO_MODE_1;
-import static homework_2.traffic_light.MessageType.LIGHT_GREEN_MESSAGE;
-import static homework_2.traffic_light.MessageType.LIGHT_RED_MESSAGE;
-import static homework_2.traffic_light.MessageType.LIGHT_YELLOW_MESSAGE;
+import static homework_2.traffic_light.utils.MessageType.ERROR_MESSAGE_EXCEED_LIMIT;
+import static homework_2.traffic_light.utils.MessageType.ERROR_MESSAGE_INCORRECT_FORMAT;
+import static homework_2.traffic_light.utils.MessageType.ERROR_MESSAGE_NEGATIVE_NUMBERS;
+import static homework_2.traffic_light.utils.MessageType.INFO_MESSAGE;
+import static homework_2.traffic_light.utils.MessageType.INFO_MESSAGE_TO_MODE_0;
+import static homework_2.traffic_light.utils.MessageType.INFO_MESSAGE_TO_MODE_1;
+import static homework_2.traffic_light.utils.MessageType.LIGHT_GREEN_MESSAGE;
+import static homework_2.traffic_light.utils.MessageType.LIGHT_RED_MESSAGE;
+import static homework_2.traffic_light.utils.MessageType.LIGHT_YELLOW_MESSAGE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrafficLightTest extends UnitBase {
