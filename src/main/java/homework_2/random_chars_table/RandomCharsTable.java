@@ -21,7 +21,7 @@ public class RandomCharsTable implements Run {
         } else System.out.println("Odd number : " + res.substring(0, res.length() - 1));
     }
 
-    public void run() throws IOException {
+    public void run()  {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         try {
@@ -29,6 +29,10 @@ public class RandomCharsTable implements Run {
             String array[] = str.split(" ");
             int length = Integer.parseInt(array[0]);
             int width = Integer.parseInt(array[1]);
+            if (length<=1||width<=1) {
+                System.out.println("Use number bigger than one");
+                return;
+            }
             String strategy = array[2];
             if (strategy.equals("odd") || strategy.equals("even")) {
                 char[][] arr = new char[length][width];
@@ -58,8 +62,14 @@ public class RandomCharsTable implements Run {
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("You need to print two number and one String");
             return;
+        } catch (IOException e) {
+            e.printStackTrace();
         } finally {
-            reader.close();
+            try {
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

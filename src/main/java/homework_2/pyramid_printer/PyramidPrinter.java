@@ -8,24 +8,29 @@ import java.io.InputStreamReader;
 
 public class PyramidPrinter implements Run {
 
-    @Override
-    public void run() throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            int pyramid = Integer.parseInt(reader.readLine());
-            char[] arr = new char[pyramid];
-            while (true) {
-                for (int i = 0; i < pyramid; i++) {
-                    arr[i] = 'x';
-                    System.out.println(arr);
-                }
-                break;
+    public void run() {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            int rows = Integer.parseInt(reader.readLine());
+            if (rows<0) {
+                System.out.println("Use positive number");
+                return;
             }
-        } catch (NumberFormatException e ) {
-            System.out.println("Please use number");
+            printPyramid(rows);
+        } catch (IOException e) {
+            e.printStackTrace();
             return;
-        } finally {
-            reader.close();
+        } catch (NumberFormatException e){
+            System.out.println("Only integer!");
+            return;
+        }
+    }
+
+    static void printPyramid(int rows){
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("x");
+            }
+            System.out.println();
         }
     }
 }
