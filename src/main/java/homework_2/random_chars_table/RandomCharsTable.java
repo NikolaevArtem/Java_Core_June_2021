@@ -18,6 +18,9 @@ public class RandomCharsTable {
         if (tableLength < 1 || tableWidth < 1) {
             throw new IllegalArgumentException();
         }
+        if (subString.length > 3){
+            throw new IllegalArgumentException();
+        }
         if ("even".equals(strategy)) {
             strategyFlag = 0;
         } else if ("odd".equals(strategy)) {
@@ -39,8 +42,8 @@ public class RandomCharsTable {
             String[] subString = bufferedReader.readLine().split(" ");
             checkSetParameters(subString);
         } catch (IOException e) {
-            System.out.println("Something went wrong");
-        } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e) {
+            System.out.println("Something went wrong.");
+        } catch (NullPointerException | IllegalArgumentException | ArrayIndexOutOfBoundsException e) {
             errorMsg();
         }
     }
@@ -60,7 +63,7 @@ public class RandomCharsTable {
     }
 
     void run() {
-        System.out.println("RandomCharTable App");
+        System.out.println("RandomCharTable App.");
         System.out.println("Enter table length, width and strategy separated by a space:");
 
         input();
