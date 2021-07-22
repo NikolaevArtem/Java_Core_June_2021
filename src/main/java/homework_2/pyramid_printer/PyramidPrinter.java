@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class PyramidPrinter {
 
     private void errorMsg() {
-        System.out.println("Only 1 non-negative integer is allowed as passed parameter");
+        System.out.println("Only 1 non-negative integer is allowed as passed parameter.");
     }
 
     private void input() {
@@ -18,7 +18,7 @@ public class PyramidPrinter {
             }
             printerPyramid(height);
         } catch (IOException e) {
-            System.out.println("Something went wrong");
+            System.out.println("Something went wrong.");
         } catch (IllegalArgumentException e) {
             errorMsg();
         }
@@ -33,7 +33,7 @@ public class PyramidPrinter {
         }
     }
 
-    public void start() {
+    public void run() {
         System.out.println("Pyramid Printer App \nEnter height: ");
         input();
     }

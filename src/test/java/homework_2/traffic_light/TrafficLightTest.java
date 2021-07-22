@@ -69,6 +69,7 @@ class TrafficLightTest extends UnitBase {
         removeOutputDifference();
         assertEquals("Only 1 non-negative integer is allowed as passed parameter.", getOutput());
     }
+
     @Test
     void given2parameters_whenRun_ThenReturnError() {
         setInput("567 992");
@@ -86,7 +87,6 @@ class TrafficLightTest extends UnitBase {
         removeOutputDifference();
         assertEquals("Only 1 non-negative integer is allowed as passed parameter.", getOutput());
     }
-
 
     void removeOutputDifference(){
         removeFromOutput("Traffic Light App.");
