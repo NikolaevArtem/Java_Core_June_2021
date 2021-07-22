@@ -1,15 +1,15 @@
 package homework_2.pyramid_printer;
 
-import homework_1.Start;
+import homework_1.Run;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class PyramidPrinter implements Start {
+public class PyramidPrinter implements Run {
 
     @Override
-    public void start() throws IOException {
+    public void run() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
             int pyramid = Integer.parseInt(reader.readLine());

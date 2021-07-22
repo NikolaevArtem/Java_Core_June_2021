@@ -1,12 +1,12 @@
 package homework_2.random_chars_table;
 
-import homework_1.Start;
+import homework_1.Run;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class RandomCharsTable implements Start {
+public class RandomCharsTable implements Run {
 
     private static void printResult(int length, int width, char arr[][], String strategy, String res) {
         for (int i = 0; i < length; i++) {
@@ -21,7 +21,7 @@ public class RandomCharsTable implements Start {
         } else System.out.println("Odd number : " + res.substring(0, res.length() - 1));
     }
 
-    public void start() throws IOException {
+    public void run() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         try {

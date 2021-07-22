@@ -11,7 +11,7 @@ public class TrafficLight {
     public static final String ANSI_YELLOW = "\u001B[33m";
 
 
-    public void start() throws IOException {
+    public void run() throws IOException {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
