@@ -11,6 +11,6 @@
 | HW3 | [Traffic light test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_2/traffic_light) | Add unit tests for Traffic Light app |
 | HW3 | [Pyramid printer test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_2/pyramid_printer) | Add unit tests for Print Pyramid app|
 | HW3 | [Random Chars table test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_2/random_chars_table) | Add unit tests for Random Chars Table app |
-| HW3 | [Immutable Class Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_3) | Add Immutable class |
+| HW3 | [Immutable Class](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_3) [Immutable Class test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_3)  | Add Immutable class |
 
 [Link to CodingBat profile](https://codingbat.com/done?user=sveta881@mail.ru&tag=8234249112)
