@@ -1,12 +1,15 @@
 package base;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
+import homework_2.pyramid_printer.PyramidPrinter;
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.io.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public abstract class UnitBase {
 
@@ -58,16 +61,21 @@ public abstract class UnitBase {
     System.setOut(new PrintStream(mockedOut));
   }
 
-//  @Test
-//  void example() {
-//    setInput("2");
-//
-//    new PyramidPrinter().run();
-//    printOut();
-//    removeFromOutput("Please input number"):
-//
-//    assertEquals("x", getOutputLines()[0]);
-//    assertEquals("xx", getOutputLines()[1]);
-//  }
+  @Test
+  public void example() throws IOException {
+    setInput("2");
+
+    PyramidPrinter pyramidPrinter = new PyramidPrinter();
+    pyramidPrinter.run();
+    printOut();
+    removeFromOutput("Please input number");
+
+    assertEquals("x", getOutputLines()[0]);
+    assertEquals("xx", getOutputLines()[1]);
+  }
+  @Test
+  public void test() {
+    Assert.assertEquals ("x", "x");
+  }
 
 }
