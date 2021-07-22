@@ -1,6 +1,5 @@
-package homework_2.random_chars_table;
+package homework_2.random_chars_table.sources;
 
-import java.io.IOException;
 import java.util.Random;
 
 import static homework_2.IOMod.*;
@@ -12,28 +11,39 @@ public class RandomCharsTable {
     private static boolean strategy; // even/odd
     private static StringBuilder result = new StringBuilder();
 
-    public void run() throws IOException {
-        menu();
+    public void run() {
+        inputData();
     }
 
-    private void menu() throws IOException {
+    private void inputData() {
         System.out.print("Input table length, table width, table strategy (even/odd): ");
         String s = bufferedReaderStringReader();
-        String[] parameters = s.split(" ");
-        int tableLength = Integer.parseInt(parameters[0]);
-        int tableWidth = Integer.parseInt(parameters[1]);
-        if (parameters[2].equalsIgnoreCase("odd")) {
-            strategy = false;
-        } else if (parameters[2].equalsIgnoreCase("even")) {
-            strategy = true;
-        } else {
-            System.out.println(ANSI_YELLOW + "WARNING: " + ANSI_RESET +
-                    "Wrong strategy value.\tYou should use only \"even\" or \"odd\" !");
-            return;
-        }
 
-        printRandomABC(tableLength, tableWidth);
-        printResult();
+        try {
+            String[] parameters = s.split(" ");
+            if (parameters.length != 3) {
+                System.out.println(FORMAT_ERROR);
+                return;
+            }
+            int tableLength = Integer.parseInt(parameters[0]);
+            int tableWidth = Integer.parseInt(parameters[1]);
+            if (tableLength <= 0 || tableWidth <= 0) {
+                System.out.println(FORMAT_ERROR);
+                return;
+            }
+            if (parameters[2].equalsIgnoreCase("odd")) {
+                strategy = false;
+            } else if (parameters[2].equalsIgnoreCase("even")) {
+                strategy = true;
+            } else {
+                System.out.println(FORMAT_ERROR);
+                return;
+            }
+            printRandomABC(tableLength, tableWidth);
+            printResult();
+        } catch (NumberFormatException | NullPointerException ex) {
+            System.out.println(FORMAT_ERROR);
+        }
     }
 
     private static void printRandomABC(int length, int width) {
@@ -57,7 +67,7 @@ public class RandomCharsTable {
             if (!String.valueOf(result).contains(String.valueOf(ch))) {
                 result.append(ch);
             }
-        } else { // odd
+        } else if (!strategy && (ch % 2) == 1) { // odd
             if (!String.valueOf(result).contains(String.valueOf(ch))) {
                 result.append(ch);
             }
