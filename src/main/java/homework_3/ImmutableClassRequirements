@@ -8,7 +8,7 @@ Following are the requirements for immutable class:
 6. Do not provide setters for your fields,
 7. Return a deep copy of mutable fields from the getters.
 
-OR
+OR IN OTHER WORDS
 
 1. The class must be declared as final (So that child classes can’t be created)
 2. Data members in the class must be declared as private (So that direct access is not allowed)
