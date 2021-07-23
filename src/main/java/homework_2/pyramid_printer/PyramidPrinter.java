@@ -9,7 +9,7 @@ public class PyramidPrinter {
     private static String brick = "x";
     private static String mode = "default";
 
-    PyramidPrinter(String[] args) {
+    PyramidPrinter(String... args) {
         if (args.length != 0) {
             for (int i = 0; i < args.length; i+=2 ) {
                 if ("-mode".equals(args[i])) {

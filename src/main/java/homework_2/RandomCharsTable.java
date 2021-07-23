@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class RandomCharsTable {
+
     public static void main(String[] args) {
         System.out.println("Enter two positive integer numbers more than 0 to set the length" +
                 " and the width of a table and a strategy(even/odd) ");
