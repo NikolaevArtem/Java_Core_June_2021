@@ -10,3 +10,5 @@
 | HW 2.3 | [Random Chars Table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/TatianaDzenzura/src/main/java/homework_2/random_chars_table) | The app that reads length, width and strategy from the console and generates table of random chars and prints even/odd letters according to strategy |
 
 [Link to markdown guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+[Link to CodingBat](https://codingbat.com/done?user=tatiana22d@gmail.com&tag=53255552)
