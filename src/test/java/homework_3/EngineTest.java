@@ -40,6 +40,17 @@ class EngineTest extends UnitBase {
     }
 
     @Test
+    void givennNonFullData_whenNewEngine_thenGetObject() {
+        String model = "BMW";
+        int power = 150;
+        Engine engine = new Engine(model, power);
+        assertEquals(engine.getModel(), "BMW");
+        assertFalse(engine.isOk());
+        assertEquals(engine.getPower(), 150);
+        assertTrue(engine.getSpec().isEmpty());
+    }
+
+    @Test
     void givenData_whenGetNewEngine_thenGetNewObject() {
         String model = "Mercedes";
         boolean isOk = true;
