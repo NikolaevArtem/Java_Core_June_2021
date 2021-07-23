@@ -1,4 +1,4 @@
-package homework_2_tests.random_chars_table_test;
+package homework_2.random_chars_table;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

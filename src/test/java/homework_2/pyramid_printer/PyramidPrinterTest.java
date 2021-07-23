@@ -1,4 +1,4 @@
-package homework_2_tests.pyramid_printer_test;
+package homework_2.pyramid_printer;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +8,8 @@ import java.util.Scanner;
 public class PyramidPrinterTest {
 @Test
 void test() {
-final String actual = new
+
+//final String actual = new
 }
     public void run() {
 

@@ -1,4 +1,4 @@
-package homework_2_tests.random_chars_table_test;
+package homework_2.random_chars_table;
 
 public class Main {
     public static void main(String[] args) {

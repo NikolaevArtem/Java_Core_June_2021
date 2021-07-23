@@ -1,4 +1,4 @@
-package homework_2_tests.pyramid_printer_test;
+package homework_2.pyramid_printer;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
