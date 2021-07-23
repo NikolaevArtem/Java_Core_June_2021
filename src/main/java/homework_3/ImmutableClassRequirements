@@ -1,4 +1,14 @@
-Following are the requirements:
+Following are the requirements for immutable class:
+
+1. Mark your class final,
+2. Mark all the fields private,
+3. Mark all fields final as well,
+4. Provide an argument constructor with all initialization logic,
+5. Initialize all mutable fields by deep copying,
+6. Do not provide setters for your fields,
+7. Return a deep copy of mutable fields from the getters.
+
+OR
 
 1. The class must be declared as final (So that child classes can’t be created)
 2. Data members in the class must be declared as private (So that direct access is not allowed)
