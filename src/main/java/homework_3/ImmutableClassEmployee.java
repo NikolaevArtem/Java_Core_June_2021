@@ -41,7 +41,6 @@ final class ImmutableClassEmployee {
                 "id = " + id +
                 ", name = '" + name + '\'' +
                 ", dateOfBirth = " + dateOfBirth +
-                ", dateOfBirth = " + dateOfBirth +
-                "}";
+                ", dateOfBirth = " + dateOfBirth + "}";
     }
 }
