@@ -9,7 +9,13 @@ import java.util.Scanner;
 class TrafficLightTest {
     @Test
     void test() {
-        final actual = new TrafficLight().setTrafficLightColour(11);
+        TrafficLight trl = new TrafficLight();
+        try {
+            trl.setTrafficLightColour(11);
+        } catch (WrongSecondsException e) {
+
+        }
+        Colour c = trl.getTrafficLightColour();
         final String expected = new TrafficLight().setTrafficLightColour(11);
     }
     public static enum Colour {
