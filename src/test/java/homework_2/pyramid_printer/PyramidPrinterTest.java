@@ -1,7 +1,6 @@
 package homework_2.pyramid_printer;
 
 import base.UnitBase;
-import homework_2.traffic_light.TrafficLight;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,7 +12,7 @@ class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void givenHeight5_whenRun_ThenReturn_Pyramid5Height() {
+    void givenHeight5_whenRun_thenReturn_Pyramid5Height() {
         setInput("5");
         new PyramidPrinter().run();
         printOut();
@@ -26,7 +25,7 @@ class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void givenZero_whenRun_ThenReturnError() {
+    void givenZero_whenRun_thenReturnError() {
         setInput("0");
         new PyramidPrinter().run();
         printOut();
@@ -35,7 +34,7 @@ class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void given2parameters_whenRun_ThenReturnError() {
+    void given2parameters_whenRun_thenReturnError() {
         setInput("5 2");
         new PyramidPrinter().run();
         printOut();
@@ -44,7 +43,7 @@ class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void givenNegative_whenRun_ThenReturnError() {
+    void givenNegative_whenRun_thenReturnError() {
         setInput("-1");
         new PyramidPrinter().run();
         printOut();
@@ -53,7 +52,7 @@ class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void givenString_whenRun_ThenReturnError() {
+    void givenString_whenRun_thenReturnError() {
         setInput("ThisIsString");
         new PyramidPrinter().run();
         printOut();
@@ -62,7 +61,7 @@ class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void givenEmpty_whenRun_ThenReturnError() {
+    void givenEmpty_whenRun_thenReturnError() {
         setInput("");
         new PyramidPrinter().run();
         printOut();

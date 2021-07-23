@@ -17,7 +17,7 @@ class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void givenSeconds0_whenRun_ThenReturnGreen() {
+    void givenSeconds0_whenRun_thenReturnGreen() {
         setInput("0");
         new TrafficLight().run();
         printOut();
@@ -26,7 +26,7 @@ class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void givenSeconds35_whenRun_ThenReturnYellow() {
+    void givenSeconds35_whenRun_thenReturnYellow() {
         setInput("35");
         new TrafficLight().run();
         printOut();
@@ -35,7 +35,7 @@ class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void givenSeconds45_whenRun_ThenReturnYellow() {
+    void givenSeconds45_whenRun_thenReturnYellow() {
         setInput("54");
         new TrafficLight().run();
         printOut();
@@ -44,7 +44,7 @@ class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void givenSeconds1204_whenRun_ThenReturnGreen() {
+    void givenSeconds1204_whenRun_thenReturnGreen() {
         setInput("1204");
         new TrafficLight().run();
         printOut();
@@ -53,7 +53,7 @@ class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void givenString_whenRun_ThenReturnError() {
+    void givenString_whenRun_thenReturnError() {
         setInput("ThisIsString");
         new TrafficLight().run();
         printOut();
@@ -62,7 +62,7 @@ class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void givenOver_whenRun_ThenReturnOver() {
+    void givenOver_whenRun_thenReturnOver() {
         setInput("457891");
         new TrafficLight().run();
         printOut();
@@ -71,7 +71,7 @@ class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void givenNegative_whenRun_ThenReturnError() {
+    void givenNegative_whenRun_thenReturnError() {
         setInput("-1");
         new TrafficLight().run();
         printOut();
@@ -80,7 +80,7 @@ class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void given2parameters_whenRun_ThenReturnError() {
+    void given2parameters_whenRun_thenReturnError() {
         setInput("567 992");
         new TrafficLight().run();
         printOut();
@@ -89,7 +89,7 @@ class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void givenEmpty_whenRun_ThenReturnError() {
+    void givenEmpty_whenRun_thenReturnError() {
         setInput("");
         new TrafficLight().run();
         printOut();

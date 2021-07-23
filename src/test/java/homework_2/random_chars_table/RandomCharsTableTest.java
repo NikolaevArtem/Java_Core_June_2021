@@ -16,7 +16,7 @@ class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void given23even_whenRun_ThenReturnTableAndStrategy() {
+    void given23even_whenRun_thenReturnTableAndStrategy() {
         setInput("2 3 even");
         new RandomCharsTable().run();
         printOut();
@@ -27,7 +27,7 @@ class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void given45even_whenRun_ThenReturnTableAndStrategy() {
+    void given45even_whenRun_thenReturnTableAndStrategy() {
         setInput("4 5 odd");
         new RandomCharsTable().run();
         printOut();
@@ -40,7 +40,7 @@ class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void givenZero_whenRun_ThenReturnError() {
+    void givenZero_whenRun_thenReturnError() {
         setInput("0 1 even");
         new RandomCharsTable().run();
         printOut();
@@ -49,7 +49,7 @@ class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void givenString_whenRun_ThenReturnError() {
+    void givenString_whenRun_thenReturnError() {
         setInput("23odd");
         new RandomCharsTable().run();
         printOut();
@@ -58,7 +58,7 @@ class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void givenNonFormat_whenRun_ThenReturnOver() {
+    void givenNonFormat_whenRun_thenReturnOver() {
         setInput("2 3 all");
         new RandomCharsTable().run();
         printOut();
@@ -67,7 +67,7 @@ class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void givenNegative_whenRun_ThenReturnError() {
+    void givenNegative_whenRun_thenReturnError() {
         setInput("-1 2 odd");
         new RandomCharsTable().run();
         printOut();
@@ -76,7 +76,7 @@ class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void given2parameters_whenRun_ThenReturnError() {
+    void given2parameters_whenRun_thenReturnError() {
         setInput("2 4");
         new RandomCharsTable().run();
         printOut();
@@ -85,7 +85,7 @@ class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void given4parameters_whenRun_ThenReturnError() {
+    void given4parameters_whenRun_thenReturnError() {
         setInput("2 4 even 3");
         new RandomCharsTable().run();
         printOut();
@@ -94,7 +94,7 @@ class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void givenEmpty_whenRun_ThenReturnError() {
+    void givenEmpty_whenRun_thenReturnError() {
         setInput("");
         new RandomCharsTable().run();
         printOut();
