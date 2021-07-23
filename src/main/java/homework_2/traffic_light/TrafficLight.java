@@ -43,12 +43,6 @@ public class TrafficLight implements Runnable {
         System.out.println("Enter the number of seconds since the start of the day");
     }
 
-    protected String readLine() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String consoleString = bufferedReader.readLine();
-        return consoleString;
-    }
-
     protected boolean numberFormatIsValid(String consoleString) {
         if (consoleString == null || consoleString.length() == 0) {
             return false;
