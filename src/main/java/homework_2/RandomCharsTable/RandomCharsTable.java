@@ -10,6 +10,7 @@ public final class RandomCharsTable {
     private int length;
     private int width;
     private String strategy;
+    private static final String ERROR_MESSAGE = "\u001B[31m" + "Passed parameters should match the format [positive integer] [positive integer] [even|odd]" + "\u001B[0m";
 
     public void run() {
         try {
@@ -17,7 +18,7 @@ public final class RandomCharsTable {
                 printArray();
             }
         } catch (Exception e) {
-            printErrorMessage("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
+            System.out.println(ERROR_MESSAGE);
         }
     }
 
@@ -37,13 +38,9 @@ public final class RandomCharsTable {
             strategy = paramArray[2];
             return true;
         } else {
-            printErrorMessage("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
+            System.out.println(ERROR_MESSAGE);
             return false;
         }
-    }
-
-    private void printErrorMessage(String message) {
-        System.out.println("\u001B[31m" + message + "\u001B[0m");
     }
 
     private void printArray() {

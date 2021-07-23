@@ -13,7 +13,7 @@ public final class PyramidPrinter {
             readFromConsole();
             printPyramid();
        } catch (Exception e) {
-            System.out.println(getErrorMessage("Only 1 non-negative integer is allowed as passed parameter"));
+            System.out.println("\u001B[31m" + "Only 1 non-negative integer is allowed as passed parameter" + "\u001B[0m");
         }
     }
 
@@ -30,10 +30,6 @@ public final class PyramidPrinter {
             throw new IllegalArgumentException();
         }
         return Integer.parseInt(inputString);
-    }
-
-    private static String getErrorMessage(String message){
-        return "\u001B[31m" + message + "\u001B[0m";
     }
 
     private void printPyramid() {
