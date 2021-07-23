@@ -1,8 +1,7 @@
 package homework_2.pyramid_printer;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import homework_2.ConsoleSafeReader;
+
 
 public class PyramidPrinter {
 
@@ -28,20 +27,9 @@ public class PyramidPrinter {
 
     public void run() {
         System.out.println("How many levels should the pyramid be?");
-        String input = consoleInput();
+        String input = ConsoleSafeReader.read();
         String result = processData(input);
         System.out.println(result);
-
-    }
-
-    private String consoleInput() {
-        String s;
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            s = reader.readLine();
-        } catch (IOException e) {
-            return "Error.";
-        }
-        return s;
     }
 
     String processData(String input) {
