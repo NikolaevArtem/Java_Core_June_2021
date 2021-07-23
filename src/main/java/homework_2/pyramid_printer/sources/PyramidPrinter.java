@@ -1,30 +1,18 @@
 package homework_2.pyramid_printer.sources;
 
-import java.io.IOException;
-
 import static homework_2.IOMod.ERROR;
 import static homework_2.IOMod.bufferedReaderIntReader;
 
 public class PyramidPrinter {
 
     public void run() {
-        try {
-            int height = inputHeight();
-            printPyramid(height);
-        } catch (IOException e) {
+        System.out.print("Please, input Pyramid height: ");
+        int height = bufferedReaderIntReader();
+        if (height < 0) {
             System.out.println(ERROR);
             return;
         }
-    }
-
-    private int inputHeight() throws IOException {
-        System.out.print("Please, input pyramids height value: ");
-        int pyramidHeight = bufferedReaderIntReader();
-        if (pyramidHeight < 0) {
-            System.out.println(ERROR);
-            throw new IOException();
-        }
-        return pyramidHeight;
+        printPyramid(height);
     }
 
     private void printPyramid(int height) {

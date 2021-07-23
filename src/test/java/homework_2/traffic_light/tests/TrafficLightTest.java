@@ -1,9 +1,10 @@
 package homework_2.traffic_light.tests;
 
-import homework_2.UnitBase;
+import base.UnitBase;
 import homework_2.traffic_light.sources.TrafficLight;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrafficLightTest extends UnitBase {
 

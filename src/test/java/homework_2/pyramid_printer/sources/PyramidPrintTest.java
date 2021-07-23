@@ -1,6 +1,6 @@
 package homework_2.pyramid_printer.sources;
 
-import homework_2.UnitBase;
+import base.UnitBase;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,7 +13,7 @@ public class PyramidPrintTest extends UnitBase {
 
         new PyramidPrinter().run();
         printOut();
-        removeFromOutput("Please, input pyramids height value: ");
+        removeFromOutput("Please, input Pyramid height: ");
         assertEquals("", getOutputLines()[0]);
     }
 
@@ -23,7 +23,7 @@ public class PyramidPrintTest extends UnitBase {
 
         new PyramidPrinter().run();
         printOut();
-        removeFromOutput("Please, input pyramids height value: ");
+        removeFromOutput("Please, input Pyramid height: ");
         assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 
@@ -33,7 +33,7 @@ public class PyramidPrintTest extends UnitBase {
 
         new PyramidPrinter().run();
         printOut();
-        removeFromOutput("Please, input pyramids height value: ");
+        removeFromOutput("Please, input Pyramid height: ");
         assertEquals("x", getOutputLines()[0]);
         assertEquals("xx", getOutputLines()[1]);
         assertEquals("xxx", getOutputLines()[2]);
@@ -49,7 +49,7 @@ public class PyramidPrintTest extends UnitBase {
 
         new PyramidPrinter().run();
         printOut();
-        removeFromOutput("Please, input pyramids height value: ");
+        removeFromOutput("Please, input Pyramid height: ");
         assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 
@@ -59,7 +59,7 @@ public class PyramidPrintTest extends UnitBase {
 
         new PyramidPrinter().run();
         printOut();
-        removeFromOutput("Please, input pyramids height value: ");
+        removeFromOutput("Please, input Pyramid height: ");
         assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[1]);
     }
 

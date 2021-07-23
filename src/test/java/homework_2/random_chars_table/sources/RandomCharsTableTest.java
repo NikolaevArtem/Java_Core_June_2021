@@ -1,6 +1,6 @@
 package homework_2.random_chars_table.sources;
 
-import homework_2.UnitBase;
+import base.UnitBase;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -12,7 +12,7 @@ public class RandomCharsTableTest extends UnitBase {
 
         new RandomCharsTable().run();
         printOut();
-        removeFromOutput("Input table length, table width, table strategy (even/odd): ");
+        removeFromOutput("Input table length, table width, table strategy(even/odd): ");
         assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]",
                 getOutputLines()[0]);
     }
@@ -23,7 +23,7 @@ public class RandomCharsTableTest extends UnitBase {
 
         new RandomCharsTable().run();
         printOut();
-        removeFromOutput("Input table length, table width, table strategy (even/odd): ");
+        removeFromOutput("Input table length, table width, table strategy(even/odd): ");
         assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]",
                 getOutputLines()[0]);
     }
@@ -34,7 +34,7 @@ public class RandomCharsTableTest extends UnitBase {
 
         new RandomCharsTable().run();
         printOut();
-        removeFromOutput("Input table length, table width, table strategy (even/odd): ");
+        removeFromOutput("Input table length, table width, table strategy(even/odd): ");
         assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]",
                 getOutputLines()[0]);
     }
@@ -45,7 +45,7 @@ public class RandomCharsTableTest extends UnitBase {
 
         new RandomCharsTable().run();
         printOut();
-        removeFromOutput("Input table length, table width, table strategy (even/odd): ");
+        removeFromOutput("Input table length, table width, table strategy(even/odd): ");
         assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]",
                 getOutputLines()[0]);
     }
@@ -56,7 +56,7 @@ public class RandomCharsTableTest extends UnitBase {
 
         new RandomCharsTable().run();
         printOut();
-        removeFromOutput("Input table length, table width, table strategy (even/odd): ");
+        removeFromOutput("Input table length, table width, table strategy(even/odd): ");
         assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]",
                 getOutputLines()[0]);
     }
