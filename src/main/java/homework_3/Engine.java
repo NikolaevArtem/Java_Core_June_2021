@@ -54,7 +54,7 @@ public final class Engine {
         return spec;
     }
 
-    public Engine getNewEngine(String model, boolean isOk, int power, List<String> spec) {
-        return new Engine(model, isOk, power, spec);
+    public Engine getNewEngine(String model, int power) {
+        return new Engine(model, this.isOk, power, this.spec);
     }
 }
