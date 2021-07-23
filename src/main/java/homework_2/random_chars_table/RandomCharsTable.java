@@ -1,5 +1,7 @@
 package homework_2.random_chars_table;
 
+import lombok.Data;
+
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
