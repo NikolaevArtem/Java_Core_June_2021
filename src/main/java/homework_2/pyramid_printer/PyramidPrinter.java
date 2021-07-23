@@ -13,7 +13,7 @@ public class PyramidPrinter {
     private void input() {
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             int height = Integer.parseInt(bufferedReader.readLine());
-            if (height < 1) {
+            if (height < 0) {
                 throw new IllegalArgumentException();
             }
             printerPyramid(height);
