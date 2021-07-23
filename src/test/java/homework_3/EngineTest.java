@@ -17,9 +17,9 @@ class EngineTest extends UnitBase {
         boolean isOk = engine.isOk();
         int power = engine.getPower();
         List<String> spec = engine.getSpec();
-        assertEquals(model, "Default");
+        assertEquals( "Default", model);
         assertFalse(isOk);
-        assertEquals(power, 10);
+        assertEquals(10, power);
         assertTrue(spec.isEmpty());
     }
 
@@ -33,10 +33,10 @@ class EngineTest extends UnitBase {
         spec.add("water pump");
         spec.add("exhaust");
         Engine engine = new Engine(model, isOk, power, spec);
-        assertEquals(engine.getModel(), "BMW");
+        assertEquals("BMW", engine.getModel());
         assertTrue(engine.isOk());
-        assertEquals(engine.getPower(), 150);
-        assertEquals(engine.getSpec(), spec);
+        assertEquals(150, engine.getPower());
+        assertEquals(spec, engine.getSpec());
     }
 
     @Test
@@ -44,9 +44,9 @@ class EngineTest extends UnitBase {
         String model = "BMW";
         int power = 150;
         Engine engine = new Engine(model, power);
-        assertEquals(engine.getModel(), "BMW");
+        assertEquals("BMW", engine.getModel());
         assertFalse(engine.isOk());
-        assertEquals(engine.getPower(), 150);
+        assertEquals(150, engine.getPower());
         assertTrue(engine.getSpec().isEmpty());
     }
 
@@ -62,10 +62,10 @@ class EngineTest extends UnitBase {
         Engine engine = new Engine(model, isOk, power, spec);
         Engine newEngine = engine.getNewEngine("BMW", 150);
 
-        assertNotEquals(newEngine, engine);
-        assertEquals(newEngine.getModel(), "BMW");
-        assertEquals(newEngine.getPower(), 150);
+        assertNotEquals(engine, newEngine);
+        assertEquals("BMW", newEngine.getModel());
+        assertEquals(150, newEngine.getPower());
         assertTrue(newEngine.isOk());
-        assertEquals(newEngine.getSpec(), engine.getSpec());
+        assertEquals( engine.getSpec(), newEngine.getSpec());
     }
 }
