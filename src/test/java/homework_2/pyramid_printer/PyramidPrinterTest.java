@@ -1,40 +1,33 @@
 package homework_2.pyramid_printer;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
-public class PyramidPrinterTest {
-@Test
-void test() {
+class PyramidPrinterTest {
 
-//final String actual = new
-}
-    public void run() {
+    @Test
+    void test1() {
+        PyramidPrinter ppr = new PyramidPrinter();
 
-        Scanner in = new Scanner(System.in);
         try {
-            int number = in.nextInt();
-            in.close();
-            StringBuilder result = new StringBuilder();
-            char x = 'x';
-            char cr = 13;
-            int i = 0;
-            int j;
-            while (i < number) {
-                j = 0;
-                while (j <= i) {
-                    result.append(x);
-                    j++;
-                }
-                result.append(cr);
-                i++;
-                System.out.println(result);
-            }
-        } catch (
-                InputMismatchException e) {
-            System.out.println("Error! Only numbers!");
+            ppr.buildPyramidString(3);
+        } catch (ArithmeticException e) {
+        } catch (NumberFormatException e) {
+
         }
+        final StringBuilder actual = ppr.getPyramidString();
+        final StringBuilder expected = new StringBuilder("x" + '\n' + "xx" + '\n' + "xxx" + '\n');
+        assertEquals(actual.toString(), expected.toString());
+    }
+
+    @Test
+    void test2() {
+        PyramidPrinter ppr = new PyramidPrinter();
+
+        Assertions.assertThrows(ArithmeticException.class, () -> {
+            ppr.buildPyramidString(-3);
+        });
     }
 }

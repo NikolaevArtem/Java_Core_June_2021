@@ -2,6 +2,7 @@ package homework_2.pyramid_printer;
 
 import lombok.Getter;
 import lombok.Setter;
+
 import java.util.Scanner;
 
 @Getter
@@ -15,13 +16,10 @@ class PyramidPrinter {
 
         try {
             int number = Integer.parseInt(str);
-            if (number < 0) {
-                throw new ArithmeticException();
-            }
             buildPyramidString(number);
             printPyramid();
         } catch (ArithmeticException ex) {
-            System.out.println("Error! Only positive numbers!");
+            System.out.println("Only non-negative integer is allowed as passed parameter!");
         } catch (NumberFormatException ex) {
             System.out.println("Error! Only numbers!");
         }
@@ -29,6 +27,10 @@ class PyramidPrinter {
     }
 
     public void buildPyramidString(int number) {
+        if (number < 0) {
+            throw new ArithmeticException();
+        }
+
         StringBuilder result = new StringBuilder();
         char charX = 'x';
         char newLineChar = '\n';

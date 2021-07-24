@@ -21,9 +21,9 @@ class TrafficLight {
     }
 
     public void run() {
-
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
+
         scanner.close();
         try {
             int seconds = Integer.parseInt(str);
@@ -41,7 +41,7 @@ class TrafficLight {
 
     public void setTrafficLightColour(int seconds) throws WrongSecondsException {
         if (seconds < 0)
-            throw new WrongSecondsException("Error! Only positive!");
+            throw new WrongSecondsException("Only non-negative integer is allowed as passed parameter!");
         else if (seconds >= 86400)
             throw new WrongSecondsException("Error! Day is over!");
         else {
@@ -57,9 +57,6 @@ class TrafficLight {
     }
 
     class WrongSecondsException extends Exception {
-
-        WrongSecondsException() {
-        }
 
         WrongSecondsException(String msg) {
             super(msg);
