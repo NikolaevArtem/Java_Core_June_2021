@@ -1,9 +1,11 @@
 package homework_2.random_chars_table;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class RandomCharsTable implements Runnable {
-
 
     public static final String WELCOME_MESSAGE;
     public static final String ENTER_PARAM_MESSAGE;
@@ -17,7 +19,7 @@ public class RandomCharsTable implements Runnable {
                 " and the strategy (even or odd)";
         ERROR_MESSAGE = "Passed parameters should match the format " +
                 "[positive integer] [positive integer] [even|odd]";
-        REGEX = "^((\\d+){2})(odd|even)";
+        REGEX = "^([\\d]+[\\s]+[\\d])(odd|even)";
     }
 
     Pattern pattern = Pattern.compile(REGEX);
@@ -25,26 +27,81 @@ public class RandomCharsTable implements Runnable {
     @Override
     public void run() {
         startGreeting();
-        printOddCapitalLetters();
-        printEvenCapitalLetters();
+        String consoleString = readConsoleString();
+        solveTask(consoleString);
     }
 
-    protected void startGreeting() {
+    private void startGreeting() {
         System.out.println(WELCOME_MESSAGE);
         System.out.println(ENTER_PARAM_MESSAGE);
     }
 
-    protected void printOddCapitalLetters() {
-        int[] aSCII = new int[128];
-        for(int i = 65; i <= 89; i += 2) {
-                System.out.print((char)i);
+    private String readConsoleString() {
+        Scanner scanner = new Scanner(System.in);
+        String consoleString = scanner.nextLine();
+        scanner.close();
+        return consoleString;
+    }
+
+    private void printOddCapitalLetters(char[][] table) {
+        List<Character> oddChars = new ArrayList<>();
+        for (char[] line : table) {
+            for (char column : line) {
+                if (column % 2 != 0) {
+                    oddChars.add(column);
+                }
+            }
+            System.out.println("Even letters - "
+                    + oddChars.toString().replaceAll("[\\[\\]]", ""));
         }
     }
 
-    protected void printEvenCapitalLetters() {
-        int[] aSCII = new int[128];
-        for(int i = 66; i <= 90; i += 2) {
-            System.out.print((char)i);
+    private void printEvenCapitalLetters(char[][] charsTable) {
+        List<Character> evenChars = new ArrayList<>();
+        for (char[] line : charsTable) {
+            for (char column : line) {
+                if (column % 2 == 0) {
+                    evenChars.add(column);
+                }
+            }
+            System.out.println("Even letters - "
+                    + evenChars.toString().replaceAll("[\\[\\]]", ""));
+        }
+    }
+
+
+    private void printCapitalLetters(char[][] charsTable, String strategy) {
+        if (strategy.equalsIgnoreCase("odd")) {
+            printOddCapitalLetters(charsTable);
+        } else if (strategy.equalsIgnoreCase("even")) {
+            printEvenCapitalLetters(charsTable);
+        } else {
+            System.out.println(ERROR_MESSAGE);
+            throw new IllegalArgumentException();
+        }
+    }
+    private void printTable(char[][] charsTable) {
+        for (char[] line : charsTable) {
+            System.out.print("| ");
+            for (char column : line) {
+                System.out.print(column + " | ");
+            }
+            System.out.println();
+        }
+    }
+
+    private void solveTask(String consoleString) {
+        if (pattern.matcher(consoleString).matches()) {
+            String[] consoleStringArr = consoleString.split(" ");
+            int height = Integer.parseInt(consoleStringArr[0]);
+            int width = Integer.parseInt(consoleStringArr[1]);
+            String strategy = consoleStringArr[2];
+            char[][] charsTable = new RandomCharsTableCreator().createRandomCharsTable(height, width);
+            printTable(charsTable);
+            printCapitalLetters(charsTable, strategy);
+        } else {
+            System.out.println("solveTask");
+            System.out.println(ERROR_MESSAGE);
         }
     }
 }
