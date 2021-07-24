@@ -40,7 +40,7 @@ class EngineTest extends UnitBase {
     }
 
     @Test
-    void givennNonFullData_whenNewEngine_thenGetObject() {
+    void givenNonFullData_whenNewEngine_thenGetObject() {
         String model = "BMW";
         int power = 150;
         Engine engine = new Engine(model, power);
