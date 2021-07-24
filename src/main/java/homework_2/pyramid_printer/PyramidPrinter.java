@@ -11,7 +11,9 @@ public class PyramidPrinter {
         try (Scanner scan = new Scanner(System.in)) {
             String input = scan.nextLine().trim();
             height = Integer.parseInt(input);
-            validateInput(input, height);
+            if (height < 0) {
+                throw new IllegalArgumentException();
+            }
         } catch (RuntimeException e) {
             System.out.println("Only 1 non-negative integer is allowed as passed parameter");
             return;
@@ -22,15 +24,6 @@ public class PyramidPrinter {
                 System.out.print("x");
             }
             System.out.println();
-        }
-    }
-
-    private void validateInput(String input, int height) {
-        if (input.split(" ").length > 1) {
-            throw new IllegalArgumentException();
-        }
-        if (height < 0) {
-            throw new IllegalArgumentException();
         }
     }
 }

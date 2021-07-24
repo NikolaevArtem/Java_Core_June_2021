@@ -3,7 +3,7 @@ package homework_2.random_chars_table;
 import java.util.LinkedList;
 import java.util.List;
 
-public class TablePrinter {
+class TablePrinter {
 
     private final int rows;
     private final int columns;
@@ -34,7 +34,7 @@ public class TablePrinter {
     }
 
     public void printLetters() {
-        System.out.print(strategy + "letters - ");
+        System.out.print(strategy + " letters - ");
         for (int i = 0; i < charList.size(); i++) {
             if (i != charList.size() - 1) {
                 System.out.print(charList.get(i) + ", ");

@@ -17,7 +17,7 @@ public class RandomCharsTable {
             validateInput(rows, columns, strategy);
         } catch (RuntimeException e) {
             System.out.println("Passed parameters should match the format " +
-                               "[positive integer] [positive integer] [eve|odd]");
+                               "[positive integer] [positive integer] [even|odd]");
             return;
         }
 
