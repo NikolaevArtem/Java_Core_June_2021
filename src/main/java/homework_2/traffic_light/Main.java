@@ -1,7 +1,4 @@
-package homework_2.traffic_light.bin;
-
-import homework_2.traffic_light.sources.ExtraTrafficLight;
-import homework_2.traffic_light.sources.TrafficLight;
+package homework_2.traffic_light;
 
 /*
 Traffic Lights App

@@ -1,4 +1,4 @@
-package homework_2.traffic_light.sources;
+package homework_2.traffic_light;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

@@ -1,6 +1,7 @@
 package homework_2.traffic_light.sources;
 
 import base.UnitBase;
+import homework_2.traffic_light.TrafficLight;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;

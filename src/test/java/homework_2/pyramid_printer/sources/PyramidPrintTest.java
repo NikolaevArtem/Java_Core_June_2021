@@ -1,6 +1,7 @@
 package homework_2.pyramid_printer.sources;
 
 import base.UnitBase;
+import homework_2.pyramid_printer.PyramidPrinter;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

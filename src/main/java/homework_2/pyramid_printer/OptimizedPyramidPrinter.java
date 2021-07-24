@@ -1,4 +1,4 @@
-package homework_2.pyramid_printer.sources;
+package homework_2.pyramid_printer;
 
 import static homework_2.IOMod.*;
 import static homework_2.Colors.*;

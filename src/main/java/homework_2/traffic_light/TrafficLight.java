@@ -1,4 +1,4 @@
-package homework_2.traffic_light.sources;
+package homework_2.traffic_light;
 
 import homework_2.IOMod;
 

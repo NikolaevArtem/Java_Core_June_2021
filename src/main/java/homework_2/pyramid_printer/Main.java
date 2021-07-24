@@ -1,7 +1,4 @@
-package homework_2.pyramid_printer.bin;
-
-import homework_2.pyramid_printer.sources.OptimizedPyramidPrinter;
-import homework_2.pyramid_printer.sources.PyramidPrinter;
+package homework_2.pyramid_printer;
 
 public class Main {
     public static void main(String[] args) {

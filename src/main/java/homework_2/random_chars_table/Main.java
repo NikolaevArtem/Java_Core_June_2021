@@ -1,6 +1,4 @@
-package homework_2.random_chars_table.bin;
-
-import homework_2.random_chars_table.sources.RandomCharsTable;
+package homework_2.random_chars_table;
 
 public class Main {
 

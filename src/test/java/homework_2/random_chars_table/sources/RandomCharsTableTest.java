@@ -1,6 +1,7 @@
 package homework_2.random_chars_table.sources;
 
 import base.UnitBase;
+import homework_2.random_chars_table.RandomCharsTable;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

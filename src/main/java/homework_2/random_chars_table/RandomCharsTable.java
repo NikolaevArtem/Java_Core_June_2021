@@ -1,4 +1,4 @@
-package homework_2.random_chars_table.sources;
+package homework_2.random_chars_table;
 
 import java.util.Random;
 
