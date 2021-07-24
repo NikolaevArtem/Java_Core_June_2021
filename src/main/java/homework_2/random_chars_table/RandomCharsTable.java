@@ -1,13 +1,10 @@
-package homework_2;
+package homework_2.random_chars_table;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RandomCharsTable {
-    public static void main(String[] args) {
-        randomCharsTable();
-    }
 
     private static void randomCharsTable() {
         try (Scanner scanner = new Scanner(System.in)) {
@@ -67,5 +64,8 @@ public class RandomCharsTable {
         } catch (InputMismatchException | NegativeArraySizeException e) {
             System.out.println("Please follow to the correct format: 2 positive numbers + even/odd word");
         }
+    }
+
+    public void run() {
     }
 }

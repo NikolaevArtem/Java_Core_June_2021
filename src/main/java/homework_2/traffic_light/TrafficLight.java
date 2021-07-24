@@ -1,4 +1,4 @@
-package homework_2;
+package homework_2.traffic_light;
 
 import java.util.Scanner;
 
@@ -8,10 +8,6 @@ public class TrafficLight {
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_YELLOW = "\u001B[33m";
-
-    public static void main(String[] args) {
-        trafficLight();
-    }
 
     private static void trafficLight() {
         try (Scanner scanner = new Scanner(System.in)) {
@@ -49,5 +45,8 @@ public class TrafficLight {
         } catch (NumberFormatException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void run() {
     }
 }
