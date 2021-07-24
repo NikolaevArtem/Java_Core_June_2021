@@ -1,5 +1,6 @@
 package homework_2.random_chars_table;
 
+import java.sql.SQLOutput;
 import java.util.Random;
 
 import static homework_2.IOMod.*;
@@ -48,8 +49,6 @@ public class RandomCharsTable {
     }
 
     private void printRandomAndGenerateResult(int length, int width, boolean strategy) {
-        // could be optimised for less memory usage with no creating Character[][] matrix
-        // and just printing random char and then adding to result StringBuilder
         Character[][] randAbc = new Character[length][width];
         Random random = new Random();
         StringBuilder result = new StringBuilder();
@@ -57,7 +56,15 @@ public class RandomCharsTable {
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j++) {
                 randAbc[i][j] = (char) (random.nextInt((RAND_MAX_VALUE - RAND_MIN_VALUE) + 1) + RAND_MIN_VALUE);
-                System.out.print(randAbc[i][j] + " ");
+                if (j == 0) {
+                    System.out.print("| ");
+                }
+                if (j == width - 1) {
+                    System.out.print(randAbc[i][j] + " |");
+                } else {
+                    System.out.print(randAbc[i][j] + " | ");
+                }
+
                 // result generating on-the-go
                 if (strategy) {
                     generateEven(randAbc[i][j], result);
@@ -83,6 +90,10 @@ public class RandomCharsTable {
     }
 
     private void printResult(boolean strategy, StringBuilder result) {
+        if (result.length() == 0) {
+            System.out.println("");
+            return;
+        }
         if (strategy) {
             System.out.print("Even letters - ");
         } else {
