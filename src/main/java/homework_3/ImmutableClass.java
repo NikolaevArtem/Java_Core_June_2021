@@ -1,34 +1,47 @@
 package homework_3;
 
+/*
+Immutable class
+3 constuctors: (), (String, int, double), ("")
+3 getMethods(): getName, getAge, getWeight
+1 method returning a new obj: newObjectMethod()
+ */
 public final class ImmutableClass {
-    final String name;
-    final int number;
+
+    private final String name; // reference type
+    private final int age; // primitive type
+    private final double weight; // primitive type
 
     public ImmutableClass() {
-        this.name = "DefaultName";
-        this.number = 0;
+        this.name = "Unknown";
+        this.age = 0;
+        this.weight = 0.0;
     }
 
-    public ImmutableClass(String str, int number) {
+    public ImmutableClass(String str, int age, double weight) {
         this.name = str;
-        this.number = number;
+        this.age = age;
+        this.weight = weight;
     }
 
-    public ImmutableClass(int number, String str) {
-        this.number = number;
-        this.name = str;
+    public ImmutableClass(String str) {
+        this(str, 1, 1.0);
     }
 
-    public String getData() {
+    public String getName() {
         return name;
     }
 
-    public int getNumber() {
-        return number;
+    public int getAge() {
+        return age;
+    }
+
+    public double getWeight() {
+        return weight;
     }
 
     public final Object newObjectMethod() {
-        return new ImmutableClass("fromMethodCreated", 1);
+        return new ImmutableClass(name, age, weight);
     }
 
 }
