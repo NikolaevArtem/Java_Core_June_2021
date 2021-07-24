@@ -4,46 +4,38 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/*
- * Traffic_light
- *
- * v1
- *
- * Prihodko Dmitriy
- */
-
 public class Traffic_light {
-    public static void main(String[] args) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int seconds = 0;
-        try {
+
+    public void run() {
+
+        int seconds;
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
             seconds = Integer.parseInt(reader.readLine());
 
-            if(seconds>86399)
-                throw new IndexOutOfBoundsException();
-            if(seconds<0)
-                throw new ArithmeticException();
-        } catch (NumberFormatException e) {
+            if(seconds>86399) {
+                System.out.println("ошибка, недопустимое значение");
+                return;
+            }
+            if(seconds<0) {
+                System.out.println("ошибка, только позитивные");
+                return;
+            }
+        } catch (NumberFormatException | IOException e) {
             System.out.println("ошибка, только числа");
             return;
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("ошибка, недопустимое значение");
-            return;
-        } catch (ArithmeticException e) {
-            System.out.println("ошибка, только позитивные");
-            return;
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
-        if(seconds>60)
-            seconds %= 60;
+        int result;
 
-        if (seconds<35){
+        if(seconds>60)
+            result = seconds%60;
+        else result = seconds;
+
+        if (result<35){
             System.out.println("зеленый");
-        } else if(seconds<40){
+        } else if(result<40){
             System.out.println("желтый");
-        } else if(seconds<55){
+        } else if(result<55){
             System.out.println("красный");
         } else {
             System.out.println("желтый");

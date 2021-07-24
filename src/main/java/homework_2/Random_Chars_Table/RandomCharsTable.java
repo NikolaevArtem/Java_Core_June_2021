@@ -24,6 +24,7 @@ public class RandomCharsTable {
                 System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
                 return;
             }
+
         } catch (Exception e) {
             System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
             return;
