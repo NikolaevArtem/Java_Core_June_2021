@@ -24,15 +24,6 @@ public class RandomCharsTable {
 
         scanner.close();
         try {
-            if (arr.length != 3) {
-                throw new NumberFormatException("Passed parameters should match the format [positive integer] [positive integer] [even|odd]!");
-            }
-        } catch (NumberFormatException ex) {
-            System.out.println(ex.getMessage());
-            return;
-        }
-
-        try {
             setParameters(arr);
         } catch (NumberFormatException ex) {
             System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]!");
@@ -47,6 +38,10 @@ public class RandomCharsTable {
     }
 
     public void setParameters(String[] arr) {
+        if (arr.length != 3) {
+            throw new IllegalArgumentException();
+        }
+
         for (int i = 0; i < 3; i++) {
             if (i < 2) {
                 int j = Integer.parseInt(arr[i]);
@@ -66,7 +61,7 @@ public class RandomCharsTable {
                 if (Strategy.EVEN.equals(Strategy.valueOf(strategyStr.toUpperCase())) || Strategy.ODD.equals(Strategy.valueOf(strategyStr.toUpperCase()))) {
                     strategy = Strategy.valueOf(strategyStr.toUpperCase());
                 } else {
-                    throw new NumberFormatException();
+                    throw new IllegalArgumentException();
                 }
             }
         }
