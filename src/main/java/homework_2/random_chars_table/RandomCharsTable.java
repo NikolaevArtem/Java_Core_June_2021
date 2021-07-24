@@ -19,7 +19,7 @@ public class RandomCharsTable implements Runnable {
                 " and the strategy (even or odd)";
         ERROR_MESSAGE = "Passed parameters should match the format " +
                 "[positive integer] [positive integer] [even|odd]";
-        REGEX = "^([\\d]+[\\s]+[\\d])(odd|even)";
+        REGEX = "\\s*[1-9]\\s+[1-9]\\s+(even|odd){1}$";
     }
 
     Pattern pattern = Pattern.compile(REGEX);
@@ -51,9 +51,9 @@ public class RandomCharsTable implements Runnable {
                     oddChars.add(column);
                 }
             }
-            System.out.println("Even letters - "
-                    + oddChars.toString().replaceAll("[\\[\\]]", ""));
         }
+        System.out.println("Odd letters - "
+                + oddChars.toString().replaceAll("[\\[\\]]", ""));
     }
 
     private void printEvenCapitalLetters(char[][] charsTable) {
@@ -64,9 +64,9 @@ public class RandomCharsTable implements Runnable {
                     evenChars.add(column);
                 }
             }
-            System.out.println("Even letters - "
-                    + evenChars.toString().replaceAll("[\\[\\]]", ""));
         }
+        System.out.println("Even letters - "
+                + evenChars.toString().replaceAll("[\\[\\]]", ""));
     }
 
 
@@ -100,7 +100,6 @@ public class RandomCharsTable implements Runnable {
             printTable(charsTable);
             printCapitalLetters(charsTable, strategy);
         } else {
-            System.out.println("solveTask");
             System.out.println(ERROR_MESSAGE);
         }
     }
