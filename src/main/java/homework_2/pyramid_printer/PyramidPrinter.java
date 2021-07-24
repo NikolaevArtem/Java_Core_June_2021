@@ -1,4 +1,4 @@
-package homework_2.Pyramid_Printer;
+package homework_2.pyramid_printer;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
