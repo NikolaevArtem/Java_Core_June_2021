@@ -1,7 +1,5 @@
 package homework_2.random_chars_table;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Random;
 
 import static homework_2.IOMod.*;
