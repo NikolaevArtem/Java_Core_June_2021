@@ -19,7 +19,7 @@ public class RandomCharsTable implements Runnable {
                 " and the strategy (even or odd)";
         ERROR_MESSAGE = "Passed parameters should match the format " +
                 "[positive integer] [positive integer] [even|odd]";
-        REGEX = "\\s*[1-9]\\s+[1-9]\\s+(even|odd){1}$";
+        REGEX = "\\s*[1-9]+\\s+[1-9]+\\s+(even|odd){1}$";
     }
 
     Pattern pattern = Pattern.compile(REGEX);
