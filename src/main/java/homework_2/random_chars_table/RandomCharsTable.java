@@ -1,6 +1,5 @@
 package homework_2.random_chars_table;
 
-import java.sql.SQLOutput;
 import java.util.Random;
 
 import static homework_2.IOMod.*;
