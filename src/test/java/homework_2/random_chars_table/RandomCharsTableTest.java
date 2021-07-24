@@ -21,20 +21,7 @@ class RandomCharsTableTest extends UnitBase {
         }
         assertTrue(true);
     }
-    @Test
-    void given_correct_option_odd() {
-        setInput("2 2 odd");
 
-        new RandomCharsTable().run();
-        String str = getOutputLines()[getOutputLines().length-1];
-        for (Character character: str.toCharArray()){
-            if(character % 2 == 0){
-                fail();
-                return;
-            }
-        }
-        assertTrue(true);
-    }
     @Test
     void given_first_bad() {
         setInput("-1 1 even");
