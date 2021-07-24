@@ -42,8 +42,8 @@ public class RandomCharsTable {
             return;
         }
         initializeTable();
-        printTable();
-        printTableByStrategy(getStrategy());
+        System.out.println(getStrForPrinting());
+        System.out.println(getStrForPrintingByStrategy(getStrategy()));
     }
 
     public void setParameters(String[] arr) {
@@ -88,7 +88,7 @@ public class RandomCharsTable {
         return c;
     }
 
-    public void printTable() {
+    public StringBuilder getStrForPrinting() {
         int[][] table = getTable();
         StringBuilder result = new StringBuilder();
 
@@ -98,10 +98,10 @@ public class RandomCharsTable {
             }
             result.append("|" + "\n");
         }
-        System.out.println(result);
+        return result;
     }
 
-    public void printTableByStrategy(Strategy strategy) {
+    public StringBuilder getStrForPrintingByStrategy(Strategy strategy) {
         int[][] table = getTable();
         StringBuilder result = new StringBuilder();
         int remainder;
@@ -131,6 +131,6 @@ public class RandomCharsTable {
                 }
             }
         }
-        System.out.println(result);
+        return result;
     }
 }
