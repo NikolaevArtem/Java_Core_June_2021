@@ -10,7 +10,7 @@ public class PyramidPrinter {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             int x = Integer.parseInt(reader.readLine());
             if (x <= 0) {
-                System.out.println("Число отрицательное или 0");
+                System.out.println("Only 1 non-negative integer is allowed as passed parameter");
                 return;
             }
 
