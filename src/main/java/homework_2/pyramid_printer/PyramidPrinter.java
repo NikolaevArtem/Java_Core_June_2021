@@ -1,28 +1,6 @@
 package homework_2.pyramid_printer;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class PyramidPrinter {
-
-    private void errorMsg() {
-        System.out.println("Only 1 non-negative integer is allowed as passed parameter.");
-    }
-
-    private void input() {
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
-            int height = Integer.parseInt(bufferedReader.readLine());
-            if (height < 0) {
-                throw new IllegalArgumentException();
-            }
-            printerPyramid(height);
-        } catch (IOException e) {
-            System.out.println("Something went wrong.");
-        } catch (IllegalArgumentException e) {
-            errorMsg();
-        }
-    }
 
     private void printerPyramid(int height) {
         for (int i = 1; i <= height; i++) {
@@ -35,6 +13,6 @@ public class PyramidPrinter {
 
     public void run() {
         System.out.println("Pyramid Printer App \nEnter height: ");
-        input();
+        printerPyramid(new InputValidator().input());
     }
 }
