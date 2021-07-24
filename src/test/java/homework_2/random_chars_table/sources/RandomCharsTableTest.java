@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RandomCharsTableTest extends UnitBase {
+class RandomCharsTableTest extends UnitBase {
 
     RandomCharsTable rct = new RandomCharsTable();
 
@@ -118,15 +118,13 @@ public class RandomCharsTableTest extends UnitBase {
         for (int i = 0; i < rows; i++) {
             String[] row = getOutputLines()[i].split(" ");
             for (String el : row) {
-                if (el.charAt(0) != '|') {
-                    assert (el.charAt(0) >= 65 && el.charAt(0) <= 90);
-                }
+                assert el.charAt(0) == '|' || (el.charAt(0) >= 65 && el.charAt(0) <= 90);
             }
         }
 
         // check result could be empty
         try {
-            if (getOutputLines()[rows] != "") {
+            if (!getOutputLines()[rows].equals("")) {
                 String[] result = getOutputLines()[rows].split(" ");
                 for (int i = 3; i < result.length; i++) {
                     assert (result[i].charAt(0) % 2 == remainder);
@@ -137,6 +135,5 @@ public class RandomCharsTableTest extends UnitBase {
         }
 
     }
-
 
 }

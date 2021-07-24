@@ -1,5 +1,7 @@
 package homework_2.random_chars_table;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Random;
 
 import static homework_2.IOMod.*;
@@ -53,16 +55,10 @@ public class RandomCharsTable {
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < length; i++) {
+            System.out.print("| ");
             for (int j = 0; j < width; j++) {
                 randAbc[i][j] = (char) (random.nextInt((RAND_MAX_VALUE - RAND_MIN_VALUE) + 1) + RAND_MIN_VALUE);
-                if (j == 0) {
-                    System.out.print("| ");
-                }
-                if (j == width - 1) {
-                    System.out.print(randAbc[i][j] + " |");
-                } else {
-                    System.out.print(randAbc[i][j] + " | ");
-                }
+                System.out.print(randAbc[i][j] + " | ");
 
                 // result generating on-the-go
                 if (strategy) {
