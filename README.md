@@ -10,4 +10,5 @@
 | HW2_3 | [Random chars table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/homework_2) | The app that reads 2 numbers as size of a table and a strategy: even or odd, print this table consisting of random symbols from A to Z and then print all symbols in one line which are odd or even according to the strategy (their ASCII codes) |
 |
 
+[Link to Coding Bat](https://codingbat.com/done?user=lerarodina24@gmail.com&tag=9318549243)
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
