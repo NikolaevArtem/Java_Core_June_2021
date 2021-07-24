@@ -30,7 +30,7 @@ class PyramidPrinterTest extends UnitBase {
         new PyramidPrinter().run();
         printOut();
         removeOutputDifference();
-        assertEquals("Only 1 non-negative integer is allowed as passed parameter.", getOutput());
+        assertEquals("", getOutput());
     }
 
     @Test
