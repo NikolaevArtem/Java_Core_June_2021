@@ -16,47 +16,46 @@ package homework_3;
 public final class ImmutableClass {
     private final int integer;
     private final String string;
-    private final Integer integer1;
+    private final Integer bigInteger;
 
     public ImmutableClass(int integer, String string, Integer integer1) {
         this.integer = integer;
         this.string = string;
-        this.integer1 = new Integer(integer1);
+        this.bigInteger = new Integer(integer1);
     }
 
     public ImmutableClass(int integer, String string) {
         this.integer = integer;
         this.string = string;
-        this.integer1 = new Integer(null);
+        this.bigInteger = new Integer(null);
     }
 
     public ImmutableClass(int integer) {
         this.integer = integer;
         this.string = "";
-        this.integer1 = new Integer(null);
+        this.bigInteger = new Integer(null);
     }
 
     public ImmutableClass() {
         this.integer = 6;
         this.string = "field";
-        this.integer1 = new Integer(5);
+        this.bigInteger = new Integer(5);
     }
 
 
     public int getInteger() {
-        return integer;
+        return this.integer;
     }
 
     public String getString() {
-        return string;
+        return this.string;
     }
 
-    public Integer getInteger1() {
-        return integer1;
+    public Integer getBigInteger() {
+        return this.bigInteger;
     }
 
-    public ImmutableClass returnModifyObject() {
-        ImmutableClass immutableClass = new ImmutableClass(6, "field", 5);
-        return immutableClass;
+    public ImmutableClass returnModifyObject(Integer integer1) {
+        return new ImmutableClass(integer, string, integer1);
     }
 }
