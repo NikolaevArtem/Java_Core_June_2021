@@ -11,8 +11,7 @@ class TrafficLight {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             try {
 
-                int seconds = Integer.parseInt(reader.readLine());
-                printLight(seconds);
+                printLight(Integer.parseInt(reader.readLine()));
 
             } catch (NumberFormatException e) {
                 System.out.println("Error: integer only");

@@ -10,8 +10,8 @@ public class PyramidPrinter {
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             try {
-                int i = Integer.parseInt(reader.readLine());
-                printPyramid(i);
+
+                printPyramid(Integer.parseInt(reader.readLine()));
 
             } catch (NumberFormatException e) {
                 System.out.println("Error: integer only");
