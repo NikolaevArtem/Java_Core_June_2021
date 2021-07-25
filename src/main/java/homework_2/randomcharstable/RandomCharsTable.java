@@ -1,10 +1,10 @@
-package homework_3.randomcharstable;
+package homework_2.randomcharstable;
 
 import java.util.Random;
 import java.util.regex.Pattern;
 
 public class RandomCharsTable {
-    public void start(String[] params) {
+    public void run(String[] params) {
         if (!isNumber(params[0]) || !isNumber(params[1])) {
             System.out.println("ERROR! This is not a number");
             return;

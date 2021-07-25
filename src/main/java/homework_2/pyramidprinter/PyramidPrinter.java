@@ -1,10 +1,10 @@
-package homework_3.pyramidprinter;
+package homework_2.pyramidprinter;
 
 import java.util.regex.Pattern;
 
 public class PyramidPrinter {
 
-    public void start(String sizeAsString) {
+    public void run(String sizeAsString) {
         if (!isNumber(sizeAsString)) {
             System.out.println("ERROR! This is not a number");
             return;
