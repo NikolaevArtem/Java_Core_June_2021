@@ -20,7 +20,7 @@ A more sophisticated approach is to make the constructor private and construct i
 
 final public class ImmutableClass {
 
-    // Values must be between 0 and 255.
+    // Values must be between 0 and 255 (RGB)
     final private int red;
     final private int green;
     final private int blue;
@@ -47,10 +47,10 @@ final public class ImmutableClass {
         this.name = name;
     }
 
-    public ImmutableClass(int red, int green, int blue) {
-        this.red = red;
-        this.green = green;
-        this.blue = blue;
+    public ImmutableClass() {
+        this.red = 0;
+        this.green = 0;
+        this.blue = 0;
         this.name = "black";
     }
 
