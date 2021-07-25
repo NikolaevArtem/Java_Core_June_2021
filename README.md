@@ -11,6 +11,7 @@
 | HW3 | [PyramidPrinterTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_2/pyramid_printer) | Pyramid printer tests |
 | HW3 | [RandomCharsTableTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_2/random_chars_table) | Random chars table tests |
 | HW3 | [TrafficLightTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_2/traffic_light) | Traffic light tests|
+| HW3 | [ImmutableClass](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_3/ImmutableClass) | ImmutableClass|
 
 
 [Link to CodingBat](https://codingbat.com/done?user=bomba_25@mail.ru&tag=8601275236)
