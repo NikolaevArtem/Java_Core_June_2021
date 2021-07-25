@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class TrafficLight {
+
     public void run() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             int light = Integer.parseInt(reader.readLine());
@@ -31,7 +32,6 @@ public class TrafficLight {
                     System.out.println("RED");
                 }
             }
-
         } catch (NumberFormatException e) {
             System.out.println("Only 1 non-negative integer is allowed as passed parameter");
         } catch (IOException e) {
