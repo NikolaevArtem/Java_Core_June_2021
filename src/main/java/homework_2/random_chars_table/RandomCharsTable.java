@@ -62,7 +62,7 @@ public class RandomCharsTable {
         return (char) (65 + Math.random() * 26);
     }
 
-    void run() {
+    public void run() {
         System.out.println("RandomCharTable App.");
         System.out.println("Enter table length, width and strategy separated by a space:");
 

@@ -66,6 +66,6 @@ class EngineTest extends UnitBase {
         assertEquals("BMW", newEngine.getModel());
         assertEquals(150, newEngine.getPower());
         assertTrue(newEngine.isOk());
-        assertEquals( engine.getSpec(), newEngine.getSpec());
+        assertEquals(engine.getSpec(), newEngine.getSpec());
     }
 }
