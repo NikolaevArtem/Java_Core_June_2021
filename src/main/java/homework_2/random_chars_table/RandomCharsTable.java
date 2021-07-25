@@ -50,9 +50,10 @@ public class RandomCharsTable {
             }
         }
 
-        stringBuffer.deleteCharAt(stringBuffer.length() - 1);
-
-        System.out.print(stringBuffer);
+        if (stringBuffer.length() != 1 && stringBuffer.length() != 0) {
+            stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+            stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+        }
     }
 
     public void run() {

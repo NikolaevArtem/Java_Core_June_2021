@@ -106,4 +106,14 @@ public class TrafficLightTest extends UnitBase {
         assertEquals("Only 1 non-negative integer is allowed as passed parameter",
                 getOutputLines()[0]);
     }
+
+    @Test
+    void TwoArgumentsInputTest() {
+        setInput("5 7");
+
+        new TrafficLight().run();
+        removeFromOutput("Please type your current time in seconds:");
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter",
+                getOutputLines()[0]);
+    }
 }

@@ -22,6 +22,7 @@ public class TrafficLight {
             }
         } catch (NumberFormatException e) {
             System.out.println("Only 1 non-negative integer is allowed as passed parameter");
+            return;
         }
 
         int cycleOfTrafficLight = 60;
@@ -47,7 +48,7 @@ public class TrafficLight {
     private String readData() {
         String str;
         try (Scanner scanner = new Scanner(System.in)) {
-            str = scanner.next();
+            str = scanner.nextLine();
         } catch (NoSuchElementException e) {
             return "Only 1 non-negative integer is allowed as passed parameter";
         }
