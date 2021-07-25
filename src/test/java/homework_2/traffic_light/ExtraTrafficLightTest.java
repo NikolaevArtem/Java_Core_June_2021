@@ -3,15 +3,12 @@ package homework_2.traffic_light;
 import base.UnitBase;
 import org.junit.jupiter.api.Test;
 
-import static homework_2.traffic_light.ColorSelector.ANSI_RESET;
-import static homework_2.traffic_light.ColorSelector.ANSI_YELLOW;
+import static homework_2.traffic_light.ColorSelector.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-class TrafficLightDateTimeTest extends UnitBase {
-    final static TrafficLightDateTime trafficLightDateTime = new TrafficLightDateTime();
-
+class ExtraTrafficLightTest extends UnitBase {
     private void run() {
-        trafficLightDateTime.dateTime();
+        new ExtraTrafficLight().run();
         removeFromOutput("Provide time in \"hh:mm:ss\" format: ");
         printOut();
     }

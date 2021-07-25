@@ -6,16 +6,15 @@ import org.junit.jupiter.api.Test;
 import static homework_2.traffic_light.ColorSelector.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-class TrafficLightSecondsTest extends UnitBase {
-    final static TrafficLightSeconds trafficLightSeconds = new TrafficLightSeconds();
+class TrafficLightTest extends UnitBase {
     private void run() {
-        trafficLightSeconds.seconds();
+        new TrafficLight().run();
         removeFromOutput("Provide time in seconds:");
         printOut();
     }
 
     @Test
-    void runGood55(){
+    void runGood55() {
         setInput("55");
 
         run();
@@ -24,7 +23,7 @@ class TrafficLightSecondsTest extends UnitBase {
     }
 
     @Test
-    void runGood7506(){
+    void runGood7506() {
         setInput("7506");
 
         run();
@@ -33,7 +32,7 @@ class TrafficLightSecondsTest extends UnitBase {
     }
 
     @Test
-    void runWithNegative(){
+    void runWithNegative() {
         setInput("-5");
 
         run();
@@ -42,7 +41,7 @@ class TrafficLightSecondsTest extends UnitBase {
     }
 
     @Test
-    void runWithInputMismatch(){
+    void runWithInputMismatch() {
         setInput("error");
 
         run();
@@ -51,7 +50,7 @@ class TrafficLightSecondsTest extends UnitBase {
     }
 
     @Test
-    void runWithOverload(){
+    void runWithOverload() {
         setInput("86401");
 
         run();

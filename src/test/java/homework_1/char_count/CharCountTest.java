@@ -1,9 +1,7 @@
 package homework_1.char_count;
 
 import base.UnitBase;
-import homework_1.CharCount;
 import homework_1.Main;
-import homework_2.pyramid_printer.PyramidPrinterX;
 import org.junit.jupiter.api.Test;
 
 import static homework_1.CharCount.ANSI_RED;

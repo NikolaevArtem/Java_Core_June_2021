@@ -5,10 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PyramidPrinterXTest extends UnitBase {
-
+class ExtraPyramidPrinterTest extends UnitBase {
     private void run() {
-        new PyramidPrinterX().run();
+        new ExtraPyramidPrinter().run();
         removeFromOutput("Enter a valid INT value for create a pyramid:");
         printOut();
     }
@@ -19,7 +18,7 @@ class PyramidPrinterXTest extends UnitBase {
 
         run();
 
-        assertEquals("x", getOutput());
+        assertEquals("1", getOutput());
     }
 
     @Test
@@ -28,9 +27,9 @@ class PyramidPrinterXTest extends UnitBase {
 
         run();
 
-        assertEquals("x", getOutputLines()[0]);
-        assertEquals("xx", getOutputLines()[1]);
-        assertEquals("xxx", getOutputLines()[2]);
+        assertEquals("3", getOutputLines()[0]);
+        assertEquals("33", getOutputLines()[1]);
+        assertEquals("333", getOutputLines()[2]);
     }
 
     @Test

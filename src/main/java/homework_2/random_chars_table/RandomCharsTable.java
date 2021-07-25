@@ -1,7 +1,5 @@
 package homework_2.random_chars_table;
 
-import lombok.Data;
-
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -10,7 +8,7 @@ public class RandomCharsTable {
     private static int length;
     private static int width;
 
-    protected static void run() {
+    public static void run() {
         System.out.println("Enter valid table length, width and strategy(even or odd) in format \"length width strategy\" ");
         getParameters();
     }

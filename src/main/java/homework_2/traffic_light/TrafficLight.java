@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 import static homework_2.traffic_light.ColorSelector.*;
 
-class TrafficLightSeconds {
-    protected static void seconds() {
+class TrafficLight {
+    public static void run() {
         System.out.println("Provide time in seconds:");
         try (Scanner scan = new Scanner(System.in)) {
             int seconds = scan.nextInt();

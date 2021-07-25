@@ -5,9 +5,9 @@ public class Main {
         if (args.length > 1) {
             System.out.println("Only 1 parameter is allowed");
         } else if (args.length == 0) {
-            PyramidPrinterX.run();
+            new PyramidPrinter().run();
         } else if (args[0].equals("dRepresentation")) {
-            PyramidPrinterD.run();
+            new ExtraPyramidPrinter().run();
         }
     }
 }

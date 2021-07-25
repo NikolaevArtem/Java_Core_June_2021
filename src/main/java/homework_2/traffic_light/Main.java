@@ -5,9 +5,9 @@ public class Main {
         if (args.length > 1) {
             System.out.println("Only 1 parameter is allowed");
         } else if (args.length == 0) {
-            TrafficLightSeconds.seconds();
-        } else if (args[0].equals("LocalDateTime")) {
-            TrafficLightDateTime.dateTime();
+            new TrafficLight().run();
+        } else if (args[0].equals("ExtraMode")) {
+            new ExtraTrafficLight().run();
         }
     }
 }

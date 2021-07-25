@@ -3,11 +3,11 @@ package homework_2.pyramid_printer;
 import base.UnitBase;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class PyramidPrinterDTest extends UnitBase {
+class PyramidPrinterTest extends UnitBase {
     private void run() {
-        new PyramidPrinterD().run();
+        new PyramidPrinter().run();
         removeFromOutput("Enter a valid INT value for create a pyramid:");
         printOut();
     }
@@ -18,7 +18,7 @@ class PyramidPrinterDTest extends UnitBase {
 
         run();
 
-        assertEquals("1", getOutput());
+        assertEquals("x", getOutput());
     }
 
     @Test
@@ -27,9 +27,9 @@ class PyramidPrinterDTest extends UnitBase {
 
         run();
 
-        assertEquals("3", getOutputLines()[0]);
-        assertEquals("33", getOutputLines()[1]);
-        assertEquals("333", getOutputLines()[2]);
+        assertEquals("x", getOutputLines()[0]);
+        assertEquals("xx", getOutputLines()[1]);
+        assertEquals("xxx", getOutputLines()[2]);
     }
 
     @Test
@@ -38,7 +38,7 @@ class PyramidPrinterDTest extends UnitBase {
 
         run();
 
-        assertEquals("",getOutput());
+        assertEquals("", getOutput());
     }
 
     @Test
@@ -47,7 +47,7 @@ class PyramidPrinterDTest extends UnitBase {
 
         run();
 
-        assertEquals("Only 1 non-negative integer is allowed.",getOutput());
+        assertEquals("Only 1 non-negative integer is allowed.", getOutput());
     }
 
     @Test
@@ -56,6 +56,6 @@ class PyramidPrinterDTest extends UnitBase {
 
         run();
 
-        assertEquals("Only 1 non-negative integer is allowed.",getOutput());
+        assertEquals("Only 1 non-negative integer is allowed.", getOutput());
     }
 }
