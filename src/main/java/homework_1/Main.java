@@ -1,14 +1,5 @@
 package homework_1;
 
-/*
- * Main
- *
- * v2
- *
- * Prihodko Dmitriy
- */
-
-
 public class Main {
 
     public static final String RED_COLOR = "\u001B[31m";
