@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 public class PyramidPrinter {
 
+    private final String ERROR_MESSAGE = "Only 1 non-negative integer is allowed as passed parameter";
     private int pyramidSize;
 
     public void run() {
@@ -14,11 +15,11 @@ public class PyramidPrinter {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             pyramidSize = Integer.parseInt(br.readLine());
         } catch (NumberFormatException | IOException ex) {
-            System.out.println("Wrong input format!");
+            System.out.println(ERROR_MESSAGE);
             return;
         }
         if (pyramidSize < 0) {
-            System.out.println("Number should be non-negative!");
+            System.out.println(ERROR_MESSAGE);
             return;
         }
 
