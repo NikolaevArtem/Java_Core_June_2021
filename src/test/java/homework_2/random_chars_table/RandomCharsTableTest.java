@@ -15,7 +15,6 @@ import static utils.Constants.INFO_MESSAGE_RANDOM_CHARS_TABLE;
 import static utils.Constants.MAX_CHAR;
 import static utils.Constants.MIN_CHAR;
 
-
 public class RandomCharsTableTest extends UnitBase {
 
     void run() {
@@ -64,7 +63,7 @@ public class RandomCharsTableTest extends UnitBase {
         if (getOutputLines()[getOutputLines().length - 1].contains(",")) {
             letters = Arrays.asList(getOutputLines()[getOutputLines().length - 1].split(", "));
         } else {
-            letters.add(getOutputLines()[2]);
+            letters.add(getOutputLines()[getOutputLines().length - 1]);
         }
         for (String s : letters) {
             char ch = s.charAt(0);
