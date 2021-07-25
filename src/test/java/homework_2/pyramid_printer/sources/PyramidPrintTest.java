@@ -3,65 +3,72 @@ package homework_2.pyramid_printer.sources;
 import base.UnitBase;
 import homework_2.pyramid_printer.PyramidPrinter;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PyramidPrintTest extends UnitBase {
+class PyramidPrintTest extends UnitBase {
+
+    PyramidPrinter pyramidPrinter = new PyramidPrinter();
+
+    // testing valid input
+    private static Stream<Arguments> validCases() {
+        return Stream.of(
+                Arguments.of(7),
+                Arguments.of(4),
+                Arguments.of(33),
+                Arguments.of(1),
+                Arguments.of(188)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("validCases")
+    void validTest(int height) {
+        setInput(String.valueOf(height));
+        pyramidPrinter.run();
+        printOut();
+        removeFromOutput("Please, input Pyramid height: ");
+        for (int i = 0; i < height; i++) {
+            StringBuilder expectedStr = new StringBuilder();
+            for (int j = 0; j < i + 1; j++) {
+                expectedStr.append("x");
+            }
+            assertEquals(String.valueOf(expectedStr), getOutputLines()[i]);
+        }
+    }
+
+    // testing not valid input values
+    private static Stream<Arguments> notValidCases() {
+        return Stream.of(
+                Arguments.of(String.valueOf(Integer.MAX_VALUE + 1)),
+                Arguments.of("anytext"),
+                Arguments.of(""),
+                Arguments.of("-278")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("notValidCases")
+    void testNotValid(String input) {
+        setInput(input);
+        pyramidPrinter.run();
+        printOut();
+        removeFromOutput("Please, input Pyramid height: ");
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
+    }
 
     @Test
-    void testZero() {
+    void testNull() {
         setInput("0");
-
-        new PyramidPrinter().run();
+        pyramidPrinter.run();
         printOut();
         removeFromOutput("Please, input Pyramid height: ");
         assertEquals("", getOutputLines()[0]);
-    }
-
-    @Test
-    void testNegative() {
-        setInput("-278");
-
-        new PyramidPrinter().run();
-        printOut();
-        removeFromOutput("Please, input Pyramid height: ");
-        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
-    }
-
-    @Test
-    void test7() {
-        setInput("7");
-
-        new PyramidPrinter().run();
-        printOut();
-        removeFromOutput("Please, input Pyramid height: ");
-        assertEquals("x", getOutputLines()[0]);
-        assertEquals("xx", getOutputLines()[1]);
-        assertEquals("xxx", getOutputLines()[2]);
-        assertEquals("xxxx", getOutputLines()[3]);
-        assertEquals("xxxxx", getOutputLines()[4]);
-        assertEquals("xxxxxx", getOutputLines()[5]);
-        assertEquals("xxxxxxx", getOutputLines()[6]);
-    }
-
-    @Test
-    void testMAXIntegerPlusOne() {
-        setInput(String.valueOf(Integer.MAX_VALUE + 1));
-
-        new PyramidPrinter().run();
-        printOut();
-        removeFromOutput("Please, input Pyramid height: ");
-        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
-    }
-
-    @Test
-    void testString() {
-        setInput("anytext");
-
-        new PyramidPrinter().run();
-        printOut();
-        removeFromOutput("Please, input Pyramid height: ");
-        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[1]);
     }
 
 }
