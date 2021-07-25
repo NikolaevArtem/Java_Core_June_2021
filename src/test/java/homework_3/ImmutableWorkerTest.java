@@ -6,15 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class ImmutableWorkerTest {
 
     @Test
-    void testUpdateImmutable() {
+    void testIfImmutable() {
         List<String> testList = new ArrayList<>();
         Age age = new Age(13, 5, 1980);
         ImmutableWorker worker = new ImmutableWorker("Jones", "Marketing", 874, testList, age);
-        worker = worker.updateWorker(null, "Sales", 0, null, null);
-        assertEquals("Sales", worker.getDepartment());
+        assertEquals("Sales", worker.updateWorker("null", "Sales", 0, null, null).getDepartment());
+        assertNotEquals(worker, worker.updateWorker("null", "Sales", 0, null, null));
     }
 }

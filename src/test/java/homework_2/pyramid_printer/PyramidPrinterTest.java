@@ -3,15 +3,15 @@ package homework_2.pyramid_printer;
 import base.UnitBase;
 import org.junit.jupiter.api.Test;
 
-import static homework_2.pyramid_printer.utils.MessageType.ERROR_WRONG_FORMAT_MESSAGE;
-import static homework_2.pyramid_printer.utils.MessageType.INFO_MESSAGE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static utils.Constants.ERROR_MESSAGE_PYRAMID_PRINTER;
+import static utils.Constants.INFO_MESSAGE_PYRAMID_PRINTER;
 
 public class PyramidPrinterTest extends UnitBase {
 
     void run() {
-        new PyramidPrinter().start();
-        removeFromOutput(INFO_MESSAGE.getMessage());
+        new PyramidPrinter().run();
+        removeFromOutput(INFO_MESSAGE_PYRAMID_PRINTER);
         printOut();
     }
 
@@ -37,13 +37,13 @@ public class PyramidPrinterTest extends UnitBase {
     void givenNaN_whenRun_getWrongFormatMessage() {
         setInput("word");
         run();
-        assertEquals(ERROR_WRONG_FORMAT_MESSAGE.getMessage(), getOutput());
+        assertEquals(ERROR_MESSAGE_PYRAMID_PRINTER, getOutput());
     }
 
     @Test
     void givenNegativeNumber_whenRun_getWrongFormatMessage() {
         setInput("-5");
         run();
-        assertEquals(ERROR_WRONG_FORMAT_MESSAGE.getMessage(), getOutput());
+        assertEquals(ERROR_MESSAGE_PYRAMID_PRINTER, getOutput());
     }
 }

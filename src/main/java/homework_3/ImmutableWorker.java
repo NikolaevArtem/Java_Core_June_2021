@@ -1,7 +1,5 @@
 package homework_3;
 
-import jdk.nashorn.internal.ir.annotations.Immutable;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -12,6 +10,7 @@ import java.util.Objects;
  * Its fields should be private final.
  * There should be getters but no setters.
  * For link objects there should be a deep copy in the constructor.
+ * Constructor always creates a new object.
  */
 
 public final class ImmutableWorker {

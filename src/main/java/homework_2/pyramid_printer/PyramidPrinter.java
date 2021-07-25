@@ -6,47 +6,41 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static homework_2.pyramid_printer.utils.MessageType.ERROR_MESSAGE;
-import static homework_2.pyramid_printer.utils.MessageType.ERROR_WRONG_FORMAT_MESSAGE;
-import static homework_2.pyramid_printer.utils.MessageType.INFO_MESSAGE;
-import static homework_2.pyramid_printer.utils.Utils.printMessage;
-import static java.lang.System.lineSeparator;
+import static homework_2.pyramid_printer.utils.Constants.ERROR_MESSAGE;
+import static homework_2.pyramid_printer.utils.Constants.INFO_MESSAGE;
+import static homework_2.pyramid_printer.utils.Constants.LETTER;
 
 public class PyramidPrinter {
-    private static final String LETTER = "x";
 
-    public void start() {
+    public void run() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            printMessage(INFO_MESSAGE.getMessage());
+            System.out.println(INFO_MESSAGE);
             String line = reader.readLine();
             int rows = getNumber(line);
             generatePyramid(rows);
-        } catch (IOException e) {
-            printMessage(ERROR_MESSAGE.getMessage());
-        } catch (PyramidPrinterException e) {
-            printMessage(e.getMessage());
+        } catch (IOException | PyramidPrinterException e) {
+            System.out.println(ERROR_MESSAGE);
         }
     }
 
     private int getNumber(String text) throws PyramidPrinterException {
-        int number;
         try {
-            number = Integer.parseInt(text);
-            if (number < 1) {
-                throw new PyramidPrinterException(ERROR_WRONG_FORMAT_MESSAGE);
+            int number = Integer.parseInt(text);
+            if (number < 0) {
+                throw new PyramidPrinterException(ERROR_MESSAGE);
             }
+            return number;
         } catch (NumberFormatException e) {
-            throw new PyramidPrinterException(ERROR_WRONG_FORMAT_MESSAGE);
+            throw new PyramidPrinterException(ERROR_MESSAGE);
         }
-        return number;
     }
 
     private void generatePyramid(int rows) {
-        for (int i = 1; i <= rows; i++) {
-            for (int j = 1; j <= i; j++) {
-                printMessage(LETTER);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print(LETTER);
             }
-            printMessage(lineSeparator());
+            System.out.println();
         }
     }
 }

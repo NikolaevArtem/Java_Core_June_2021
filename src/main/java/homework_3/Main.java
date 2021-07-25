@@ -12,9 +12,11 @@ public class Main {
         testList.add("task2");
         System.out.println("worker tasks list size: " + worker.getTasks().size());
         System.out.println("testList size: " + testList.size());
-        age.setDay(5);
-        System.out.println(age.getDay());
-        System.out.println(worker.getAge().getDay());
+        //age.setDay(5);
+        //System.out.println("updated Age = " + age.getDay());
+        //System.out.println("age day of the worker = " + worker.getAge().getDay());
+        //worker.getAge().setDay(5);
+        System.out.println("age day of the worker = " + worker.getAge().getDay());
         System.out.println(worker.getName());
         worker = worker.updateWorker("Jackson", "Sales", 897, testList, age);
         System.out.println(worker);

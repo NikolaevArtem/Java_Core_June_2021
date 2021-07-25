@@ -2,40 +2,34 @@ package homework_2.random_chars_table;
 
 import homework_2.random_chars_table.exception.RandomCharsTableException;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static homework_2.random_chars_table.utils.MessageType.ERROR_MESSAGE;
-import static homework_2.random_chars_table.utils.MessageType.INFO_MESSAGE_FOR_COLUMNS;
-import static homework_2.random_chars_table.utils.MessageType.INFO_MESSAGE_FOR_ROWS;
-import static homework_2.random_chars_table.utils.MessageType.INFO_MESSAGE_FOR_STRATEGY;
-import static homework_2.random_chars_table.utils.MessageType.INTEGER_ERROR_MESSAGE;
-import static homework_2.random_chars_table.utils.MessageType.STRATEGY_ERROR_MESSAGE;
+import static homework_2.random_chars_table.utils.Constants.ERROR_MESSAGE;
+import static homework_2.random_chars_table.utils.Constants.MAX_CHAR;
+import static homework_2.random_chars_table.utils.Constants.MIN_CHAR;
+import static homework_2.random_chars_table.utils.Utils.getData;
 import static homework_2.random_chars_table.utils.Utils.printMessage;
 import static java.lang.System.lineSeparator;
 
 public class RandomCharsTable {
-    private static final int MAX_CHAR = 90;
-    private static final int MIN_CHAR = 65;
 
-    public void start() {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            printMessage(INFO_MESSAGE_FOR_COLUMNS.getMessage());
-            int columns = getNumber(reader.readLine());
-            printMessage(INFO_MESSAGE_FOR_ROWS.getMessage());
-            int rows = getNumber(reader.readLine());
-            printMessage(INFO_MESSAGE_FOR_STRATEGY.getMessage());
-            String strategy = getStrategy(reader.readLine());
-            showCharsTable(columns, rows, strategy);
-        } catch (IOException e) {
-            throw new RandomCharsTableException(ERROR_MESSAGE);
+    public void run() {
+        try {
+            String[] data = getData().split(" ");
+            if (isValidData(data)) {
+                showCharsTable(getNumber(data[0]), getNumber(data[1]), getStrategy(data[2]));
+            } else {
+                printMessage(ERROR_MESSAGE);
+            }
         } catch (RandomCharsTableException e) {
-            printMessage(e.getMessage());
+            printMessage(ERROR_MESSAGE);
         }
+    }
+
+    private boolean isValidData(String[] data) {
+        return data.length == 3;
     }
 
     private void showCharsTable(int columns, int rows, String strategy) {
@@ -63,10 +57,10 @@ public class RandomCharsTable {
         try {
             number = Integer.parseInt(text);
             if (number < 1) {
-                throw new RandomCharsTableException(INTEGER_ERROR_MESSAGE);
+                throw new RandomCharsTableException();
             }
         } catch (NumberFormatException e) {
-            throw new RandomCharsTableException(INTEGER_ERROR_MESSAGE);
+            throw new RandomCharsTableException();
         }
         return number;
     }
@@ -75,7 +69,7 @@ public class RandomCharsTable {
         if (line.toLowerCase().equals("odd") || line.toLowerCase().equals("even")) {
             return line.toLowerCase();
         } else {
-            throw new RandomCharsTableException(STRATEGY_ERROR_MESSAGE);
+            throw new RandomCharsTableException();
         }
     }
 
@@ -90,5 +84,27 @@ public class RandomCharsTable {
             result.append(ch).append(", ");
         }
         return result.substring(0, result.toString().trim().length() - 1);
+    }
+
+    public void debug(String input, char[] chars) {
+        String[] data = input.split(" ");
+        int count = 0;
+        if (isValidData(data)) {
+            Set<Character> charsByStrategySet = new HashSet<>();
+            for (int i = 0; i < getNumber(data[0]); i++) {
+                printMessage("|");
+                for (int j = 0; j < getNumber(data[1]); j++) {
+                    count = count > chars.length - 1 ? 0 : count;
+                    char ch = chars[count];
+                    count++;
+                    if (isCharFitsStrategy(ch, getStrategy(data[2]))) {
+                        charsByStrategySet.add(ch);
+                    }
+                    printMessage(ch + "|");
+                }
+                printMessage(lineSeparator());
+            }
+            printMessage(getFormattedStringForPrinting(getStrategy(data[2]), charsByStrategySet));
+        }
     }
 }
