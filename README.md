@@ -9,3 +9,4 @@
 | HW2 | [Pyramid Printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KrylosovArkady/src/main/java/homework_2/pyramidPrinter) | The app that reads input arguments and prints a pyramid of "x" according to the entered positive integer|
 | HW2 | [Random Chars Table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KrylosovArkady/src/main/java/homework_2/randomCharsTable) | The app that reads input arguments and prints an array and a String of even of odd letters, result depends on chosen strategy| 
 [Link to markdown guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+[Link to codingBat](https://codingbat.com/done?user=krylosov.arkady@yandex.ru&tag=8157289593)
