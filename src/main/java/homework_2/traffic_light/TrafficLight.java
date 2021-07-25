@@ -13,7 +13,7 @@ public class TrafficLight {
         String[] arr;
 
         if (!inputStr.matches("\\d\\d:\\d\\d:\\d\\d")) {
-            System.out.println("You typed negative numbers/not allowed symbols or time not according to the format HH:MM:SS");
+            System.out.println("Only 1 non-negative integer is allowed as passed parameter");
         } else {
             arr = inputStr.split(":");
             int hoursSec = Integer.parseInt(arr[0]) * 60 * 60;
@@ -52,7 +52,7 @@ public class TrafficLight {
             String str = scanner.nextLine();
             return str;
         } catch (NumberFormatException e) {
-            return "Error:(";
+            return "Only 1 non-negative integer is allowed as passed parameter";
         }
     }
 }

@@ -18,17 +18,17 @@ public class RandomCharsTable {
         for (int i = 0; i < lengthOfTable; i++) {
             for (int j = 0; j < widthOfTable; j++) {
                 randomCharsTable[i][j] = (char) ((int) (Math.random() * (maxRand - minRand + 1) + minRand));
-                System.out.print(" | " + randomCharsTable[i][j] + " |");
+                System.out.print("| " + randomCharsTable[i][j] + " | ");
             }
             System.out.println();
         }
 
         if ("even".equals(strategy.toLowerCase())) {
-            System.out.print("Even letters: ");
+            System.out.print("Even letters - ");
         }
 
         if ("odd".equals(strategy.toLowerCase())) {
-            System.out.print("Odd letters: ");
+            System.out.print("Odd letters - ");
         }
 
         StringBuffer stringBuffer = new StringBuffer();
@@ -63,12 +63,12 @@ public class RandomCharsTable {
             int widthOfTable = inputDataSeparate.nextInt();
             String strategy = inputDataSeparate.next();
             if (!"even".equalsIgnoreCase(strategy) && !"odd".equalsIgnoreCase(strategy)) {
-                System.out.println("Please type a correct strategy: even or odd");
+                System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
                 return;
             }
             randomCharsTable(lengthOfTable, widthOfTable, strategy);
         } catch (NegativeArraySizeException | NoSuchElementException e) {
-            System.out.println("You typed negative numbers or strategy/numbers are not added");
+            System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
         }
     }
 
@@ -77,7 +77,7 @@ public class RandomCharsTable {
         try (Scanner scanner = new Scanner(System.in)) {
             inputData = scanner.nextLine();
         } catch (InputMismatchException e) {
-            return "Please follow to the correct format: 2 positive numbers + even/odd word";
+            return "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
         }
         return inputData;
     }

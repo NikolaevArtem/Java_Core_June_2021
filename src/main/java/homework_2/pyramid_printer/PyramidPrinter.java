@@ -30,7 +30,7 @@ public class PyramidPrinter {
                 throw new NumberFormatException();
             }
         } catch (NumberFormatException e) {
-            System.out.println("You typed not a number or a negative number, please add a positive number");
+            System.out.println("Only 1 non-negative integer is allowed as passed parameter");
         }
         return levelsOfPyramid;
     }
@@ -40,7 +40,7 @@ public class PyramidPrinter {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             inputData = reader.readLine();
         } catch (IOException e) {
-            System.out.println("Error:(");
+            System.out.println("Only 1 non-negative integer is allowed as passed parameter");
         }
         return inputData;
     }
