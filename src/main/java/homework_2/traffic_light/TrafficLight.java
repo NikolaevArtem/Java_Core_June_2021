@@ -1,5 +1,6 @@
 package homework_2.traffic_light;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class TrafficLight {
@@ -9,14 +10,18 @@ public class TrafficLight {
     public static final String ANSI_YELLOW = "\u001B[33m";
 
     private static void trafficLight(String secondsStr) {
-
-        int seconds = Integer.parseInt(secondsStr);
-        if (seconds < 0) {
+        int seconds = 0;
+        try {
+            seconds = Integer.parseInt(secondsStr);
+            if (seconds < 0) {
+                System.out.println("Only 1 non-negative integer is allowed as passed parameter");
+                return;
+            } else if (seconds > 86399) {
+                System.out.println("The day is over");
+                return;
+            }
+        } catch (NumberFormatException e) {
             System.out.println("Only 1 non-negative integer is allowed as passed parameter");
-            return;
-        } else if (seconds > 86399) {
-            System.out.println("The day is over");
-            return;
         }
 
         int cycleOfTrafficLight = 60;
@@ -40,11 +45,12 @@ public class TrafficLight {
     }
 
     private String readData() {
+        String str;
         try (Scanner scanner = new Scanner(System.in)) {
-            String str = scanner.next();
-            return str;
-        } catch (NumberFormatException e) {
+            str = scanner.next();
+        } catch (NoSuchElementException e) {
             return "Only 1 non-negative integer is allowed as passed parameter";
         }
+        return str;
     }
 }
