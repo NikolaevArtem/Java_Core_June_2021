@@ -3,9 +3,17 @@ package homework_2.random_chars_table;
 import base.UnitBase;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.Constants.ERROR_MESSAGE_RANDOM_CHARS_TABLE;
 import static utils.Constants.INFO_MESSAGE_RANDOM_CHARS_TABLE;
+import static utils.Constants.MAX_CHAR;
+import static utils.Constants.MIN_CHAR;
 
 
 public class RandomCharsTableTest extends UnitBase {
@@ -17,34 +25,55 @@ public class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void given2Columns1Row_whenRun_thenPrintRandomCharsTable() {
-        setInput("2 1 odd");
+    void testPrintAlphabetChars() {
+        setInput("1 2 odd");
         run();
-        assertEquals(5, getOutputLines()[0].length());
-    }
-
-    @Test
-    void given2Rows2ColumnsOdd_whenRun_thenPrintRandomCharsTable() {
-        String input = "2 2 odd";
-        setInput(input);
-        char[] charArray = {'A', 'B', 'C', 'D'};
-        new RandomCharsTable().debug(input, charArray);
         removeFromOutput("Odd letters - ");
-        assertEquals("|A|B|\n|C|D|\nA, C", getOutput());
+        removeFromOutput("|");
+        removeFromOutput("\n");
+        getOutput().replace(",", "|");
+        String[] chars = getOutput().split("|");
+        assertTrue(chars[0].charAt(0) >= MIN_CHAR && chars[0].charAt(0) <= MAX_CHAR);
+        assertTrue(chars[1].charAt(0) >= MIN_CHAR && chars[1].charAt(0) <= MAX_CHAR);
+        assertTrue(chars[2].charAt(0) >= MIN_CHAR && chars[2].charAt(0) <= MAX_CHAR);
     }
 
     @Test
-    void given3Rows2ColumnsEven_whenRun_thenPrintRandomCharsTable() {
-        String input ="3 2 even";
-        setInput(input);
-        char[] charArray = {'A', 'B', 'C', 'D'};
-        new RandomCharsTable().debug(input, charArray);
+    void givenOddStrategy_whenRun_thenPrintOddChars() {
+        setInput("2 8 odd");
+        run();
+        removeFromOutput("Odd letters - ");
+        List<String> letters = new ArrayList<>();
+        if (getOutputLines()[getOutputLines().length - 1].contains(",")) {
+            letters = Arrays.asList(getOutputLines()[getOutputLines().length - 1].split(", "));
+        } else {
+            letters.add(getOutputLines()[2]);
+        }
+        for (String s : letters) {
+            char ch = s.charAt(0);
+            assertNotEquals(ch % 2, 0);
+        }
+    }
+
+    @Test
+    void givenEvenStrategy_whenRun_thenPrintEvenChars() {
+        setInput("7 5 even");
+        run();
         removeFromOutput("Even letters - ");
-        assertEquals("|A|B|\n|C|D|\n|A|B|\nB, D", getOutput());
+        List<String> letters = new ArrayList<>();
+        if (getOutputLines()[getOutputLines().length - 1].contains(",")) {
+            letters = Arrays.asList(getOutputLines()[getOutputLines().length - 1].split(", "));
+        } else {
+            letters.add(getOutputLines()[2]);
+        }
+        for (String s : letters) {
+            char ch = s.charAt(0);
+            assertEquals(ch % 2, 0);
+        }
     }
 
     @Test
-    void given1stNaN_whenRun_thenPrintNotIntegerMessage() {
+    void givenNaN_whenRun_thenPrintNotIntegerMessage() {
         setInput("word 1 even");
         run();
         assertEquals(ERROR_MESSAGE_RANDOM_CHARS_TABLE, getOutput());

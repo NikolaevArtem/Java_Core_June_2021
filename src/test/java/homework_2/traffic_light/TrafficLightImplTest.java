@@ -34,14 +34,14 @@ public class TrafficLightImplTest extends UnitBase {
     }
 
     @Test
-    void givenSecondsRemainderFrom35To39_whenRun_thenPrintYellowLight() {
-        setInput("55");
+    void givenSecondsRemainderFrom35To39Or55To59_whenRun_thenPrintYellowLight() {
+        setInput("37");
         run();
         assertEquals(YELLOW_MESSAGE_TRAFFIC_LIGHT, getOutput());
     }
 
     @Test
-    void givenSecondsRemainderFrom40To59_whenRun_thenPrintRedLight() {
+    void givenSecondsRemainderFrom40To54_whenRun_thenPrintRedLight() {
         setInput("174");
         run();
         assertEquals(RED_MESSAGE_TRAFFIC_LIGHT, getOutput());

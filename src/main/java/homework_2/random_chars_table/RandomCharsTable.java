@@ -85,26 +85,4 @@ public class RandomCharsTable {
         }
         return result.substring(0, result.toString().trim().length() - 1);
     }
-
-    public void debug(String input, char[] chars) {
-        String[] data = input.split(" ");
-        int count = 0;
-        if (isValidData(data)) {
-            Set<Character> charsByStrategySet = new HashSet<>();
-            for (int i = 0; i < getNumber(data[0]); i++) {
-                printMessage("|");
-                for (int j = 0; j < getNumber(data[1]); j++) {
-                    count = count > chars.length - 1 ? 0 : count;
-                    char ch = chars[count];
-                    count++;
-                    if (isCharFitsStrategy(ch, getStrategy(data[2]))) {
-                        charsByStrategySet.add(ch);
-                    }
-                    printMessage(ch + "|");
-                }
-                printMessage(lineSeparator());
-            }
-            printMessage(getFormattedStringForPrinting(getStrategy(data[2]), charsByStrategySet));
-        }
-    }
 }

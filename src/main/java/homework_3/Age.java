@@ -1,9 +1,9 @@
 package homework_3;
 
 public class Age {
-    private int day;
-    private int month;
-    private int year;
+    private final int day;
+    private final int month;
+    private final int year;
 
     public Age(int day, int month, int year) {
         this.day = day;
