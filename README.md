@@ -9,3 +9,5 @@
 | HW2 | [Pyramid printer](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/MargaritaSkorodnikova/src/main/java/Homework2_1/PyramidPrinter.java) | The app that reads input lines, turns them into numbers and prints a two-dimentional array of chars looking like a pyramid | 
 
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+[My CodingBat Page](https://codingbat.com/done?user=la.reine.m@gmail.com&tag=831576932)
