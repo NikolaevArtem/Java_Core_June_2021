@@ -5,17 +5,39 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class PyramidPrinter {
-    public static void main(String[] args) {
-        String output = "";
-        int input;
-        try (BufferedReader bF = new BufferedReader(new InputStreamReader(System.in))) {
-            input = Integer.parseInt(bF.readLine());
-            for (int i = 0; i < input; i++) {
-                output += "x";
-                System.out.println(output);
-            }
-        } catch (IOException e) {
-            System.out.println("Error occurred during input");
+
+    private final String ERROR = "Only 1 non-negative integer is allowed as passed parameter";
+
+    public void run() {
+        System.out.println("Please, input a number:");
+        int input = consoleReader();
+        if (negativeInput(input)) {
+            System.out.println(ERROR);
+        } else if (input == 0) {
+            System.out.println();
+        } else {
+            printResult(input);
         }
+    }
+
+    private int consoleReader() {
+        try (BufferedReader bF = new BufferedReader(new InputStreamReader(System.in))) {
+            return Integer.parseInt(bF.readLine());
+        } catch (NumberFormatException | IOException exception) {
+
+        }
+        return -1;
+    }
+
+    private void printResult(int input) {
+        String output = "";
+        for (int i = 0; i < input; i++) {
+            output += "x";
+            System.out.println(output);
+        }
+    }
+
+    private boolean negativeInput(int n) {
+        return n < 0;
     }
 }
