@@ -17,6 +17,7 @@ public class RandomCharsTable {
     private static String strategy;
     private final static char start = 'A';
     private final static char end = 'Z';
+    private final static String validDataRegex = "\\d+ \\d+ \\w+";
 
     public void run() {
         System.out.println(GREETING);
@@ -27,10 +28,12 @@ public class RandomCharsTable {
 
     private boolean isValidInput(String input) {
         try {
-            String[] data = input.split(" ");
-            length = Integer.parseInt(data[0]);
-            width = Integer.parseInt(data[1]);
-            strategy = data[2];
+            if (input.matches(validDataRegex)) {
+                String[] data = input.split(" ");
+                length = Integer.parseInt(data[0]);
+                width = Integer.parseInt(data[1]);
+                strategy = data[2];
+            }
             return length > 0 &&
                     width > 0 &&
                     (strategy.equals("odd") || strategy.equals("even"));
@@ -53,9 +56,10 @@ public class RandomCharsTable {
         }
         int lettersCounter = 0;
         for (int i = 0; i < length; i++) {
-            result.append("| ");
             for (int j = 0; j < width; j++) {
-                result.append(table[i][j]).append(" | ");
+                result.append("| ")
+                        .append(table[i][j])
+                        .append(" ");
 
                 if (table[i][j] % 2 == remainder) {
                     letters.append(" ").append(table[i][j]).append(",");
@@ -63,7 +67,7 @@ public class RandomCharsTable {
                 }
 
             }
-            result.append("\n");
+            result.append("|\n");
         }
         if (lettersCounter == 0) {
             String noLetters = String.format("There are no %s letters in the table", strategy);

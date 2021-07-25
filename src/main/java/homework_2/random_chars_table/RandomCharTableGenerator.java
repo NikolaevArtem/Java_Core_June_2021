@@ -6,7 +6,7 @@ import java.util.Random;
 public class RandomCharTableGenerator {
 
     static char[][] randomCharTable(int length, int width, char start, char end) {
-        Random random = new Random(System.currentTimeMillis());
+        Random random = new Random(System.nanoTime());
         char[][] randomTable = new char[length][width];
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j++) {

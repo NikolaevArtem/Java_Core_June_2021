@@ -32,7 +32,7 @@ public class PyramidPrinter {
         System.out.println(result);
     }
 
-    String processData(String input) {
+    private String processData(String input) {
         if ("Error.".equals(input)) {
             return input;
         }
