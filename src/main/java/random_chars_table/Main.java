@@ -1,7 +1,8 @@
-package homework_2.traffic_light;
+package random_chars_table;
+
 
 public class Main {
     public static void main(String[] args) {
-        new TrafficLight().run();
+        new RandomCharsTable().run();
     }
 }

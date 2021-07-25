@@ -18,7 +18,7 @@ public class TrafficLight {
     public static final String GREEN = "\u001B[32m";
     public static final String YELLOW = "\u001B[33m";
 
-    public void run () {
+    public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String str;
 

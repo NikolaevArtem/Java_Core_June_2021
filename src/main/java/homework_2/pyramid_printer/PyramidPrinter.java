@@ -8,24 +8,31 @@ public class PyramidPrinter {
 //    считывает число с командной строки, и печатает пирамиду из "x" согласно введенному положительному целому числу.
 //    После первой печати завершает работу.
 
-    public static void main(String[] args) throws IOException {
+    public static void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String str;
         int num;
 
-        System.out.println("Введите положительное целое число");
-        str = reader.readLine();
+        System.out.println("Enter 1 positive integer");
 
         try {
+            str = reader.readLine();
             num = Integer.parseInt(str);
             if (num < 0) {
-                System.out.println("Разрешено вводить только положительные числа");
+                System.out.println("Only 1 non-negative integer is allowed as passed parameter");
+            } else {
+                printPyramid(num);
             }
-        } catch (NumberFormatException e) {
-            System.out.println("Разрешено вводить только целые положительные числа");
+        } catch (NumberFormatException | IOException e) {
+            System.out.println("Only 1 non-negative integer is allowed as passed parameter");
         }
+    }
 
-        System.out.println("здесь писать код");
-
+    private static void printPyramid(int num) {
+        String output = "";
+        for (int i = 0; i < num; i++) {
+            output += "x";
+            System.out.println(output);
+        }
     }
 }
