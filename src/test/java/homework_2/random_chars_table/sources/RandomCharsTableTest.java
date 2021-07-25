@@ -15,62 +15,6 @@ class RandomCharsTableTest extends UnitBase {
 
     RandomCharsTable rct = new RandomCharsTable();
 
-    @Test
-    void testFormatCount() {
-        setInput("1 2 even 12even");
-
-        rct.run();
-        printOut();
-        removeFromOutput("Input table length, table width, table strategy(even/odd): ");
-        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]",
-                getOutputLines()[0]);
-    }
-
-    @Test
-    void testNegative() {
-        setInput("-1 -2 odd");
-
-        rct.run();
-        printOut();
-        removeFromOutput("Input table length, table width, table strategy(even/odd): ");
-        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]",
-                getOutputLines()[0]);
-    }
-
-    @Test
-    void testZero() {
-        setInput("0 0 odd");
-
-        rct.run();
-        printOut();
-        removeFromOutput("Input table length, table width, table strategy(even/odd): ");
-        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]",
-                getOutputLines()[0]);
-    }
-
-    @Test
-    void testWrongStrategy() {
-        setInput("1 3 omg");
-
-        rct.run();
-        printOut();
-        removeFromOutput("Input table length, table width, table strategy(even/odd): ");
-        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]",
-                getOutputLines()[0]);
-    }
-
-    @Test
-    void testEmpty() {
-        setInput("");
-
-        rct.run();
-        printOut();
-        removeFromOutput("Input table length, table width, table strategy(even/odd): ");
-        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]",
-                getOutputLines()[0]);
-    }
-
-
     // robots will replace human beings !
     private void testInts(int length, int width) {
         if (length <= 0 || width <= 0) {
@@ -133,7 +77,53 @@ class RandomCharsTableTest extends UnitBase {
         } catch (ArrayIndexOutOfBoundsException e) {
             return;
         }
+    }
 
+    // free for adding new not valid cases in format Int, Int, String
+    private static Stream<Arguments> notValidCases() {
+        return Stream.of(
+                Arguments.of(-1, -2, "odd"),
+                Arguments.of(0, 0, "even"),
+                Arguments.of(1, 3, "omg"),
+                Arguments.of(1234, -2, "even")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("notValidCases")
+    void testNotValid(int rows, int columns, String strategy) {
+        setInput(
+                String.format(
+                        "%d %d %s",
+                        rows, columns, strategy
+                ));
+        rct.run();
+        printOut();
+        removeFromOutput("Input table length, table width, table strategy(even/odd): ");
+        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]",
+                getOutputLines()[0]);
+    }
+
+    @Test
+    void testFormatCount() {
+        setInput("1 2 even 12even");
+
+        rct.run();
+        printOut();
+        removeFromOutput("Input table length, table width, table strategy(even/odd): ");
+        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]",
+                getOutputLines()[0]);
+    }
+
+    @Test
+    void testEmpty() {
+        setInput("");
+
+        rct.run();
+        printOut();
+        removeFromOutput("Input table length, table width, table strategy(even/odd): ");
+        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]",
+                getOutputLines()[0]);
     }
 
 }
