@@ -62,6 +62,10 @@ public class RandomCharsTable {
             int lengthOfTable = inputDataSeparate.nextInt();
             int widthOfTable = inputDataSeparate.nextInt();
             String strategy = inputDataSeparate.next();
+            if (lengthOfTable <= 0 || widthOfTable <= 0) {
+                System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
+                return;
+            }
             if (!"even".equalsIgnoreCase(strategy) && !"odd".equalsIgnoreCase(strategy)) {
                 System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
                 return;
@@ -76,7 +80,7 @@ public class RandomCharsTable {
         String inputData;
         try (Scanner scanner = new Scanner(System.in)) {
             inputData = scanner.nextLine();
-        } catch (InputMismatchException e) {
+        } catch (NoSuchElementException e) {
             return "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
         }
         return inputData;
