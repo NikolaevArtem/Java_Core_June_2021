@@ -13,32 +13,33 @@ public class Traffic_light {
             seconds = Integer.parseInt(reader.readLine());
 
             if(seconds>86399) {
-                System.out.println("ошибка, недопустимое значение");
+                System.out.println("The day is over");
                 return;
             }
             if(seconds<0) {
-                System.out.println("ошибка, только позитивные");
+                System.out.println("Only 1 non-negative integer is allowed as passed parameter");
                 return;
             }
         } catch (NumberFormatException | IOException e) {
-            System.out.println("ошибка, только числа");
+            System.out.println("Only 1 non-negative integer is allowed as passed parameter");
             return;
         }
 
         int result;
 
-        if(seconds>60)
-            result = seconds%60;
+        if(seconds>60) {
+            result = seconds % 60;
+        }
         else result = seconds;
 
         if (result<35){
-            System.out.println("зеленый");
+            System.out.println("GREEN");
         } else if(result<40){
-            System.out.println("желтый");
+            System.out.println("YELLOW");
         } else if(result<55){
-            System.out.println("красный");
+            System.out.println("RED");
         } else {
-            System.out.println("желтый");
+            System.out.println("YELLOW");
         }
     }
 }

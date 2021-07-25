@@ -45,30 +45,32 @@ public class RandomCharsTable {
 
         if (word.equals("even")) {
             System.out.println(getResultChar(words, true));
-        } else {
+        } if(word.equals("odd")) {
             System.out.println(getResultChar(words, false));
+        } else {
+            System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
         }
-
     }
 
     public static int getRandomNumber() {
-        return (int) ((Math.random() * (90 - 65)) + 65);
+        return (int) ((Math.random() * ('Z' - 'A')) + 'A');
     }
 
     public static String getResultChar(ArrayList<Integer> words, boolean even) {
         String result;
         if (even) {
-            result = words.stream().filter(i -> i % 2 == 0)
+            result = "Even letters - ";
+            result += words.stream().filter(i -> i % 2 == 0)
                     .distinct()
                     .map(i -> String.valueOf((char) i.intValue()))
                     .collect(Collectors.joining(","));
         } else {
-            result = words.stream().filter(i -> i % 2 == 1)
+            result = "Odd letters - ";
+            result += words.stream().filter(i -> i % 2 == 1)
                     .distinct()
                     .map(i -> String.valueOf((char) i.intValue()))
                     .collect(Collectors.joining(","));
         }
-        if(result.isEmpty()) return  "Нет подходящих символов";
         return result;
     }
 
