@@ -72,7 +72,7 @@ public class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void givenNaN_whenRun_thenPrintNotIntegerMessage() {
+    void given1stNaN_whenRun_thenPrintNotIntegerMessage() {
         setInput("word 1 even");
         run();
         assertEquals(ERROR_MESSAGE_RANDOM_CHARS_TABLE, getOutput());

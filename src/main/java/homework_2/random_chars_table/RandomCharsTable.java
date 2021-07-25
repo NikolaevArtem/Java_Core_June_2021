@@ -32,7 +32,7 @@ public class RandomCharsTable {
         return data.length == 3;
     }
 
-    private void showCharsTable(int columns, int rows, String strategy) {
+    private void showCharsTable(int rows, int columns, String strategy) {
         Set<Character> charsByStrategySet = new HashSet<>();
         for (int i = 0; i < rows; i++) {
             printMessage("|");
