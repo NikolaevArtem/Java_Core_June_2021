@@ -16,13 +16,15 @@ public class Traffic_light {
     }
 
     private void checkColor(int time) {
+        if(time < 0 || time >= 86400) return;
+
         int sec = time % 60;
         if (sec < 35) {
-            System.out.println (ANSI_STRIKEOUT_GREEN + "Green" + ANSI_RESET);
+            System.out.println(ANSI_STRIKEOUT_GREEN + "Green" + ANSI_RESET);
         } else if (sec < 40) {
-            System.out.println (ANSI_STRIKEOUT_YELLOW + "Yellow" + ANSI_RESET);
+            System.out.println(ANSI_STRIKEOUT_YELLOW + "Yellow" + ANSI_RESET);
         } else {
-            System.out.println (ANSI_STRIKEOUT_RED + "Red" + ANSI_RESET);
+            System.out.println(ANSI_STRIKEOUT_RED + "Red" + ANSI_RESET);
         }
     }
 }

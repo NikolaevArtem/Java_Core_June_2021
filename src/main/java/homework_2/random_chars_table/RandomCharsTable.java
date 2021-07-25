@@ -9,29 +9,21 @@ import java.util.List;
 public class RandomCharsTable {
 
     public void run() throws IOException {
-        BufferReader randomBufferReader = new BufferReader();
-        String inputString = randomBufferReader.bufferReaderConsoleForRandom();
-        String[] arrayWithInputData = inputString.trim().split(" ");
-
-        if(arrayWithInputData.length != 3){
-            System.out.println("Should be typed 3 parameters (e.g. 3 3 odd)");
+        BufferReader randomBufferReader = new BufferReader ();
+        String inputString = randomBufferReader.bufferReaderConsoleForRandom ();
+        try {
+            var x = new ParserInputData ().parserInputRandomData (inputString);
+            returnAnswer (generateArrays (x.row, x.column), x.type);
+        } catch (ParserError ex) {
+            System.out.print (ex.getMessage ());
             return;
         }
 
-        int row = Integer.parseInt(arrayWithInputData[0]);
-        int column = Integer.parseInt(arrayWithInputData[1]);
-        String typeOfParity = arrayWithInputData[2];
-
-        if(!typeOfParity.equals("even") && !typeOfParity.equals("odd")){
-            System.out.println("Wrong type parameter");
-            return;
-        }
-        returnAnswer(generateArrays (row, column), typeOfParity);
     }
 
-    private char[][] generateArrays(int j, int k){
+    private char[][] generateArrays(int j, int k) {
         char[][] arr = new char[j][k];
-        for (int row = 0; row < j; row ++) {
+        for (int row = 0; row < j; row++) {
             for (int col = 0; col < k; col++) {
                 arr[row][col] = (char) (Math.random () * 26 + 'A');
             }
@@ -39,22 +31,22 @@ public class RandomCharsTable {
         return arr;
     }
 
-    private void returnAnswer(char[][] arr, String type){
-        List<String > result = new ArrayList<> ();
+    private void returnAnswer(char[][] arr, String type) {
+        List<String> result = new ArrayList<> ();
         String array = "";
-        for (int row = 0; row < arr.length; row ++) {
+        for (int row = 0; row < arr.length; row++) {
             for (int col = 0; col < arr[row].length; col++) {
 
                 array += "|" + arr[row][col] + "|";
 
                 if ((type.equals ("even") && arr[row][col] % 2 == 0) || (type.equals ("odd") && arr[row][col] % 2 != 0)) {
-                        result.add(String.valueOf(arr[row][col]));
+                    result.add (String.valueOf (arr[row][col]));
                 }
             }
             array += "\n";
         }
 
-        System.out.println(array);
-        System.out.println(type + " letters - " + String.join(", ",  result));
+        System.out.println (array);
+        System.out.println (type + " letters - " + String.join (", ", result));
     }
 }
