@@ -6,9 +6,11 @@ import java.io.InputStreamReader;
 
 public class TrafficLight {
 
+    private int light;
+
     public void run() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            int light = Integer.parseInt(reader.readLine());
+            light = Integer.parseInt(reader.readLine());
 
             if (light < 0) {
                 throw new NumberFormatException();

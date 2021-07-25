@@ -6,9 +6,11 @@ import java.io.InputStreamReader;
 
 public class PyramidPrinter {
 
+    private int num;
+
     public void run() {
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            int num = Integer.parseInt(reader.readLine());
+            num = Integer.parseInt(reader.readLine());
 
             if (num < 0){
                 throw new NumberFormatException();
