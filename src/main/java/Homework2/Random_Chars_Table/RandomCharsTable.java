@@ -20,13 +20,9 @@ input - 2 3 odd, output -
 		Odd letters - S, Q
  */
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class RandomCharsTable {
 
-    public char randomChar   (int min, int max) {
+    static char randomChar   (int min, int max) {
         min = 65;
         max = 90;
         max -= min;
@@ -34,15 +30,19 @@ public class RandomCharsTable {
         char randomCh = (char) ((int) (Math.random() * ++max) + min);
 
         return randomCh;
-
     }
-    public static void main(String[] args) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            Integer.parseInt(reader.readLine());
-        } catch (IOException e) {
 
+     char [][] getRandomCharTable (int length, int height){
+        char [][] randomCharTable = new char[length][height];
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < height; j++) {
+               char ch = randomChar(65, 90);
+               randomCharTable[i][j] = ch;
+            }
         }
+        return randomCharTable;
+    }
+    public void printRandomChartable(char getRand){
 
     }
 
