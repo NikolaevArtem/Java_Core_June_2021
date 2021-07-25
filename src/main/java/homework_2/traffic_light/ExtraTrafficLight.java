@@ -8,21 +8,15 @@ import java.time.format.DateTimeParseException;
 public class ExtraTrafficLight extends TrafficLight {
 
     static {
-       TrafficLight.greeting = "Enter time in \"hh:mm:ss\" format.";
+       TrafficLight.greeting = "Enter time in seconds in a range from 0 to 86399 or time in \"hh:mm:ss\" format.";
     }
-
-//    @Override
-//    public void run() {
-//        System.out.println(greeting);
-//        final String input = ConsoleSafeReader.read();
-//        final String result = processData(input);
-//        System.out.println(result);
-//    }
 
     @Override
     protected String processData(String input) {
-        if (isLocalTime(input)) {
-            final int seconds = LocalTime.parse(input).toSecondOfDay();
+        if (isLocalTime(input) || isDigitsAndPositive(input)) {
+            final int seconds = isLocalTime(input) ?
+                    LocalTime.parse(input).toSecondOfDay() :
+                    Integer.parseInt(input);
             return showTheLight(seconds);
         } else {
             return "Only 1 non-negative integer is allowed as passed parameter";

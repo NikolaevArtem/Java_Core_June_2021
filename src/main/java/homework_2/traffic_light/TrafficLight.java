@@ -30,10 +30,10 @@ public class TrafficLight {
         }
     }
 
-    private static boolean isDigitsAndPositive(String str) {
+    protected static boolean isDigitsAndPositive(String str) {
         try {
             int sec = Integer.parseInt(str);
-            return sec > 0;
+            return sec >= 0;
         } catch (NumberFormatException e) {
             return false;
         }
