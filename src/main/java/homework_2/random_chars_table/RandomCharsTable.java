@@ -1,6 +1,4 @@
-package random_chars_table;
-
-import org.w3c.dom.ls.LSOutput;
+package homework_2.random_chars_table;
 
 import java.io.BufferedReader;
 import java.io.IOException;
