@@ -21,13 +21,13 @@ class TablePrinter {
     public void printTable() {
         charList = new LinkedList<>();
         for (int i = 0; i < rows; i++) {
-            System.out.print("| ");
+            System.out.print("|");
             for (int j = 0; j < columns; j++) {
                 char ch = (char) (Math.round(Math.random() * 25) + 65);
                 if (ch % 2 == remains && !charList.contains(ch)) {
                     charList.add(ch);
                 }
-                System.out.print(ch + " | ");
+                System.out.print(ch + "|");
             }
             System.out.println();
         }
