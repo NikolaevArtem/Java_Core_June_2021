@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
 
 public class ImmutableWorkerTest {
 
@@ -14,6 +14,9 @@ public class ImmutableWorkerTest {
         List<String> testList = new ArrayList<>();
         Age age = new Age(13, 5, 1980);
         ImmutableWorker worker = new ImmutableWorker("Jones", "Marketing", 874, testList, age);
-        assertNotEquals(worker, worker.updateWorker("null", "Sales", 0, null, null));
+        ImmutableWorker anotherWorker = worker.updateWorker("null", "Sales", 0, null, null);
+        assertNotSame(worker, anotherWorker);
+        assertNotSame(worker.getAge(), anotherWorker.getAge());
+        assertNotSame(worker.getTasks(), anotherWorker.getTasks());
     }
 }

@@ -1,6 +1,7 @@
 package homework_3;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -75,7 +76,8 @@ public final class ImmutableWorker {
             id = this.getId();
         }
         if (tasks == null) {
-            tasks = this.getTasks();
+            tasks = new ArrayList<>();
+            Collections.copy(tasks, this.tasks);
         }
         if (age == null) {
             age = this.getAge();
