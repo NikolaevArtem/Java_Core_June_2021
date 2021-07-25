@@ -1,8 +1,12 @@
 package homework_2.random_chars_table;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomCharsTable {
@@ -14,13 +18,15 @@ public class RandomCharsTable {
     private List<Character> chars;
 
     public void run() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            length = scanner.nextInt();
-            width = scanner.nextInt();
-            mode = scanner.next();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            List<String> list = Arrays.asList(reader.readLine().split(" "));
+
+            length = Integer.parseInt(list.get(0));
+            width = Integer.parseInt(list.get(1));
+            mode = list.get(2);
             chars = new ArrayList<>();
 
-            if (length == 0 || width == 0 || (!mode.equals("odd") && !mode.equals("even"))) {
+            if (list.size() > 3 || length <= 0 || width <= 0 || (!mode.equals("odd") && !mode.equals("even"))) {
                 throw new NumberFormatException();
             }
 
@@ -46,14 +52,16 @@ public class RandomCharsTable {
                 }
             }
 
-        } catch (NumberFormatException e) {
+        } catch (InputMismatchException | NumberFormatException e) {
             System.out.println("Passed parameters should match the format " +
                     "[positive integer] [positive integer] [even|odd]");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     private void generateChar(String mode) {
-        c = (char) ThreadLocalRandom.current().nextInt(65, 90);
+        c = (char) ThreadLocalRandom.current().nextInt('A', 'Z');
 
         if ((mode.equals("odd") && c % 2 != 0) || (mode.equals("even") && c % 2 == 0)) {
             chars.add(c);

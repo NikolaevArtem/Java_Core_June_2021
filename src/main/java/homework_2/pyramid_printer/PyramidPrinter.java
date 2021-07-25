@@ -18,7 +18,7 @@ public class PyramidPrinter {
 
             for (int i = 0; i <= num; i++){
                 for (int j = 0; j < i; j++){
-                    System.out.print(num);
+                    System.out.print("x");
                 }
 
                 System.out.println();
