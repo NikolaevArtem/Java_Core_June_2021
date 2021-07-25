@@ -4,8 +4,8 @@ import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        Traffic_light traffic_light = new Traffic_light();
+    public static void main(String[] args) {
+        TrafficLight traffic_light = new TrafficLight ();
         traffic_light.run();
     }
 }

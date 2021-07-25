@@ -7,23 +7,23 @@ package homework_3;
 // Deep Copy of objects should be performed in the getter methods (To return a copy rather than returning the actual object reference)
 // No setters (To not have the option to change the value of the instance variable)
 
-public final class FinalClass {
+public final class ImmutableClass {
 
    private final String string ;
    private final int intVal;
 
-    private FinalClass(String string, int intVal) {
+    private ImmutableClass(String string, int intVal) {
         this.string = string;
         this.intVal = intVal;
     }
 
-    private FinalClass() {
+    private ImmutableClass() {
         this.string = "defaultVal";
         this.intVal = 0;
     }
 
-    private FinalClass createNewObj() {
-        return new FinalClass();
+    private ImmutableClass createNewObj() {
+        return new ImmutableClass ();
     }
 
 }

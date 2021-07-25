@@ -1,24 +1,23 @@
 package homework_2.random_chars_table;
 
-import homework_2.bufferReaders.BufferReader;
+import homework_2.bufferReaders.IOHelper;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RandomCharsTable {
 
-    public void run() throws IOException {
-        BufferReader randomBufferReader = new BufferReader ();
-        String inputString = randomBufferReader.bufferReaderConsoleForRandom ();
+    public void run()  {
+        IOHelper randomIOHelper = new IOHelper ();
+
         try {
-            var x = new ParserInputData ().parserInputRandomData (inputString);
-            returnAnswer (generateArrays (x.row, x.column), x.type);
+            String inputString = randomIOHelper.bufferReaderConsoleForRandom ();
+            InputData inputData = new ParserInputData ().parserInputRandomData (inputString);
+            returnAnswer (generateArrays (inputData.row, inputData.column), inputData.type);
         } catch (ParserError ex) {
             System.out.print (ex.getMessage ());
             return;
         }
-
     }
 
     private char[][] generateArrays(int j, int k) {

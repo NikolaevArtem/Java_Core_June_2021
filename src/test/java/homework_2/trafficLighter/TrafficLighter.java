@@ -1,7 +1,7 @@
 package homework_2.trafficLighter;
 
 import base.UnitBase;
-import homework_2.traffic_light.Traffic_light;
+import homework_2.traffic_light.TrafficLight;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -15,7 +15,7 @@ public class TrafficLighter extends UnitBase {
     public void testInput61ToSeeGreen() throws IOException {
         setInput("61");
 
-        Traffic_light traffic_light = new Traffic_light();
+        TrafficLight traffic_light = new TrafficLight ();
         traffic_light.run();
         printOut();
         removeFromOutput("Please input number");
@@ -27,7 +27,7 @@ public class TrafficLighter extends UnitBase {
     public void testInput86400() throws IOException {
         setInput("86400");
 
-        Traffic_light traffic_light = new Traffic_light();
+        TrafficLight traffic_light = new TrafficLight ();
         traffic_light.run();
         printOut();
         removeFromOutput("Please input number");
@@ -39,7 +39,7 @@ public class TrafficLighter extends UnitBase {
     public void testInputZero() throws IOException {
         setInput("0");
 
-        Traffic_light traffic_light = new Traffic_light();
+        TrafficLight traffic_light = new TrafficLight ();
         traffic_light.run();
         printOut();
         removeFromOutput("Please input number");
@@ -51,7 +51,7 @@ public class TrafficLighter extends UnitBase {
     public void testInputNegativeValue() throws IOException {
         setInput("-2");
 
-        Traffic_light traffic_light = new Traffic_light();
+        TrafficLight traffic_light = new TrafficLight ();
         traffic_light.run();
         printOut();
         removeFromOutput("Please input number");
@@ -63,7 +63,7 @@ public class TrafficLighter extends UnitBase {
     public void testInput45() throws IOException {
         setInput("45");
 
-        Traffic_light traffic_light = new Traffic_light();
+        TrafficLight traffic_light = new TrafficLight ();
         traffic_light.run();
         printOut();
         removeFromOutput("Please input number");
@@ -75,7 +75,7 @@ public class TrafficLighter extends UnitBase {
     public void testInput39() throws IOException {
         setInput("39");
 
-        Traffic_light traffic_light = new Traffic_light();
+        TrafficLight traffic_light = new TrafficLight ();
         traffic_light.run();
         printOut();
         removeFromOutput("Please input number");
@@ -87,7 +87,7 @@ public class TrafficLighter extends UnitBase {
     public void testInputText() throws IOException {
         setInput("text");
 
-        Traffic_light traffic_light = new Traffic_light();
+        TrafficLight traffic_light = new TrafficLight ();
         traffic_light.run();
         printOut();
         removeFromOutput("Please input number");
