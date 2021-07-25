@@ -10,7 +10,7 @@ public class RandomCharTableGenerator {
         char[][] randomTable = new char[length][width];
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j++) {
-                randomTable[i][j] = (char) (random.nextInt(end - start) + start);
+                randomTable[i][j] = (char) (random.nextInt(end - start + 1) + start);
             }
         }
         return Arrays.copyOf(randomTable, randomTable.length);
