@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RandomCharsTableTest extends UnitBase {
 
     @Test
-    void empty_Input_Error() {
+    void givenEmpty_whenRun_thenError() {
         setInput("");
 
         new RandomCharsTable().run();
@@ -19,7 +19,7 @@ public class RandomCharsTableTest extends UnitBase {
 
 
     @Test
-    void int1_Input_Error() {
+    void given_1_whenRun_thenError() {
         setInput("1");
 
         new RandomCharsTable().run();
@@ -29,7 +29,7 @@ public class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void int1And1_Input_Error() {
+    void given_1_1_whenRun_thenError() {
         setInput("1 1");
 
         new RandomCharsTable().run();
@@ -39,7 +39,7 @@ public class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void int0And1AndString_Input_Error() {
+    void given_0_1_ven_whenRun_thenError() {
         setInput("0 1 ven");
 
         new RandomCharsTable().run();
@@ -50,7 +50,7 @@ public class RandomCharsTableTest extends UnitBase {
 
 
     @Test
-    void stringAndStringAndString_Input_Error() {
+    void givenString_whenRun_thenError() {
         setInput("s s s");
 
         new RandomCharsTable().run();
@@ -60,7 +60,7 @@ public class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void int0And1AndEven_Input_Error() {
+    void given_0_1_even_whenRun_thenEmpty() {
         setInput("0 1 even");
 
         new RandomCharsTable().run();
@@ -71,7 +71,7 @@ public class RandomCharsTableTest extends UnitBase {
 
 
     @Test
-    void int1And0AndEven_Input_Error() {
+    void given_1_0_whenRun_thenEmpty() {
         setInput("1 0 even");
 
         new RandomCharsTable().run();
@@ -80,29 +80,28 @@ public class RandomCharsTableTest extends UnitBase {
         assertEquals("No even letters", getOutputLines()[0]);
     }
 
-
     @Test
-    void int2And2AndEven_Input_Result() {
-        lengthAndWidthAndIsEven_Input_Result(2,2, true);
+    void given_2_2_even_whenRun_thenResult() {
+        givenlengthAndWidthAndIsEven_whenRun_thenResult(2,2, true);
     }
 
     @Test
-    void int2And2AndOdd_Input_Result() {
-        lengthAndWidthAndIsEven_Input_Result(2,2, false);
+    void given_2_2_odd_whenRun_thenResult() {
+        givenlengthAndWidthAndIsEven_whenRun_thenResult(2,2, false);
     }
 
     @Test
-    void int4And5AndOdd_Input_Result() {
-        lengthAndWidthAndIsEven_Input_Result(4,5, false);
+    void given_4_5_odd_whenRun_thenResult() {
+        givenlengthAndWidthAndIsEven_whenRun_thenResult(4,5, false);
     }
-
 
     @Test
-    void int4And5AndEven_Input_Result() {
-        lengthAndWidthAndIsEven_Input_Result(4,5, true);
+    void given_4_5_even_whenRun_thenResult() {
+        givenlengthAndWidthAndIsEven_whenRun_thenResult(4,5, true);
     }
 
-    void lengthAndWidthAndIsEven_Input_Result (int width, int length, boolean isEven) {
+
+    void givenlengthAndWidthAndIsEven_whenRun_thenResult (int width, int length, boolean isEven) {
 
         setInput(width + " " + length + (isEven ? " even" : " odd"));
 
@@ -130,13 +129,5 @@ public class RandomCharsTableTest extends UnitBase {
         } else {
             assertEquals(strRes, getOutputLines()[length]);
         }
-
-
     }
-
-
-
-
-
-
 }

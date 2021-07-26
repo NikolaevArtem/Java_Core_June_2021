@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PyramidPrinterTest extends UnitBase {
 
     @Test
-    void empty_Input_Error() {
+    void givenEmpty_whenRun_thenError() {
         setInput("");
 
         new PyramidPrinter().run();
@@ -18,7 +18,7 @@ public class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void string_Input_Error() {
+    void givenString_whenRun_thenError() {
         setInput("s");
 
         new PyramidPrinter().run();
@@ -29,7 +29,7 @@ public class PyramidPrinterTest extends UnitBase {
 
 
     @Test
-    void zero_Input_Empty() {
+    void given_0_whenRun_thenError() {
         setInput("0");
 
         new PyramidPrinter().run();
@@ -39,7 +39,7 @@ public class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void one_Input_OneString() {
+    void given_1_whenRun_thenPrint() {
         setInput("1");
 
         new PyramidPrinter().run();
@@ -50,7 +50,7 @@ public class PyramidPrinterTest extends UnitBase {
 
 
     @Test
-    void two_Input_TwoString() {
+    void given_2_whenRun_thenPrint() {
         setInput("2");
 
         new PyramidPrinter().run();

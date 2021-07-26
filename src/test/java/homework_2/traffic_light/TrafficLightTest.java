@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TrafficLightTest extends UnitBase {
 
     @Test
-    void empty_Input_Error() {
+    void givenEmpty_whenRun_thenError() {
         setInput("");
 
         new TrafficLight().run();
@@ -18,7 +18,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void negative_Input_Error() {
+    void givenNegative_whenRun_thenError() {
         setInput("-1");
 
         new TrafficLight().run();
@@ -28,7 +28,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void string_Input_Error() {
+    void givenString_whenRun_thenError() {
         setInput("s");
 
         new TrafficLight().run();
@@ -37,9 +37,8 @@ public class TrafficLightTest extends UnitBase {
         assertEquals("Error: integer only", getOutputLines()[0]);
     }
 
-
     @Test
-    void int20_Input_Green() {
+    void given_20_whenRun_thenGreen() {
         setInput("20");
 
         new TrafficLight().run();
@@ -49,7 +48,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void int36_Input_Yellow() {
+    void given_36_whenRun_thenYellow() {
         setInput("36");
 
         new TrafficLight().run();
@@ -59,7 +58,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void int45_Input_Red() {
+    void given_45_whenRun_thenRed() {
         setInput("45");
 
         new TrafficLight().run();
@@ -69,7 +68,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void int56_Input_Yellow() {
+    void given_56_whenRun_thenYellow() {
         setInput("56");
 
         new TrafficLight().run();
@@ -78,9 +77,8 @@ public class TrafficLightTest extends UnitBase {
         assertEquals("Yellow", getOutputLines()[0]);
     }
 
-
     @Test
-    void int80_Input_Green() {
+    void given_80_whenRun_thenGreen() {
         setInput("80");
 
         new TrafficLight().run();
@@ -88,6 +86,4 @@ public class TrafficLightTest extends UnitBase {
 
         assertEquals("Green", getOutputLines()[0]);
     }
-
-
 }
