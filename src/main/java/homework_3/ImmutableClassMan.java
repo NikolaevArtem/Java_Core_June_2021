@@ -13,49 +13,49 @@ package homework_3;
 6. A parameterized constructor should initialize all the fields performing a deep copy (So that data members can’t be modified with object reference).
  */
 
-public final class ImmutableClass {
-    private final int integer;
-    private final String string;
-    private final Integer bigInteger;
+public final class ImmutableClassMan {
+    private final int age;
+    private final String name;
+    private final Integer iq;
 
-    public ImmutableClass(int integer, String string, Integer integer1) {
-        this.integer = integer;
-        this.string = string;
-        this.bigInteger = new Integer(integer1);
+    public ImmutableClassMan(int age, String name, Integer iq) {
+        this.age = age;
+        this.name = name;
+        this.iq = new Integer(iq);
     }
 
-    public ImmutableClass(int integer, String string) {
-        this.integer = integer;
-        this.string = string;
-        this.bigInteger = new Integer(null);
+    public ImmutableClassMan(int age, String name) {
+        this.age = age;
+        this.name = name;
+        this.iq = new Integer(null);
     }
 
-    public ImmutableClass(int integer) {
-        this.integer = integer;
-        this.string = "";
-        this.bigInteger = new Integer(null);
+    public ImmutableClassMan(int age) {
+        this.age = age;
+        this.name = "";
+        this.iq = new Integer(null);
     }
 
-    public ImmutableClass() {
-        this.integer = 6;
-        this.string = "field";
-        this.bigInteger = new Integer(5);
+    public ImmutableClassMan() {
+        this.age = 6;
+        this.name = "Ivan";
+        this.iq = new Integer(128);
     }
 
 
-    public int getInteger() {
-        return this.integer;
+    public int getAge() {
+        return this.age;
     }
 
-    public String getString() {
-        return this.string;
+    public String getName() {
+        return this.name;
     }
 
-    public Integer getBigInteger() {
-        return this.bigInteger;
+    public Integer getIq() {
+        return this.iq;
     }
 
-    public ImmutableClass returnModifyObject(Integer integer1) {
-        return new ImmutableClass(integer, string, integer1);
+    public ImmutableClassMan returnModifyMan(Integer iq) {
+        return new ImmutableClassMan(age, name, iq);
     }
 }
