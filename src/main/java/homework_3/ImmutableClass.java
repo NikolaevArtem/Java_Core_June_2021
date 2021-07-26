@@ -21,78 +21,63 @@ import java.util.Random;
 final public class ImmutableClass {
     final private int yearOfBirth;
     final private String className;
-    final private static boolean isMutable = false;
-    final private int[] randomInts;
+    final private char[] password;
 
     public ImmutableClass() {
         this.className = "DefaultImmutableClass";
         this.yearOfBirth = LocalDate.now().getYear();
-        this.randomInts = new int[className.length()];
-        generateRandomArr();
+        this.password = new char[]{'p', 'a', 's', 's', 'w', 'o', 'r', 'd'};
     }
-
 
     public ImmutableClass(String className) {
-        this(className, className.length());
-        generateRandomArr();
-    }
-
-    public ImmutableClass(String className, int lengthRandomInts) {
         this.className = className;
         this.yearOfBirth = LocalDate.now().getYear();
-        this.randomInts = new int[lengthRandomInts];
-        generateRandomArr();
+        this.password = new char[]{'p', 'a', 's', 's', 'w', 'o', 'r', 'd'};
     }
 
-    public ImmutableClass(int lengthRandomInts) {
-        this.randomInts = new int[lengthRandomInts];
-        this.className = generateRandomName();
-        this.yearOfBirth = LocalDate.now().getYear();
-        generateRandomArr();
-    }
-
-    public ImmutableClass(String className, int yearOfBirth, int lengthRandomInts) {
+    public ImmutableClass(String className, int yearOfBirth) {
         this.className = className;
         this.yearOfBirth = yearOfBirth;
-        this.randomInts = new int[lengthRandomInts];
-        generateRandomArr();
+        this.password = new char[]{'p', 'a', 's', 's', 'w', 'o', 'r', 'd'};
     }
 
-    private void generateRandomArr() {
-        Random rndm = new Random((long) className.hashCode() * yearOfBirth);
-        for (int i = 0; i < randomInts.length; i++) {
-            randomInts[i] = rndm.nextInt();
-        }
+    public ImmutableClass(int yearOfBirth) {
+        this.className = "DefaultImmutableClass";
+        this.yearOfBirth = yearOfBirth;
+        this.password = new char[]{'p', 'a', 's', 's', 'w', 'o', 'r', 'd'};
     }
 
-    private String generateRandomName() {
-        Random rndm = new Random((long) Arrays.hashCode(randomInts) * yearOfBirth);
-        StringBuilder temp = new StringBuilder();
-        for (int i = 0; i < randomInts.length; i++) {
-            temp.append(rndm.nextInt(26) + 65);
-        }
-        return temp.toString();
-    }
-
-    final int[] getRandomInts() {
-        return Arrays.copyOf(randomInts, randomInts.length);
+    public ImmutableClass(String className, int yearOfBirth, char[] password) {
+        this.className = className;
+        this.yearOfBirth = yearOfBirth;
+        this.password = password;
     }
 
     final String getClassName() {
         return className;
     }
 
-    public static ImmutableClass getChangedInstance(String className, int lengthRandomInts) {
-        return new ImmutableClass(className, lengthRandomInts);
+    final int getYearOfBirth() {
+        return yearOfBirth;
     }
 
-
-    public static ImmutableClass getChangedInstance(int lengthRandomInts) {
-        return new ImmutableClass(lengthRandomInts);
+    final char[] getPassword() {
+        return Arrays.copyOf(password, password.length);
     }
 
-
-    public static ImmutableClass getChangedInstance(String className) {
+    public final ImmutableClass getChangedInstance(String className) {
         return new ImmutableClass(className);
+    }
+
+    public final ImmutableClass getChangedInstance(int yearOfBirth) {
+        return new ImmutableClass(yearOfBirth);
+    }
+
+    public final ImmutableClass getChangedInstance(String className, int yearOfBirth) {
+        return new ImmutableClass(className, yearOfBirth);
+    }
+
+    public final ImmutableClass getChangedInstance(String className, int yearOfBirth, char[] password) {
+        return new ImmutableClass(className, yearOfBirth, password);
     }
 }
