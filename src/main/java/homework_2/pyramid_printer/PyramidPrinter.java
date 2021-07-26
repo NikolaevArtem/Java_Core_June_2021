@@ -7,10 +7,11 @@ import java.io.InputStreamReader;
 public class PyramidPrinter {
 
     public static final String ERROR_MESSAGE = "Only 1 non-negative integer is allowed as passed parameter";
+    public static final String START_MESSAGE = "Please, input number:";
     private int pyramidSize;
 
     public void run() {
-        System.out.println("Please, input number:");
+        System.out.println(START_MESSAGE);
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             pyramidSize = Integer.parseInt(br.readLine());

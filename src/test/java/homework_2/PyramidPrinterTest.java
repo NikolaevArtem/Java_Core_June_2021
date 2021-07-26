@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static homework_2.pyramid_printer.PyramidPrinter.ERROR_MESSAGE;
+import static homework_2.pyramid_printer.PyramidPrinter.START_MESSAGE;
 
 public class PyramidPrinterTest extends base.UnitBase {
 
@@ -14,7 +15,7 @@ public class PyramidPrinterTest extends base.UnitBase {
 
         new PyramidPrinter().run();
         printOut();
-        removeFromOutput("Please, input number:");
+        removeFromOutput(START_MESSAGE);
 
         assertEquals("x", getOutputLines()[0]);
         assertEquals("xx", getOutputLines()[1]);
@@ -26,7 +27,7 @@ public class PyramidPrinterTest extends base.UnitBase {
 
         new PyramidPrinter().run();
         printOut();
-        removeFromOutput("Please, input number:");
+        removeFromOutput(START_MESSAGE);
 
         assertEquals("x", getOutputLines()[0]);
         assertEquals("xxxx", getOutputLines()[3]);
@@ -39,7 +40,7 @@ public class PyramidPrinterTest extends base.UnitBase {
 
         new PyramidPrinter().run();
         printOut();
-        removeFromOutput("Please, input number:");
+        removeFromOutput(START_MESSAGE);
 
         assertEquals("", getOutputLines()[0]);
     }
@@ -50,7 +51,7 @@ public class PyramidPrinterTest extends base.UnitBase {
 
         new PyramidPrinter().run();
         printOut();
-        removeFromOutput("Please, input number:");
+        removeFromOutput(START_MESSAGE);
 
         assertEquals(ERROR_MESSAGE, getOutput());
     }
@@ -61,7 +62,7 @@ public class PyramidPrinterTest extends base.UnitBase {
 
         new PyramidPrinter().run();
         printOut();
-        removeFromOutput("Please, input number:");
+        removeFromOutput(START_MESSAGE);
 
         assertEquals(ERROR_MESSAGE, getOutput());
     }
@@ -72,7 +73,7 @@ public class PyramidPrinterTest extends base.UnitBase {
 
         new PyramidPrinter().run();
         printOut();
-        removeFromOutput("Please, input number:");
+        removeFromOutput(START_MESSAGE);
 
         assertEquals(ERROR_MESSAGE, getOutput());
     }
