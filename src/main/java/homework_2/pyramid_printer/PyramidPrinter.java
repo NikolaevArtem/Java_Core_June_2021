@@ -12,7 +12,7 @@ public class PyramidPrinter implements Run {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             int rows = Integer.parseInt(reader.readLine());
             if (rows<0) {
-                System.out.println("Use positive number");
+                System.out.println("Only 1 non-negative integer is allowed as passed parameter");
                 return;
             }
             printPyramid(rows);
@@ -20,7 +20,7 @@ public class PyramidPrinter implements Run {
             e.printStackTrace();
             return;
         } catch (NumberFormatException e){
-            System.out.println("Only integer!");
+            System.out.println("Only 1 non-negative integer is allowed as passed parameter");
             return;
         }
     }

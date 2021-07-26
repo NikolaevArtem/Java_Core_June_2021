@@ -17,8 +17,8 @@ public class RandomCharsTable implements Run {
             System.out.println();
         }
         if (strategy.equals("even")) {
-            System.out.println("Even number : " + res.substring(0, res.length() - 1));
-        } else System.out.println("Odd number : " + res.substring(0, res.length() - 1));
+            System.out.println("Even number -" + res.substring(0, res.length() - 1));
+        } else System.out.println("Odd number -" + res.substring(0, res.length() - 1));
     }
 
     public void run()  {
@@ -45,11 +45,11 @@ public class RandomCharsTable implements Run {
                         arr[i][j] = result;
                         if (strategy.equals("even")) {
                             if (check % 2 == 0) {
-                                res += " " + (char) check + " ,";
+                                res += " " + (char) check + ",";
                             }
                         } else {
                             if (check % 2 != 0) {
-                                res += " " + (char) check + " ,";
+                                res += " " + (char) check + ",";
                             }
                         }
                     }

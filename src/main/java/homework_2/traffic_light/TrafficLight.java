@@ -6,42 +6,32 @@ import java.io.InputStreamReader;
 
 public class TrafficLight {
 
-    public void run()  {
+    public void run() {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String str;
         try {
-            int light = Integer.parseInt(reader.readLine());
-            int res = 60;
-            int result = light % res;
-            if (light < 0) {
-                System.out.println("Please use positive number");
-                return;
-            }
-            if (light > 86399) {
-                System.out.println("Please use number between 0 and 86399");
-                return;
+            str = reader.readLine();
+            int time = Integer.parseInt(str);
+            if (time < 0) {
+                System.out.println("Only 1 non-negative integer is allowed as passed parameter ");
+            } else if (time > 86399) {
+                System.out.println("The day is over");
             } else {
-                if (result >= 0 && result < 35) {
-                    System.out.println("green");
-                }
-                if (result >= 35 && result < 40) {
-                    System.out.println("yellow");
-                }
-                if (result >= 40 && result < 60) {
-                    System.out.println("red");
+                int light = time % 60;
+                if (light < 35) {
+                    System.out.println("GREEN");
+                } else if (light < 40) {
+                    System.out.println("YELLOW");
+                } else if (light < 55) {
+                    System.out.println("RED");
+                } else {
+                    System.out.println("YELLOW");
                 }
             }
-        } catch (NumberFormatException e) {
-            System.out.println("Please use number");
-            return;
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        } catch (NumberFormatException | IOException e) {
+            System.out.println("Only 1 non-negative integer is allowed as passed parameter");
         }
     }
 }
+
