@@ -4,6 +4,7 @@ import homework_2.pyramid_printer.PyramidPrinter;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static homework_2.pyramid_printer.PyramidPrinter.ERROR_MESSAGE;
 
 public class PyramidPrinterTest extends base.UnitBase {
 
@@ -33,7 +34,7 @@ public class PyramidPrinterTest extends base.UnitBase {
     }
 
     @Test
-    void nullInputTest(){
+    void nullInputTest() {
         setInput("0");
 
         new PyramidPrinter().run();
@@ -44,35 +45,35 @@ public class PyramidPrinterTest extends base.UnitBase {
     }
 
     @Test
-    void negativeInputTest(){
+    void negativeInputTest() {
         setInput("-10");
 
         new PyramidPrinter().run();
         printOut();
         removeFromOutput("Please, input number:");
 
-        assertEquals("Number should be non-negative!", getOutput());
+        assertEquals(ERROR_MESSAGE, getOutput());
     }
 
     @Test
-    void stringInputTest(){
+    void stringInputTest() {
         setInput("string");
 
         new PyramidPrinter().run();
         printOut();
         removeFromOutput("Please, input number:");
 
-        assertEquals("Wrong input format!", getOutput());
+        assertEquals(ERROR_MESSAGE, getOutput());
     }
 
     @Test
-    void bigNumberInputTest(){
+    void bigNumberInputTest() {
         setInput("5666677772444198455342456");
 
         new PyramidPrinter().run();
         printOut();
         removeFromOutput("Please, input number:");
 
-        assertEquals("Wrong input format!", getOutput());
+        assertEquals(ERROR_MESSAGE, getOutput());
     }
 }
