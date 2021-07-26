@@ -42,7 +42,9 @@ public class RandomCharsTableTest extends UnitBase {
         removeFromOutput("Enter data in format: width, length of matrix and strategy (even/odd)");
 
         Assertions.assertEquals("Passed parameters should match the format [positive integer] " +
-                "[positive integer] [even|odd]",getOutput());
+                "[positive integer] [even|odd]",getOutputLines()[0]);
+        Assertions.assertEquals("Passed parameters should match the format [positive integer] " +
+                "[positive integer] [even|odd]",getOutputLines()[1]);
     }
 
     @Test
