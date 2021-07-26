@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RandomCharsTableTest extends UnitBase {
 
     @Test
-    void Empty_Input_Error() {
+    void empty_Input_Error() {
         setInput("");
 
         new RandomCharsTable().run();
@@ -19,7 +19,7 @@ public class RandomCharsTableTest extends UnitBase {
 
 
     @Test
-    void Int1_Input_Error() {
+    void int1_Input_Error() {
         setInput("1");
 
         new RandomCharsTable().run();
@@ -29,7 +29,7 @@ public class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void Int1and1_Input_Error() {
+    void int1And1_Input_Error() {
         setInput("1 1");
 
         new RandomCharsTable().run();
@@ -39,7 +39,7 @@ public class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void Int0and1andString_Input_Error() {
+    void int0And1AndString_Input_Error() {
         setInput("0 1 ven");
 
         new RandomCharsTable().run();
@@ -50,7 +50,7 @@ public class RandomCharsTableTest extends UnitBase {
 
 
     @Test
-    void StringandStringandString_Input_Error() {
+    void stringAndStringAndString_Input_Error() {
         setInput("s s s");
 
         new RandomCharsTable().run();
@@ -60,7 +60,7 @@ public class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void Int0and1andEven_Input_Error() {
+    void int0And1AndEven_Input_Error() {
         setInput("0 1 even");
 
         new RandomCharsTable().run();
@@ -71,7 +71,7 @@ public class RandomCharsTableTest extends UnitBase {
 
 
     @Test
-    void Int1and0andEven_Input_Error() {
+    void int1And0AndEven_Input_Error() {
         setInput("1 0 even");
 
         new RandomCharsTable().run();
@@ -82,46 +82,41 @@ public class RandomCharsTableTest extends UnitBase {
 
 
     @Test
-    void Int2and2andEven_Input_Result() {
-        setInput("2 2 even");
-
-        new RandomCharsTable().run();
-        printOut();
-
-        StringBuilder result = new StringBuilder();
-
-        for (int i = 0; i < 2; i++) {
-            for (int j  = 0; j < getOutputLines()[i].length();j++) {
-                char c = getOutputLines()[i].charAt(j);
-                int num = (int) c;
-                if (num >= 65 && num <= 91) {
-                    if (num % 2 == 0) {
-                        result.append(c + ", ");
-                    }
-                }
-            }
-        }
-
-        String strRes = result.toString();
-        strRes = "Even letters - " + strRes.substring(0,strRes.length()-2);
-        assertEquals(strRes, getOutputLines()[3]);
+    void int2And2AndEven_Input_Result() {
+        lengthAndWidthAndIsEven_Input_Result(2,2, true);
     }
 
     @Test
-    void Int2and2andOdd_Input_Result() {
-        setInput("2 2 odd");
+    void int2And2AndOdd_Input_Result() {
+        lengthAndWidthAndIsEven_Input_Result(2,2, false);
+    }
+
+    @Test
+    void int4And5AndOdd_Input_Result() {
+        lengthAndWidthAndIsEven_Input_Result(4,5, false);
+    }
+
+
+    @Test
+    void int4And5AndEven_Input_Result() {
+        lengthAndWidthAndIsEven_Input_Result(4,5, true);
+    }
+
+    void lengthAndWidthAndIsEven_Input_Result (int width, int length, boolean isEven) {
+
+        setInput(width + " " + length + (isEven ? " even" : " odd"));
 
         new RandomCharsTable().run();
         printOut();
 
         StringBuilder result = new StringBuilder();
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < length; i++) {
             for (int j  = 0; j < getOutputLines()[i].length();j++) {
                 char c = getOutputLines()[i].charAt(j);
                 int num = (int) c;
                 if (num >= 65 && num <= 91) {
-                    if (num % 2 == 1) {
+                    if (num % 2 == (isEven ? 0 : 1)) {
                         result.append(c + ", ");
                     }
                 }
@@ -129,7 +124,19 @@ public class RandomCharsTableTest extends UnitBase {
         }
 
         String strRes = result.toString();
-        strRes = "Odd letters - " + strRes.substring(0,strRes.length()-2);
-        assertEquals(strRes, getOutputLines()[3]);
+        strRes = (isEven ? "Even" : "Odd") + " letters - " + strRes.substring(0,strRes.length()-2);
+        if (length < 3) {
+            assertEquals(strRes, getOutputLines()[length+1]);
+        } else {
+            assertEquals(strRes, getOutputLines()[length]);
+        }
+
+
     }
+
+
+
+
+
+
 }

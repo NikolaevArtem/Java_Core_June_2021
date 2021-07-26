@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TrafficLightTest extends UnitBase {
 
     @Test
-    void Empty_Input_Error() {
+    void empty_Input_Error() {
         setInput("");
 
         new TrafficLight().run();
@@ -18,7 +18,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void Negative_Input_Error() {
+    void negative_Input_Error() {
         setInput("-1");
 
         new TrafficLight().run();
@@ -28,7 +28,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void String_Input_Error() {
+    void string_Input_Error() {
         setInput("s");
 
         new TrafficLight().run();
@@ -39,7 +39,7 @@ public class TrafficLightTest extends UnitBase {
 
 
     @Test
-    void Int20_Input_Green() {
+    void int20_Input_Green() {
         setInput("20");
 
         new TrafficLight().run();
@@ -49,7 +49,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void Int36_Input_Yellow() {
+    void int36_Input_Yellow() {
         setInput("36");
 
         new TrafficLight().run();
@@ -59,7 +59,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void Int45_Input_Red() {
+    void int45_Input_Red() {
         setInput("45");
 
         new TrafficLight().run();
@@ -69,7 +69,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void Int56_Input_Yellow() {
+    void int56_Input_Yellow() {
         setInput("56");
 
         new TrafficLight().run();
@@ -80,7 +80,7 @@ public class TrafficLightTest extends UnitBase {
 
 
     @Test
-    void Int80_Input_Green() {
+    void int80_Input_Green() {
         setInput("80");
 
         new TrafficLight().run();
