@@ -5,7 +5,7 @@ public class RandomCharsTableCreator {
     private final int rows;
     private final int columns;
 
-    RandomCharsTableCreator(int rows, int columns) {
+    public RandomCharsTableCreator(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
     }
