@@ -1,7 +1,7 @@
 package homework_2;
 
 import base.UnitBase;
-import homework_2.randomCharsTable.RandomCharsTable;
+import homework_2.random_chars_table.RandomCharsTable;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -36,6 +36,18 @@ public class RandomCharsTableTest extends UnitBase {
     @Test
     void givenNotFullParameters_whenRun_thenError(){
         setInput("2 even");
+
+        new RandomCharsTable().run();
+        printOut();
+        removeFromOutput("Enter data in format: width, length of matrix and strategy (even/odd)");
+
+        Assertions.assertEquals("Passed parameters should match the format [positive integer] " +
+                "[positive integer] [even|odd]",getOutput());
+    }
+
+    @Test
+    void givenZeroAndNegativeParameters_whenRun_thenError(){
+        setInput("0 -2 even");
 
         new RandomCharsTable().run();
         printOut();

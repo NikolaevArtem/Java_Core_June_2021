@@ -1,7 +1,8 @@
 package homework_2;
 
 import base.UnitBase;
-import homework_2.trafficLight.TrafficLight;
+import homework_2.traffic_light.TrafficLight;
+import homework_2.traffic_light.TrafficLightExtraMod;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +20,7 @@ public class TrafficLightTest extends UnitBase {
     void given0_whenRun_thenGreenLightPrinted(){
         setInput("0");
 
-        new TrafficLight().runSecondsFormat();
+        new TrafficLight().run();
         printOut();
         removeFromOutput("Enter necessary amount of seconds");
 
@@ -30,7 +31,7 @@ public class TrafficLightTest extends UnitBase {
     void given35_whenRun_thenYellowLightPrinted(){
         setInput("35");
 
-        new TrafficLight().runSecondsFormat();
+        new TrafficLight().run();
         printOut();
         removeFromOutput("Enter necessary amount of seconds");
 
@@ -41,7 +42,7 @@ public class TrafficLightTest extends UnitBase {
     void given54_whenRun_thenRedLightPrinted(){
         setInput("54");
 
-        new TrafficLight().runSecondsFormat();
+        new TrafficLight().run();
         printOut();
         removeFromOutput("Enter necessary amount of seconds");
 
@@ -52,7 +53,7 @@ public class TrafficLightTest extends UnitBase {
     void given863400_whenRun_thenDayIsOverPrinted(){
         setInput("863400");
 
-        new TrafficLight().runSecondsFormat();
+        new TrafficLight().run();
         printOut();
         removeFromOutput("Enter necessary amount of seconds");
 
@@ -63,7 +64,7 @@ public class TrafficLightTest extends UnitBase {
     void givenFiveSecTimeFormat_whenRun_thenGreenLightPrinted(){
         setInput("23:25:05");
 
-        new TrafficLight().runTimeFormat();
+        new TrafficLightExtraMod().run();
         printOut();
         removeFromOutput("Enter necessary amount of seconds");
 
@@ -74,7 +75,7 @@ public class TrafficLightTest extends UnitBase {
     void givenThirtyFiveSecTimeFormat_whenRun_thenYellowLightPrinted(){
         setInput("14:54:35");
 
-        new TrafficLight().runTimeFormat();
+        new TrafficLightExtraMod().run();
         printOut();
         removeFromOutput("Enter necessary amount of seconds");
 
@@ -85,7 +86,7 @@ public class TrafficLightTest extends UnitBase {
     void givenFiftyFourSecTimeFormat_whenRun_thenRedLightPrinted(){
         setInput("07:56:54");
 
-        new TrafficLight().runTimeFormat();
+        new TrafficLightExtraMod().run();
         printOut();
         removeFromOutput("Enter necessary amount of seconds");
 
@@ -96,7 +97,7 @@ public class TrafficLightTest extends UnitBase {
     void givenNegativeNumber_whenRun_thenError(){
         setInput("-56");
 
-        new TrafficLight().runSecondsFormat();
+        new TrafficLight().run();
         printOut();
         removeFromOutput("Enter necessary amount of seconds");
 
@@ -107,7 +108,7 @@ public class TrafficLightTest extends UnitBase {
     void givenNaN_whenRun_thenError(){
         setInput("text");
 
-        new TrafficLight().runSecondsFormat();
+        new TrafficLight().run();
         printOut();
         removeFromOutput("Enter necessary amount of seconds");
 

@@ -1,4 +1,4 @@
-package homework_2.trafficLight;
+package homework_2.traffic_light;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,11 +14,11 @@ public class TrafficLight {
 
     private final String ANSI_YELLOW = "\u001B[33m";
 
-    private final String ERROR = "Only 1 non-negative integer is allowed as passed parameter";
+    protected final String ERROR = "Only 1 non-negative integer is allowed as passed parameter";
 
-    private int seconds;
+    protected int seconds;
 
-    public void runSecondsFormat() {
+    public void run() {
         System.out.println("Enter necessary amount of seconds.");
         String input = consoleReader();
         if(!isDigit(input)) {
@@ -37,18 +37,9 @@ public class TrafficLight {
         trafficLightColorDetection(seconds);
     }
 
-    public void runTimeFormat() {
-        System.out.println("Enter necessary time in HH:MM:SS format.");
-        String parsedTime = consoleReader();
-        seconds = Integer.parseInt(parsedTime.substring(parsedTime.length() - 2));
-        if (isNegative(seconds)) {
-            System.out.println(ERROR);
-            return;
-        }
-        trafficLightColorDetection(seconds);
-    }
 
-    private String consoleReader() {
+
+    protected String consoleReader() {
         try (BufferedReader bF = new BufferedReader(new InputStreamReader(System.in))) {
             return bF.readLine();
         } catch (NumberFormatException | IOException e) {
@@ -57,7 +48,7 @@ public class TrafficLight {
         return "";
     }
 
-    private void trafficLightColorDetection(int sec) {
+    protected void trafficLightColorDetection(int sec) {
         if (sec % 60 < 35) {
             System.out.print(ANSI_GREEN + "Green light" + ANSI_RESET);
         } else if (sec % 60 >= 35 && sec % 60 < 40 || sec % 60 >= 55) {
@@ -67,12 +58,12 @@ public class TrafficLight {
         }
     }
 
-    private boolean isNegative(int input) {
+    protected boolean isNegative(int input) {
         return input < 0;
     }
 
     private boolean dayOverCheck(int input) {
-        return input < 86399;
+        return input <= 86399;
     }
 
     private boolean isDigit(String input) {

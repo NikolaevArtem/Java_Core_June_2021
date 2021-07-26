@@ -1,4 +1,4 @@
-package homework_2.randomCharsTable;
+package homework_2.random_chars_table;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,6 +25,7 @@ public class RandomCharsTable {
         inputData = readingConsole();
         parseData(inputData);
         if (dataValidation(rows, columns, strategy)) {
+            System.out.println(ERROR);
             return;
         }
         arrayInitialization();
