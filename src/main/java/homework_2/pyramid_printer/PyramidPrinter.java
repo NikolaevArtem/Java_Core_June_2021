@@ -5,21 +5,21 @@ import homework_2.ConsoleSafeReader;
 
 public class PyramidPrinter {
 
-    private static String brick = "x";
-    private static String mode = "default";
+    private String brick = "x";
+    private String mode = "default";
 
-    PyramidPrinter(String... args) {
+    public PyramidPrinter(String... args) {
         if (args.length != 0) {
             for (int i = 0; i < args.length; i+=2 ) {
                 if ("-mode".equals(args[i])) {
                     if ("symmetric".equals(args[i + 1]) ||
                             "inverse".equals(args[i + 1]) ||
                             "rightSide".equals(args[i + 1])) {
-                        PyramidPrinter.mode = args[i + 1];
+                        mode = args[i + 1];
                     }
                 }
                 if ("-brick".equals(args[i])) {
-                    PyramidPrinter.brick = args[i + 1];
+                    brick = args[i + 1];
                 }
             }
         }

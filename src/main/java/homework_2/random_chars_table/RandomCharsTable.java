@@ -12,12 +12,9 @@ public class RandomCharsTable {
             "[positive integer] [positive integer] [even|odd]";
     final static String ERROR = "Passed parameters should match the format " +
             "[positive integer] [positive integer] [even|odd]";
-    private static int length;
-    private static int width;
-    private static String strategy;
-    private final static char start = 'A';
-    private final static char end = 'Z';
-    private final static String validDataRegex = "\\d+ \\d+ \\w+";
+    private int length;
+    private int width;
+    private String strategy;
 
     public void run() {
         System.out.println(GREETING);
@@ -28,7 +25,7 @@ public class RandomCharsTable {
 
     private boolean isValidInput(String input) {
         try {
-            if (input.matches(validDataRegex)) {
+            if (input.matches("\\d+ \\d+ \\w+")) {
                 String[] data = input.split(" ");
                 length = Integer.parseInt(data[0]);
                 width = Integer.parseInt(data[1]);
@@ -43,7 +40,7 @@ public class RandomCharsTable {
     }
 
     private String processData() {
-        char[][] table = RandomCharTableGenerator.randomCharTable(length, width, start, end);
+        char[][] table = RandomCharTableGenerator.randomCharTable(length, width, 'A', 'Z');
         StringBuilder result = new StringBuilder();
         int remainder;
         StringBuilder letters;
