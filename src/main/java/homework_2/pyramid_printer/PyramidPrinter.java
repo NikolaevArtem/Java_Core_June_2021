@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class PyramidPrinter {
+class PyramidPrinter {
 
     void run() {
 
@@ -21,7 +21,7 @@ public class PyramidPrinter {
         }
     }
 
-    void printPyramid (int i) {
+    private void printPyramid (int i) {
 
         String x = "";
         if (i < 0) {

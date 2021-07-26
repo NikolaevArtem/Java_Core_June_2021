@@ -21,7 +21,7 @@ class TrafficLight {
         }
     }
 
-    void printLight (int seconds) {
+    private void printLight (int seconds) {
 
         if (seconds < 0) {
             System.out.println("Error: positive only");
