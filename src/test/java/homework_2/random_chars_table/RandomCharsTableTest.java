@@ -39,6 +39,38 @@ public class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
+    void Int0and1andString_Input_Error() {
+        setInput("0 1 ven");
+
+        new RandomCharsTable().run();
+        printOut();
+
+        assertEquals("Error: third arg must be even or odd now <ven>", getOutputLines()[0]);
+    }
+
+
+    @Test
+    void StringandStringandString_Input_Error() {
+        setInput("s s s");
+
+        new RandomCharsTable().run();
+        printOut();
+
+        assertEquals("Error: first and second args must be integer", getOutputLines()[0]);
+    }
+
+    @Test
+    void Int0and1andEven_Input_Error() {
+        setInput("0 1 even");
+
+        new RandomCharsTable().run();
+        printOut();
+
+        assertEquals("No even letters", getOutputLines()[0]);
+    }
+
+
+    @Test
     void Int1and0andEven_Input_Error() {
         setInput("1 0 even");
 
