@@ -1,4 +1,4 @@
-package homework_2.pyramidprinter;
+package homework_2.pyramid_printer;
 
 import java.util.regex.Pattern;
 
