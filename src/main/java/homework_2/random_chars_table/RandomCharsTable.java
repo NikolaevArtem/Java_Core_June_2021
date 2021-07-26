@@ -32,25 +32,41 @@ public class RandomCharsTable {
             StringBuilder massive = new StringBuilder();
 
             for (int i = 0; i < arr.length; i++) {
+
+                boolean hasNext = false;
+
                 for (int j = 0; j < arr[i].length; j++) {
 
                     int num = 65 + r.nextInt(26);
                     arr[i][j] = (char) (num);
                     if (num % 2 == (isEven ? 0 : 1)) {
-                        result.append(arr[i][j] + " ");
+                        result.append(arr[i][j] + ", ");
                     }
                     massive.append("|" + arr[i][j]);
+                    hasNext = true;
+
                 }
-                massive.append("|" + "\n");
+                if (hasNext) {
+                    massive.append("|" + "\n");
+                }
             }
 
             System.out.println(massive);
-            System.out.println(isEven ? "Even" : "Odd" + " letters - " + result.toString().trim());
-
+            String strRes = result.toString();
+            if (strRes.length() > 0) {
+                System.out.println((isEven ? "Even" : "Odd") + " letters - " + strRes.substring(0,strRes.length()-2));
+            } else {
+                System.out.println("No " + (isEven ? "even" : "odd") + " letters");
+            }
         }
     }
 
     private boolean argsIsOk(String s) {
+
+        if (s == null) {
+            System.out.println("Error: args is null");
+            return false;
+        }
 
         String[] inputArgs = s.split(" ");
 
