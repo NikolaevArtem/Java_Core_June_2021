@@ -5,12 +5,12 @@ public class RandomCharsTableCreator {
     private final int rows;
     private final int columns;
 
-    RandomCharsTableCreator(int rows, int columns){
+    RandomCharsTableCreator(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
     }
 
-    public char[][] createTable(){
+    public char[][] createTable() {
         char[][] table = new char[rows][columns];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {

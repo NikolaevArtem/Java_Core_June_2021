@@ -7,24 +7,25 @@ import java.util.ArrayList;
 
 public class RandomCharsTable {
 
-    private final String ERROR_MESSAGE = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
+    public static final String ERROR_MESSAGE = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
+    public static final String START_MESSAGE = "Please, enter array length, array width and strategy (odd or even):";
     private boolean isEven;
     private char[][] randomCharsTable;
     private final ArrayList<Character> selectedChars = new ArrayList<>();
 
     public void run() {
-        System.out.println("Please, enter array length, array width and strategy (odd or even):");
+        System.out.println(START_MESSAGE);
 
         int rows, columns;
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             String[] inputValues = br.readLine().split(" ");
-            if(inputValues.length != 3){
+            if (inputValues.length != 3) {
                 System.out.println(ERROR_MESSAGE);
                 return;
             }
             rows = Integer.parseInt(inputValues[0]);
             columns = Integer.parseInt(inputValues[1]);
-            if(rows <= 0 || columns <= 0){
+            if (rows <= 0 || columns <= 0) {
                 System.out.println(ERROR_MESSAGE);
                 return;
             }
@@ -44,7 +45,7 @@ public class RandomCharsTable {
         printSelection();
     }
 
-    private void findSelectedChars(){
+    private void findSelectedChars() {
         for (char[] row : randomCharsTable) {
             for (char ch : row) {
                 if ((isEven && (int) ch % 2 == 0) || (!isEven && (int) ch % 2 == 1)) {
@@ -54,7 +55,7 @@ public class RandomCharsTable {
         }
     }
 
-    private void printTable(){
+    private void printTable() {
         for (char[] row : randomCharsTable) {
             System.out.print("|");
             for (char ch : row) {
@@ -64,7 +65,7 @@ public class RandomCharsTable {
         }
     }
 
-    private void printSelection(){
+    private void printSelection() {
         if (isEven) {
             System.out.print("Even letters - ");
         } else {
