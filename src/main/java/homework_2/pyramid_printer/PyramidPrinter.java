@@ -2,12 +2,12 @@ package homework_2.pyramid_printer;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.Scanner;
 
 @Getter
 @Setter
 class PyramidPrinter {
+
     private StringBuilder pyramidString;
 
     public void run() {

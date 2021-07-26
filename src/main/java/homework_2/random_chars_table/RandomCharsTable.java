@@ -2,17 +2,16 @@ package homework_2.random_chars_table;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.*;
 
 @Getter
 @Setter
 public class RandomCharsTable {
-    public static enum Strategy {
+
+    public enum Strategy {
         EVEN,
         ODD
     }
-
     private int length;
     private int width;
     private Strategy strategy;
@@ -79,8 +78,7 @@ public class RandomCharsTable {
 
     private char getRandomChar() {
         Random rnd = new Random();
-        char c = (char) ('A' + rnd.nextInt(26));
-        return c;
+        return (char) ('A' + rnd.nextInt(26));
     }
 
     public StringBuilder getStrForPrinting() {
