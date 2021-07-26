@@ -14,7 +14,7 @@ public class Author {
         if (name == null || "".equals(name.trim())) {
             throw new IllegalArgumentException();
         }
-        Name = name;;
+        Name = name;
     }
 
     public Author(String name, String country, String century) {
