@@ -22,6 +22,7 @@ class RandomCharsTableTest {
         final StringBuilder actualPrintingByStrategy = rct.getStrForPrintingByStrategy(rct.getStrategy());
         final StringBuilder expectedPrinting = new StringBuilder("|A|M|" + "\n" + "|W|Z|" + "\n" + "|N|Q|" + "\n");
         final StringBuilder expectedPrintingByStrategy = new StringBuilder("Odd letters: A, M, W, Q");
+
         assertEquals(actualPrinting.toString(), expectedPrinting.toString());
         assertEquals(actualPrintingByStrategy.toString(), expectedPrintingByStrategy.toString());
     }
@@ -40,6 +41,7 @@ class RandomCharsTableTest {
         final StringBuilder actualPrintingByStrategy = rct.getStrForPrintingByStrategy(rct.getStrategy());
         final StringBuilder expectedPrinting = new StringBuilder("|A|M|" + "\n" + "|W|Z|" + "\n" + "|N|Q|" + "\n");
         final StringBuilder expectedPrintingByStrategy = new StringBuilder("Even letters: Z, N");
+
         assertEquals(actualPrinting.toString(), expectedPrinting.toString());
         assertEquals(actualPrintingByStrategy.toString(), expectedPrintingByStrategy.toString());
     }

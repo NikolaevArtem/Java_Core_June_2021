@@ -11,10 +11,9 @@ class PyramidPrinter {
     private StringBuilder pyramidString;
 
     public void run() {
-        Scanner scanner = new Scanner(System.in);
-        String str = scanner.nextLine();
 
-        try {
+        try (Scanner scanner = new Scanner(System.in)) {
+            String str = scanner.nextLine();
             int number = Integer.parseInt(str);
             buildPyramidString(number);
             printPyramid();
@@ -23,7 +22,6 @@ class PyramidPrinter {
         } catch (NumberFormatException ex) {
             System.out.println("Error! Only numbers!");
         }
-        scanner.close();
     }
 
     public void buildPyramidString(int number) {

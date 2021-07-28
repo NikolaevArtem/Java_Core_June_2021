@@ -19,6 +19,7 @@ class PyramidPrinterTest {
         }
         final StringBuilder actual = ppr.getPyramidString();
         final StringBuilder expected = new StringBuilder("x" + '\n' + "xx" + '\n' + "xxx" + '\n');
+
         assertEquals(actual.toString(), expected.toString());
     }
 

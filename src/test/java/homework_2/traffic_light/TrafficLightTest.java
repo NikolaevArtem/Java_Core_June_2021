@@ -15,8 +15,10 @@ class TrafficLightTest {
             trl.setTrafficLightColour(11);
         } catch (TrafficLight.WrongSecondsException e) {
         }
+
         final String actual = trl.getTrafficLightColour().toString();
         final String expected = "GREEN";
+
         assertEquals(actual, expected);
     }
 
@@ -28,8 +30,10 @@ class TrafficLightTest {
             trl.setTrafficLightColour(37);
         } catch (TrafficLight.WrongSecondsException e) {
         }
+
         final String actual = trl.getTrafficLightColour().toString();
         final String expected = "YELLOW";
+
         assertEquals(actual, expected);
     }
 
@@ -41,14 +45,17 @@ class TrafficLightTest {
             trl.setTrafficLightColour(53);
         } catch (TrafficLight.WrongSecondsException e) {
         }
+
         final String actual = trl.getTrafficLightColour().toString();
         final String expected = "RED";
+
         assertEquals(actual, expected);
     }
 
     @Test
     void test4() {
         TrafficLight trl = new TrafficLight();
+
         Assertions.assertThrows(TrafficLight.WrongSecondsException.class, () -> {
             trl.setTrafficLightColour(-37);
         });
@@ -57,6 +64,7 @@ class TrafficLightTest {
     @Test
     void test5() {
         TrafficLight trl = new TrafficLight();
+
         Assertions.assertThrows(TrafficLight.WrongSecondsException.class, () -> {
             trl.setTrafficLightColour(86401);
         });
