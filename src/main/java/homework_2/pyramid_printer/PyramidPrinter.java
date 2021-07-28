@@ -12,19 +12,20 @@ public class PyramidPrinter {
 
     public void run() {
         System.out.println(START_MESSAGE);
+        if (validation()) {
+            printPyramid();
+        } else {
+            System.out.println(ERROR_MESSAGE);
+        }
+    }
 
+    private boolean validation() {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             pyramidSize = Integer.parseInt(br.readLine());
         } catch (NumberFormatException | IOException ex) {
-            System.out.println(ERROR_MESSAGE);
-            return;
+            return false;
         }
-        if (pyramidSize < 0) {
-            System.out.println(ERROR_MESSAGE);
-            return;
-        }
-
-        printPyramid();
+        return pyramidSize >= 0;
     }
 
     private void printPyramid() {

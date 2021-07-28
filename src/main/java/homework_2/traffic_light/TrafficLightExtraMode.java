@@ -9,19 +9,15 @@ public class TrafficLightExtraMode extends TrafficLight {
     public static final String ERROR_MESSAGE = "Only input in format hh:mm:ss is allowed";
 
     @Override
-    public void run() {
-        System.out.println(START_MESSAGE);
-
+    protected boolean validation() {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             String input = br.readLine();
             if (!input.contains(":")) {
-                System.out.println(ERROR_MESSAGE);
-                return;
+                return false;
             }
             String[] time = input.split(":");
             if (time.length != 3) {
-                System.out.println(ERROR_MESSAGE);
-                return;
+                return false;
             }
             int hours = Integer.parseInt(time[0]);
             int minutes = Integer.parseInt(time[1]);
@@ -29,14 +25,16 @@ public class TrafficLightExtraMode extends TrafficLight {
             if ((hours < 0 || hours > 23)
                     || (minutes < 0 || minutes > 59)
                     || (seconds < 0 || seconds > 59)) {
-                System.out.println(ERROR_MESSAGE);
-                return;
+                return false;
             }
         } catch (IOException | NumberFormatException e) {
-            System.out.println(ERROR_MESSAGE);
-            return;
+            return false;
         }
+        return true;
+    }
 
-        printColor();
+    @Override
+    protected void printErrorMessage() {
+        System.out.println(ERROR_MESSAGE);
     }
 }

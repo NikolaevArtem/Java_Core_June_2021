@@ -10,39 +10,39 @@ public class RandomCharsTable {
     public static final String ERROR_MESSAGE = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
     public static final String START_MESSAGE = "Please, enter array length, array width and strategy (odd or even):";
     private boolean isEven;
+    int rows, columns;
     private char[][] randomCharsTable;
     private final ArrayList<Character> selectedChars = new ArrayList<>();
 
     public void run() {
         System.out.println(START_MESSAGE);
+        if (validation()) {
+            randomCharsTable = new RandomCharsTableCreator(rows, columns).createTable();
+            findSelectedChars();
+            printTable();
+            printSelection();
+        } else {
+            System.out.println(ERROR_MESSAGE);
+        }
+    }
 
-        int rows, columns;
+    private boolean validation() {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             String[] inputValues = br.readLine().split(" ");
             if (inputValues.length != 3) {
-                System.out.println(ERROR_MESSAGE);
-                return;
+                return false;
             }
             rows = Integer.parseInt(inputValues[0]);
             columns = Integer.parseInt(inputValues[1]);
-            if (rows <= 0 || columns <= 0) {
-                System.out.println(ERROR_MESSAGE);
-                return;
+            if (rows <= 0 || columns <= 0 ||
+                    (!inputValues[2].equals("even") && !inputValues[2].equals("odd"))) {
+                return false;
             }
             isEven = inputValues[2].equals("even");
-            if (!isEven && !inputValues[2].equals("odd")) {
-                System.out.println(ERROR_MESSAGE);
-                return;
-            }
         } catch (IOException | NumberFormatException e) {
-            System.out.println(ERROR_MESSAGE);
-            return;
+            return false;
         }
-
-        randomCharsTable = new RandomCharsTableCreator(rows, columns).createTable();
-        findSelectedChars();
-        printTable();
-        printSelection();
+        return true;
     }
 
     private void findSelectedChars() {

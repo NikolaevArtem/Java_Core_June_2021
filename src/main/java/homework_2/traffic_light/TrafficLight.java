@@ -16,23 +16,20 @@ public class TrafficLight {
 
     public void run() {
         System.out.println(START_MESSAGE);
+        if (validation()) {
+            printColor();
+        } else {
+            printErrorMessage();
+        }
+    }
 
+    protected boolean validation() {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             seconds = Integer.parseInt(br.readLine());
         } catch (IOException | NumberFormatException e) {
-            System.out.println(ERROR_MESSAGE);
-            return;
+            return false;
         }
-        if (seconds < 0) {
-            System.out.println(ERROR_MESSAGE);
-            return;
-        }
-        if (seconds > 86399) {
-            System.out.println(ERROR_MESSAGE);
-            return;
-        }
-
-        printColor();
+        return seconds >= 0 && seconds <= 86399;
     }
 
     protected void printColor() {
@@ -43,5 +40,9 @@ public class TrafficLight {
         } else {
             System.out.println(RED + "RED" + RESET);
         }
+    }
+
+    protected void printErrorMessage() {
+        System.out.println(ERROR_MESSAGE);
     }
 }
