@@ -8,30 +8,26 @@ import java.util.Random;
 
 public class RandomCharsTable {
 
-    public void run () throws IOException {
-        InputData inputData = consoleReading();
+    public void run () {
+        String inputData = consoleReading();
         String result = processing(inputData);
         output(result);
     }
-    private static class InputData{
-        final String console;
 
-        private InputData(String console) {
-            this.console = console;
-        }
-    }
-
-    private static InputData consoleReading() throws IOException {
+    private static String consoleReading() {
         System.out.print("Enter the sizes of a table and a strategy: ");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             String  input = reader.readLine();
-            return new InputData(input);
+            return input;
+        }
+        catch (IOException e) {
+            return "This should never happen...";
         }
     }
 
-    private String processing(InputData input) {
+    private String processing(String input) {
         try {
-            String[] input_parts = input.console.split(" ");
+            String[] input_parts = input.split(" ");
             int length = Integer.parseInt(input_parts[0]);
             int width = Integer.parseInt(input_parts[1]);
             String strategy = input_parts[2];
@@ -52,6 +48,8 @@ public class RandomCharsTable {
         StringBuilder table = new StringBuilder();
         StringBuilder evens = new StringBuilder();
         StringBuilder odds = new StringBuilder();
+        evens.append("Even letters - ");
+        odds.append("Odd letters - ");
         for (int i = 0; i < length; i++){
             table.append('|');
             for(int j = 0; j < width; j++) {
@@ -60,10 +58,10 @@ public class RandomCharsTable {
                 table.append((char) number)
                         .append('|');
                 if (number % 2 == 0){
-                    evens = evens.length() == 0 ? evens.append((char) number) : evens.append(", " + (char) number);
+                    evens = evens.length() == 15 ? evens.append((char) number) : evens.append(", " + (char) number);
                 }
                 else {
-                    odds = odds.length() == 0 ? odds.append((char) number) : odds.append(", " + (char) number);
+                    odds = odds.length() == 14 ? odds.append((char) number) : odds.append(", " + (char) number);
                 }
             }
             table.append("\n");
@@ -72,7 +70,7 @@ public class RandomCharsTable {
         return table.toString();
     }
 
-    private static void output (String result){
+    private void output (String result){
         System.out.print(result);
     }
 }

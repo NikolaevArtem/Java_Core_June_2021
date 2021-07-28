@@ -6,31 +6,27 @@ import java.io.InputStreamReader;
 
 public class PyramidPrinter {
 
-    public void run () throws IOException {
-        InputData inputData = consoleReading();
+    public void run () {
+        String inputData = consoleReading();
         String result = processing(inputData);
         output(result);
     }
 
-    private static class InputData{
-        final String console;
 
-        private InputData(String console) {
-            this.console = console;
-        }
-    }
-
-    private static InputData consoleReading() throws IOException{
-        System.out.print("Enter the pyramid height as a single number: ");
+    private String consoleReading() {
+        System.out.print("Enter the pyramid height as a single integer: ");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             String  input = reader.readLine();
-            return new InputData(input);
+            return input;
+        }
+        catch (IOException e) {
+            return "This should never happen...";
         }
     }
 
-    private String processing(InputData input) {
+    private String processing(String input) {
         try {
-            int blocks = Integer.parseInt(input.console);
+            int blocks = Integer.parseInt(input);
             if (blocks < 0) {
                 throw new NumberFormatException();
             }
@@ -42,15 +38,21 @@ public class PyramidPrinter {
 
     private String pyramid (int blocks) {
         StringBuilder build = new StringBuilder();
-        for (int i = 0; i < blocks; i++) {
-            for (int j = 0; j <= i; j++) {
-                build.append('x');
+        try{
+            for (int i = 0; i < blocks; i++) {
+                for (int j = 0; j <= i; j++) {
+                    build.append('x');
+                }
+                build.append('\n');
             }
-            build.append('\n');
+            return build.toString();
         }
-        return build.toString();
+        catch (OutOfMemoryError e) {
+           return "Heap space is out of memory, please input a smaller integer";
+        }
     }
-    private static void output (String result){
+
+    private void output (String result){
         System.out.print(result);
     }
 }

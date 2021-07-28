@@ -6,31 +6,27 @@ import java.io.InputStreamReader;
 
 public class TrafficLight {
 
-    public void run () throws IOException {
-        InputData inputData = consoleReading();
+    public void run () {
+        String inputData = consoleReading();
         String result = processing(inputData);
         output(result);
     }
 
-    private static class InputData{
-        final String console;
 
-        private InputData(String console) {
-            this.console = console;
-        }
-    }
-
-    private static InputData consoleReading() throws IOException {
+    private static String consoleReading() {
         System.out.print("Please enter the amount of seconds as integer within 0 - 86399 range: ");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             String  input = reader.readLine();
-            return new InputData(input);
+            return input;
+        }
+        catch (IOException e) {
+            return "This should never happen...";
         }
     }
 
-    private String processing(InputData input) {
+    private String processing(String input) {
         try {
-            int time = Integer.parseInt(input.console);
+            int time = Integer.parseInt(input);
             if (time < 0){
                 throw new NumberFormatException();
             }
@@ -57,7 +53,7 @@ public class TrafficLight {
         return light.toString();
     }
 
-    private static void output (String result){
+    private void output (String result){
         System.out.print(result);
     }
 }
