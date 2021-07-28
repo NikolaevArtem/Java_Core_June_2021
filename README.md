@@ -9,7 +9,7 @@
 | HW2. PyramidPrinter | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/RogElena/src/main/java/homework_2/pyramid_printer) | pyramid_printer |
 | HW2. RandomCharsTable | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/RogElena/src/main/java/homework_2/random_chars_table) | random_chars_table |
 | HW3 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/RogElena/src/main/java/homework_3) | ImmutableClass |
-
+| tests | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/RogElena/src/test/java) | Test classes |
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 [Link to codingbat profile](https://codingbat.com/done?user=rog.elena.yu@gmail.com&tag=9660623200)
