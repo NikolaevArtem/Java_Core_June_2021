@@ -30,11 +30,11 @@ public class RandomCharsTableTest extends UnitBase {
         removeFromOutput("Odd letters - ");
         removeFromOutput("|");
         removeFromOutput("\n");
-        getOutput().replace(",", "|");
-        String[] chars = getOutput().split("|");
-        assertTrue(chars[0].charAt(0) >= MIN_CHAR && chars[0].charAt(0) <= MAX_CHAR);
-        assertTrue(chars[1].charAt(0) >= MIN_CHAR && chars[1].charAt(0) <= MAX_CHAR);
-        assertTrue(chars[2].charAt(0) >= MIN_CHAR && chars[2].charAt(0) <= MAX_CHAR);
+        removeFromOutput(", ");
+        char[] chars = getOutput().toCharArray();
+        assertTrue(chars[0] >= MIN_CHAR && chars[0] <= MAX_CHAR);
+        assertTrue(chars[1] >= MIN_CHAR && chars[1] <= MAX_CHAR);
+        assertTrue(chars[2] >= MIN_CHAR && chars[2] <= MAX_CHAR);
     }
 
     @Test
