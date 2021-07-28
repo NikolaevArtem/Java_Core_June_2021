@@ -12,16 +12,16 @@ import static utils.Constants.INFO_MESSAGE_TRAFFIC_LIGHT;
 import static utils.Constants.RED_MESSAGE_TRAFFIC_LIGHT;
 import static utils.Constants.YELLOW_MESSAGE_TRAFFIC_LIGHT;
 
-public class TrafficLightImplTest extends UnitBase {
+public class TrafficLightTest extends UnitBase {
 
     void run() {
-        new TrafficLightImpl().run();
+        new TrafficLight().run();
         removeFromOutput(INFO_MESSAGE_TRAFFIC_LIGHT);
         printOut();
     }
 
     void runExtraMode() {
-        new TrafficLightExtraModeImpl().run();
+        new TrafficLightExtraMode().run();
         removeFromOutput(INFO_MESSAGE_TO_EXTRA_MODE_TRAFFIC_LIGHT);
         printOut();
     }

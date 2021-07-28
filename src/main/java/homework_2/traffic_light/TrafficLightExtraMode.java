@@ -10,7 +10,7 @@ import static homework_2.traffic_light.utils.Constants.SECONDS_IN_MINUTE;
 import static homework_2.traffic_light.utils.Utils.getData;
 import static homework_2.traffic_light.utils.Utils.printMessage;
 
-public class TrafficLightExtraModeImpl extends TrafficLight {
+public class TrafficLightExtraMode extends TrafficLight {
 
     @Override
     public void run() {
