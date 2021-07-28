@@ -19,7 +19,7 @@ public class ExtraTrafficLight extends TrafficLight {
                     Integer.parseInt(input);
             return showTheLight(seconds);
         } else {
-            return "Only 1 non-negative integer is allowed as passed parameter";
+            return "Only 1 non-negative integer is allowed as passed parameter" + " or time in \"hh:mm:ss\" format.";
         }
     }
 

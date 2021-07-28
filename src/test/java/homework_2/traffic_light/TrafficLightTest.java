@@ -4,6 +4,7 @@ import base.UnitBase;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TrafficLightTest extends UnitBase {
 
@@ -99,7 +100,7 @@ public class TrafficLightTest extends UnitBase {
         new TrafficLight().run();
         getOutputLines();
         removeFromOutput(TrafficLight.greeting);
-        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
+        assertTrue(getOutputLines()[0].matches("Only 1 non-negative integer is allowed as passed parameter"));
     }
 
     @Test
@@ -108,7 +109,7 @@ public class TrafficLightTest extends UnitBase {
         new TrafficLight().run();
         getOutputLines();
         removeFromOutput(TrafficLight.greeting);
-        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
+        assertTrue(getOutputLines()[0].matches("Only 1 non-negative integer is allowed as passed parameter"));
     }
 
     @Test
@@ -117,7 +118,7 @@ public class TrafficLightTest extends UnitBase {
         new TrafficLight().run();
         getOutputLines();
         removeFromOutput(TrafficLight.greeting);
-        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
+        assertTrue(getOutputLines()[0].matches("Only 1 non-negative integer is allowed as passed parameter"));
     }
 
     @Test
