@@ -3,14 +3,13 @@ package homework_2;
 import homework_2.traffic_light.TrafficLight;
 import org.junit.jupiter.api.Test;
 
-import static homework_2.traffic_light.TrafficLight.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TrafficLightTest extends base.UnitBase {
 
-    protected final String RED_VALUE = RED.substring(1);
-    protected final String YELLOW_VALUE = YELLOW.substring(1);
-    protected final String GREEN_VALUE = GREEN.substring(1);
+    protected final String START_MESSAGE = "Please, input time:";
+    private final String ERROR_MESSAGE = "Only 1 non-negative integer is allowed as passed parameter";
 
     @Test
     void getGreenTest() {
@@ -20,7 +19,7 @@ public class TrafficLightTest extends base.UnitBase {
         printOut();
         removeFromOutput(START_MESSAGE);
 
-        assertEquals(GREEN_VALUE + "GREEN" + RESET, getOutput());
+        assertTrue(getOutput().contains("GREEN"));
     }
 
     @Test
@@ -31,7 +30,7 @@ public class TrafficLightTest extends base.UnitBase {
         printOut();
         removeFromOutput(START_MESSAGE);
 
-        assertEquals(YELLOW_VALUE + "YELLOW" + RESET, getOutput());
+        assertTrue(getOutput().contains("YELLOW"));
     }
 
     @Test
@@ -42,7 +41,7 @@ public class TrafficLightTest extends base.UnitBase {
         printOut();
         removeFromOutput(START_MESSAGE);
 
-        assertEquals(RED_VALUE + "RED" + RESET, getOutput());
+        assertTrue(getOutput().contains("RED"));
     }
 
     @Test
@@ -53,7 +52,7 @@ public class TrafficLightTest extends base.UnitBase {
         printOut();
         removeFromOutput(START_MESSAGE);
 
-        assertEquals(GREEN_VALUE + "GREEN" + RESET, getOutput());
+        assertTrue(getOutput().contains("GREEN"));
     }
 
     @Test

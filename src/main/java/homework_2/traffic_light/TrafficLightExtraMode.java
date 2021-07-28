@@ -6,8 +6,6 @@ import java.io.InputStreamReader;
 
 public class TrafficLightExtraMode extends TrafficLight {
 
-    public static final String ERROR_MESSAGE = "Only input in format hh:mm:ss is allowed";
-
     @Override
     protected boolean validation() {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
@@ -35,6 +33,6 @@ public class TrafficLightExtraMode extends TrafficLight {
 
     @Override
     protected void printErrorMessage() {
-        System.out.println(ERROR_MESSAGE);
+        System.out.println("Only input in format hh:mm:ss is allowed");
     }
 }

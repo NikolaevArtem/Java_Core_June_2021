@@ -4,10 +4,11 @@ import homework_2.pyramid_printer.PyramidPrinter;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static homework_2.pyramid_printer.PyramidPrinter.ERROR_MESSAGE;
-import static homework_2.pyramid_printer.PyramidPrinter.START_MESSAGE;
 
 public class PyramidPrinterTest extends base.UnitBase {
+
+    private final String ERROR_MESSAGE = "Only 1 non-negative integer is allowed as passed parameter";
+    private final String START_MESSAGE = "Please, input number:";
 
     @Test
     void correctInputTest1() {

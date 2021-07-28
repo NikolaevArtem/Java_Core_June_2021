@@ -4,11 +4,12 @@ import homework_2.random_chars_table.RandomCharsTable;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static homework_2.random_chars_table.RandomCharsTable.ERROR_MESSAGE;
-import static homework_2.random_chars_table.RandomCharsTable.START_MESSAGE;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RandomCharsTableTest extends base.UnitBase {
+
+    private final String ERROR_MESSAGE = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
+    private final String START_MESSAGE = "Please, enter array length, array width and strategy (odd or even):";
 
     @Test
     void findOddTest() {

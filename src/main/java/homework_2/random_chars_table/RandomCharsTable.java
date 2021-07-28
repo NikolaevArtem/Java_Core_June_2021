@@ -7,22 +7,20 @@ import java.util.ArrayList;
 
 public class RandomCharsTable {
 
-    public static final String ERROR_MESSAGE = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
-    public static final String START_MESSAGE = "Please, enter array length, array width and strategy (odd or even):";
     private boolean isEven;
     int rows, columns;
     private char[][] randomCharsTable;
     private final ArrayList<Character> selectedChars = new ArrayList<>();
 
     public void run() {
-        System.out.println(START_MESSAGE);
+        System.out.println("Please, enter array length, array width and strategy (odd or even):");
         if (validation()) {
             randomCharsTable = new RandomCharsTableCreator(rows, columns).createTable();
             findSelectedChars();
             printTable();
             printSelection();
         } else {
-            System.out.println(ERROR_MESSAGE);
+            System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
         }
     }
 
