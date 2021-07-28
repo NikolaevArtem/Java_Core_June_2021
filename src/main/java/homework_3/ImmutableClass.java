@@ -53,18 +53,6 @@ final public class ImmutableClass {
         this.password = password;
     }
 
-    final String getClassName() {
-        return className;
-    }
-
-    final int getYearOfBirth() {
-        return yearOfBirth;
-    }
-
-    final char[] getPassword() {
-        return Arrays.copyOf(password, password.length);
-    }
-
     public final ImmutableClass getChangedInstance(String className) {
         return new ImmutableClass(className);
     }
@@ -79,5 +67,17 @@ final public class ImmutableClass {
 
     public final ImmutableClass getChangedInstance(String className, int yearOfBirth, char[] password) {
         return new ImmutableClass(className, yearOfBirth, password);
+    }
+
+    final String getClassName() {
+        return className;
+    }
+
+    final int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    final char[] getPassword() {
+        return Arrays.copyOf(password, password.length);
     }
 }

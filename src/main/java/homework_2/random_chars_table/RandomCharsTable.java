@@ -40,7 +40,7 @@ public class RandomCharsTable {
     }
 
     private String processData() {
-        char[][] table = RandomCharTableGenerator.randomCharTable(length, width, 'A', 'Z');
+        char[][] table = new RandomCharTableGenerator().randomCharTable(length, width, 'A', 'Z');
         StringBuilder result = new StringBuilder();
         int remainder;
         StringBuilder letters;
