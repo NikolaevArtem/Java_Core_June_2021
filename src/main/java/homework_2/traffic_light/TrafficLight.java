@@ -21,24 +21,18 @@ class TrafficLight {
 
     private void printLight() {
 
-        if (seconds < 0) {
-            System.out.println("Error: positive only");
-        } else if (seconds > 86399) {
-            System.out.println("Error: day is over");
+        int mod = seconds % 60;
+
+        if (mod < 35) {
+            System.out.println("Green");
+        } else if (mod < 40) {
+            System.out.println("Yellow");
+        } else if (mod < 55) {
+            System.out.println("Red");
         } else {
-
-            int mod = seconds % 60;
-
-            if (mod < 35) {
-                System.out.println("Green");
-            } else if (mod < 40) {
-                System.out.println("Yellow");
-            } else if (mod < 55) {
-                System.out.println("Red");
-            } else {
-                System.out.println("Yellow");
-            }
+            System.out.println("Yellow");
         }
+
     }
 
     private boolean valid(String s) {
@@ -47,6 +41,16 @@ class TrafficLight {
             seconds = Integer.parseInt(s);
         } catch (NumberFormatException e) {
             System.out.println("Error: integer only");
+            return false;
+        }
+
+        if (seconds < 0) {
+            System.out.println("Error: positive only");
+            return false;
+        }
+
+        if (seconds > 86399) {
+            System.out.println("Error: day is over");
             return false;
         }
 

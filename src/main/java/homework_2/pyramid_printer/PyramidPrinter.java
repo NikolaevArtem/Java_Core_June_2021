@@ -24,16 +24,14 @@ class PyramidPrinter {
     private void printPyramid() {
 
         String x = "";
-        if (i < 0) {
-            System.out.println("Error: positive only");
-        } else {
-            StringBuilder b = new StringBuilder();
-            for (int n = 0; n < i; n++) {
-                x += "x";
-                b.append(x + "\n");
-            }
-            System.out.println(b);
+
+        StringBuilder b = new StringBuilder();
+        for (int n = 0; n < i; n++) {
+            x += "x";
+            b.append(x + "\n");
         }
+        System.out.println(b);
+
     }
 
 
@@ -43,6 +41,11 @@ class PyramidPrinter {
             i = Integer.parseInt(s);
         } catch (NumberFormatException e) {
             System.out.println("Error: integer only");
+            return false;
+        }
+
+        if (i < 0) {
+            System.out.println("Error: positive only");
             return false;
         }
 
