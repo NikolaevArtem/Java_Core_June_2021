@@ -48,6 +48,10 @@ public class RandomCharsTable {
             System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
             return;
         }
+        //adding finally block (28.07.2021)
+        finally {
+            scanner.close();
+        }
         // if everything valid with input - create and print result
         int [][] matrix = createCharsTable(col, row);
         printCharsTable(matrix, strategy);

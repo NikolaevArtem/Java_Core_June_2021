@@ -24,6 +24,10 @@ public class TrafficLight {
             System.out.println("Only 1 non-negative integer is allowed as passed parameter! Please, try again");
             return;
         }
+        //adding finally block (28.07.2021)
+        finally {
+            scanner.close();
+        }
     }
 
     protected void showingTrafficLightColor(int sec){
