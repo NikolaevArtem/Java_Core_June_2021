@@ -12,7 +12,7 @@ public class TrafficLight {
     public static final String GREEN = "\u001B[32m";
     public static final String START_MESSAGE = "Please, input number of seconds:";
     public static final String ERROR_MESSAGE = "Only 1 non-negative integer is allowed as passed parameter";
-    private int seconds;
+    protected int seconds;
 
     public void run() {
         System.out.println(START_MESSAGE);
@@ -35,7 +35,7 @@ public class TrafficLight {
         printColor();
     }
 
-    private void printColor() {
+    protected void printColor() {
         if (seconds % 60 < 35) {
             System.out.println(GREEN + "GREEN" + RESET);
         } else if (seconds % 60 < 40 || seconds % 60 >= 55) {

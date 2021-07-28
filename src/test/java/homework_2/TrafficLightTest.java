@@ -8,9 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrafficLightTest extends base.UnitBase {
 
-    private final String RED_VALUE = RED.substring(1);
-    private final String YELLOW_VALUE = YELLOW.substring(1);
-    private final String GREEN_VALUE = GREEN.substring(1);
+    protected final String RED_VALUE = RED.substring(1);
+    protected final String YELLOW_VALUE = YELLOW.substring(1);
+    protected final String GREEN_VALUE = GREEN.substring(1);
 
     @Test
     void getGreenTest() {
