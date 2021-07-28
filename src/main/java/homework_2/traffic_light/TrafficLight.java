@@ -6,22 +6,20 @@ import java.io.InputStreamReader;
 
 class TrafficLight {
 
+    private int seconds;
+
     void run() {
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            try {
-
-                printLight(Integer.parseInt(reader.readLine()));
-
-            } catch (NumberFormatException e) {
-                System.out.println("Error: integer only");
+            if (valid(reader.readLine())) {
+                printLight();
             }
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
-    private void printLight (int seconds) {
+    private void printLight() {
 
         if (seconds < 0) {
             System.out.println("Error: positive only");
@@ -42,4 +40,17 @@ class TrafficLight {
             }
         }
     }
+
+    private boolean valid(String s) {
+
+        try {
+            seconds = Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: integer only");
+            return false;
+        }
+
+        return true;
+    }
+
 }

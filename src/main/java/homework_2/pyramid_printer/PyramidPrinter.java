@@ -6,22 +6,22 @@ import java.io.InputStreamReader;
 
 class PyramidPrinter {
 
+    private int i;
+
     void run() {
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            try {
 
-                printPyramid(Integer.parseInt(reader.readLine()));
-
-            } catch (NumberFormatException e) {
-                System.out.println("Error: integer only");
+            if (valid(reader.readLine())) {
+                printPyramid();
             }
+
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
-    private void printPyramid (int i) {
+    private void printPyramid() {
 
         String x = "";
         if (i < 0) {
@@ -35,4 +35,19 @@ class PyramidPrinter {
             System.out.println(b);
         }
     }
+
+
+    private boolean valid(String s) {
+
+        try {
+            i = Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: integer only");
+            return false;
+        }
+
+        return true;
+    }
+
+
 }

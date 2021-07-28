@@ -15,53 +15,53 @@ class RandomCharsTable {
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
 
-            printTable(reader.readLine());
+            if (valid(reader.readLine())) {
+                printTable();
+            }
 
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
-    private void printTable(String s) {
+    private void printTable() {
 
-        if (argsIsOk(s)) {
+        char[][] arr = new char[length][width];
+        Random r = new Random();
+        StringBuilder result = new StringBuilder();
+        StringBuilder massive = new StringBuilder();
 
-            char[][] arr = new char[length][width];
-            Random r = new Random();
-            StringBuilder result = new StringBuilder();
-            StringBuilder massive = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) {
 
-            for (int i = 0; i < arr.length; i++) {
+            boolean hasNext = false;
 
-                boolean hasNext = false;
+            for (int j = 0; j < arr[i].length; j++) {
 
-                for (int j = 0; j < arr[i].length; j++) {
-
-                    int num = 65 + r.nextInt(26);
-                    arr[i][j] = (char) (num);
-                    if (num % 2 == (isEven ? 0 : 1)) {
-                        result.append(arr[i][j] + ", ");
-                    }
-                    massive.append("|" + arr[i][j]);
-                    hasNext = true;
-
+                int num = 65 + r.nextInt(26);
+                arr[i][j] = (char) (num);
+                if (num % 2 == (isEven ? 0 : 1)) {
+                    result.append(arr[i][j] + ", ");
                 }
-                if (hasNext) {
-                    massive.append("|" + "\n");
-                }
-            }
+                massive.append("|" + arr[i][j]);
+                hasNext = true;
 
-            System.out.println(massive);
-            String strRes = result.toString();
-            if (strRes.length() > 0) {
-                System.out.println((isEven ? "Even" : "Odd") + " letters - " + strRes.substring(0,strRes.length()-2));
-            } else {
-                System.out.println("No " + (isEven ? "even" : "odd") + " letters");
             }
+            if (hasNext) {
+                massive.append("|" + "\n");
+            }
+        }
+
+        System.out.println(massive);
+        String strRes = result.toString();
+        if (strRes.length() > 0) {
+            System.out.println((isEven ? "Even" : "Odd") + " letters - " + strRes.substring(0, strRes.length() - 2));
+        } else {
+            System.out.println("No " + (isEven ? "even" : "odd") + " letters");
         }
     }
 
-    private boolean argsIsOk(String s) {
+
+    private boolean valid(String s) {
 
         if (s == null) {
             System.out.println("Error: args is null");
