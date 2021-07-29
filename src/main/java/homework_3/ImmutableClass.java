@@ -18,7 +18,7 @@ import java.util.Random;
 
 
 
-final public class ImmutableClass {
+public final class ImmutableClass {
     final private int yearOfBirth;
     final private String className;
     final private char[] password;
