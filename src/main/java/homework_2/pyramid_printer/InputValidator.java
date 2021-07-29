@@ -11,18 +11,24 @@ public class InputValidator {
     }
 
     public int input() {
-        int height = 0;
+        int height = -1;
 
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             height = Integer.parseInt(bufferedReader.readLine());
-            if (height < 0) {
-                throw new IllegalArgumentException();
-            }
+            validate(height);
+
         } catch (IOException e) {
             System.out.println("Something went wrong.");
         } catch (IllegalArgumentException e) {
             errorMsg();
         }
+
         return height;
+    }
+
+    private void validate(int height){
+        if (height < 0) {
+            errorMsg();
+        }
     }
 }

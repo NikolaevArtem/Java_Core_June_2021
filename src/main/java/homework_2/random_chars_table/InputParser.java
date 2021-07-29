@@ -31,9 +31,11 @@ public class InputParser {
         String strategy = subString[2];
         if (tableLength < 1 || tableWidth < 1) {
             errorMsg();
+            return;
         }
         if (subString.length > 3){
             errorMsg();
+            return;
         }
         if ("even".equals(strategy)) {
             strategyFlag = 0;
@@ -41,6 +43,7 @@ public class InputParser {
             strategyFlag = 1;
         } else {
             errorMsg();
+            return;
         }
 
        new TableCharPrinter().tableCharPrinter(tableLength, tableWidth, strategyFlag);

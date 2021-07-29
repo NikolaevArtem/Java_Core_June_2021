@@ -1,9 +1,5 @@
 package homework_2.traffic_light;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class TrafficLight {
 
     private static final String ANSI_RED = "\u001b[31m";
@@ -24,7 +20,9 @@ public class TrafficLight {
     public void run() {
        System.out.println("Traffic Light App.");
        System.out.println("Enter the number of seconds between 0 and 86399 inclusive:");
-       new InputValidator().input(this);
+
+       showLight(new InputValidator().input());
+
     }
 }
 
