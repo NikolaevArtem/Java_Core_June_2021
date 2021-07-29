@@ -1,10 +1,13 @@
 package homework_2.pyramid_printer;
 
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class PyramidPrinter {
 
-    public void run(String sizeAsString) {
+    public void run() {
+        Scanner scanner = new Scanner(System.in);
+        String sizeAsString = scanner.nextLine();
         if (!isNumber(sizeAsString)) {
             System.out.println("ERROR! This is not a number");
             return;

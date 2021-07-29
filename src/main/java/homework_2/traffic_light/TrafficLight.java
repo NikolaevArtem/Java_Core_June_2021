@@ -1,11 +1,14 @@
 package homework_2.traffic_light;
 
 import java.time.Instant;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class TrafficLight {
 
-    public void run(String secondsAsString) {
+    public void run() {
+        Scanner scanner = new Scanner(System.in);
+        String secondsAsString = scanner.next();
         if (isNumber(secondsAsString)) {
             System.out.println("ERROR! Seconds must be a number");
             return;
