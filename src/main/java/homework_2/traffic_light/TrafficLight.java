@@ -12,7 +12,7 @@ public class TrafficLight {
             try {
                 int seconds = Integer.parseInt(inputStr);
                 if (seconds < 0 || seconds > 86399) {
-                    System.err.println("Input String is out of range");
+                    System.out.println("Input String is out of range");
                 }
                 int remainderOfDivision = seconds % 60;
                 if (remainderOfDivision < 35) {
@@ -25,7 +25,7 @@ public class TrafficLight {
                     System.out.println("Colour of traffic light is YELLOW");
                 }
             } catch (NumberFormatException e) {
-                System.err.println("Can't parse input string to integer");
+                System.out.println("Can't parse input string to integer");
             }finally {
                 bufferedReader.close();
             }
