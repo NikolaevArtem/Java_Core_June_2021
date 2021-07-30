@@ -26,7 +26,7 @@ public class TrafficLight {
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Can't parse input string to integer");
-            }finally {
+            } finally {
                 bufferedReader.close();
             }
         } catch (IOException e) {

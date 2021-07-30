@@ -11,7 +11,7 @@ public class RandomCharsTable {
             System.out.println("Enter number of rows, number of columns and strategy:");
             int x = scanner.nextInt();
             int y = scanner.nextInt();
-            if (x < 0 || y < 0){
+            if (x < 0 || y < 0) {
                 System.out.println("Wrong number of rows & columns");
             } else {
                 String strategy = scanner.next();

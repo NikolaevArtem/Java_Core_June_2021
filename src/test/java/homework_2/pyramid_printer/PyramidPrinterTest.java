@@ -25,7 +25,7 @@ public class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    public void givenString_whenRun(){
+    public void givenString_whenRun() {
         setInput("aaa");
         new PyramidPrinter().run();
         removeFromOutput("Enter height of pyramid:");
