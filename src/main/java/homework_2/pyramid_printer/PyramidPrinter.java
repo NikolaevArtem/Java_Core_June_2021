@@ -20,14 +20,14 @@ public class PyramidPrinter {
                         System.out.println();
                     }
                 } else {
-                    System.err.println("Out of range (input should be >= 0)");
+                    System.out.println("Out of range (input should be >= 0)");
                 }
                 bufferedReader.close();
             } catch (NumberFormatException e) {
-                System.err.println("Can't parse input string to integer");
+                System.out.println("Can't parse input string to integer");
             }
         } catch (IOException e) {
-            System.err.println("IOException has caught");
+            System.out.println("IOException has caught");
         }
     }
 }
