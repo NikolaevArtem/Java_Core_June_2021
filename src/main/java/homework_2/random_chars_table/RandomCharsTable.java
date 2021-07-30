@@ -11,12 +11,16 @@ public class RandomCharsTable {
             System.out.println("Enter number of rows, number of columns and strategy:");
             int x = scanner.nextInt();
             int y = scanner.nextInt();
-            String strategy = scanner.next();
-            char[][] table = createRandomTable(x, y);
-            printTable(table, x, y);
-            printStrategyChars(table, x, y, strategy);
-        } catch (NumberFormatException e) {
-            System.err.println("Invalid value");
+            if (x < 0 || y < 0){
+                System.out.println("Wrong number of rows & columns");
+            } else {
+                String strategy = scanner.next();
+                char[][] table = createRandomTable(x, y);
+                printTable(table, x, y);
+                printStrategyChars(table, x, y, strategy);
+            }
+        } catch (Exception e) {
+            System.out.println("Invalid value");
         }
         scanner.close();
     }
@@ -61,7 +65,7 @@ public class RandomCharsTable {
                 }
             }
         } else {
-            System.err.println("You entered wrong strategy");
+            System.out.println("You entered wrong strategy");
         }
     }
 }
