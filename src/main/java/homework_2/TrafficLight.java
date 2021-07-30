@@ -19,11 +19,13 @@ public class TrafficLight {
                     int seconds = Integer.parseInt(inputStr);
                     if (seconds < 0 || seconds > 86399) {
                         System.err.println("Input String is out of range");
-                    } else if (seconds % 60 < 35) {
+                    }
+                    int remainderOfDivision = seconds % 60;
+                    if (remainderOfDivision < 35) {
                         System.out.println("Colour of traffic light is GREEN");
-                    } else if (seconds % 60 < 40) {
+                    } else if (remainderOfDivision < 40) {
                         System.out.println("Colour of traffic light is YELLOW");
-                    } else if (seconds % 60 < 55) {
+                    } else if (remainderOfDivision < 55) {
                         System.out.println("Colour of traffic light is RED");
                     } else {
                         System.out.println("Colour of traffic light is YELLOW");

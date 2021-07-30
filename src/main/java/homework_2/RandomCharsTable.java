@@ -34,7 +34,7 @@ public class RandomCharsTable {
                 }
             }
         }else if (strategy.equals("odd")){
-            System.out.print("Even chars: ");
+            System.out.print("Odd chars: ");
             for (int i = 0; i < x; i++){
                 for (int j = 0; j < y; j++){
                     if (table[i][j] % 2 != 0) {
