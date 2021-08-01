@@ -8,9 +8,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * todo Document type RandomCharsTableCreatorTest
- */
 class RandomCharsTableCreatorTest {
 
     private List<Character> evenLettersArrayList;

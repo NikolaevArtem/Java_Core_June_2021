@@ -3,9 +3,6 @@ package base;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-/**
- * todo Document type UnitBaseMode
- */
 public abstract class UnitBaseMode extends UnitBase {
 
     // can be used to invoke method for object your class under test

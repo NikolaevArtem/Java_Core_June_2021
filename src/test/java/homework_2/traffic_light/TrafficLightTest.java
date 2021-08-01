@@ -7,9 +7,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * todo Document type TrafficLightTest
- */
 class  TrafficLightTest extends UnitBaseMode {
 
     private final TrafficLight trafficLight = new TrafficLight();
