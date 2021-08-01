@@ -24,7 +24,7 @@ class RandomCharsTableCreatorTest {
 
     @Test
     void initTableTest1() {
-        char[][] charsTable = RandomCharsTableCreator.initTable(10, 20);
+        char[][] charsTable = RandomCharsTableCreator.initAndFillTable(10, 20);
 
         assertEquals(10, charsTable.length);
         for (char[] chars : charsTable) {
@@ -37,7 +37,7 @@ class RandomCharsTableCreatorTest {
 
     @Test
     void initTableTest2() {
-        char[][] charsTable = RandomCharsTableCreator.initTable(14, 124);
+        char[][] charsTable = RandomCharsTableCreator.initAndFillTable(14, 124);
 
         assertEquals(14, charsTable.length);
         for (char[] chars : charsTable) {

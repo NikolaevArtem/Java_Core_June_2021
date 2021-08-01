@@ -47,7 +47,7 @@ class RandomCharsTableTest extends UnitBaseMode {
 
         assertTrue(isValidLetters(Arrays.copyOf(getOutputLines(), getOutputLines().length - 1), 2));
         assertTrue(isEvenLetters(getOutputLines()[getOutputLines().length - 1]));
-        assertEquals(1 + 1, getOutputLines().length);
+        assertEquals(2, getOutputLines().length);
         assertTrue(getOutput().contains("even letters -"));
     }
 
@@ -60,7 +60,7 @@ class RandomCharsTableTest extends UnitBaseMode {
 
         assertTrue(isValidLetters(Arrays.copyOf(getOutputLines(), getOutputLines().length - 1), 3));
         assertTrue(isEvenLetters(getOutputLines()[getOutputLines().length - 1]));
-        assertEquals(2 + 1, getOutputLines().length);
+        assertEquals(3, getOutputLines().length);
         assertTrue(getOutput().contains("even letters - "));
     }
 
@@ -73,7 +73,7 @@ class RandomCharsTableTest extends UnitBaseMode {
 
         assertTrue(isValidLetters(Arrays.copyOf(getOutputLines(), getOutputLines().length - 1), 1));
         assertTrue(isOddLetters(getOutputLines()[getOutputLines().length - 1]));
-        assertEquals(2 + 1, getOutputLines().length);
+        assertEquals(3, getOutputLines().length);
         assertTrue(getOutput().contains("odd letters -"));
     }
 
@@ -86,7 +86,7 @@ class RandomCharsTableTest extends UnitBaseMode {
 
         assertTrue(isValidLetters(Arrays.copyOf(getOutputLines(), getOutputLines().length - 1), 2));
         assertTrue(isOddLetters(getOutputLines()[getOutputLines().length - 1]));
-        assertEquals(1 + 1, getOutputLines().length);
+        assertEquals(2, getOutputLines().length);
         assertTrue(getOutput().contains("odd letters -"));
     }
 
@@ -99,7 +99,7 @@ class RandomCharsTableTest extends UnitBaseMode {
 
         assertTrue(isValidLetters(Arrays.copyOf(getOutputLines(), getOutputLines().length - 1), 3));
         assertTrue(isOddLetters(getOutputLines()[getOutputLines().length - 1]));
-        assertEquals(2 + 1, getOutputLines().length);
+        assertEquals(3, getOutputLines().length);
         assertTrue(getOutput().contains("odd letters -"));
     }
 
@@ -112,7 +112,7 @@ class RandomCharsTableTest extends UnitBaseMode {
 
         assertTrue(isValidLetters(Arrays.copyOf(getOutputLines(), getOutputLines().length - 1), 20));
         assertTrue(isOddLetters(getOutputLines()[getOutputLines().length - 1]));
-        assertEquals(10 + 1, getOutputLines().length);
+        assertEquals(11, getOutputLines().length);
         assertTrue(getOutput().contains("odd letters -"));
     }
 
@@ -144,7 +144,7 @@ class RandomCharsTableTest extends UnitBaseMode {
     private boolean isEvenLetters(String lastString) {
         lastString = lastString.replaceAll("(even letters -)|(\\s+)|(,+)", "");
         for (int i = 0; i < lastString.length(); i++) {
-            if (!evenLettersArrayList.contains(lastString.charAt(i)) && oddLettersArrayList.contains(lastString.charAt(i))) {
+            if (oddLettersArrayList.contains(lastString.charAt(i))) {
                 return false;
             }
         }
@@ -154,7 +154,7 @@ class RandomCharsTableTest extends UnitBaseMode {
     private boolean isOddLetters(String lastString) {
         lastString = lastString.replaceAll("(odd letters -)|(\\s+)|(,+)", "");
         for (int i = 0; i < lastString.length(); i++) {
-            if (!oddLettersArrayList.contains(lastString.charAt(i)) && evenLettersArrayList.contains(lastString.charAt(i))) {
+            if (evenLettersArrayList.contains(lastString.charAt(i))) {
                 return false;
             }
         }

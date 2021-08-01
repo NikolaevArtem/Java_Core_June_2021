@@ -1,7 +1,6 @@
 package homework_1;
 
 import base.UnitBase;
-import base.UnitBaseMode;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;

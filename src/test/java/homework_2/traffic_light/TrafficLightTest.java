@@ -10,14 +10,14 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * todo Document type TrafficLightTest
  */
-class TrafficLightTest extends UnitBaseMode {
+class  TrafficLightTest extends UnitBaseMode {
 
     private final TrafficLight trafficLight = new TrafficLight();
     private final String METHOD_NAME = "run";
     private final String STRING_TO_DEL = "Enter the number";
 
     @ParameterizedTest
-    @ValueSource(strings = {"0", "5"})
+    @ValueSource(strings = {"0", "5", "61"})
     void runTestValidArg1(String input) {
         setInput(input);
 

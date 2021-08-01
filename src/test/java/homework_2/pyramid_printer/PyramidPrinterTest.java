@@ -7,10 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * todo Document type PyramidPrinterTest
- */
-class PyramidPrinterTest extends UnitBaseMode {
+class  PyramidPrinterTest extends UnitBaseMode {
 
     private final PyramidPrinter pyramidPrinter = new PyramidPrinter();
     private final String METHOD_NAME = "run";
@@ -28,9 +25,9 @@ class PyramidPrinterTest extends UnitBaseMode {
     @Test
     void runTest1() {
         setInput("1");
+        String[] expectedArray = {"x"};
 
         run(pyramidPrinter, METHOD_NAME, STRING_TO_DEL);
-        String[] expectedArray = {"x"};
 
         assertArrayEquals(expectedArray, getOutputLines());
     }
@@ -38,9 +35,9 @@ class PyramidPrinterTest extends UnitBaseMode {
     @Test
     void runTest2() {
         setInput("2");
+        String[] expectedArray = {"x", "xx"};
 
         run(pyramidPrinter, METHOD_NAME, STRING_TO_DEL);
-        String[] expectedArray = {"x", "xx"};
 
         assertArrayEquals(expectedArray, getOutputLines());
     }
@@ -48,9 +45,9 @@ class PyramidPrinterTest extends UnitBaseMode {
     @Test
     void runTest10() {
         setInput("10");
+        String[] expectedArray = {"x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx", "xxxxxxx", "xxxxxxxx", "xxxxxxxxx", "xxxxxxxxxx"};
 
         run(pyramidPrinter, METHOD_NAME, STRING_TO_DEL);
-        String[] expectedArray = {"x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx", "xxxxxxx", "xxxxxxxx", "xxxxxxxxx", "xxxxxxxxxx"};
 
         assertArrayEquals(expectedArray, getOutputLines());
     }
