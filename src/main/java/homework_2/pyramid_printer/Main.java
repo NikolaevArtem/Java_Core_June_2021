@@ -1,8 +1,8 @@
-package homework_2.RandomCharsTable;
+package homework_2.pyramid_printer;
 
 public class Main {
 
     public static void main(String[] args) {
-        new RandomCharsTable().run();
+        new PyramidPrinter().run();
     }
 }

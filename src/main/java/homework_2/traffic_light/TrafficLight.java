@@ -1,4 +1,4 @@
-package homework_2.TrafficLight;
+package homework_2.traffic_light;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

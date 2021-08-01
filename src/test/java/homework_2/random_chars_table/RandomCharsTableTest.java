@@ -1,4 +1,4 @@
-package homework_2.RandomCharsTable;
+package homework_2.random_chars_table;
 
 import base.UnitBase;
 import org.junit.jupiter.params.ParameterizedTest;
