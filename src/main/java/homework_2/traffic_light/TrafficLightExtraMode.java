@@ -4,10 +4,9 @@ import java.time.DateTimeException;
 import java.time.LocalTime;
 import java.util.Scanner;
 
-/**
- * todo Document type TrafficLightExtraMode
- */
 public class TrafficLightExtraMode extends TrafficLight {
+
+    private int secondsParsed;
 
     @Override
     public void run() {
@@ -15,7 +14,8 @@ public class TrafficLightExtraMode extends TrafficLight {
         Scanner scanner = new Scanner(System.in);
         String inputStr = scanner.nextLine();
         if (isValid(inputStr)) {
-            System.out.println(getTrafficLight(LocalTime.parse(inputStr).toSecondOfDay()));
+            String result = getTrafficLight(secondsParsed);
+            System.out.println(result);
         }
         scanner.close();
     }
@@ -23,11 +23,11 @@ public class TrafficLightExtraMode extends TrafficLight {
     @Override
     public boolean isValid(String arg) {
         try {
-            LocalTime.parse(arg).toSecondOfDay();
-            return true;
+            secondsParsed = LocalTime.parse(arg).toSecondOfDay();
         } catch (DateTimeException exception) {
             System.out.println(ANSI_RED + "Only hh:mm:ss input format (hh < 24, mm < 60, ss < 60)" + ANSI_RESET);
             return false;
         }
+        return true;
     }
 }

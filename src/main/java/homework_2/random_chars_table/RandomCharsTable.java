@@ -13,13 +13,13 @@ public class RandomCharsTable {
 
         System.out.println("Enter width, height and parity");
         String s = systemScanner.nextLine();
-        if (s.matches("^(([1-9][0-9]*\\s){2})(odd|even)")) {
+        if (isValid(s)) {
             Scanner stringScanner = new Scanner(s);
-            char[][] chars = RandomCharsTableCreator.initTable(stringScanner.nextInt(), stringScanner.nextInt());
+            char[][] table = RandomCharsTableCreator.initAndFillTable(stringScanner.nextInt(), stringScanner.nextInt());
             String parity = stringScanner.next();
-            List<Character> characterList = getValidChars(chars, parity);
+            List<Character> characterList = getValidChars(table, parity);
 
-            printTable(chars);
+            printTable(table);
             System.out.println(parity + " letters - " + getResult(characterList));
             stringScanner.close();
         } else {
@@ -27,6 +27,10 @@ public class RandomCharsTable {
         }
 
         systemScanner.close();
+    }
+
+    private boolean isValid(String inputStr) {
+        return inputStr.matches("^(([1-9][0-9]*\\s){2})(odd|even)");
     }
 
     public void printTable(char[][] arrayOfChars) {

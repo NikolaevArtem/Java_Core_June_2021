@@ -11,14 +11,9 @@ public class PyramidPrinter {
     public void run() {
         System.out.println("Enter the number");
         Scanner scanner = new Scanner(System.in);
-        String inputStr = scanner.nextLine();
+        String inputStr = scanner.nextLine().trim();
         if (isValid(inputStr)) {
-            inputStr = inputStr.replaceAll("\\s+", "");
-            try {
-                printPyramid(Integer.parseInt(inputStr));
-            } catch (NumberFormatException exception) {
-                System.out.println(ANSI_RED + ERROR_MESSAGE + ANSI_RESET);
-            }
+            printPyramid(Integer.parseInt(inputStr));
         } else {
             System.out.println(ANSI_RED + ERROR_MESSAGE + ANSI_RESET);
         }
@@ -26,7 +21,15 @@ public class PyramidPrinter {
     }
 
     private boolean isValid(String arg) {
-        return arg.matches("^\\s*[+]?[0-9]+\\s*$");
+        if (arg.matches("^\\s*[+]?[0-9]+\\s*$")) {
+            try {
+                Integer.parseInt(arg);
+            } catch (NumberFormatException exception) {
+                return false;
+            }
+            return true;
+        }
+        return false;
     }
 
     private void printPyramid(int n) {
