@@ -1,21 +1,21 @@
-package homework.homework_2.traffic_light;
+package homework_2.traffic_light;
 
-import homework.ConsoleColors;
+import ConsoleColors.ConsoleColors;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class TrafficLight {
-    public static void main(String[] args) {
+
+    public void run(){
         System.out.println("Enter the number, please.");
         int allSeconds = getInput();
 
         getLight(allSeconds);
-
     }
 
-    public static int getInput() {
+    private static int getInput() {
         String numbOfSeconds = null;
         int allSeconds = 0;
 
@@ -35,7 +35,7 @@ public class TrafficLight {
         return allSeconds;
     }
 
-    public static int getOnlySeconds(int i) {        //recursively subtracts full minutes from input
+    private static int getOnlySeconds(int i) {        //recursively subtracts full minutes from input
         if (i < 60) {
             return i;
         }
@@ -48,7 +48,7 @@ public class TrafficLight {
         return secs;
     }
 
-    public static void getLight(int i) {
+    private static void getLight(int i) {
         while (true) {
             if (i < 0) {
                 System.out.println(ConsoleColors.RED + "Only positive numbers are allowed!" + ConsoleColors.RESET);

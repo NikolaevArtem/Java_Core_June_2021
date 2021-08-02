@@ -1,19 +1,11 @@
-package homework.homework_2.random_chars_table;
-
-import homework.ConsoleColors;
+package homework_2.random_chars_table;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class RandomCharsTable {
     private final String error = "Wrong input!";
-
-    public static void main(String[] args) {
-
-    }
 
     public void run() {
 
@@ -25,13 +17,10 @@ public class RandomCharsTable {
 
         String[] strings = table.getInput();
 
-        if(strings.length == 3){
+        if (isValid(strings)){
             lenStr = strings[0];
             widStr = strings[1];
             method = strings[2];
-        }
-        else {
-            System.out.println(error);
         }
 
         char[][] toPrint = table.getTable(lenStr, widStr);
@@ -129,5 +118,22 @@ public class RandomCharsTable {
         else {
             System.out.println(error);
         }
+    }
+
+    private boolean isValid(String[] strings){
+        boolean firstDigit = false;
+        boolean secondDigit = false;
+        boolean oddOrEven = false;
+
+        if (strings.length < 3){
+            return false;
+        }
+        else if(strings.length == 3){
+            firstDigit = strings[0].chars().allMatch( Character::isDigit );
+            secondDigit = strings[1].chars().allMatch( Character::isDigit );
+            oddOrEven = (strings[2].equals("odd") || strings[2].equals("even"));
+        }
+
+        return (firstDigit && secondDigit && oddOrEven);
     }
 }

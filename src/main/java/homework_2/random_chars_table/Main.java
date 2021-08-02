@@ -1,4 +1,4 @@
-package homework.homework_2.random_chars_table;
+package homework_2.random_chars_table;
 
 import java.io.IOException;
 

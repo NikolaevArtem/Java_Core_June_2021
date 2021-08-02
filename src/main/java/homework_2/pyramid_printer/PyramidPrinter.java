@@ -1,15 +1,11 @@
-package homework.homework_2.pyramid_printer;
+package homework_2.pyramid_printer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class PyramidPrinter {
-
-
-    public static void main(String[] args) {
-
-    }
+    final String ERROR_MSG = "Only 1 non-negative integer is allowed as passed parameter";
 
     public void run() {
         int sizeOfPyramid = getInput();
@@ -17,7 +13,7 @@ public class PyramidPrinter {
         printPyramid(sizeOfPyramid);
     }
 
-    private static int getInput() {
+    private int getInput() {
         String pSize = null;
         int result = 0;
         System.out.println("Enter the Pyramid size. please: ");
@@ -32,24 +28,24 @@ public class PyramidPrinter {
                 result = Integer.parseInt(pSize);
             }
             else {
-                System.out.println("Empty or too big inputs are not allowed!");
+                System.out.println(ERROR_MSG);
             }
         } catch (NumberFormatException e) {
-            System.out.println("Wrong input, only integers are allowed!");
+            System.out.println(ERROR_MSG);
         }
         if (result <0) {
-            System.out.println("Negative numbers are not allowed!");
+            System.out.println(ERROR_MSG);
         }
         return result;
     }
 
-    private static void printPyramid(int i) {
+    private void printPyramid(int i) {
         for (int j = 0; j < i; j++) {
             System.out.println(getRow(j));
         }
     }
 
-    private static String getRow(int i) {
+    private String getRow(int i) {
         StringBuilder row = new StringBuilder();
         for (int j = 0; j <= i; j++) {
             row.append('x');

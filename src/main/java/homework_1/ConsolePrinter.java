@@ -1,6 +1,6 @@
-package homework.homework_1;
+package homework_1;
 
-import homework.ConsoleColors;
+import ConsoleColors.ConsoleColors;
 
 public class ConsolePrinter {
     public static void main(String[] args) {

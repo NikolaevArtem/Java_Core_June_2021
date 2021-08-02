@@ -1,6 +1,7 @@
 package homework.homework_2.pyramid_printer;
 
 import base.UnitBase;
+import homework_2.pyramid_printer.PyramidPrinter;
 import org.junit.jupiter.api.Test;
 
 
@@ -37,7 +38,7 @@ class PyramidPrinterTest extends UnitBase {
         new PyramidPrinter().run();
         removeFromOutput("Enter the Pyramid size. please: ");
         printOut();
-        assertEquals("Empty or too big inputs are not allowed!", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 
     @Test
@@ -47,7 +48,7 @@ class PyramidPrinterTest extends UnitBase {
         new PyramidPrinter().run();
         removeFromOutput("Enter the Pyramid size. please: ");
         printOut();
-        assertEquals("Wrong input, only integers are allowed!", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 
     @Test
@@ -57,7 +58,7 @@ class PyramidPrinterTest extends UnitBase {
         new PyramidPrinter().run();
         removeFromOutput("Enter the Pyramid size. please: ");
         printOut();
-        assertEquals("Wrong input, only integers are allowed!", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 
     @Test
@@ -67,7 +68,7 @@ class PyramidPrinterTest extends UnitBase {
         new PyramidPrinter().run();
         removeFromOutput("Enter the Pyramid size. please: ");
         printOut();
-        assertEquals("Negative numbers are not allowed!", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 
     @Test
@@ -77,7 +78,7 @@ class PyramidPrinterTest extends UnitBase {
         new PyramidPrinter().run();
         removeFromOutput("Enter the Pyramid size. please: ");
         printOut();
-        assertEquals("Wrong input, only integers are allowed!", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 
     @Test
@@ -87,7 +88,7 @@ class PyramidPrinterTest extends UnitBase {
         new PyramidPrinter().run();
         removeFromOutput("Enter the Pyramid size. please: ");
         printOut();
-        assertEquals("Wrong input, only integers are allowed!", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 
 
