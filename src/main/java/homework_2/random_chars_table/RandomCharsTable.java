@@ -3,37 +3,50 @@ package homework_2.random_chars_table;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Locale;
 
 public class RandomCharsTable {
-    private final String error = "Wrong input!";
+    private final String ERR_MSG = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
 
     public void run() {
 
         RandomCharsTable table = new RandomCharsTable();
 
-        String lenStr = null;
-        String widStr = null;
-        String method = null;
+        String lenStr;
+        String widStr;
+        String method;
 
         String[] strings = table.getInput();
 
-        if (isValid(strings)){
+        if (isValid(strings)) {
+
             lenStr = strings[0];
             widStr = strings[1];
-            method = strings[2];
+            method = strings[2].toLowerCase(Locale.ROOT);
+
+            char[][] toPrint = table.getTable(lenStr, widStr);
+            if(toPrint.length == 0){
+                System.out.println("Table is empty");
+                return;
+            }
+            System.out.println("There is an unsorted table:");
+
+            for (char[] ch : toPrint
+            ) {
+                for (char character : ch
+                     ) {
+                    System.out.print("|" + character);
+                }
+                System.out.print("|");
+                System.out.println();
+            }
+
+
+            table.printSorted(toPrint, method);
+        } else {
+            System.out.println(ERR_MSG);
         }
-
-        char[][] toPrint = table.getTable(lenStr, widStr);
-
-        System.out.println("There is an unsorted table:");
-
-        for (char[] ch : toPrint
-        ) {
-            System.out.println(ch);
-        }
-
-
-        table.printSorted(toPrint, method);
 
     }
 
@@ -49,22 +62,16 @@ public class RandomCharsTable {
             result = rawInput.split(" ");
 
         } catch (IOException e) {
-            System.out.println(error);
+            System.out.println(ERR_MSG);
         }
 
         return result;
     }
 
     private char[][] getTable(String length, String width) {
-        int len = 0;
-        int wid = 0;
-        if (length != null && width != null) {
-            len = Integer.parseInt(length);
-            wid = Integer.parseInt(width);
-        }
-        else {
-            System.out.println(error);
-        }
+
+        int len = Integer.parseInt(length);
+        int wid = Integer.parseInt(width);
 
         char[][] res = new char[len][wid];
 
@@ -79,7 +86,7 @@ public class RandomCharsTable {
 
     private void printSorted(char[][] table, String method) {
         StringBuilder result = new StringBuilder();
-    if (method != null) {
+
         switch (method) {
             case ("odd"):
                 result.append("Odd letters - ");
@@ -111,29 +118,22 @@ public class RandomCharsTable {
                 String res1 = result.toString();
                 System.out.println(res1.substring(0, res1.length() - 1) + ".");
                 break;
-            default:
-                System.out.println(error + " Unknown method!");
         }
-    }
-        else {
-            System.out.println(error);
-        }
+
     }
 
-    private boolean isValid(String[] strings){
+    private boolean isValid(String[] strings) {
         boolean firstDigit = false;
         boolean secondDigit = false;
         boolean oddOrEven = false;
 
-        if (strings.length < 3){
+        if (strings.length < 3) {
             return false;
-        }
-        else if(strings.length == 3){
-            firstDigit = strings[0].chars().allMatch( Character::isDigit );
-            secondDigit = strings[1].chars().allMatch( Character::isDigit );
+        } else if (strings.length == 3) {
+            firstDigit = strings[0].chars().allMatch(Character::isDigit);
+            secondDigit = strings[1].chars().allMatch(Character::isDigit);
             oddOrEven = (strings[2].equals("odd") || strings[2].equals("even"));
         }
-
         return (firstDigit && secondDigit && oddOrEven);
     }
 }
