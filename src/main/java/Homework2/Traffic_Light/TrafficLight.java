@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class TrafficLight {
     final int END_OF_THE_DAY = 86399;
 
-    TrafficLight getTrafficLight (int input){
+    TrafficLight getTrafficLight(int input) {
         TrafficLight trafficLight = new TrafficLight();
 
         if (input < 0) {
@@ -17,6 +17,7 @@ public class TrafficLight {
             System.out.println("Error. The day has come to an end");
 
         }
+
         int lightInterval = input % 60;
 
         if (lightInterval >= 0 && lightInterval < 35) {
@@ -31,10 +32,24 @@ public class TrafficLight {
         return trafficLight;
     }
 
-
-
-
-
-
-
+    public void run() {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int input = 0;
+        try (reader) {
+            input = Integer.parseInt(reader.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.out.println("Input does not contain numbers");
+        }
+        getTrafficLight(input);
     }
+}
+
+
+
+
+
+
+
+
