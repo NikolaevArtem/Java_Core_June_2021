@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BookTest {
-    private static final String DEFAULT_AUTHOR = "unknown";
+    private static final String DEFAULT_AUTHOR = "Unknown author";
 
     @Test
     void givenNull_getDefault() {
