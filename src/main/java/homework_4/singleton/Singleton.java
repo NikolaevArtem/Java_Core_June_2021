@@ -1,15 +1,12 @@
 package homework_4.singleton;
 
 public class Singleton {
-    private static Singleton instance;
 
-    private Singleton() {
+    public static class SingletonHolder {
+        public static final Singleton HOLDER_INSTANCE = new Singleton();
     }
 
     public static Singleton getInstance() {
-        if (instance == null) {
-            instance = new Singleton();
-        }
-        return instance;
+        return SingletonHolder.HOLDER_INSTANCE;
     }
 }
