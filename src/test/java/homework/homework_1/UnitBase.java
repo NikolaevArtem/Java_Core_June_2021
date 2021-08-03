@@ -1,4 +1,4 @@
-package base;
+package homework.homework_1;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

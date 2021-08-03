@@ -1,6 +1,6 @@
 package homework.homework_2.traffic_light;
 
-import base.UnitBase;
+import homework.homework_1.UnitBase;
 import homework_2.traffic_light.TrafficLight;
 import org.junit.jupiter.api.Test;
 

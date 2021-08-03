@@ -1,6 +1,6 @@
 package homework.homework_2.pyramid_printer;
 
-import base.UnitBase;
+import homework.homework_1.UnitBase;
 import homework_2.pyramid_printer.PyramidPrinter;
 import org.junit.jupiter.api.Test;
 
