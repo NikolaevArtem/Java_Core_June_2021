@@ -51,7 +51,7 @@ public class CustomFileReader {
     public void run3() {
         if (isExistsFile(filePath)) {
             fileReader = new File(filePath);
-            fileContent = new MyScannerFileReader().getFileContent(fileReader);
+            fileContent = new ScannerFileReader().getFileContent(fileReader);
             printResult();
         } else {
             printErrorMessage();

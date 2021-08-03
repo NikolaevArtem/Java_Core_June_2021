@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class MyScannerFileReader extends AbstractFileReader {
+public class ScannerFileReader extends AbstractFileReader {
 
     @Override
     public String getFileContent(File file) {
