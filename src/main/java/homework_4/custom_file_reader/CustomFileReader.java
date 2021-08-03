@@ -9,42 +9,49 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-public class CustomFileReader implements Runnable {
+import static java.lang.System.lineSeparator;
+
+public class CustomFileReader {
     private static final String FILE_NAME = "src/main/resources/custom_file_reader/Shakespeare.txt";
+    private static final String ERROR_MESSAGE = "Can not read file.";
     private static final File FILE = new File(FILE_NAME);
 
-    @Override
     public void run1() {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                System.out.println(line.replace(".", "").replace(",", ""));
+                printMessage(trimDotsAndCommas(line) + lineSeparator());
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            printMessage(ERROR_MESSAGE);
         }
     }
 
-    @Override
     public void run2() {
         try {
             Scanner scanner = new Scanner(FILE);
             while (scanner.hasNextLine()) {
-                System.out.println(scanner.nextLine().replace(".", "").replace(",", ""));
+                printMessage(trimDotsAndCommas(scanner.nextLine()) + lineSeparator());
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            printMessage(ERROR_MESSAGE);
         }
     }
 
-    @Override
     public void run3() {
         try {
             String data = new String(Files.readAllBytes(Paths.get(FILE_NAME)));
-            data = data.replace(".", "").replace(",", "");
-            System.out.println(data);
+            printMessage(trimDotsAndCommas(data));
         } catch (IOException e) {
-            e.printStackTrace();
+            printMessage(ERROR_MESSAGE);
         }
+    }
+
+    private void printMessage(String message) {
+        System.out.print(message);
+    }
+
+    private String trimDotsAndCommas(String line){
+        return line.replace(".", "").replace(",", "");
     }
 }
