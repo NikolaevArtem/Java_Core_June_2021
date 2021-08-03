@@ -28,7 +28,7 @@ public class BookTest {
     @Test
     void givenName_getName(){
         Book book = new Book("The Adventures of Tom Sawyer", "Mark Twain");
-        assertEquals("Mark Twain", book.getName());
+        assertEquals("The Adventures of Tom Sawyer", book.getName());
     }
 
 }
