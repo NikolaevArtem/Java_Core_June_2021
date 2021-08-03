@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static homework_2.utils.Constants.ERROR_MESSAGE_RANDOM_CHARS_TABLE;
+import static homework_2.utils.Constants.INFO_MESSAGE_RANDOM_CHARS_TABLE;
+import static homework_2.utils.Constants.MAX_CHAR;
+import static homework_2.utils.Constants.MIN_CHAR;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static utils.Constants.ERROR_MESSAGE_RANDOM_CHARS_TABLE;
-import static utils.Constants.INFO_MESSAGE_RANDOM_CHARS_TABLE;
-import static utils.Constants.MAX_CHAR;
-import static utils.Constants.MIN_CHAR;
 
 public class RandomCharsTableTest extends UnitBase {
 

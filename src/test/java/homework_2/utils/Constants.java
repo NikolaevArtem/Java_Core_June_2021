@@ -1,4 +1,4 @@
-package utils;
+package homework_2.utils;
 
 public class Constants {
     public static final String ERROR_MESSAGE_TRAFFIC_LIGHT = "Only 1 non-negative integer is allowed as passed parameter";
