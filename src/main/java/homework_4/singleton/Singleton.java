@@ -2,7 +2,7 @@ package homework_4.singleton;
 
 public class Singleton {
 
-    public static class SingletonHolder {
+    private static class SingletonHolder {
         public static final Singleton HOLDER_INSTANCE = new Singleton();
     }
 
