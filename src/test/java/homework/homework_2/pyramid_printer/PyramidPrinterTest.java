@@ -8,6 +8,18 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PyramidPrinterTest extends UnitBase {
+
+    final String ERR_MSG = "Only 1 non-negative integer is allowed as passed parameter";
+
+    //tested cases           correct input 3
+    //                       zero input
+    //                       empty input
+    //                       string input
+    //                       input bigger INT_MAX.VALUE
+    //                       negative number
+    //                       more that one argument
+    // 8                     double value
+
     @Test
     void givenPositiveInt_whenInputIsThree_thenPrintPyramid() {
         setInput("3");
@@ -22,7 +34,7 @@ class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void givenZero_whenZeroInInput_thenDoNothing() {
+    void givenZero_whenRun_thenDoNothing() {
         setInput("0");
 
         new PyramidPrinter().run();
@@ -32,63 +44,63 @@ class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void givenNothing_whenEmptyInput_thenWriteErrMsgAndStop() {
+    void givenNothing_whenRun_thenWriteErrMsgAndStop() {
         setInput("");
 
         new PyramidPrinter().run();
         removeFromOutput("Enter the Pyramid size. please: ");
         printOut();
-        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
+        assertEquals(ERR_MSG, getOutputLines()[0]);
     }
 
     @Test
-    void givenString_whenStringInput_thenWriteErrMsgAndStop() {
+    void givenString_whenRun_thenWriteErrMsgAndStop() {
         setInput("Some string");
 
         new PyramidPrinter().run();
         removeFromOutput("Enter the Pyramid size. please: ");
         printOut();
-        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
+        assertEquals(ERR_MSG, getOutputLines()[0]);
     }
 
     @Test
-    void givenToBigNumber_whenInputBiggerIntMAX_thenWriteErrMsgAndStop() {
+    void givenToBigNumber_whenRun_thenWriteErrMsgAndStop() {
         setInput("999999999999");
 
         new PyramidPrinter().run();
         removeFromOutput("Enter the Pyramid size. please: ");
         printOut();
-        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
+        assertEquals(ERR_MSG, getOutputLines()[0]);
     }
 
     @Test
-    void givenNegativeNumber_whenInputLessThanZero_thenWriteErrMsgAndStop() {
+    void givenNegativeNumber_whenRun_thenWriteErrMsgAndStop() {
         setInput("-1");
 
         new PyramidPrinter().run();
         removeFromOutput("Enter the Pyramid size. please: ");
         printOut();
-        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
+        assertEquals(ERR_MSG, getOutputLines()[0]);
     }
 
     @Test
-    void givenNotOneArg_whenInputIsDivided_thenWriteErrMsgAndStop() {
+    void givenMoreThatOne_whenRun_thenWriteErrMsgAndStop() {
         setInput("2 3");
 
         new PyramidPrinter().run();
         removeFromOutput("Enter the Pyramid size. please: ");
         printOut();
-        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
+        assertEquals(ERR_MSG, getOutputLines()[0]);
     }
 
     @Test
-    void givenNotInteger_whenDouble_thenWriteErrMsgAndStop() {
+    void givenNotAnInteger_whenRun_thenWriteErrMsgAndStop() {
         setInput("0.6");
 
         new PyramidPrinter().run();
         removeFromOutput("Enter the Pyramid size. please: ");
         printOut();
-        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
+        assertEquals(ERR_MSG, getOutputLines()[0]);
     }
 
 

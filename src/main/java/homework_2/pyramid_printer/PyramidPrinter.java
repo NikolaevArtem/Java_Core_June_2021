@@ -26,14 +26,13 @@ public class PyramidPrinter {
         try {
             if (pSize != null) {
                 result = Integer.parseInt(pSize);
-            }
-            else {
+            } else {
                 System.out.println(ERROR_MSG);
             }
         } catch (NumberFormatException e) {
             System.out.println(ERROR_MSG);
         }
-        if (result <0) {
+        if (result < 0) {
             System.out.println(ERROR_MSG);
         }
         return result;

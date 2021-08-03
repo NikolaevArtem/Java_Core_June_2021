@@ -12,7 +12,6 @@ public class RandomCharsTable {
     public void run() {
 
         RandomCharsTable table = new RandomCharsTable();
-
         String lenStr;
         String widStr;
         String method;
@@ -26,28 +25,26 @@ public class RandomCharsTable {
             method = strings[2].toLowerCase(Locale.ROOT);
 
             char[][] toPrint = table.getTable(lenStr, widStr);
-            if(toPrint.length == 0){
+            if (toPrint.length == 0) {
                 System.out.println("Table is empty");
                 return;
             }
+
             System.out.println("There is an unsorted table:");
 
             for (char[] ch : toPrint
             ) {
                 for (char character : ch
-                     ) {
+                ) {
                     System.out.print("|" + character);
                 }
                 System.out.print("|");
                 System.out.println();
             }
-
-
             table.printSorted(toPrint, method);
         } else {
             System.out.println(ERR_MSG);
         }
-
     }
 
     private String[] getInput() {
@@ -64,15 +61,29 @@ public class RandomCharsTable {
         } catch (IOException e) {
             System.out.println(ERR_MSG);
         }
-
         return result;
+    }
+
+    private boolean isValid(String[] strings) {
+
+        boolean firstDigit = false;
+        boolean secondDigit = false;
+        boolean oddOrEven = false;
+
+        if (strings.length < 3) {
+            return false;
+        } else if (strings.length == 3) {
+            firstDigit = strings[0].chars().allMatch(Character::isDigit);
+            secondDigit = strings[1].chars().allMatch(Character::isDigit);
+            oddOrEven = (strings[2].equals("odd") || strings[2].equals("even"));
+        }
+        return (firstDigit && secondDigit && oddOrEven);
     }
 
     private char[][] getTable(String length, String width) {
 
         int len = Integer.parseInt(length);
         int wid = Integer.parseInt(width);
-
         char[][] res = new char[len][wid];
 
         for (int i = 0; i < len; i++) {
@@ -80,11 +91,11 @@ public class RandomCharsTable {
                 res[i][j] = (char) ((Math.random() * (91 - 65) + 65));
             }
         }
-
         return res;
     }
 
     private void printSorted(char[][] table, String method) {
+
         StringBuilder result = new StringBuilder();
 
         switch (method) {
@@ -119,21 +130,5 @@ public class RandomCharsTable {
                 System.out.println(res1.substring(0, res1.length() - 1) + ".");
                 break;
         }
-
-    }
-
-    private boolean isValid(String[] strings) {
-        boolean firstDigit = false;
-        boolean secondDigit = false;
-        boolean oddOrEven = false;
-
-        if (strings.length < 3) {
-            return false;
-        } else if (strings.length == 3) {
-            firstDigit = strings[0].chars().allMatch(Character::isDigit);
-            secondDigit = strings[1].chars().allMatch(Character::isDigit);
-            oddOrEven = (strings[2].equals("odd") || strings[2].equals("even"));
-        }
-        return (firstDigit && secondDigit && oddOrEven);
     }
 }

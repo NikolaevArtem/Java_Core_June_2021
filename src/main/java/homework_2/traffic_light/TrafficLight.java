@@ -8,68 +8,59 @@ import java.io.InputStreamReader;
 
 public class TrafficLight {
 
-    public void run(){
+    final String ERR_MSG = "Only 1 non-negative integer is allowed as passed parameter";
+
+    public void run() {
+
         System.out.println("Enter the number, please.");
-        int allSeconds = getInput();
-
-        getLight(allSeconds);
+        String stringSeconds = getInput();
+        if (isValid(stringSeconds)) {
+            int seconds = Integer.parseInt(stringSeconds);
+            getLight(seconds);
+        }
     }
 
-    private static int getInput() {
-        String numbOfSeconds = null;
-        int allSeconds = 0;
-
+    private String getInput() {
+        String result = null;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            numbOfSeconds = reader.readLine();
+            result = reader.readLine();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(ERR_MSG);
         }
-        try {
-            if (numbOfSeconds != null) {
-                allSeconds = Integer.parseInt(numbOfSeconds);
-            }
-        } catch (NumberFormatException e) {
-            System.out.println(ConsoleColors.RED + "Wrong input, only integers are allowed!" + ConsoleColors.RESET);
-            System.exit(0);         // I don't know how to manage this place w/o System.exit, but would like to ;)
-        }
-        return allSeconds;
+        return result;
     }
 
-    private static int getOnlySeconds(int i) {        //recursively subtracts full minutes from input
-        if (i < 60) {
-            return i;
-        }
-        int secs = i - 60;
-        if (secs < 60) {
-            return secs;
-        }
-        secs = getOnlySeconds(secs);
 
-        return secs;
+    private void getLight(int seconds) {
+
+        if (seconds < 0) {
+            System.out.println(ERR_MSG);
+        } else if (seconds > 86399) {
+            System.out.println("The day is over");
+            return;
+        }
+
+        int justSeconds = seconds % 60;
+
+        if (justSeconds < 35) {
+            System.out.println(ConsoleColors.GREEN + "GREEN" + ConsoleColors.RESET);
+        } else if ((justSeconds < 40) || (justSeconds >= 55)) {
+            System.out.println(ConsoleColors.YELLOW + "YELLOW" + ConsoleColors.RESET);
+        } else {
+            System.out.println(ConsoleColors.RED + "RED" + ConsoleColors.RESET);
+        }
+
     }
 
-    private static void getLight(int i) {
-        while (true) {
-            if (i < 0) {
-                System.out.println(ConsoleColors.RED + "Only positive numbers are allowed!" + ConsoleColors.RESET);
-                break;
-            } else if (i > 86399) {
-                System.out.println(ConsoleColors.RED + "To late, the day is over!" + ConsoleColors.RESET);
-                break;
-            }
-            int seconds = getOnlySeconds(i);
+    private boolean isValid(String str) {
 
-            if ((seconds >= 0) && (seconds < 35)) {
-                System.out.println(ConsoleColors.GREEN + "Light is GREEN, go you may!" + ConsoleColors.RESET);
-                break;
-            } else if (((seconds >= 35) && (seconds < 40)) || (seconds >= 55)) {
-                System.out.println(ConsoleColors.YELLOW + "Light is YELLOW, be careful, please!" + ConsoleColors.RESET);
-                break;
-            } else {
-                System.out.println(ConsoleColors.RED + "Light is RED, stay where you are!!!" + ConsoleColors.RESET);
-                break;
-            }
+        boolean result = false;
+        if (str == null || !str.chars().allMatch(Character::isDigit)) {
+            System.out.println(ERR_MSG);
+            return false;
+        } else if (str.chars().allMatch(Character::isDigit)) {
+            result = true;
         }
+        return result;
     }
-
 }
