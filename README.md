@@ -1,7 +1,7 @@
 
 # Java Core June 2021
 
-## *Drozdov Nikita*
+## *Drozdov Nikita* つ ◕_◕ ༽つ
 
 | Number | Solution  | Short description
 | --- | --- | --- |
