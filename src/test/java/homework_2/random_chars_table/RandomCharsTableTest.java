@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RandomCharsTableTest {
 
     @Test
-    void test1() { //ODD
+    void testOddCaseRandomCharsTable() {
         RandomCharsTable rct = new RandomCharsTable();
 
         rct.setLength(3);
@@ -20,15 +20,15 @@ class RandomCharsTableTest {
 
         final StringBuilder actualPrinting = rct.getStrForPrinting();
         final StringBuilder actualPrintingByStrategy = rct.getStrForPrintingByStrategy(rct.getStrategy());
-        final StringBuilder expectedPrinting = new StringBuilder("|A|M|" + "\n" + "|W|Z|" + "\n" + "|N|Q|" + "\n");
-        final StringBuilder expectedPrintingByStrategy = new StringBuilder("Odd letters: A, M, W, Q");
+        final String expectedPrinting = "|A|M|" + "\n" + "|W|Z|" + "\n" + "|N|Q|" + "\n";
+        final String expectedPrintingByStrategy = "Odd letters: A, M, W, Q";
 
-        assertEquals(actualPrinting.toString(), expectedPrinting.toString());
-        assertEquals(actualPrintingByStrategy.toString(), expectedPrintingByStrategy.toString());
+        assertEquals(actualPrinting.toString(), expectedPrinting);
+        assertEquals(actualPrintingByStrategy.toString(), expectedPrintingByStrategy);
     }
 
     @Test
-    void test2() { //EVEN
+    void testEvenCaseRandomCharsTable() {
         RandomCharsTable rct = new RandomCharsTable();
 
         rct.setLength(3);
@@ -39,46 +39,38 @@ class RandomCharsTableTest {
 
         final StringBuilder actualPrinting = rct.getStrForPrinting();
         final StringBuilder actualPrintingByStrategy = rct.getStrForPrintingByStrategy(rct.getStrategy());
-        final StringBuilder expectedPrinting = new StringBuilder("|A|M|" + "\n" + "|W|Z|" + "\n" + "|N|Q|" + "\n");
-        final StringBuilder expectedPrintingByStrategy = new StringBuilder("Even letters: Z, N");
+        final String expectedPrinting = "|A|M|" + "\n" + "|W|Z|" + "\n" + "|N|Q|" + "\n";
+        final String expectedPrintingByStrategy = "Even letters: Z, N";
 
-        assertEquals(actualPrinting.toString(), expectedPrinting.toString());
-        assertEquals(actualPrintingByStrategy.toString(), expectedPrintingByStrategy.toString());
+        assertEquals(actualPrinting.toString(), expectedPrinting);
+        assertEquals(actualPrintingByStrategy.toString(), expectedPrintingByStrategy);
     }
 
     @Test
-    void test3() {
+    void testWrongNumberOfParametersCaseRandomCharsTable() {
         RandomCharsTable rct = new RandomCharsTable();
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            rct.setParameters(new String[] {"3", "4", "odd", "ODD"});
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> rct.setParameters(new String[] {"3", "4", "odd", "ODD"}));
     }
 
     @Test
-    void test4() {
+    void testNotANumberInParameterCaseRandomCharsTable() {
         RandomCharsTable rct = new RandomCharsTable();
 
-        Assertions.assertThrows(NumberFormatException.class, () -> {
-            rct.setParameters(new String[] {"3", "j", "ODD"});
-        });
+        Assertions.assertThrows(NumberFormatException.class, () -> rct.setParameters(new String[] {"3", "j", "ODD"}));
     }
 
     @Test
-    void test5() {
+    void testNegativeNumberInParameterCaseRandomCharsTable() {
         RandomCharsTable rct = new RandomCharsTable();
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            rct.setParameters(new String[] {"3", "-2", "EVEN"});
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> rct.setParameters(new String[] {"3", "-2", "EVEN"}));
     }
 
     @Test
-    void test6() {
+    void testWrongStrategyInParameterCaseRandomCharsTable() {
         RandomCharsTable rct = new RandomCharsTable();
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            rct.setParameters(new String[] {"3", "2", "eeven"});
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> rct.setParameters(new String[] {"3", "2", "eeven"}));
     }
 }

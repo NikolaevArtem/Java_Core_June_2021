@@ -8,13 +8,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class TrafficLightTest {
 
     @Test
-    void test1() {
+    void testGreenCaseTrafficLight()  throws TrafficLight.WrongSecondsException {
         TrafficLight trl = new TrafficLight();
-
-        try {
-            trl.setTrafficLightColour(11);
-        } catch (TrafficLight.WrongSecondsException e) {
-        }
+        trl.setTrafficLightColour(11);
 
         final String actual = trl.getTrafficLightColour().toString();
         final String expected = "GREEN";
@@ -23,13 +19,9 @@ class TrafficLightTest {
     }
 
     @Test
-    void test2() {
+    void testYellowCaseTrafficLight() throws TrafficLight.WrongSecondsException {
         TrafficLight trl = new TrafficLight();
-
-        try {
-            trl.setTrafficLightColour(37);
-        } catch (TrafficLight.WrongSecondsException e) {
-        }
+        trl.setTrafficLightColour(37);
 
         final String actual = trl.getTrafficLightColour().toString();
         final String expected = "YELLOW";
@@ -38,13 +30,9 @@ class TrafficLightTest {
     }
 
     @Test
-    void test3() {
+    void testRedCaseTrafficLight() throws TrafficLight.WrongSecondsException {
         TrafficLight trl = new TrafficLight();
-
-        try {
-            trl.setTrafficLightColour(53);
-        } catch (TrafficLight.WrongSecondsException e) {
-        }
+        trl.setTrafficLightColour(53);
 
         final String actual = trl.getTrafficLightColour().toString();
         final String expected = "RED";
@@ -53,20 +41,16 @@ class TrafficLightTest {
     }
 
     @Test
-    void test4() {
+    void testNegativeSecondsTrafficLight() {
         TrafficLight trl = new TrafficLight();
 
-        Assertions.assertThrows(TrafficLight.WrongSecondsException.class, () -> {
-            trl.setTrafficLightColour(-37);
-        });
+        Assertions.assertThrows(TrafficLight.WrongSecondsException.class, () -> trl.setTrafficLightColour(-37));
     }
 
     @Test
-    void test5() {
+    void testTooBigValueSecondsCaseTrafficLight() {
         TrafficLight trl = new TrafficLight();
 
-        Assertions.assertThrows(TrafficLight.WrongSecondsException.class, () -> {
-            trl.setTrafficLightColour(86401);
-        });
+        Assertions.assertThrows(TrafficLight.WrongSecondsException.class, () -> trl.setTrafficLightColour(86401));
     }
 }

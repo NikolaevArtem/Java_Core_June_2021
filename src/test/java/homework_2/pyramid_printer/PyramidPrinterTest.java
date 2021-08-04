@@ -8,15 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class PyramidPrinterTest {
 
     @Test
-    void test1() {
+    void testRightCasePyramidPrinter() {
         PyramidPrinter ppr = new PyramidPrinter();
+        ppr.buildPyramidString(3);
 
-        try {
-            ppr.buildPyramidString(3);
-        } catch (ArithmeticException e) {
-        } catch (NumberFormatException e) {
-
-        }
         final StringBuilder actual = ppr.getPyramidString();
         final String expected = "x" + '\n' + "xx" + '\n' + "xxx" + '\n';
 
@@ -24,7 +19,7 @@ class PyramidPrinterTest {
     }
 
     @Test
-    void test2() {
+    void testNegativeNumberInParameterCasePyramidPrinter() {
         PyramidPrinter ppr = new PyramidPrinter();
 
         Assertions.assertThrows(ArithmeticException.class, () -> ppr.buildPyramidString(-3));
