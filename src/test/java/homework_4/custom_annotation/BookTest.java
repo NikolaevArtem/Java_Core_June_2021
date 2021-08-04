@@ -31,4 +31,11 @@ public class BookTest {
         assertEquals("The Adventures of Tom Sawyer", book.getName());
     }
 
+    @Test
+    void givenNameAndNullAuthor_getNameAndDefaultAuthor(){
+        Book book = new Book("The Scarlet Letter", null);
+        assertEquals("The Scarlet Letter", book.getName());
+        assertEquals(DEFAULT_AUTHOR, book.getAuthor());
+    }
+
 }
