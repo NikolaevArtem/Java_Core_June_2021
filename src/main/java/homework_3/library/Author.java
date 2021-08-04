@@ -6,28 +6,28 @@ import lombok.NonNull;
 @Data
 public class Author {
 
-    private String Name;
-    private String Country;
-    private String Century;
+    private String name;
+    private String country;
+    private String century;
 
     public Author(String name) {
         if (name == null || "".equals(name.trim())) {
             throw new IllegalArgumentException();
         }
-        Name = name;
+        this.name = name;
     }
 
     public Author(String name, String country, String century) {
         if (name == null || "".equals(name.trim())) {
             throw new IllegalArgumentException();
         }
-        Name = name;
-        Country = country;
-        Century = century;
+        this.name = name;
+        this.country = country;
+        this.century = century;
     }
 
     @Override
     public String toString() {
-        return Name;
+        return name;
     }
 }

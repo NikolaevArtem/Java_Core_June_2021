@@ -2,6 +2,8 @@ package homework_2.pyramid_printer;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 @Getter
@@ -17,10 +19,8 @@ class PyramidPrinter {
             int number = Integer.parseInt(str);
             buildPyramidString(number);
             printPyramid();
-        } catch (ArithmeticException ex) {
+        } catch (ArithmeticException | InputMismatchException ex) {
             System.out.println("Only non-negative integer is allowed as passed parameter!");
-        } catch (NumberFormatException ex) {
-            System.out.println("Error! Only numbers!");
         }
     }
 
@@ -33,10 +33,9 @@ class PyramidPrinter {
         char charX = 'x';
         char newLineChar = '\n';
 
-        for (int i = 0, j = 0; i < number; i++, j = 0) {
-            while (j <= i) {
+        for (int i = 0; i < number; i++) {
+            for (int j = 0; j <= i; j++) {
                 result.append(charX);
-                j++;
             }
             result.append(newLineChar);
         }

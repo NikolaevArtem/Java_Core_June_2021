@@ -18,17 +18,15 @@ class PyramidPrinterTest {
 
         }
         final StringBuilder actual = ppr.getPyramidString();
-        final StringBuilder expected = new StringBuilder("x" + '\n' + "xx" + '\n' + "xxx" + '\n');
+        final String expected = "x" + '\n' + "xx" + '\n' + "xxx" + '\n';
 
-        assertEquals(actual.toString(), expected.toString());
+        assertEquals(actual.toString(), expected);
     }
 
     @Test
     void test2() {
         PyramidPrinter ppr = new PyramidPrinter();
 
-        Assertions.assertThrows(ArithmeticException.class, () -> {
-            ppr.buildPyramidString(-3);
-        });
+        Assertions.assertThrows(ArithmeticException.class, () -> ppr.buildPyramidString(-3));
     }
 }
