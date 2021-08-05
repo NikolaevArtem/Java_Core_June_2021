@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class PyramidPrinter {
 
-    public static final String ERROR = "Only 1 non-negative integer is allowed as passed parameter";
+    private static final String ERROR = "Only 1 non-negative integer is allowed as passed parameter";
 
     public void run() {
         System.out.println("Please, input a number:");

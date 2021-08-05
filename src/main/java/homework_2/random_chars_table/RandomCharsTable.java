@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class RandomCharsTable {
 
-    public static final String ERROR = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
+    private static final String ERROR = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
 
     private int length;
     private int width;

@@ -3,11 +3,14 @@ package homework_2;
 import base.UnitBase;
 import homework_2.pyramid_printer.PyramidPrinter;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
-import static homework_2.pyramid_printer.PyramidPrinter.ERROR;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PyramidPrinterTest extends UnitBase {
+
+    private static final String ERROR = "Only 1 non-negative integer is allowed as passed parameter";
 
     @Test
     void given3_whenRun_then3linesOfX() {
@@ -26,23 +29,10 @@ public class PyramidPrinterTest extends UnitBase {
         assertEquals("", getOutput());
     }
 
-    @Test
-    void givenNegNumber_whenRun_thenERROR() {
-        setInput("-1");
-        runPrintRemoveFromOutput();
-        assertEquals(ERROR, getOutput());
-    }
-
-    @Test
-    void givenNAN_whenRun_thenERROR() {
-        setInput("abc");
-        runPrintRemoveFromOutput();
-        assertEquals(ERROR, getOutput());
-    }
-
-    @Test
-    void given2args_whenRun_thenERROR() {
-        setInput("2 3");
+    @ParameterizedTest
+    @ValueSource(strings = {"2 3", "abc", "-1"})
+    void givenERROR_whenRun_thenERROR(String input) {
+        setInput(input);
         runPrintRemoveFromOutput();
         assertEquals(ERROR, getOutput());
     }
