@@ -13,6 +13,7 @@ public class CustomFileReader {
     private static final String PATH_TO_FILE = "\\src\\main\\resources\\custom_file_reader\\";
 
     public void run1(String filename) {
+        isCorrectFilename(filename);
         List<String> data = new ArrayList<>();
         try (BufferedReader bf = new BufferedReader(new InputStreamReader(new FileInputStream(getPath(filename))))){
             String line;
@@ -26,6 +27,7 @@ public class CustomFileReader {
     }
 
     public void run2(String filename) {
+        isCorrectFilename(filename);
         try{
             Files.lines(Path.of(getPath(filename))).map(x->x.replaceAll("[,.]","")).forEach(System.out::println);
         } catch (IOException exception){
@@ -34,6 +36,7 @@ public class CustomFileReader {
     }
 
     public void run3(String filename){
+        isCorrectFilename(filename);
         try {
             Scanner scanner = new Scanner(new FileReader(getPath(filename)));
             List<String> data = new ArrayList<>();
@@ -46,7 +49,15 @@ public class CustomFileReader {
         }
     }
 
-    private static String getPath(String fileName){
+    private String getPath(String fileName){
         return Paths.get("").toAbsolutePath() + PATH_TO_FILE + fileName;
+    }
+
+    private boolean isCorrectFilename(String filename) {
+        if (!(filename.endsWith(".txt"))) {
+            throw new IllegalArgumentException();
+        } else {
+            return filename.endsWith(".txt");
+        }
     }
 }
