@@ -1,23 +1,52 @@
 package homework_4.custom_file_reader;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class CustomFileReader {
 
-    private final String fileName = "C:\\Users\\Аркадий\\IdeaProjects\\Java_Core_June_2021\\src\\main\\resources\\testCustomFileReader.txt";
+    private static final String PATH_TO_FILE = "\\src\\main\\resources\\custom_file_reader\\";
 
-    public void run() {
-
+    public void run1(String filename) {
+        List<String> data = new ArrayList<>();
+        try (BufferedReader bf = new BufferedReader(new InputStreamReader(new FileInputStream(getPath(filename))))){
+            String line;
+            while ((line = bf.readLine()) != null) {
+                data.add(line);
+            }
+        } catch (IOException exception){
+            System.out.println("Error occurred");
+        }
+        System.out.println(String.join("", data).replaceAll("[,.]", ""));
     }
 
-    private void bufferedReader() {
-        try (BufferedReader bf = new BufferedReader(new FileReader(fileName))) {
-
-
-        } catch (IOException exception) {
-            System.out.println("Input error occurred");
+    public void run2(String filename) {
+        try{
+            Files.lines(Path.of(getPath(filename))).map(x->x.replaceAll("[,.]","")).forEach(System.out::println);
+        } catch (IOException exception){
+            System.out.println("Error occurred");
         }
+    }
+
+    public void run3(String filename){
+        try {
+            Scanner scanner = new Scanner(new FileReader(getPath(filename)));
+            List<String> data = new ArrayList<>();
+            while(scanner.hasNextLine()){
+                data.add(scanner.nextLine());
+            }
+            System.out.println(String.join("", data).replaceAll("[,.]", ""));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static String getPath(String fileName){
+        return Paths.get("").toAbsolutePath() + PATH_TO_FILE + fileName;
     }
 }
