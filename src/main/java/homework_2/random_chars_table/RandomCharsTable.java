@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class RandomCharsTable {
+    private static final String ERROR_MSG = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
 
     public void run() {
         Scanner scanner = new Scanner(System.in);
@@ -12,7 +13,7 @@ public class RandomCharsTable {
             int x = scanner.nextInt();
             int y = scanner.nextInt();
             if (x < 0 || y < 0) {
-                System.out.println("Wrong number of rows & columns");
+                System.out.println(ERROR_MSG);
             } else {
                 String strategy = scanner.next();
                 char[][] table = createRandomTable(x, y);
@@ -20,7 +21,7 @@ public class RandomCharsTable {
                 printStrategyChars(table, x, y, strategy);
             }
         } catch (Exception e) {
-            System.out.println("Invalid value");
+            System.out.println(ERROR_MSG);
         }
         scanner.close();
     }
@@ -65,7 +66,7 @@ public class RandomCharsTable {
                 }
             }
         } else {
-            System.out.println("You entered wrong strategy");
+            System.out.println(ERROR_MSG);
         }
     }
 }

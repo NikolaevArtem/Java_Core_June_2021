@@ -43,7 +43,7 @@ public class RandomCharsTableTest extends UnitBase {
         setInput("-4 5 even");
         new RandomCharsTable().run();
         removeFromOutput("Enter number of rows, number of columns and strategy:");
-        assertEquals("Wrong number of rows & columns", getOutputLines()[0]);
+        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]", getOutputLines()[0]);
     }
 
     @Test
@@ -52,7 +52,7 @@ public class RandomCharsTableTest extends UnitBase {
         new RandomCharsTable().run();
         removeFromOutput("Enter number of rows, number of columns and strategy:");
         String[] output = getOutputLines();
-        assertEquals("You entered wrong strategy", output[output.length - 1]);
+        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]", output[output.length - 1]);
     }
 
     @Test
@@ -60,7 +60,7 @@ public class RandomCharsTableTest extends UnitBase {
         setInput("4 aaa even");
         new RandomCharsTable().run();
         removeFromOutput("Enter number of rows, number of columns and strategy:");
-        assertEquals("Invalid value", getOutputLines()[0]);
+        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]", getOutputLines()[0]);
     }
 
     private int countOfVerticalLines(String str) {

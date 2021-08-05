@@ -6,13 +6,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrafficLightTest extends UnitBase {
+    private static final String RED = "\u001B[31mRED\u001B[0m";
+    private static final String YELLOW = "\u001B[33mYELLOW\u001B[0m";
+    private static final String GREEN = "\u001B[33mGREEN\u001B[0m";
 
     @Test
     public void given10Sec_whenRun_thenGreen() {
         setInput("10");
         new TrafficLight().run();
         removeFromOutput("Enter seconds:");
-        assertEquals("Colour of traffic light is GREEN", getOutputLines()[0]);
+        assertEquals(GREEN, getOutputLines()[0]);
     }
 
     @Test
@@ -20,7 +23,7 @@ public class TrafficLightTest extends UnitBase {
         setInput("99");
         new TrafficLight().run();
         removeFromOutput("Enter seconds:");
-        assertEquals("Colour of traffic light is YELLOW", getOutputLines()[0]);
+        assertEquals(YELLOW, getOutputLines()[0]);
     }
 
     @Test
@@ -28,7 +31,7 @@ public class TrafficLightTest extends UnitBase {
         setInput("165");
         new TrafficLight().run();
         removeFromOutput("Enter seconds:");
-        assertEquals("Colour of traffic light is RED", getOutputLines()[0]);
+        assertEquals(RED, getOutputLines()[0]);
     }
 
     @Test
@@ -36,7 +39,7 @@ public class TrafficLightTest extends UnitBase {
         setInput("659");
         new TrafficLight().run();
         removeFromOutput("Enter seconds:");
-        assertEquals("Colour of traffic light is YELLOW", getOutputLines()[0]);
+        assertEquals(YELLOW, getOutputLines()[0]);
     }
 
     @Test
@@ -44,7 +47,7 @@ public class TrafficLightTest extends UnitBase {
         setInput("aaa");
         new TrafficLight().run();
         removeFromOutput("Enter seconds:");
-        assertEquals("Can't parse input string to integer", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 
     @Test
@@ -52,7 +55,7 @@ public class TrafficLightTest extends UnitBase {
         setInput("-1");
         new TrafficLight().run();
         removeFromOutput("Enter seconds:");
-        assertEquals("Input String is out of range", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 
     @Test
@@ -60,6 +63,6 @@ public class TrafficLightTest extends UnitBase {
         setInput("86400");
         new TrafficLight().run();
         removeFromOutput("Enter seconds:");
-        assertEquals("Input String is out of range", getOutputLines()[0]);
+        assertEquals("The day is over", getOutputLines()[0]);
     }
 }

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class PyramidPrinter {
+    private static final String ERROR_MSG = "Only 1 non-negative integer is allowed as passed parameter";
 
     public void run() {
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
@@ -20,14 +21,14 @@ public class PyramidPrinter {
                         System.out.println();
                     }
                 } else {
-                    System.out.println("Out of range (input should be >= 0)");
+                    System.out.println(ERROR_MSG);
                 }
                 bufferedReader.close();
             } catch (NumberFormatException e) {
-                System.out.println("Can't parse input string to integer");
+                System.out.println(ERROR_MSG);
             }
         } catch (IOException e) {
-            System.out.println("IOException has caught");
+            System.out.println(ERROR_MSG);
         }
     }
 }

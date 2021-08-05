@@ -21,7 +21,7 @@ public class PyramidPrinterTest extends UnitBase {
         setInput("-1");
         new PyramidPrinter().run();
         removeFromOutput("Enter height of pyramid:");
-        assertEquals("Out of range (input should be >= 0)", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 
     @Test
@@ -29,6 +29,6 @@ public class PyramidPrinterTest extends UnitBase {
         setInput("aaa");
         new PyramidPrinter().run();
         removeFromOutput("Enter height of pyramid:");
-        assertEquals("Can't parse input string to integer", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 }
