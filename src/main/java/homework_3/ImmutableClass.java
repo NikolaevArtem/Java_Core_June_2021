@@ -1,6 +1,15 @@
 package homework_3;
 
+import java.util.ArrayList;
 import java.util.List;
+
+/*
+The class must be declared as final.
+Data members in the class must be declared as private & final.
+A parameterized constructor should initialize all the fields.
+Deep Copy of objects should be performed in the getter methods.
+No setters.
+ */
 
 final class ImmutableClass {
 
@@ -21,6 +30,22 @@ final class ImmutableClass {
         this.firstIntArray = firstIntArray;
         this.firstStringArray = firstStringArray;
         this.firstCollection = firstCollection;
+    }
+
+    public ImmutableClass() {
+        this.firstInt = 1;
+        this.firstString = "Default";
+        this.firstIntArray = new int[1];
+        this.firstStringArray = new String[1];
+        this.firstCollection = new ArrayList<>();
+    }
+
+    public ImmutableClass(int firstInt, String firstString) {
+        this.firstInt = firstInt;
+        this.firstString = firstString;
+        this.firstIntArray = new int[1];
+        this.firstStringArray = new String[1];
+        this.firstCollection = new ArrayList<>();
     }
 
     public int getFirstInt() {
