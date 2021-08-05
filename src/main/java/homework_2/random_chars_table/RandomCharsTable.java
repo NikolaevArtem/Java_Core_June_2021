@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class RandomCharsTable {
+    public static final String ERROR_MESSAGE  = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
     public void run() {
         Scanner scanner = new Scanner(System.in);
         String[] params = new String[3];
@@ -12,7 +13,7 @@ public class RandomCharsTable {
             params[i] = scanner.next();
         }
         if (!isNumber(params[0]) || !isNumber(params[1])) {
-            System.out.println("ERROR! This is not a number");
+            System.out.println(ERROR_MESSAGE);
             return;
         }
         int rows = Integer.parseInt(params[0]);
@@ -21,7 +22,7 @@ public class RandomCharsTable {
             return;
         }
         if (rows < 0 || columns < 0) {
-            System.out.println("ERROR! One of the numbers is negative");
+            System.out.println(ERROR_MESSAGE);
             return;
         }
         String strategy = params[2];
@@ -31,7 +32,7 @@ public class RandomCharsTable {
         } else if (strategy.equals("odd")){
             strategyMod = 1;
         } else {
-            System.out.println("ERROR! Unknown strategy");
+            System.out.println(ERROR_MESSAGE);
             return;
         }
         StringBuilder result = new StringBuilder(strategy + " letters - ");

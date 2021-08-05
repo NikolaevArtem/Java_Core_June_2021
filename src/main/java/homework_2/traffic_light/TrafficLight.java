@@ -6,20 +6,22 @@ import java.util.regex.Pattern;
 
 public class TrafficLight {
 
+    public static final String ERROR_MESSAGE = "Only 1 non-negative integer is allowed as passed parameter";
+
     public void run() {
         Scanner scanner = new Scanner(System.in);
         String secondsAsString = scanner.next();
         if (isNumber(secondsAsString)) {
-            System.out.println("ERROR! Seconds must be a number");
+            System.out.println(ERROR_MESSAGE);
             return;
         }
         long seconds = Long.parseLong(secondsAsString);
         if (seconds < 0) {
-            System.out.println("ERROR! The seconds are negative");
+            System.out.println(ERROR_MESSAGE);
             return;
         }
         if (seconds > 86401) {
-            System.out.println("ERROR! The seconds are too long");
+            System.out.println(ERROR_MESSAGE);
             return;
         }
         Instant instant = Instant.ofEpochSecond(seconds);

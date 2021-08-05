@@ -5,16 +5,19 @@ import java.util.regex.Pattern;
 
 public class PyramidPrinter {
 
+    public static final String ERROR_MESSAGE = "Only 1 non-negative integer is allowed as passed parameter";
+
     public void run() {
         Scanner scanner = new Scanner(System.in);
         String sizeAsString = scanner.nextLine();
+
         if (!isNumber(sizeAsString)) {
-            System.out.println("ERROR! This is not a number");
+            System.out.println(ERROR_MESSAGE);
             return;
         }
         int size = Integer.parseInt(sizeAsString);
         if (size < 0) {
-            System.out.println("ERROR! Size is negative");
+            System.out.println(ERROR_MESSAGE);
             return;
         }
         for (int i = 0; i < size; i++) {
