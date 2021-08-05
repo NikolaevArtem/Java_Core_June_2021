@@ -1,6 +1,6 @@
 package homework_3;
 
-/*
+/**
 A Strategy for Defining Immutable Objects (from the official Oracle documentation)
 
 1. Don't provide "setter" methods — methods that modify fields or objects referred to by fields.
