@@ -52,6 +52,6 @@ public class CustomFileReader {
     }
 
     private String trimDotsAndCommas(String line){
-        return line.replace(".", "").replace(",", "");
+        return line.replaceAll("[,.]", "");
     }
 }
