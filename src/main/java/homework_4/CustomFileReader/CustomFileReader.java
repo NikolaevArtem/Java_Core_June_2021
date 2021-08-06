@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class CustomFileReader {
 
-    public String DIRECTORY = "src/main/resources/custom_file_rea1der";
+    public String DIRECTORY = "src/main/resources/custom_file_reader";
     private static File file = null;
 
     public CustomFileReader(){
