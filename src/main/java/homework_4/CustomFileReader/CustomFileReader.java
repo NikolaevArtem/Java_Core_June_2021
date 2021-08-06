@@ -2,13 +2,27 @@ package homework_4.CustomFileReader;
 
 import java.io.*;
 import java.nio.file.*;
+import java.util.Objects;
 
 public class CustomFileReader {
 
-    File file = getFile();
+    public String DIRECTORY = "src/main/resources/custom_file_rea1der";
+    private static File file = null;
+
+    public CustomFileReader(){
+        try {
+            file = Objects.requireNonNull(new File(DIRECTORY).listFiles())[0];
+        }
+        catch (NullPointerException e){
+            System.out.println("Directory not found");
+        }
+    }
 
     public void run1() {
-        try (FileInputStream fileInputStream = new FileInputStream(file)) {
+        FileInputStream fileInputStream = null;
+
+        try {
+            fileInputStream = new FileInputStream(file);
             int i;
             while ((i = fileInputStream.read()) != -1){
                 if ( (char) i == '\u002C' || (char) i == '\u002E' ) {
@@ -17,12 +31,21 @@ public class CustomFileReader {
                 System.out.print( (char) i);
             }
             System.out.println();
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+
+        } catch (NullPointerException e) {
+            errorMsg();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        finally {
+            try {
+                if (fileInputStream != null) {
+                    fileInputStream.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void run2() {
@@ -31,37 +54,37 @@ public class CustomFileReader {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                String replStr = line.replaceAll("[.,]+", "");
-                System.out.println(replStr);
+                String replacedStr = line.replaceAll("[.,]+", "");
+                System.out.println(replacedStr);
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+        } catch (NullPointerException e) {
+            errorMsg();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void run3() {
-        Path path = Paths.get("src/main/resources/custom_file_reader/custom_file.txt");
-        try {
-            Files.readAllLines(path)
-                    .stream().map(line -> line.replaceAll("[,.]+", ""))
-                    .forEach(System.out :: println);
 
+    public void run3() {
+        Path dir = Paths.get(DIRECTORY);
+
+        try {
+            DirectoryStream<Path> stream = Files.newDirectoryStream(dir);
+            Path file = stream.iterator().next();
+            Files.readAllLines(file)
+                    .stream().map(line -> line.replaceAll("[,.]+", ""))
+                    .forEach(System.out::println);
+        }
+        catch (NoSuchFileException e){
+            errorMsg();
         }
         catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private File getFile() {
-        try {
-            File dir = new File("src/main/resources/custom_file_reader/");
-            File[] files = dir.listFiles();
-            file = files[0];
-        }
-        catch (NullPointerException e) {}
-        return file;
+    private void errorMsg() {
+        System.out.println("File not found");
     }
 
 }
