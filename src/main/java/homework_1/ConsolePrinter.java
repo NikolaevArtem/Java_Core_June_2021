@@ -9,12 +9,12 @@ public class ConsolePrinter {
             for (int i = 0; i < args.length; i++) {
 
                 String toPrint = args[i];
-                if (toPrint.matches("error")) {                                //checking for error
+                if (toPrint.equalsIgnoreCase("error")) {                                //checking for error
                     System.out.println(ConsoleColors.RED + "Alarm!" + ConsoleColors.RESET);
                     break;
                 }
 
-                System.out.println(toPrint + " : " + toPrint.length() + " letter(s)");
+                System.out.println(toPrint + ": " + toPrint.length() + " letter(s)");
             }
         }
     }

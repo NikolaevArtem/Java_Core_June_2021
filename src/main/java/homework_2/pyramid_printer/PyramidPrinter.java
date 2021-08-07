@@ -5,35 +5,24 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class PyramidPrinter {
-    final String ERROR_MSG = "Only 1 non-negative integer is allowed as passed parameter";
+    private final String ERR_MSG = "Only 1 non-negative integer is allowed as passed parameter";
 
     public void run() {
-        int sizeOfPyramid = getInput();
+        String sizeOfPyramid = getInput();
 
-        printPyramid(sizeOfPyramid);
+        if (isValid(sizeOfPyramid)) {
+            printPyramid(Integer.parseInt(sizeOfPyramid));
+        }
     }
 
-    private int getInput() {
-        String pSize = null;
-        int result = 0;
+    private String getInput() {
+        String result = null;
         System.out.println("Enter the Pyramid size. please: ");
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            pSize = reader.readLine();
+            result = reader.readLine();
         } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            if (pSize != null) {
-                result = Integer.parseInt(pSize);
-            } else {
-                System.out.println(ERROR_MSG);
-            }
-        } catch (NumberFormatException e) {
-            System.out.println(ERROR_MSG);
-        }
-        if (result < 0) {
-            System.out.println(ERROR_MSG);
+            System.out.println(ERR_MSG);
         }
         return result;
     }
@@ -50,5 +39,9 @@ public class PyramidPrinter {
             row.append('x');
         }
         return row.toString();
+    }
+
+    private boolean isValid(String input) {
+        return input != null && input.chars().allMatch(Character::isDigit);
     }
 }

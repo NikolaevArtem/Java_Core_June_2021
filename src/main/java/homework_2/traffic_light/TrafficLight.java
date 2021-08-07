@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 
 public class TrafficLight {
 
-    final String ERR_MSG = "Only 1 non-negative integer is allowed as passed parameter";
+    private final String ERR_MSG = "Only 1 non-negative integer is allowed as passed parameter";
 
     public void run() {
 
@@ -54,13 +54,11 @@ public class TrafficLight {
 
     private boolean isValid(String str) {
 
-        boolean result = false;
         if (str == null || !str.chars().allMatch(Character::isDigit)) {
             System.out.println(ERR_MSG);
             return false;
-        } else if (str.chars().allMatch(Character::isDigit)) {
-            result = true;
         }
-        return result;
+
+        return true;
     }
 }
