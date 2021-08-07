@@ -1,4 +1,4 @@
-package homework_4;
+package homework_4.custom_file_reader;
 
 import java.io.*;
 import java.nio.ByteBuffer;
