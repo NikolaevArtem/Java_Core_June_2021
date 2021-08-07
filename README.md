@@ -1,9 +1,17 @@
 # Java Core June 2021
 
-## *Nikolaev Artem*
+## *Antufiev Semen*
 
 | Number | Solution  | Short description
 | --- | --- | --- |
-| HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/master/src/main/java/homework_1) | The app that reads input arguments and prints them, until "error" argument |
-
+| HW1 | [Solution_1](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_1) | The app that reads input arguments and prints them, until "error" argument |
+| HW2_1 | [Pyramid printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_2/pyramid_printer) | The app that reads input arguments and prints pyramid|
+| HW2_2 | [Traffic light](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_2/traffic_light) | The app that reads input arguments and prints color of traffic light now|
+| HW2_3 | [Random chars table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_2/random_chars_table) | The app that reads input arguments and prints table with random charset|
+| HW3 | [Immutable_class](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_3) | Example of immutable class
+| HW4_1 | [Custon_anotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_4/custom_annotation) | Custom annotation and handler 
+| HW4_2 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_4/singleton) | Example of singleton class
+| HW4_3 | [Custom_file_reader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_4/custom_file_reader) | Work with file readers
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+[codingbat](https://codingbat.com/done?user=alexantufiev@gmail.com&tag=8698341536)
