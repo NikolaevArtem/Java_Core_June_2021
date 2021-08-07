@@ -5,9 +5,9 @@
 | Number | Solution  | Short description
 | --- | --- | --- |
 | HW_1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ZaytsevArtem/src/main/java/homework_1) | The app that reads input arguments and prints them, until "error" argument |
-| HW_2.1 | [Traffic Light](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ZaytsevArtem/src/main/java/Homework_2/TrafficLight) | The app that returns the color of the traffic light depending on the number of seconds from the beginning of the day |
-| HW_2.2 | [Pyramid Printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ZaytsevArtem/src/main/java/Homework_2/PyramidPrinter) | The app that "builds" a pyramid with the given base |
-| HW_2.3 | [Random Chars Table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ZaytsevArtem/src/main/java/Homework_2/RandomCharsTable) | The app that "builds" a table of chars, end print the letters wich meet a given strategy (even/odd)|
+| HW_2.1 | [Traffic Light](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ZaytsevArtem/src/main/java/Homework_2/traffic_light) | The app that returns the color of the traffic light depending on the number of seconds from the beginning of the day |
+| HW_2.2 | [Pyramid Printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ZaytsevArtem/src/main/java/Homework_2/pyramid_printer) | The app that "builds" a pyramid with the given base |
+| HW_2.3 | [Random Chars Table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ZaytsevArtem/src/main/java/Homework_2/random_chars_table) | The app that "builds" a table of chars, end print the letters wich meet a given strategy (even/odd)|
 
 
 [Link to my codingbat result page](https://codingbat.com/done?user=zarp1986@gmail.com&tag=4480593357)
