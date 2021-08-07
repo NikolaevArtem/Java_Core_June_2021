@@ -9,7 +9,9 @@
 | HW2_2 | [Traffic light](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_2/traffic_light) | The app that reads input arguments and prints color of traffic light now|
 | HW2_3 | [Random chars table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_2/random_chars_table) | The app that reads input arguments and prints table with random charset|
 | HW3 | [Immutable_class](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_3) | Example of immutable class
-
+| HW4_1 | [Custon_anotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_4/custom_annotation) | Custom annotation and handler 
+| HW4_2 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_4/singleton) | Example of singleton class
+| HW4_3 | [Custom_file_reader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SemenAntufiev/src/main/java/homework_4/custom_file_reader) | Work with file readers
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 [codingbat](https://codingbat.com/done?user=alexantufiev@gmail.com&tag=8698341536)
