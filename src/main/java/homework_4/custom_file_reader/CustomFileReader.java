@@ -28,8 +28,7 @@ public class CustomFileReader {
     }
 
     public void run2() {
-        try {
-            Scanner scanner = new Scanner(FILE);
+        try (Scanner scanner = new Scanner(FILE)){
             while (scanner.hasNextLine()) {
                 printMessage(trimDotsAndCommas(scanner.nextLine()) + lineSeparator());
             }
