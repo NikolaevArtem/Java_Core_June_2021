@@ -1,4 +1,4 @@
-package Homework_2.PyramidPrinter;
+package Homework_2.pyramid_printer;
 
 import java.util.Scanner;
 

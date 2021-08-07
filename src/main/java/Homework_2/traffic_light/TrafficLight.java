@@ -1,4 +1,4 @@
-package Homework_2.TrafficLight;
+package Homework_2.traffic_light;
 
 import java.util.Scanner;
 
