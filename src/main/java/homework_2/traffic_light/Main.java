@@ -6,4 +6,6 @@ public class Main {
         TrafficLight trafficLight = new TrafficLight();
         trafficLight.run();
     }
+
+
 }
