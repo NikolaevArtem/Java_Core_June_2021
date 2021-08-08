@@ -1,7 +1,7 @@
 package homework_4.singleton;
 
 public class Singleton {
-    private static Singleton instance = null;
+    private static Singleton instance;
     private int x;
     public String value;
 

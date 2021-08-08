@@ -27,33 +27,6 @@ public class RandomCharsTableTest extends UnitBase {
                 getOutputLines()[0]);
     }
 
-//    @Test
-//    void EvenStrategyInputTest() {
-//        setInput("3 4 even");
-//
-//        new RandomCharsTable().run();
-//        removeFromOutput("Please type size of a table: 2 numbers and strategy - even or odd:");
-//        assertEquals();
-//    }
-//
-//    @Test
-//    void OddStrategyInputTest() {
-//        setInput("5 4 odd");
-//
-//        new RandomCharsTable().run();
-//        removeFromOutput("Please type size of a table: 2 numbers and strategy - even or odd:");
-//        assertEquals();
-//    }
-//
-//    @Test
-//    void TableWithSizeOneInputTest() {
-//        setInput("1 1 even");
-//
-//        new RandomCharsTable().run();
-//        removeFromOutput("Please type size of a table: 2 numbers and strategy - even or odd:");
-//        assertEquals();
-//    }
-
     @Test
     void NegativeInputTest() {
         setInput("-3 4 even");

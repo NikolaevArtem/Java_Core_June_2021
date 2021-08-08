@@ -10,7 +10,7 @@ public class Main {
             System.out.println("object 1 is null");
         }
 
-        Singleton object2 = Singleton.getInstance("hey");
+        Singleton object2 = Singleton.getInstance("hello");
         if (object2 != null) {
             object2.Set(999);
             object2.Print();
