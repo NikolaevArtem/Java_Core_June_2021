@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class RandomCharsTable {
 
-    public void run() {
+    public static void run() {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter parameters in following format: [positive integer] [positive integer] [even|odd]");
@@ -28,7 +28,7 @@ public class RandomCharsTable {
             } else {
                 System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
             }
-        } catch (NumberFormatException | ArrayIndexOutOfBoundsException | IOException e) {
+        } catch (Exception e) {
             System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
         }
     }

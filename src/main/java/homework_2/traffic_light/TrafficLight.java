@@ -18,7 +18,7 @@ public class TrafficLight {
     public static final String GREEN = "\u001B[32m";
     public static final String YELLOW = "\u001B[33m";
 
-    public void run() {
+    public static void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String str;
 
@@ -28,7 +28,7 @@ public class TrafficLight {
             str = reader.readLine();
             int time = Integer.parseInt(str);
             if (time < 0) {
-                System.out.println("Only 1 non-negative integer is allowed as passed parameter ");
+                System.out.println("Only 1 non-negative integer is allowed as passed parameter");
             } else if (time > 86399) {
                 System.out.println("The day is over");
             } else {
