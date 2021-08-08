@@ -73,7 +73,8 @@ public class CustomFileReaderTest extends UnitBase {
 
     @Test()
     public void givenWrongFile_whenRun3_thenException() {
-        Path path = Paths.get("src/main/resources/custom_file_reader/fhfghfghfgh.txt");;
+        Path path = Paths.get("src/main/resources/custom_file_reader/fhfghfghfgh.txt");
+        ;
         Assertions.assertThrows(IOException.class, () -> {
             new CustomFileReader(path).run3();
         });
@@ -81,28 +82,32 @@ public class CustomFileReaderTest extends UnitBase {
 
     @Test
     public void givenEmptyFile_whenRun3_thenEmpty() throws IOException {
-        Path path = Paths.get("src/main/resources/custom_file_reader/emptyFileForTests.txt");;
+        Path path = Paths.get("src/main/resources/custom_file_reader/emptyFileForTests.txt");
+        ;
         new CustomFileReader(path).run3();
         assertEquals("", getOutput());
     }
 
     @Test
     public void givenFileDotsCommasOnly_whenRun3_thenEmpty() throws IOException {
-        Path path = Paths.get("src/main/resources/custom_file_reader/fileDotsCommasOnly.txt");;
+        Path path = Paths.get("src/main/resources/custom_file_reader/fileDotsCommasOnly.txt");
+        ;
         new CustomFileReader(path).run3();
         assertEquals("", getOutput());
     }
 
     @Test
     public void givenTextFile_whenRun3_thenNewText() throws IOException {
-        Path path = Paths.get("src/main/resources/custom_file_reader/fileTest.txt");;
+        Path path = Paths.get("src/main/resources/custom_file_reader/fileTest.txt");
+        ;
         new CustomFileReader(path).run3();
         assertEquals("dfgdfgdgdgdfggdfgdfgfdgdfgfgfdgdfgdfgdfgdfg", getOutput());
     }
 
     @Test()
     public void givenWrongFile_whenRun4_thenException() {
-        Path path = Paths.get("src/main/resources/custom_file_reader/fhfghfghfgh.txt");;
+        Path path = Paths.get("src/main/resources/custom_file_reader/fhfghfghfgh.txt");
+        ;
         Assertions.assertThrows(IOException.class, () -> {
             new CustomFileReader(path).run4();
         });
@@ -110,21 +115,24 @@ public class CustomFileReaderTest extends UnitBase {
 
     @Test
     public void givenEmptyFile_whenRun4_thenEmpty() throws IOException {
-        Path path = Paths.get("src/main/resources/custom_file_reader/emptyFileForTests.txt");;
+        Path path = Paths.get("src/main/resources/custom_file_reader/emptyFileForTests.txt");
+        ;
         new CustomFileReader(path).run4();
         assertEquals("", getOutput());
     }
 
     @Test
     public void givenFileDotsCommasOnly_whenRun4_thenEmpty() throws IOException {
-        Path path = Paths.get("src/main/resources/custom_file_reader/fileDotsCommasOnly.txt");;
+        Path path = Paths.get("src/main/resources/custom_file_reader/fileDotsCommasOnly.txt");
+        ;
         new CustomFileReader(path).run4();
         assertEquals("", getOutput());
     }
 
     @Test
     public void givenTextFile_whenRun4_thenNewText() throws IOException {
-        Path path = Paths.get("src/main/resources/custom_file_reader/fileTest.txt");;
+        Path path = Paths.get("src/main/resources/custom_file_reader/fileTest.txt");
+        ;
         new CustomFileReader(path).run4();
         assertEquals("dfgdfgdgdgdfggdfgdfgfdgdfgfgfdgdfgdfgdfgdfg", getOutput());
     }
