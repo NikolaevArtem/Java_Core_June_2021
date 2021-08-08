@@ -2,15 +2,12 @@ package homework_4.Singleton;
 
 public final class Singleton {
     private static Singleton INSTANCE;
-    public final String name;
 
-    private Singleton(String name) {
-     this.name = name;
-    }
+    private Singleton() {}
 
-    public static Singleton getInstance(String str){
+    public static Singleton getInstance(){
         if (INSTANCE == null){
-            INSTANCE = new Singleton(str);
+            INSTANCE = new Singleton();
         }
         return INSTANCE;
     }

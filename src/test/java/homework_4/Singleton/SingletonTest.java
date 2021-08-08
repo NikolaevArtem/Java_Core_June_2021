@@ -8,10 +8,10 @@ class SingletonTest {
 
     @Test
     void giveInvoke_whenRun_thenOnlyOneInstance() {
-        Singleton first = Singleton.getInstance("First");
-        Singleton second = Singleton.getInstance("Second");
+        Singleton first = Singleton.getInstance();
+        Singleton second = Singleton.getInstance();
 
-        assertEquals(first.name, second.name);
+        assertEquals(first, second);
     }
 
 }
