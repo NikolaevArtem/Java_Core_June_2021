@@ -3,19 +3,18 @@ package homework_4.singleton;
 public class Singleton {
     private static Singleton instance = null;
     private int x;
+    public String value;
 
-    private Singleton() {
+    private Singleton(String value) {
         x = 0;
+        this.value = value;
     }
 
-    public static Singleton getInstance() {
+    public static Singleton getInstance(String value) {
         if (instance == null) {
-            instance = new Singleton();
-            return instance;
-        } else {
-            return null;
+            instance = new Singleton(value);
         }
-
+        return instance;
     }
 
     public void Set(int newX) {
