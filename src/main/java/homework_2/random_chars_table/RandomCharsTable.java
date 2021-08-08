@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class RandomCharsTable {
+
     private static int length;
     private static int width;
 
@@ -23,9 +24,9 @@ public class RandomCharsTable {
             char[][] table = new char[length][width];
             fillAndPrintTable(strategy, table);
         } catch (NegativeArraySizeException e) {
-            System.out.println("Array size cannot be negative.");
+            System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
         } catch (InputMismatchException e) {
-            System.out.println("Input parameters must be in the format [positive integer(>0)] [positive integer(>0)] [even|odd]");
+            System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
         }
     }
 
@@ -40,7 +41,7 @@ public class RandomCharsTable {
 
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j++) {
-                table[i][j] = (char) (random.nextInt((90 - 65) + 1) + 65);
+                table[i][j] = (char) (random.nextInt((26) + 1) + 65);
                 System.out.print("|" + table[i][j] + "|");
             }
             System.out.println();

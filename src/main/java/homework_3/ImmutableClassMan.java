@@ -14,6 +14,7 @@ package homework_3;
  */
 
 public final class ImmutableClassMan {
+
     private final int age;
     private final String name;
     private final Integer iq;
@@ -33,7 +34,7 @@ public final class ImmutableClassMan {
     public ImmutableClassMan(int age) {
         this.age = age;
         this.name = "";
-        this.iq = new Integer(null);
+        this.iq = null;
     }
 
     public ImmutableClassMan() {

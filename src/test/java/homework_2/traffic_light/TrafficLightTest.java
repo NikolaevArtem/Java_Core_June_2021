@@ -7,6 +7,7 @@ import static homework_2.traffic_light.ColorSelector.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TrafficLightTest extends UnitBase {
+
     private void run() {
         new TrafficLight().run();
         removeFromOutput("Provide time in seconds:");
@@ -14,7 +15,7 @@ class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void runGood55() {
+    void given55_whenRun_thenYellowOutput() {
         setInput("55");
 
         run();
@@ -23,7 +24,7 @@ class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void runGood7506() {
+    void given7506_whenRun_thenGreenOutput() {
         setInput("7506");
 
         run();
@@ -32,25 +33,25 @@ class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void runWithNegative() {
+    void givenNegative_whenRun_thenInputError() {
         setInput("-5");
 
         run();
 
-        assertEquals("Only non-negative numbers is allow.", getOutput());
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutput());
     }
 
     @Test
-    void runWithInputMismatch() {
+    void givenNan_whenRun_thenInputError() {
         setInput("error");
 
         run();
 
-        assertEquals("Only numbers is allow.", getOutput());
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutput());
     }
 
     @Test
-    void runWithOverload() {
+    void givenMoreThanDay_whenRun_thenDayOverError() {
         setInput("86401");
 
         run();

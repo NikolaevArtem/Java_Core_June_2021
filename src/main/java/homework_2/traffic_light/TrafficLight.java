@@ -6,19 +6,20 @@ import java.util.Scanner;
 import static homework_2.traffic_light.ColorSelector.*;
 
 class TrafficLight {
+
     public static void run() {
         System.out.println("Provide time in seconds:");
         try (Scanner scan = new Scanner(System.in)) {
             int seconds = scan.nextInt();
             if (seconds < 0) {
-                System.out.println("Only non-negative numbers is allow.");
+                System.out.println("Only 1 non-negative integer is allowed as passed parameter");
             } else if (seconds >= 86400) {
                 System.out.println("Day is over.");
             } else {
                 getSeconds(seconds);
             }
         } catch (InputMismatchException e) {
-            System.out.println("Only numbers is allow.");
+            System.out.println("Only 1 non-negative integer is allowed as passed parameter");
         }
     }
 

@@ -7,6 +7,7 @@ import static homework_2.traffic_light.ColorSelector.*;
 
 
 public class ExtraTrafficLight {
+
     public static void run() {
         System.out.println("Provide time in \"hh:mm:ss\" format: ");
         try (Scanner scan = new Scanner(System.in)) {

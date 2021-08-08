@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CharCountTest extends UnitBase {
     @Test
-    void runWithError() {
+    void givenError_whenRun_thenExpected() {
         String[] args = {"some", "new", "word", "and", "error"};
         Main.main(args);
         printOut();
@@ -22,7 +22,7 @@ class CharCountTest extends UnitBase {
     }
 
     @Test
-    void runWithoutError() {
+    void givenNoError_whenRun_thenExpected() {
         String[] args = {"some", "new", "word", "and", "no error"};
         Main.main(args);
         printOut();
@@ -34,11 +34,10 @@ class CharCountTest extends UnitBase {
     }
 
     @Test
-    void runWithZeroArguments() {
+    void givenZeroArguments_whenRun_thenExpected() {
         String[] args = {};
         Main.main(args);
         printOut();
         assertEquals("", getOutputLines()[0]);
-
     }
 }

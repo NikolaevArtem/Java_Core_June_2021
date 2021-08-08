@@ -13,7 +13,7 @@ class ExtraPyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void runWithOneArgument() {
+    void givenPositive1_whenRun_thenExpected() {
         setInput("1");
 
         run();
@@ -22,7 +22,7 @@ class ExtraPyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void runWithThreeArguments() {
+    void givenPositive3_whenRun_thenExpected() {
         setInput("3");
 
         run();
@@ -33,7 +33,7 @@ class ExtraPyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void runWithZeroArguments() {
+    void given0_whenRun_thenExpected() {
         setInput("0");
 
         run();
@@ -42,7 +42,7 @@ class ExtraPyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void runWithNegativeArgument() {
+    void givenNegative_whenRun_thenExpectedError() {
         setInput("-5");
 
         run();
@@ -51,7 +51,7 @@ class ExtraPyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void runWithNotNumberArgument() {
+    void givenNaN_whenRun_thenExpectedError() {
         setInput("asd");
 
         run();

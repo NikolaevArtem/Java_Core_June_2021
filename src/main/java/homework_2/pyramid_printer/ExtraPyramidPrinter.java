@@ -6,6 +6,7 @@ import java.util.Scanner;
 import static homework_2.pyramid_printer.Utils.*;
 
 public class ExtraPyramidPrinter {
+
     public void run() {
         System.out.println(INPUT);
         try (Scanner scanner = new Scanner(System.in)) {

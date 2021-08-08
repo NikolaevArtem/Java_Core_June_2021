@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PyramidPrinterTest extends UnitBase {
+
     private void run() {
         new PyramidPrinter().run();
         removeFromOutput("Enter a valid INT value for create a pyramid:");
@@ -13,7 +14,7 @@ class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void runWithOneArgument() {
+    void givenPositive1_whenRun_thenExpected() {
         setInput("1");
 
         run();
@@ -22,7 +23,7 @@ class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void runWithThreeArguments() {
+    void givenPositive3_whenRun_thenExpected() {
         setInput("3");
 
         run();
@@ -33,7 +34,7 @@ class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void runWithZeroArguments() {
+    void givenZero_whenRun_thenExpected() {
         setInput("0");
 
         run();
@@ -42,7 +43,7 @@ class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void runWithNegativeArgument() {
+    void givenNegative_whenRun_thenExpectedError() {
         setInput("-5");
 
         run();
@@ -51,7 +52,7 @@ class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void runWithNotNumberArgument() {
+    void givenNaN_whenRun_thenExpectedError() {
         setInput("asd");
 
         run();

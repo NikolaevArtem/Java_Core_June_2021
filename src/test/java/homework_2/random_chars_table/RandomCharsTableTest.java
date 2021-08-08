@@ -14,30 +14,30 @@ class RandomCharsTableTest extends UnitBase {
     }
 
     @Test
-    void runWithNegativeArgument() {
+    void givenNegative_whenRun_thenArraySizeError() {
         setInput("-1 5 even");
 
         run();
 
-        assertEquals("Array size cannot be negative.", getOutput());
+        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]", getOutput());
     }
 
     @Test
-    void runWithMismatchArguments() {
+    void givenWrongArgument_whenRun_thenInputError() {
         setInput("error 5 even");
 
         run();
 
-        assertEquals("Input parameters must be in the format [positive integer(>0)] [positive integer(>0)] [even|odd]", getOutput());
+        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]", getOutput());
     }
 
     @Test
-    void runWithMismatchStrategy() {
+    void givenWrongStrategyName_whenRun_thenInputError() {
         setInput("4 5 error");
 
         run();
 
-        assertEquals("Input parameters must be in the format [positive integer(>0)] [positive integer(>0)] [even|odd]", getOutput());
+        assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]", getOutput());
     }
 
 }

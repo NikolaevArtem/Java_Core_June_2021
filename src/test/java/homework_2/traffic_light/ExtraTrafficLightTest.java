@@ -14,16 +14,17 @@ class ExtraTrafficLightTest extends UnitBase {
     }
 
     @Test
-    void runGood() {
+    void givenValidArguments_whenRun_thenYellowOutput() {
         setInput("23:59:59");
 
         run();
 
         assertEquals("The traffic light is" + ANSI_YELLOW + " Yellow" + ANSI_RESET + " now", getOutput());
+
     }
 
     @Test
-    void runWithOneInputMissmatch() {
+    void givenOneWrongArgument_whenRun_thenInputError() {
         setInput("25:45:45");
 
         run();
@@ -32,7 +33,7 @@ class ExtraTrafficLightTest extends UnitBase {
     }
 
     @Test
-    void runWithTwoInputMissmatch() {
+    void givenTwoWrongArguments_whenRun_thenInputError() {
         setInput("25:65:45");
 
         run();
@@ -41,7 +42,7 @@ class ExtraTrafficLightTest extends UnitBase {
     }
 
     @Test
-    void runWithThreeInputMissmatch() {
+    void givenThreeWrongArguments_whenRun_thenInputError() {
         setInput("25:65:67");
 
         run();
@@ -50,7 +51,7 @@ class ExtraTrafficLightTest extends UnitBase {
     }
 
     @Test
-    void runWithExtraField() {
+    void givenAdditionalField_whenRun_thenInputError() {
         setInput("25:65:67:67");
 
         run();
@@ -59,7 +60,7 @@ class ExtraTrafficLightTest extends UnitBase {
     }
 
     @Test
-    void runWithNumberFormatException() {
+    void givenNaN_whenRun_thenNumberFormatError() {
         setInput("error");
 
         run();
@@ -68,7 +69,7 @@ class ExtraTrafficLightTest extends UnitBase {
     }
 
     @Test
-    void runWithZero() {
+    void givenZero_whenRun_thenInputError() {
         setInput("0");
 
         run();
@@ -77,7 +78,7 @@ class ExtraTrafficLightTest extends UnitBase {
     }
 
     @Test
-    void runWithNegative() {
+    void givenNegativeArgument_whenRun_thenInputError() {
         setInput("-5:23:45");
 
         run();
@@ -86,7 +87,7 @@ class ExtraTrafficLightTest extends UnitBase {
     }
 
     @Test
-    void runWithOutOfBounds() {
+    void givenOutOfBoundsArguments_whenRun_thenInputError() {
         setInput("5 5 5 5 5");
 
         run();
