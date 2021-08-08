@@ -20,7 +20,6 @@ class ExtraTrafficLightTest extends UnitBase {
         run();
 
         assertEquals("The traffic light is" + ANSI_YELLOW + " Yellow" + ANSI_RESET + " now", getOutput());
-
     }
 
     @Test

@@ -31,7 +31,7 @@ public class RandomCharsTable {
     }
 
     private static void checkLengthAndWidth(int length, int width) {
-        if (length == 0 || width == 0){
+        if (length == 0 || width == 0) {
             throw new InputMismatchException();
         }
     }

@@ -3,7 +3,7 @@ package homework_2.traffic_light;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static homework_2.traffic_light.ColorSelector.*;
+import static homework_2.traffic_light.ColorSelector.pickColor;
 
 class TrafficLight {
 
