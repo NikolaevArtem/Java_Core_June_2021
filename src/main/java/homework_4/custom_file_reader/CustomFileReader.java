@@ -5,13 +5,22 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CustomFileReader {
 
-    public String file = "src/main/resources/custom_file_reader/fileTest.txt";
-    Path path = Paths.get(file);
+    public String file;
+    public Path path;
+
+    public CustomFileReader(String file) {
+        this.file = file;
+    }
+
+    public CustomFileReader(Path path) {
+        this.path = path;
+    }
 
     public void run1() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -37,8 +46,12 @@ public class CustomFileReader {
     }
 
     public void run3() throws IOException {
-        String read = Files.readAllLines(path).get(0);
-        System.out.println(read.replaceAll("[,.]", ""));
+        List<String> read = Files.readAllLines(path);
+        StringBuilder res = new StringBuilder();
+        for (String s : read) {
+            res.append(s.replaceAll("[,.]", ""));
+        }
+        System.out.println(res.toString());
     }
 
     public void run4() throws IOException {
