@@ -8,6 +8,11 @@ public class Main {
         new CustomFileReader().run2();
         System.out.println("run3: ");
         new CustomFileReader().run3();
-
+        System.out.println("run4: ");
+        new CustomFileReader().run4();
+        System.out.println("run5: ");
+        new CustomFileReader().run5();
+        System.out.println("run6: ");
+        new CustomFileReader().run6();
     }
 }
