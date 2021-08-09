@@ -107,7 +107,7 @@ public class CustomFileReader {
 
     private ArrayList<String> deletePunctuation(List<String> list) {
         list = list.stream()
-                .map(n -> n = n.replaceAll("\\.|,", ""))
+                .map(n -> n = n.replaceAll("[.,]", ""))
                 .collect(Collectors.toList());
         return (ArrayList<String>) list;
     }
