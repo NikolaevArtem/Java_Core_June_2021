@@ -10,18 +10,6 @@ public class Main {
     public static void main(String[] args)  {
         MyHomeWork myHomeWork = new MyHomeWork();
         myHomeWork.execute();
-
-
-//        Printer printer = new Printer();
-//
-//        MyAnnotationRepeater annotationRepeater
-//                = printer.getClass().getAnnotation(MyAnnotationRepeater.class);
-//
-//        int count = annotationRepeater.repeat();
-//
-//        for (int i = 0; i < count; i++) {
-//            printer.print();
-//        }
     }
 
 }
