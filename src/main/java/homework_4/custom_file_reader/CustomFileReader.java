@@ -81,7 +81,7 @@ public class CustomFileReader {
             for(int i = 0; i < bytes.length; i++) {
                 bytes[i] = (byte) input.read();
             }
-            return bytesToStrings(bytes);
+            return bytesToListOfStrings(bytes);
         } catch (FileNotFoundException e) {
             System.out.println("There is no file for reading");
             return null;
@@ -95,7 +95,7 @@ public class CustomFileReader {
         try (FileChannel input = new FileInputStream(file).getChannel()) {
             ByteBuffer chars = ByteBuffer.allocate((int) input.size());
             input.read(chars);
-            return bytesToStrings(chars.array());
+            return bytesToListOfStrings(chars.array());
         } catch (FileNotFoundException e) {
             System.out.println("There is no file for reading");
             return null;
@@ -112,7 +112,7 @@ public class CustomFileReader {
         return (ArrayList<String>) list;
     }
 
-    private ArrayList<String> bytesToStrings(byte[] bytes) {
+    private ArrayList<String> bytesToListOfStrings(byte[] bytes) {
         return new ArrayList<>(Arrays.asList(new String(bytes).split("\n")));
     }
 
