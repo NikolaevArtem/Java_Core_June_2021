@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class CustomFileReaderTest extends UnitBase {
 
-    static final String EXPECTED_VALUE = "awdwadawdaawdawawdawdawdawdawdawdawdawdawdawdawdawdawdawdawda";
+    static final String EXPECTED_VALUE = "The text in a way consists of a number of sentences One sentence even a very widespread complex one cannot be called a text since the text can be divided into independent sentences and parts of the sentence are combined according to the laws of the syntax of a complex sentence but not the text";
 
     @Test
     public void utilReaderTest() {
