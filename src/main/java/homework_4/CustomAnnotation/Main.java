@@ -7,10 +7,9 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         MyHomeWork myHomeWork = new MyHomeWork();
         myHomeWork.execute();
-
 
 
 //        Printer printer = new Printer();

@@ -10,10 +10,20 @@ class MyHomeWorkTest extends UnitBase {
     MyHomeWork myHomeWork = new MyHomeWork();
 
     @Test
-
-    public void giveModTrue_whenRun_thenExtraMethod() {
-        setInput("2");
-
+    void giveModTrue_whenRun_thenExtraMethods() {
+        setInput("extra");
+        myHomeWork.execute();
+        removeFromOutput("Choose mod Extra/Simple : [extra/simple]");
+        assertEquals("run3 - extraMethod", getOutputLines()[0]);
+        assertEquals("run4 - extraMethod", getOutputLines()[1]);
     }
 
+    @Test
+    void giveModFalse_whenRun_thenSimpleMethods() {
+        setInput("simple");
+        myHomeWork.execute();
+        removeFromOutput("Choose mod Extra/Simple : [extra/simple]");
+        assertEquals("run1 - simpleMethod", getOutputLines()[0]);
+        assertEquals("run2 - simpleMethod", getOutputLines()[1]);
+    }
 }
