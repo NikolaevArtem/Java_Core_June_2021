@@ -12,7 +12,7 @@ public class RandomCharsTable {
         for (int i = 0; i < params.length; i++) {
             params[i] = scanner.next();
         }
-        if (!isNumber(params[0]) || !isNumber(params[1])) {
+        if (isNumber(params[0]) || isNumber(params[1])) {
             System.out.println(ERROR_MESSAGE);
             return;
         }
@@ -51,6 +51,6 @@ public class RandomCharsTable {
     }
 
     private boolean isNumber(String str) {
-        return !Pattern.matches(str, "-?[0-9]+");
+        return !Pattern.matches( "[0-9]+", str);
     }
 }

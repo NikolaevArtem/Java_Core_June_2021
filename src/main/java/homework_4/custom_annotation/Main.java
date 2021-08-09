@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
         Cat cat = new Cat();
-        new DefaulValueImpl().insetDefaultValue(cat);
+        DefaulValueImpl.insetDefaultValue(cat);
     }
 }
 

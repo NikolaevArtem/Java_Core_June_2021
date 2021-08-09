@@ -11,6 +11,8 @@ No setters
  */
 
 
+import java.util.Objects;
+
 public final class ImmutableClass {
 
     private final int age;
@@ -61,5 +63,18 @@ public final class ImmutableClass {
 
     public ImmutableClass changeAge(int age) {
         return new ImmutableClass(age, this.high, this.weight, this.name);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ImmutableClass)) return false;
+        ImmutableClass that = (ImmutableClass) o;
+        return age == that.age && high == that.high && weight == that.weight && Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(age, high, weight, name);
     }
 }

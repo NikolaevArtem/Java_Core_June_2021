@@ -11,15 +11,11 @@ public class PyramidPrinter {
         Scanner scanner = new Scanner(System.in);
         String sizeAsString = scanner.nextLine();
 
-        if (!isNumber(sizeAsString)) {
+        if (isNumber(sizeAsString)) {
             System.out.println(ERROR_MESSAGE);
             return;
         }
         int size = Integer.parseInt(sizeAsString);
-        if (size < 0) {
-            System.out.println(ERROR_MESSAGE);
-            return;
-        }
         for (int i = 0; i < size; i++) {
             for (int j = 0; j <= i; j++) {
                 System.out.print("*");
@@ -29,6 +25,6 @@ public class PyramidPrinter {
     }
 
     private boolean isNumber(String str) {
-        return !Pattern.matches(str, "-?[0-9]+");
+        return !Pattern.matches( "[0-9]+", str);
     }
 }

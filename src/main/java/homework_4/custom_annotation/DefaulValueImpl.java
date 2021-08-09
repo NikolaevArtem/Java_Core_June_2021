@@ -9,21 +9,21 @@ import java.util.stream.Collectors;
 
 public class DefaulValueImpl {
 
-    public void insetDefaultValue(Object object) throws IllegalAccessException, InvocationTargetException {
+    public static void insetDefaultValue(Object object) throws IllegalAccessException, InvocationTargetException {
         setDefaultValueToFields(object, object.getClass());
         setDefaultValueToMethods(object, object.getClass());
 
 
     }
 
-    private void setDefaultValueToMethods(Object object, Class<?> clazz) throws InvocationTargetException, IllegalAccessException {
+    private static void setDefaultValueToMethods(Object object, Class<?> clazz) throws InvocationTargetException, IllegalAccessException {
         List<Method> collectPrivateMethods = Arrays.stream(clazz.getDeclaredMethods())
                 .filter((o) -> o.isAnnotationPresent(DefaultValue.class))
                 .collect(Collectors.toList());
         setDefaultValueMethods(collectPrivateMethods, clazz, object);
     }
 
-    private void setDefaultValueToFields(Object object, Class<?> clazz) throws IllegalAccessException {
+    private static void setDefaultValueToFields(Object object, Class<?> clazz) throws IllegalAccessException {
         List<Field> collectPublic = Arrays.stream(clazz.getFields())
                 .filter((o) -> o.isAnnotationPresent(DefaultValue.class))
                 .collect(Collectors.toList());
@@ -36,7 +36,7 @@ public class DefaulValueImpl {
 
     }
 
-    private void setDefaultValueMethods(List<Method> collectMethods, Class<?> clazz, Object object) throws InvocationTargetException, IllegalAccessException {
+    private static void setDefaultValueMethods(List<Method> collectMethods, Class<?> clazz, Object object) throws InvocationTargetException, IllegalAccessException {
         for (Method method : collectMethods) {
             DefaultValue annotation = method.getAnnotation(DefaultValue.class);
             String value = annotation.value();
@@ -52,7 +52,7 @@ public class DefaulValueImpl {
         }
     }
 
-    private void getDefaultFields(List<Field> collect, Class<?> clazz, Object object) throws IllegalAccessException {
+    private static void getDefaultFields(List<Field> collect, Class<?> clazz, Object object) throws IllegalAccessException {
         for (Field field : collect) {
             DefaultValue annotation = field.getAnnotation(DefaultValue.class);
             String value = annotation.value();
