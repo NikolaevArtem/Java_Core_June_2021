@@ -1,5 +1,6 @@
 package homework_2.random_chars_table;
 
+import javax.xml.bind.ValidationException;
 import java.util.Random;
 
 import static homework_2.IOMod.*;
@@ -15,36 +16,32 @@ public class RandomCharsTable {
 
     private void inputData() {
         System.out.print("Input table length, table width, table strategy(even/odd): ");
-        String s = bufferedReaderStringReader();
-
         try {
+            String s = bufferedReaderStringReader();
             String[] parameters = s.split(" ");
-            if (parameters.length != 3) {
-                System.out.println(FORMAT_ERROR);
-                return;
+            if (!isInputValid(parameters)) {
+                throw new ValidationException("");
             }
-
             int tableLength = Integer.parseInt(parameters[0]);
             int tableWidth = Integer.parseInt(parameters[1]);
-            if (tableLength <= 0 || tableWidth <= 0) {
-                System.out.println(FORMAT_ERROR);
-                return;
-            }
-
-            boolean strategy;
-            if (parameters[2].equalsIgnoreCase("odd")) {
-                strategy = false;
-            } else if (parameters[2].equalsIgnoreCase("even")) {
-                strategy = true;
-            } else {
-                System.out.println(FORMAT_ERROR);
-                return;
-            }
+            boolean strategy = parameters[2].equalsIgnoreCase("even");
 
             printRandomAndGenerateResult(tableLength, tableWidth, strategy);
-        } catch (NumberFormatException | NullPointerException ex) {
+        } catch (NullPointerException | ValidationException e) {
             System.out.println(FORMAT_ERROR);
+            return;
         }
+    }
+
+    private boolean isInputValid(String[] parameters) {
+        if (parameters.length == 3) {
+            return parameters[0].chars().allMatch(Character::isDigit) &&
+                    !parameters[0].equals("0") &&
+                    parameters[1].chars().allMatch(Character::isDigit) &&
+                    !parameters[1].equals("0") &&
+                    (parameters[2].equalsIgnoreCase("odd") || parameters[2].equalsIgnoreCase("even"));
+        }
+        return false;
     }
 
     private void printRandomAndGenerateResult(int length, int width, boolean strategy) {
@@ -59,32 +56,21 @@ public class RandomCharsTable {
                 System.out.print(randAbc[i][j] + " | ");
 
                 // result generating on-the-go
-                if (strategy) {
-                    generateEven(randAbc[i][j], result);
-                } else {
-                    generateOdd(randAbc[i][j], result);
-                }
+                generateResult(strategy ? 0 : 1, randAbc[i][j], result);
             }
             System.out.println();
         }
         printResult(strategy, result);
     }
 
-    private void generateEven(char ch, StringBuilder result) {
-        if ((ch % 2 == 0) && (!String.valueOf(result).contains(String.valueOf(ch)))) {
-            result.append(ch);
-        }
-    }
-
-    private void generateOdd(char ch, StringBuilder result) {
-        if ((ch % 2 == 1) && (!String.valueOf(result).contains(String.valueOf(ch)))) {
+    private void generateResult(int strategy, char ch, StringBuilder result) {
+        if ((ch % 2 == strategy) && (!String.valueOf(result).contains(String.valueOf(ch)))) {
             result.append(ch);
         }
     }
 
     private void printResult(boolean strategy, StringBuilder result) {
         if (result.length() == 0) {
-            System.out.println("");
             return;
         }
         if (strategy) {
@@ -93,7 +79,7 @@ public class RandomCharsTable {
             System.out.print("Odd letters - ");
         }
         int i = 0;
-        while (i < result.length()) { // to avoid exception in a case when result.length() = 0 ;)
+        while (true) {
             if (i == result.length() - 1) {
                 System.out.print(result.charAt(i));
                 break;

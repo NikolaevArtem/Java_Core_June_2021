@@ -14,7 +14,7 @@ public class IOMod {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             inp = Integer.parseInt(reader.readLine());
         } catch (NumberFormatException | IOException e) {
-            System.out.println(ERROR);
+            return inp;
         }
         return inp;
     }
