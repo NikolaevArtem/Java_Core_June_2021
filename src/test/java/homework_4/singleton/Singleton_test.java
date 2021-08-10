@@ -8,7 +8,6 @@ public class Singleton_test {
 
     @Test
     void testSingleton() {
-
         assertTrue(Singleton.getInstance() == (Singleton.getInstance ()));
     }
 }

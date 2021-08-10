@@ -1,4 +1,4 @@
 package homework_4.customAnnotation;
 
-public class CustomAnnotation {
+public class CustomAnnotation_test {
 }
