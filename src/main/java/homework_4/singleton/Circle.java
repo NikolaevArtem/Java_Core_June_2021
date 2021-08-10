@@ -1,10 +1,8 @@
-package homework_4.Singleton;
+package homework_4.singleton;
 
 import lombok.Data;
 
-/*
- *Example of using Singleton
- */
+//Example of using Singleton
 
 @Data
 public class Circle {

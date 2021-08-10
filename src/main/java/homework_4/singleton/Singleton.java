@@ -1,4 +1,4 @@
-package homework_4.Singleton;
+package homework_4.singleton;
 
 //Basic Singleton
 

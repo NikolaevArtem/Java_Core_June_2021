@@ -1,8 +1,6 @@
-package homework_4.Singleton;
+package homework_4.singleton;
 
-/*
- *Example of using Singleton
- */
+//Example of using Singleton
 
 public class Main {
     public static void main(String[] args) {
