@@ -1,13 +1,20 @@
 package homework_4.customAnnotation;
 
-import java.lang.annotation.Annotation;
+import java.lang.reflect.Constructor;
 
-@MyAnnotation(value = "default_value")
+
 public class Cat {
 
-    public Annotation value;
+    String testValue;
 
-    public Cat()  {
-        this.value = Cat.class.getAnnotations()[0];
+    @MyAnnotation
+    public Cat() {
+        try {
+            Constructor constructor = this.getClass ().getConstructor (null);
+            MyAnnotation myAnnotation = (MyAnnotation) constructor.getAnnotation (MyAnnotation.class);
+            this.testValue = myAnnotation.value ();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace ();
+        }
     }
 }

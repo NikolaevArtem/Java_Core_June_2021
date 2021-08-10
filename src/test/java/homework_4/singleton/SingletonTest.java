@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class Singleton_test {
+public class SingletonTest {
 
     @Test
     void testSingleton() {

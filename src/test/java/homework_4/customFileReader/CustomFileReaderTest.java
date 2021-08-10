@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CustomFileReader_test extends UnitBase {
+public class CustomFileReaderTest extends UnitBase {
 
     File file;
 

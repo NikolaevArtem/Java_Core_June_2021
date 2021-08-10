@@ -2,8 +2,8 @@ package homework_4.customAnnotation;
 
 public class Main {
 
-    public static void main(String[] args) throws NoSuchMethodException {
+    public static void main(String[] args) {
         Cat cat = new Cat ();
-        System.out.println (cat.value);
+        System.out.println (cat.testValue);
     }
 }
