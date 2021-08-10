@@ -3,9 +3,9 @@ package homework_4.CustomFileReader;
 public class Main {
 
     public static void main(String[] args) {
-        ExtraCustomFileReader extraCustomFileReader = new ExtraCustomFileReader();
-        extraCustomFileReader.run1();
-        extraCustomFileReader.run2();
-        extraCustomFileReader.run3();
+        CustomFileReader CustomFileReader = new CustomFileReader();
+        CustomFileReader.run1();
+        CustomFileReader.run2();
+        CustomFileReader.run3();
     }
 }
