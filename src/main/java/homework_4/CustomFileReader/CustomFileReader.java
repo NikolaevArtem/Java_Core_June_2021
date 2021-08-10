@@ -38,7 +38,6 @@ public class CustomFileReader {
         } catch (FileNotFoundException e) {
             errorMsg();
         } catch (IOException e) {
-            errorMsg();
             e.printStackTrace();
         }
     }
