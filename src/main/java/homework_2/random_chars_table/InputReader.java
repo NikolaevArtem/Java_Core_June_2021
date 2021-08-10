@@ -13,7 +13,11 @@ public class InputReader {
     protected Table readTableParams() throws IOException, WrongInputException {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             String input = br.readLine();
-            return parseInput(input);
+            if (input == null) {
+                throw new WrongInputException(ERROR_MSG);
+            } else {
+                return parseInput(input);
+            }
         }
     }
 

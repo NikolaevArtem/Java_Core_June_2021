@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class RandomCharsTable {
 
-    public void run() throws IOException {
+    public void run() {
         try {
             InputReader inputReader = new InputReader();
             Table table = inputReader.readTableParams();
@@ -19,7 +19,7 @@ public class RandomCharsTable {
             strategyCharacterSet.fillCharacterSet(table);
             strategyCharacterSet.printCharacterSet(table.getStrategy());
 
-        } catch (WrongInputException e) {
+        } catch (WrongInputException | IOException e) {
             System.out.println(e.getMessage());
         }
     }

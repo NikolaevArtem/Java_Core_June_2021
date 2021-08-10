@@ -11,7 +11,7 @@ public class TrafficLight {
 
     private final int SEC_IN_MIN = 60;
 
-    public void run() throws IOException {
+    public void run() {
         try {
             InputReader inputReader = new InputReader();
             int wholeSecs = inputReader.readSecs();
@@ -19,7 +19,7 @@ public class TrafficLight {
             int secs = wholeSecs % SEC_IN_MIN;
 
             printColor(secs);
-        } catch (WrongInputException e) {
+        } catch (WrongInputException | IOException e) {
             System.out.println(e.getMessage());
         }
     }

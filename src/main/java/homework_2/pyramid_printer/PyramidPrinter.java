@@ -6,13 +6,13 @@ import java.io.IOException;
 public class PyramidPrinter {
     private final char SPEC_CHAR = 'x';
 
-    public void run() throws IOException {
+    public void run() {
         try {
             InputReader inputReader = new InputReader();
             int n = inputReader.readNum();
 
             System.out.println(getPyramid(n));
-        } catch (WrongInputException e) {
+        } catch (WrongInputException | IOException e) {
             System.out.println(e.getMessage());
         }
     }

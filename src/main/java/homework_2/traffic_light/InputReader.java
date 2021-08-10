@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class InputReader {
-    private final String errorMsgDayIsOver = "The day is over";
-    private final String errorMsg = "Only 1 non-negative integer is allowed as passed parameter";
+    private final String ERROR_MSG_DAY_IS_OVER = "The day is over";
+    private final String ERROR_MSG = "Only 1 non-negative integer is allowed as passed parameter";
     private final int MAX_VALUE_OF_SECS = 86399;
 
     protected int readSecs() throws IOException, WrongInputException {
@@ -23,16 +23,16 @@ public class InputReader {
             int light = Integer.parseInt(input);
 
             if (light < 0) {
-                throw new WrongInputException(errorMsg);
+                throw new WrongInputException(ERROR_MSG);
             }
             if (light > MAX_VALUE_OF_SECS) {
-                throw new WrongInputException(errorMsgDayIsOver);
+                throw new WrongInputException(ERROR_MSG_DAY_IS_OVER);
             }
 
             return light;
 
         } catch (NumberFormatException e) {
-            throw new WrongInputException(errorMsg);
+            throw new WrongInputException(ERROR_MSG);
         }
     }
 }
