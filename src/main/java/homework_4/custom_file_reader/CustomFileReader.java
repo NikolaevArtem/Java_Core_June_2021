@@ -25,11 +25,13 @@ public class CustomFileReader {
     }
 
     public void run2() throws IOException {
-       BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(filePath)));
-       StringBuilder string = new StringBuilder();
-       while (reader.ready()){
-           string.append(reader.readLine()).append("\n");
-       }
+        BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(filePath)));
+        StringBuilder string = new StringBuilder();
+
+        while (reader.ready()) {
+            string.append(reader.readLine()).append("\n");
+        }
+
         String resul = string.toString().replaceAll("[,.]", "");
         System.out.println(resul);
     }
@@ -37,14 +39,16 @@ public class CustomFileReader {
     public void run3() throws IOException {
         FileReader reader = new FileReader(String.valueOf(filePath));
         StringBuffer stringBuffer = new StringBuffer();
-        while (reader.ready()){
+
+        while (reader.ready()) {
             int scan = reader.read();
-            if(scan == ',' || scan == '.'){
+            if (scan == ',' || scan == '.') {
 
             } else {
-                stringBuffer.append((char)scan);
+                stringBuffer.append((char) scan);
             }
         }
+
         System.out.println(stringBuffer);
     }
 }
