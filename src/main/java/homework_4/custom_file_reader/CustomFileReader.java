@@ -26,11 +26,11 @@ public class CustomFileReader {
 
     public void run2() throws IOException {
        BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(filePath)));
-       String string = "";
+       StringBuilder string = new StringBuilder();
        while (reader.ready()){
-           string += reader.readLine() + "\n";
+           string.append(reader.readLine()).append("\n");
        }
-        String resul = string.replaceAll("[,.]", "");
+        String resul = string.toString().replaceAll("[,.]", "");
         System.out.println(resul);
     }
 
