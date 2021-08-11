@@ -31,7 +31,7 @@ public class CustomFileReader {
         while (reader.ready()) {
             string.append(reader.readLine()).append("\n");
         }
-
+        reader.close();
         String resul = string.toString().replaceAll("[,.]", "");
         System.out.println(resul);
     }
@@ -49,6 +49,7 @@ public class CustomFileReader {
             }
         }
 
+        reader.close();
         System.out.println(stringBuffer);
     }
 }
