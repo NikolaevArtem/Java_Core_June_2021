@@ -16,7 +16,7 @@ public class RandomCharsTableTest extends UnitBase {
         removeFromOutput("Enter data in format: width, length of matrix and strategy (even/odd)");
 
         Assertions.assertTrue(getOutput().contains("|"));
-        Assertions.assertTrue(getOutput().contains(" |"));
+        Assertions.assertFalse(getOutput().contains(" |"));
         Assertions.assertTrue(getOutput().contains("Even letters - "));
     }
 
@@ -29,7 +29,7 @@ public class RandomCharsTableTest extends UnitBase {
         removeFromOutput("Enter data in format: width, length of matrix and strategy (even/odd)");
 
         Assertions.assertTrue(getOutput().contains("|"));
-        Assertions.assertTrue(getOutput().contains(" |"));
+        Assertions.assertFalse(getOutput().contains(" |"));
         Assertions.assertTrue(getOutput().contains("Odd letters - "));
     }
 
@@ -43,8 +43,6 @@ public class RandomCharsTableTest extends UnitBase {
 
         Assertions.assertEquals("Passed parameters should match the format [positive integer] " +
                 "[positive integer] [even|odd]",getOutputLines()[0]);
-        Assertions.assertEquals("Passed parameters should match the format [positive integer] " +
-                "[positive integer] [even|odd]",getOutputLines()[1]);
     }
 
     @Test

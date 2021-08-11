@@ -6,7 +6,7 @@ public class TrafficLightExtraMod extends TrafficLight{
         System.out.println("Enter necessary time in HH:MM:SS format.");
         String parsedTime = consoleReader();
         seconds = Integer.parseInt(parsedTime.substring(parsedTime.length() - 2));
-        if (isNegative(seconds)) {
+        if (seconds < 0) {
             System.out.println(ERROR);
             return;
         }

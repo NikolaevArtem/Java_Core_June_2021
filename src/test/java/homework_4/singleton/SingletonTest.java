@@ -12,6 +12,7 @@ class SingletonTest extends UnitBase {
         Singleton singleton = Singleton.getInstance();
         System.out.println(singleton.getClass().getSimpleName());
 
-        assertEquals("Singleton", getOutputLines()[0]);
+        assertEquals("Singleton created", getOutputLines()[0]);
+        assertEquals("Singleton", getOutputLines()[1]);
     }
 }

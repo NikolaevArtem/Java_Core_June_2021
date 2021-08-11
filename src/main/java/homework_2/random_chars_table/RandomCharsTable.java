@@ -5,19 +5,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class RandomCharsTable {
-
     private final String ERROR = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
-
     private char[][] array;
-
     private String strategy;
-
     private String inputData;
-
     private String result;
-
     private int rows;
-
     private int columns;
 
     public void run() {
@@ -26,21 +19,20 @@ public class RandomCharsTable {
         parseData(inputData);
         if (dataValidation(rows, columns, strategy)) {
             System.out.println(ERROR);
-            return;
-        }
-        arrayInitialization();
-        if (inputData.endsWith("odd")) {
-            odd();
         } else {
-            even();
+            arrayInitialization();
+            if (strategy.equals("odd")) {
+                oddStrategy();
+            } else {
+                evenStrategy();
+            }
+            printingResult();
         }
-        printingResult();
     }
 
     private void parseData(String s){
         String[] resultArray = s.split(" ");
         if(resultArray.length != 3){
-            System.out.println(ERROR);
             return;
         }
         rows = Integer.parseInt(resultArray[0]);
@@ -55,13 +47,13 @@ public class RandomCharsTable {
             for (int j = 0; j < columns; j++) {
                 char letters = (char) (Math.random() * 10 + 65);
                 array[i][j] = letters;
-                System.out.print(array[i][j] + " |");
+                System.out.print(array[i][j] + "|");
             }
             System.out.println();
         }
     }
 
-    private void odd() {
+    private void oddStrategy() {
         result = "";
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
@@ -72,7 +64,7 @@ public class RandomCharsTable {
         }
     }
 
-    private void even() {
+    private void evenStrategy() {
         result = "";
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
@@ -86,15 +78,15 @@ public class RandomCharsTable {
     private void printingResult() {
         if (strategy.equals("even")) {
             System.out.print("Even letters - ");
-        } else System.out.print("Odd letters - ");
-        int counter = 0;
-        while (counter < result.length()) {
-            if (counter == result.length() - 1) {
-                System.out.print(result.charAt(counter));
+        } else {
+            System.out.print("Odd letters - ");
+        }
+        for(int i = 0; i< result.length();i++){
+            if (i == result.length() - 1) {
+                System.out.print(result.charAt(i));
                 break;
             }
-            System.out.print(result.charAt(counter) + ", ");
-            counter++;
+            System.out.print(result.charAt(i) + ", ");
         }
     }
 

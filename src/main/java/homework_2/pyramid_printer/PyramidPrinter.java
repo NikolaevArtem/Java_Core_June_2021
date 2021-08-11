@@ -11,10 +11,8 @@ public class PyramidPrinter {
     public void run() {
         System.out.println("Please, input a number:");
         int input = consoleReader();
-        if (negativeInput(input)) {
+        if (input<0) {
             System.out.println(ERROR);
-        } else if (input == 0) {
-            System.out.println();
         } else {
             printResult(input);
         }
@@ -24,9 +22,8 @@ public class PyramidPrinter {
         try (BufferedReader bF = new BufferedReader(new InputStreamReader(System.in))) {
             return Integer.parseInt(bF.readLine());
         } catch (NumberFormatException | IOException exception) {
-
+            return -1;
         }
-        return -1;
     }
 
     private void printResult(int input) {
@@ -35,9 +32,5 @@ public class PyramidPrinter {
             output += "x";
             System.out.println(output);
         }
-    }
-
-    private boolean negativeInput(int n) {
-        return n < 0;
     }
 }

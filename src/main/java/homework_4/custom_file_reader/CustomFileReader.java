@@ -2,7 +2,6 @@ package homework_4.custom_file_reader;
 
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +28,7 @@ public class CustomFileReader {
     public void run2(String filename) {
         isCorrectFilename(filename);
         try{
-            Files.lines(Path.of(getPath(filename))).map(x->x.replaceAll("[,.]","")).forEach(System.out::println);
+            Files.lines(Paths.get(getPath(filename))).map(x->x.replaceAll("[,.]","")).forEach(System.out::println);
         } catch (IOException exception){
             System.out.println("Error occurred");
         }

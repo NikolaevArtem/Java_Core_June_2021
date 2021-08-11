@@ -11,6 +11,6 @@ public class Singleton {
     }
 
     private Singleton() {
-
+        System.out.println("Singleton created");
     }
 }

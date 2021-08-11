@@ -26,11 +26,11 @@ public class TrafficLight {
             return;
         }
         seconds = Integer.parseInt(input);
-        if (isNegative(seconds)) {
+        if (seconds < 0) {
             System.out.println(ERROR);
             return;
         }
-        if (!dayOverCheck(seconds)) {
+        if (seconds > 86399) {
             System.out.println("Day is over");
             return;
         }
@@ -51,19 +51,11 @@ public class TrafficLight {
     protected void trafficLightColorDetection(int sec) {
         if (sec % 60 < 35) {
             System.out.print(ANSI_GREEN + "Green light" + ANSI_RESET);
-        } else if (sec % 60 >= 35 && sec % 60 < 40 || sec % 60 >= 55) {
+        } else if (sec % 60 < 40 || sec % 60 >= 55) {
             System.out.print(ANSI_YELLOW + "Yellow Light" + ANSI_RESET);
         } else {
             System.out.print(ANSI_RED + "Red light" + ANSI_RESET);
         }
-    }
-
-    protected boolean isNegative(int input) {
-        return input < 0;
-    }
-
-    private boolean dayOverCheck(int input) {
-        return input <= 86399;
     }
 
     private boolean isDigit(String input) {
