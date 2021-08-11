@@ -1,117 +1,75 @@
 package homework_4.custom_file_reader;
 
-/*
-    Custom File Reader realizations provided by 3 methods: run1(), run2(), run3();
-    Every realization is encapsulated;
-    There are different ways to get access to file and read it.
-    run1(): using FileInputStream, BufferedReader, StringBuilder; using FilePath custom annotation for strict file path;
-    run2(): using getFileFromResourcesAsStream method returning InputStream and prints it via printModifiedInputStream;
-    run3(): using getFileFromResource method returning File and prints it using String Collection in printModifiedFile;
- */
+import homework_4.custom_annotation.ResourcesPath;
+import homework_4.custom_file_reader.utils.*;
 
-import homework_4.custom_annotation.FilePath;
-import org.jetbrains.annotations.NotNull;
-
-import java.io.*;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.util.List;
+import static homework_4.custom_file_reader.utils.ModifiedStringPrinter.printModifiedString;
 
 
-@FilePath
 public class CustomFileReader {
 
+    private static final String FILE_IS_EMPTY = "File is empty!";
+
     private final String fileName;
+    private final String dirPath;
 
+    @ResourcesPath
     public CustomFileReader() {
-        this.fileName = "custom_file_reader/example.txt";
-    }
-
-    public synchronized void run1() throws IOException {
-        printModifiedInputStreamWithCustomAnnotation();
-    }
-
-    // read file with input stream
-    public synchronized void run2() throws IOException {
-        try (InputStream inputStream = getFileFromResourcesAsStream(this.fileName)) {
-            printModifiedInputStream(inputStream);
-        } catch (IOException e) {
-            throw new IOException();
-        }
-    }
-
-    // using NIO
-    public synchronized void run3() throws IOException {
-        File textFile;
+        this.fileName = "example.txt";
+        String tmpDirPath;
         try {
-            textFile = getFileFromResource(this.fileName);
-            printModifiedFile(textFile);
-        } catch (IOException | URISyntaxException e) {
-            throw new IOException();
+            ResourcesPath resourcesPath = (ResourcesPath) this.getClass().getConstructor().getDeclaredAnnotations()[0];
+            tmpDirPath = resourcesPath.dirPath();
+        } catch (NoSuchMethodException e) {
+            tmpDirPath = "./src/main/resources/"; // not including custom folder!
         }
+        this.dirPath = tmpDirPath;
     }
 
-    private @NotNull InputStream getFileFromResourcesAsStream(String fileName) {
-        ClassLoader classLoader = getClass().getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream(fileName);
-        if (inputStream == null) {
-            throw new IllegalArgumentException();
-        }
-        return inputStream;
+    public CustomFileReader(String dirPath, String fileName) {
+        this.dirPath = dirPath;
+        this.fileName = fileName;
     }
 
-    private @NotNull File getFileFromResource(String fileName) throws URISyntaxException {
-        ClassLoader classLoader = getClass().getClassLoader();
-        URL resource = classLoader.getResource(fileName);
-        if (resource == null) {
-            throw new IllegalArgumentException();
-        }
-        return new File(resource.toURI());
+    // using scanner
+    public synchronized void run1() {
+        doExcellent(new ScannerFileRead().fileReader(this.dirPath, this.fileName));
     }
 
-    // fastest file reading realization using FileInputStream and BufferedReader
-    // custom annotation implemented for strict path, instead of using method 'getFileFromResourcesAsStream'
-    private void printModifiedInputStreamWithCustomAnnotation() throws IOException {
-        FilePath filePath = (FilePath) this.getClass().getDeclaredAnnotations()[0];
-        try (final FileInputStream fileInputStream = new FileInputStream(filePath.path());
-             final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream))) {
-            final StringBuilder stringBuilder = new StringBuilder(fileInputStream.available());
-            while (bufferedReader.ready()) {
-                stringBuilder.append(stringModifier(bufferedReader.readLine())).append("\n");
-            }
-            System.out.println(stringBuilder);
-        } catch (IOException e) {
-            throw new IOException();
-        }
+    // using buffered reader
+    public synchronized void run2() {
+        doExcellent(new BufferedReaderAsStreamFileRead().fileReader(this.dirPath, this.fileName));
     }
 
-    private void printModifiedFile(@org.jetbrains.annotations.NotNull File textFile) throws IOException {
-        List<String> lines;
-        try {
-            lines = Files.readAllLines(textFile.toPath());
-            lines.forEach(line -> System.out.println(stringModifier(line)));
-        } catch (IOException e) {
-            throw new IOException();
-        }
+    // using nio
+    public synchronized void run3() {
+        doExcellent(new NIOFileRead().fileReader(this.dirPath, this.fileName));
     }
 
-    private void printModifiedInputStream(InputStream inputStream) throws IOException {
-        try (
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
-            String line;
-            while (null != (line = bufferedReader.readLine())) {
-                System.out.println(stringModifier(line));
-            }
-        } catch (IOException e) {
-            throw new IOException();
-        }
+    // using InputStreamReader
+    public synchronized void run4() {
+        doExcellent(new InputStreamReaderFileRead().fileReader(this.dirPath, this.fileName));
     }
 
-    // returns string without '.' and ',' symbols
-    private String stringModifier(String str) {
-        return str.replaceAll("[,.]", "");
+    // prints all files and subdirectories from set directory
+    public void showDir() {
+        DirectoryScan.scanDir(this.dirPath);
+    }
+
+    private boolean isNotEmpty(String res) {
+        return !res.equals("");
+    }
+
+    private boolean isNotExists(String res) {
+        return res == null;
+    }
+
+    private void doExcellent(String result) {
+        if (isNotExists(result)) {
+            System.out.println("File " + this.fileName + " not found at: " + this.dirPath);
+        } else if (isNotEmpty(result)) {
+            printModifiedString(result);
+        } else System.out.println(FILE_IS_EMPTY);
     }
 
 }

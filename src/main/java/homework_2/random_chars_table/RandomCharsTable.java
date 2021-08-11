@@ -29,7 +29,6 @@ public class RandomCharsTable {
             printRandomAndGenerateResult(tableLength, tableWidth, strategy);
         } catch (NullPointerException | ValidationException e) {
             System.out.println(FORMAT_ERROR);
-            return;
         }
     }
 
