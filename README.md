@@ -12,6 +12,7 @@
 | HW3.2 | [JUnit Tests](./src/test/java/homework_2) | Tests for homework2.  |
 | HW4.1 | [CustomFileReader](./src/main/java/homework_4/customFileReader) | Here you can see 4 different ways to read text from file.txt.  |
 | HW4.2 | [Singleton](./src/main/java/homework_4/singleton) | Basic and Thread-safe examples of Singleton.  |
+| HW4.2 | [CustomAnnotation](./src/main/java/homework_4/customAnnotation) | This is an example of creating and using custom Annotations.  |
 
 [Link to my CodingBat](https://codingbat.com/done?user=ashandrikov@gmail.com&tag=8115696431)
 

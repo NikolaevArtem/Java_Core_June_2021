@@ -1,33 +1,63 @@
 package homework_4.customFileReader;
 
+import base.UnitBase;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CustomFileReaderTest {
+class CustomFileReaderTest extends UnitBase {
 
-    private final String expected = "Я вас любил: любовь еще быть может\n" +
-            "В душе моей угасла не совсем;\n" +
-            "Но пусть она вас больше не тревожит;\n" +
-            "Я не хочу печалить вас ничем\n";
+    private final String[] expected = new String[]
+            {"Я вас любил: любовь еще быть может",
+            "В душе моей угасла не совсем;",
+            "Но пусть она вас больше не тревожит;",
+            "Я не хочу печалить вас ничем"};
+
+    private String filename = "src/main/resources/custom_file_reader/file.txt";
+    private Path path = Paths.get(filename);
 
     @Test
-    void run1() {
-        assertEquals(expected.trim(), new CustomFileReader().run1().replaceAll("\r", ""));
+    void givenTextFile_whenRun1_thenEquals() throws IOException {
+        new CustomFileReader(filename).run1();
+        assertEquals(Arrays.toString(expected), Arrays.toString(getOutputLines()));
     }
 
     @Test
-    void run2() {
-        assertEquals(expected, new CustomFileReader().run2());
+    void givenTextFile_whenRun2_thenEquals() throws IOException {
+        new CustomFileReader(filename).run2();
+        assertEquals(Arrays.toString(expected), Arrays.toString(getOutputLines()));
     }
 
     @Test
-    void run3() {
-        assertEquals(expected, new CustomFileReader().run3());
+    void givenTextFile_whenRun3_thenEquals() throws IOException {
+        new CustomFileReader(path).run3();
+        assertEquals(Arrays.toString(expected), Arrays.toString(getOutputLines()));
     }
 
     @Test
-    void run4() {
-        assertEquals(expected.trim(), new CustomFileReader().run4().replaceAll("\r", ""));
+    void givenTextFile_whenRun4_thenEquals() throws IOException {
+        new CustomFileReader(path).run4();
+        assertEquals(Arrays.toString(expected), Arrays.toString(getOutputLines()));
+    }
+
+    @Test
+    void givenNotExistingFile_whenRun_thenException() {
+
+        filename = "src/main/resources/custom_file_reader/fileX.txt";
+        path = Paths.get("src/main/resources/custom_file_reader/fileX.txt");
+
+        Assertions.assertThrows(FileNotFoundException.class, () -> new CustomFileReader(filename).run1());
+        Assertions.assertThrows(FileNotFoundException.class, () -> new CustomFileReader(filename).run2());
+
+        Assertions.assertThrows(NoSuchFileException.class, () -> new CustomFileReader(path).run3());
+        Assertions.assertThrows(NoSuchFileException.class, () -> new CustomFileReader(path).run4());
     }
 }

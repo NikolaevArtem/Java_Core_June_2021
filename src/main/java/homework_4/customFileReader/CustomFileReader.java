@@ -1,89 +1,71 @@
 package homework_4.customFileReader;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class CustomFileReader {
 
-    private static final String filename = "src/main/resources/custom_file_reader/file.txt";
-    private final StringBuilder result = new StringBuilder("");
+    private String filename;
+    private Path path;
 
-    public String run1() {
+    private final StringBuilder result = new StringBuilder();
 
-        try(FileReader reader = new FileReader(filename)){
+    public CustomFileReader(String filename) {
+        this.filename = filename;
+    }
+
+    public CustomFileReader(Path path) {
+        this.path = path;
+    }
+
+    public void run1() throws IOException {
+
+        try (FileReader reader = new FileReader(filename)) {
             int ch;
-            while ((ch = reader.read()) != -1){
-                char x = (char)ch;
+            while ((ch = reader.read()) != -1) {
+                char x = (char) ch;
                 if (x == '.' || x == ',') {
                     continue;
                 }
                 result.append(x);
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
         System.out.println(result);
-        return result.toString();
     }
 
-    public String run2() {
+    public void run2() throws IOException {
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))){
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 line = line.replaceAll("[,.]", "");
                 result.append(line + "\n");
-
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
         System.out.println(result);
-        return result.toString();
     }
 
-    public String run3(){
+    public void run3() throws IOException {
 
-        Path path = Paths.get(filename);
-
-        try (Scanner scanner =  new Scanner(path)){
+        try (Scanner scanner = new Scanner(path)) {
             String line;
-            while (scanner.hasNextLine()){
+            while (scanner.hasNextLine()) {
                 line = scanner.nextLine().replaceAll("[,.]", "");
                 result.append(line + "\n");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
         System.out.println(result);
-        return result.toString();
     }
 
-    public String run4(){
+    public void run4() throws IOException {
 
-        String content;
-        Path path = Paths.get(filename);
-
-        try {
-            content = new String(Files.readAllBytes(path));
-            content = content.replaceAll("[,.]", "");
-            result.append(content);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        String content = new String(Files.readAllBytes(path));
+        content = content.replaceAll("[,.]", "");
+        result.append(content);
         System.out.println(result);
-        return result.toString();
     }
 }
