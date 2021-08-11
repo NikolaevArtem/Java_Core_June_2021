@@ -2,19 +2,18 @@ package homework_4.custom_annotation;
 
 import base.UnitBase;
 import org.junit.jupiter.api.Test;
-
 import java.time.DayOfWeek;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ChairConstructorTest extends UnitBase {
+public class ChairConstructorAnnotationTest extends UnitBase {
 
     @Test
     void givenAnnotationParameters_whenCreateNewClass_thenFieldsAreDifferent() {
 
         class CheapChair extends Chair { }
 
-        @ChairConstructor(hasBack = true, dayOfProducing = DayOfWeek.TUESDAY)
+        @ChairConstructorAnnotation(hasBack = true, dayOfProducing = DayOfWeek.TUESDAY)
         class ChairWithBack extends Chair { }
 
         Chair cheap = new CheapChair();
@@ -29,7 +28,7 @@ public class ChairConstructorTest extends UnitBase {
     @Test
     void givenAnnotationParameters_whenCreateClassAndExtendThisClass_thenFieldsAreInherited() {
 
-        @ChairConstructor(shape = "circle",
+        @ChairConstructorAnnotation(shape = "circle",
                 materials = {"wood", "cotton", "pad", "plastic"},
                 hasBack = true,
                 dayOfProducing = DayOfWeek.THURSDAY)
@@ -52,14 +51,14 @@ public class ChairConstructorTest extends UnitBase {
     @Test
     void givenOneAnnotationParameterForExtendingClass_whenCreateClass_thenRestFieldAreDefault() {
 
-        @ChairConstructor(shape = "circle",
+        @ChairConstructorAnnotation(shape = "circle",
                 legs = 3,
                 materials = {"steel", "cotton", "pad", "plastic"},
                 hasBack = true,
                 dayOfProducing = DayOfWeek.THURSDAY)
         class SoftChair extends Chair { }
 
-        @ChairConstructor(dayOfProducing = DayOfWeek.FRIDAY)
+        @ChairConstructorAnnotation(dayOfProducing = DayOfWeek.FRIDAY)
         class AnotherSoftChair extends SoftChair {
         }
 

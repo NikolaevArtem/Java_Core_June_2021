@@ -1,9 +1,7 @@
 package homework_4.custom_file_reader;
 
-
 import base.UnitBase;
 import org.junit.jupiter.api.Test;
-
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

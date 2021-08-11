@@ -3,7 +3,7 @@ package homework_4.custom_annotation;
 import java.time.DayOfWeek;
 import java.util.Arrays;
 
-@ChairConstructor(dayOfProducing = DayOfWeek.MONDAY)
+@ChairConstructorAnnotation(dayOfProducing = DayOfWeek.MONDAY)
 public abstract class Chair {
 
     final int legs;
@@ -13,7 +13,7 @@ public abstract class Chair {
     final DayOfWeek dayOfProducing;
 
     public Chair() {
-        ChairConstructor ca = this.getClass().getAnnotation(ChairConstructor.class);
+        ChairConstructorAnnotation ca = this.getClass().getAnnotation(ChairConstructorAnnotation.class);
         this.legs = ca.legs();
         this.hasBack = ca.hasBack();
         this.materials = ca.materials();

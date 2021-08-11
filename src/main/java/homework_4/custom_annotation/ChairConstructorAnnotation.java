@@ -1,13 +1,12 @@
 package homework_4.custom_annotation;
 
-import java.awt.*;
 import java.lang.annotation.*;
 import java.time.DayOfWeek;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
 @Inherited
-public @interface ChairConstructor {
+public @interface ChairConstructorAnnotation {
 
     int legs() default 4;
     boolean hasBack() default false;
