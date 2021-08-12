@@ -6,19 +6,23 @@ import java.lang.reflect.Field;
 public class InfoProcessor {
 
     public void printInfo(Object o) {
-        Class<?> processingClass = o.getClass();
-        for (Field f : processingClass.getFields()) {
-            try {
-                if (f.isAnnotationPresent(Info.class) && f.get(o) != null) {
-                    if (f.getType().isArray()) {
-                        System.out.println(f.getName() + " = {" + arrayToString(f.get(o)) + "} ");
-                    } else {
-                        System.out.println(f.getName() + " = " + f.get(o) + " ");
+        if (o != null) {
+            Class<?> processingClass = o.getClass();
+            for (Field f : processingClass.getFields()) {
+                try {
+                    if (f.isAnnotationPresent(Info.class) && f.get(o) != null) {
+                        if (f.getType().isArray()) {
+                            System.out.println(f.getName() + " = {" + arrayToString(f.get(o)) + "} ");
+                        } else {
+                            System.out.println(f.getName() + " = " + f.get(o) + " ");
+                        }
                     }
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
                 }
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
             }
+        } else {
+            System.out.println("Object is null");
         }
     }
 
