@@ -117,7 +117,6 @@ public class ChairConstructorAnnotationTest extends UnitBase {
             @Info
             public String breed = "Unknown";
 
-
             public Cat(int age, String name) {
                 this.age = age;
                 this.name = name;
