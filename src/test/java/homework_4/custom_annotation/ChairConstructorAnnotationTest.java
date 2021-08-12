@@ -8,21 +8,33 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ChairConstructorAnnotationTest extends UnitBase {
 
+    private final InfoProcessor infoProcessor = new InfoProcessor();
+
     @Test
-    void givenAnnotationParameters_whenCreateNewClass_thenFieldsAreDifferent() {
+    void givenAnnotationParameters_whenCreateNewClass_thenSomeFieldsAreDifferent() {
 
         class CheapChair extends Chair { }
 
         @ChairConstructorAnnotation(hasBack = true, dayOfProducing = DayOfWeek.TUESDAY)
         class ChairWithBack extends Chair { }
 
-        Chair cheap = new CheapChair();
-        Chair withBack = new ChairWithBack();
+        final Chair cheap = new CheapChair();
+        final Chair withBack = new ChairWithBack();
+        infoProcessor.printInfo(cheap);
+        infoProcessor.printInfo(withBack);
+        getOutput();
 
-        assertFalse(cheap.hasBack);
-        assertEquals(DayOfWeek.MONDAY, cheap.dayOfProducing);
-        assertTrue(withBack.hasBack);
-        assertEquals(DayOfWeek.TUESDAY, withBack.dayOfProducing);
+        assertEquals("legs = 4", getOutputLines()[0].trim());
+        assertEquals("hasBack = false", getOutputLines()[1].trim());
+        assertEquals("shape = square", getOutputLines()[2].trim());
+        assertEquals("materials = {wood}", getOutputLines()[3].trim());
+        assertEquals("dayOfProducing = MONDAY", getOutputLines()[4].trim());
+
+        assertEquals("legs = 4", getOutputLines()[5].trim());
+        assertEquals("hasBack = true", getOutputLines()[6].trim());
+        assertEquals("shape = square", getOutputLines()[7].trim());
+        assertEquals("materials = {wood}", getOutputLines()[8].trim());
+        assertEquals("dayOfProducing = TUESDAY", getOutputLines()[9].trim());
     }
 
     @Test
@@ -37,15 +49,23 @@ public class ChairConstructorAnnotationTest extends UnitBase {
         class AnotherSoftChair extends SoftChair {
         }
 
-        Chair softChair = new SoftChair();
-        Chair anotherChair = new AnotherSoftChair();
+        final Chair softChair = new SoftChair();
+        final Chair anotherChair = new AnotherSoftChair();
+        infoProcessor.printInfo(softChair);
+        infoProcessor.printInfo(anotherChair);
+        getOutput();
 
-        assertEquals("circle", anotherChair.shape);
-        assertEquals(anotherChair.hasBack, softChair.hasBack);
-        assertArrayEquals(softChair.materials, anotherChair.materials);
-        assertEquals(softChair.dayOfProducing, anotherChair.dayOfProducing);
-        assertEquals(softChair.legs, anotherChair.legs);
+        assertEquals("legs = 4", getOutputLines()[0].trim());
+        assertEquals("hasBack = true", getOutputLines()[1].trim());
+        assertEquals("shape = circle", getOutputLines()[2].trim());
+        assertEquals("materials = {wood, cotton, pad, plastic}", getOutputLines()[3].trim());
+        assertEquals("dayOfProducing = THURSDAY", getOutputLines()[4].trim());
 
+        assertEquals("legs = 4", getOutputLines()[5].trim());
+        assertEquals("hasBack = true", getOutputLines()[6].trim());
+        assertEquals("shape = circle", getOutputLines()[7].trim());
+        assertEquals("materials = {wood, cotton, pad, plastic}", getOutputLines()[8].trim());
+        assertEquals("dayOfProducing = THURSDAY", getOutputLines()[9].trim());
     }
 
     @Test
@@ -62,21 +82,55 @@ public class ChairConstructorAnnotationTest extends UnitBase {
         class AnotherSoftChair extends SoftChair {
         }
 
-        class DefaultChair extends Chair { }
+        final Chair softChair = new SoftChair();
+        final Chair anotherChair = new AnotherSoftChair();
+        infoProcessor.printInfo(softChair);
+        infoProcessor.printInfo(anotherChair);
+        getOutput();
 
-        Chair softChair = new SoftChair();
-        Chair anotherChair = new AnotherSoftChair();
-        Chair defaultChair = new DefaultChair();
+        assertEquals("legs = 3", getOutputLines()[0].trim());
+        assertEquals("hasBack = true", getOutputLines()[1].trim());
+        assertEquals("shape = circle", getOutputLines()[2].trim());
+        assertEquals("materials = {steel, cotton, pad, plastic}", getOutputLines()[3].trim());
+        assertEquals("dayOfProducing = THURSDAY", getOutputLines()[4].trim());
 
-        assertNotEquals(softChair.hasBack, anotherChair.hasBack);
-        assertNotEquals(softChair.shape, anotherChair.shape);
-        assertNotEquals(softChair.legs, anotherChair.legs);
-        assertNotEquals(softChair.dayOfProducing, anotherChair.dayOfProducing);
+        assertEquals("legs = 4", getOutputLines()[5].trim());
+        assertEquals("hasBack = false", getOutputLines()[6].trim());
+        assertEquals("shape = square", getOutputLines()[7].trim());
+        assertEquals("materials = {wood}", getOutputLines()[8].trim());
+        assertEquals("dayOfProducing = FRIDAY", getOutputLines()[9].trim());
+    }
 
-        assertEquals(defaultChair.legs, anotherChair.legs);
-        assertEquals(defaultChair.shape, anotherChair.shape);
-        assertEquals(defaultChair.hasBack, anotherChair.hasBack);
-        assertEquals(defaultChair.materials[0], anotherChair.materials[0]);
-        assertEquals(DayOfWeek.FRIDAY, anotherChair.dayOfProducing);
+    @Test
+    void givenNonChairClass_whenPrintInfo_thenPrintRightFields() {
+
+        class Cat {
+
+            @Info
+            public final int age;
+            @Info
+            public final String name;
+            public String favoriteFood = "Sour cream";
+            @Info
+            public String[] toys; //won't be printed cause is null
+            public boolean isFat;
+            @Info
+            public String breed = "Unknown";
+
+
+            public Cat(int age, String name) {
+                this.age = age;
+                this.name = name;
+            }
+        }
+
+        Cat cat = new Cat(6, "Russian Cat Shlyopa");
+        infoProcessor.printInfo(cat);
+        getOutput();
+
+        assertEquals("age = 6", getOutputLines()[0].trim());
+        assertEquals("name = Russian Cat Shlyopa", getOutputLines()[1].trim());
+        assertEquals("breed = Unknown", getOutputLines()[2].trim());
+        assertEquals(3, getOutputLines().length);
     }
 }
