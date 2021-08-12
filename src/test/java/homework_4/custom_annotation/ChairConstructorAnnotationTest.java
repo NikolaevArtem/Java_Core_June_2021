@@ -124,7 +124,7 @@ public class ChairConstructorAnnotationTest extends UnitBase {
             }
         }
 
-        Cat cat = new Cat(6, "Russian Cat Shlyopa");
+        final Cat cat = new Cat(6, "Russian Cat Shlyopa");
         infoProcessor.printInfo(cat);
         getOutput();
 
