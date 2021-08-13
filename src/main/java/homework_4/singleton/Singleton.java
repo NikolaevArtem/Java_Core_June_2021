@@ -1,8 +1,8 @@
 package homework_4.singleton;
 
 import lombok.Data;
-
 import java.util.Random;
+
 
 @Data
 public class Singleton {
@@ -12,6 +12,7 @@ public class Singleton {
 
     public void run() {
         Singleton singleGameHero2 = Singleton.getInstance("Ilya");
+
         System.out.println(this.hashCode() + ", age: " + this.getAge() + ", name: " + this.getName());
         System.out.println(singleGameHero2.hashCode() + ", age: " + singleGameHero2.getAge() + ", name: " + singleGameHero2.getName());
     }
@@ -34,7 +35,6 @@ public class Singleton {
                 }
             }
         }
-
         return localGameHero;
     }
 }
