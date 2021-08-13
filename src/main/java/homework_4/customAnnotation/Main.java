@@ -3,13 +3,13 @@ package homework_4.customAnnotation;
 import java.lang.reflect.Method;
 
 public class Main {
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException {
 
         Coffee myCoffee = new Coffee();
 
-        System.out.println("Size: " + myCoffee.getSize());
-        System.out.println("With milk: " + myCoffee.isHasMilk());
-        System.out.println("Price: " + myCoffee.getPrice() + "₽");
+        System.out.println("Size: " + myCoffee.size);
+        System.out.println("With milk: " + myCoffee.hasMilk);
+        System.out.println("Price: " + myCoffee.price + "₽");
 
         myCoffee.askForCoffee();
         System.out.println();
@@ -27,4 +27,5 @@ public class Main {
         System.out.println("Making nice coffee...");
         System.out.println("Stop making coffee - " + hasStop);
     }
+
 }

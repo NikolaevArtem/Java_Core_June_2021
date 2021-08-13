@@ -12,4 +12,5 @@ class SingletonTest {
         Singleton singleton2 = Singleton.getInstance();
         assertEquals(singleton, singleton2);
     }
+
 }

@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CoffeeTest extends UnitBase {
 
     @Test
-    void givenDefault_whenMainRun_thenStandartOutput() throws ClassNotFoundException {
+    void givenDefault_whenMainRun_thenStandartOutput() throws ClassNotFoundException, NoSuchMethodException {
         new Main().main(new String[]{});
         assertEquals("Size: MEDIUM", getOutputLines()[0]);
         assertEquals("With milk: false", getOutputLines()[1]);
@@ -25,7 +25,7 @@ class CoffeeTest extends UnitBase {
 
         assertFalse(myCoffee.hasMilk);
         assertEquals(100, myCoffee.price);
-        assertEquals("MEDIUM", myCoffee.getSize().toString());
+        assertEquals("MEDIUM", myCoffee.size.toString());
     }
 
     @Test
@@ -38,7 +38,7 @@ class CoffeeTest extends UnitBase {
 
         assertTrue(myCoffee.hasMilk);
         assertEquals(200, myCoffee.price);
-        assertEquals("SMALL", myCoffee.getSize().toString());
+        assertEquals("SMALL", myCoffee.size.toString());
     }
 
 }

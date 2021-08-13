@@ -14,6 +14,7 @@ public class Singleton {
         }
         return uniqueInstance;
     }
+    
 }
 
 //Thread safe realization of Singleton
@@ -32,4 +33,5 @@ class SingletonThreadSafe {
         }
         return uniqueInstance;
     }
+
 }

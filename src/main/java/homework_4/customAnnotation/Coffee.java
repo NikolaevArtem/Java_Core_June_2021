@@ -1,9 +1,5 @@
 package homework_4.customAnnotation;
 
-import lombok.Data;
-import lombok.SneakyThrows;
-
-@Data
 @ClassCoffeeAnnotation(price = 100)
 public class Coffee {
     int price;
@@ -18,9 +14,8 @@ public class Coffee {
         this.size = annotation.size();
     }
 
-    @SneakyThrows
     @AskForCoffeeAnnotation("Give me please this one!")
-    public void askForCoffee(){
+    public void askForCoffee() throws NoSuchMethodException {
         System.out.println(this.getClass().getMethod("askForCoffee").getDeclaredAnnotation(AskForCoffeeAnnotation.class).value());
     }
 
@@ -33,6 +28,7 @@ public class Coffee {
     public void stopCoffee(){
         //Some business logic
     }
+
 }
 
 

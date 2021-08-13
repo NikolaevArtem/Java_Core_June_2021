@@ -7,11 +7,9 @@ import org.junit.jupiter.api.Test;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CustomFileReaderTest extends UnitBase {
 
@@ -22,7 +20,6 @@ class CustomFileReaderTest extends UnitBase {
             "Я не хочу печалить вас ничем"};
 
     private String filename = "src/main/resources/custom_file_reader/file.txt";
-    private Path path = Paths.get(filename);
 
     @Test
     void givenTextFile_whenRun1_thenEquals() throws IOException {
@@ -38,13 +35,13 @@ class CustomFileReaderTest extends UnitBase {
 
     @Test
     void givenTextFile_whenRun3_thenEquals() throws IOException {
-        new CustomFileReader(path).run3();
+        new CustomFileReader(filename).run3();
         assertEquals(Arrays.toString(expected), Arrays.toString(getOutputLines()));
     }
 
     @Test
     void givenTextFile_whenRun4_thenEquals() throws IOException {
-        new CustomFileReader(path).run4();
+        new CustomFileReader(filename).run4();
         assertEquals(Arrays.toString(expected), Arrays.toString(getOutputLines()));
     }
 
@@ -52,12 +49,12 @@ class CustomFileReaderTest extends UnitBase {
     void givenNotExistingFile_whenRun_thenException() {
 
         filename = "src/main/resources/custom_file_reader/fileX.txt";
-        path = Paths.get("src/main/resources/custom_file_reader/fileX.txt");
 
         Assertions.assertThrows(FileNotFoundException.class, () -> new CustomFileReader(filename).run1());
         Assertions.assertThrows(FileNotFoundException.class, () -> new CustomFileReader(filename).run2());
 
-        Assertions.assertThrows(NoSuchFileException.class, () -> new CustomFileReader(path).run3());
-        Assertions.assertThrows(NoSuchFileException.class, () -> new CustomFileReader(path).run4());
+        Assertions.assertThrows(NoSuchFileException.class, () -> new CustomFileReader(filename).run3());
+        Assertions.assertThrows(NoSuchFileException.class, () -> new CustomFileReader(filename).run4());
     }
+
 }

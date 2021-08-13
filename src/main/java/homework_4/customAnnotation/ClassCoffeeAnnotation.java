@@ -12,7 +12,6 @@ public @interface ClassCoffeeAnnotation {
     Size size() default Size.MEDIUM;
     boolean hasMilk() default false;
     int price();
-
 }
 
 @Retention(RetentionPolicy.RUNTIME)
