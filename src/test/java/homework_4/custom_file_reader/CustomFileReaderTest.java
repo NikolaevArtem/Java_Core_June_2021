@@ -1,11 +1,9 @@
 package homework_4.custom_file_reader;
 
 import org.junit.jupiter.api.Test;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -28,9 +26,15 @@ class CustomFileReaderTest {
     }
 
     @Test
-    void testWrongCaseFileReaderCustomFileReader() {
+    void testWrongCase1FileReaderCustomFileReader() {
         CustomFileReader cfr = new CustomFileReader();
         assertThrows(IOException.class, () -> cfr.readFileFileReader("src/main/resources/custom_file_reader1.txt"));
+    }
+
+    @Test
+    void testWrongCase2FileReaderCustomFileReader() {
+        CustomFileReader cfr = new CustomFileReader();
+        assertThrows(NullPointerException.class, () -> cfr.getFile(null));
     }
 
     @Test
