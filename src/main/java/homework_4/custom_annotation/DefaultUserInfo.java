@@ -1,4 +1,4 @@
-package homework_4.annotation;
+package homework_4.custom_annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

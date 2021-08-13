@@ -1,7 +1,7 @@
-package homework_4_test.annotation;
+package homework_4_test.custom_annotation;
 
-import homework_4.annotation.DefaultUserInfo;
-import homework_4.annotation.Profile;
+import homework_4.custom_annotation.DefaultUserInfo;
+import homework_4.custom_annotation.Profile;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

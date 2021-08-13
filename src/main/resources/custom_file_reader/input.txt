@@ -1,0 +1,2 @@
+Hello there! I'm a test string.
+Don't be rude with me, please.

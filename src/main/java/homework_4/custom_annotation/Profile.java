@@ -1,9 +1,6 @@
-package homework_4.annotation;
+package homework_4.custom_annotation;
 
-@DefaultUserInfo(
-        name = "Nikita",
-        id = 1
-)
+@DefaultUserInfo(name = "Nikita", id = 1)
 public class Profile {
 
     private final String name;
