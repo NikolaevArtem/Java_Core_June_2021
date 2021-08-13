@@ -1,16 +1,22 @@
 package homework_4.custom_annotation;
 
-@CustomAnnotation
+
 public class HelloGenerator {
     private String name;
     private int age;
 
+    @CustomAnnotation
     public HelloGenerator(String name, int age) {
         if (name == null || name.isEmpty()) {
-            CustomAnnotation customAnnotation = (CustomAnnotation) this.getClass().getDeclaredAnnotations()[0];
-            this.name = customAnnotation.name();
-        } else {
-            this.name = name;
+            String temp;
+            try {
+                CustomAnnotation customAnnotation = (CustomAnnotation) this.getClass().getConstructor().getDeclaredAnnotations()[0];
+                // this.name = customAnnotation.name();
+                temp = customAnnotation.name();
+            } catch (NoSuchMethodException e) {
+                temp = "Aristarch";
+            }
+            this.name = temp;
         }
         this.age = age;
     }
@@ -24,7 +30,7 @@ public class HelloGenerator {
     }
 
     public static void main(String[] args) {
-        HelloGenerator helloGenerator = new HelloGenerator("", 16);
+        HelloGenerator helloGenerator = new HelloGenerator(null, 16);
         System.out.println(helloGenerator);
     }
 

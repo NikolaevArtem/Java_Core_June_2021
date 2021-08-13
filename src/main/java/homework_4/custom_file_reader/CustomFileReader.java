@@ -13,8 +13,11 @@ public class CustomFileReader {
 
     public void run1() {
         try (Scanner input = new Scanner(new File(GLOBAL_PATH))) {
-            String line = input.nextLine().replace(",", "");
-            String output = line.replace(".", "");
+            String output = "";
+            while (input.hasNext()) {
+                output = output.concat(input.nextLine().replace(",", "") + "\n");
+            }
+            output = output.replace(".", "").trim();
             System.out.println(output);
         } catch (FileNotFoundException e) {
             System.out.println("File not found.");
@@ -24,10 +27,14 @@ public class CustomFileReader {
     public void run2() {
         StringBuilder contents = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(GLOBAL_PATH))) {
-            String file = "";
-            while ((file = reader.readLine()) != null) {
-                System.out.println(contents.append(file.replaceAll("[,.]", "")));
+            String check;
+            String space = "";
+            while ((check = reader.readLine()) != null) {
+                contents.append(space);
+                contents.append(check.replaceAll("[,.]", ""));
+                space = "\n";
             }
+            System.out.println(contents);
         } catch (IOException e) {
             System.out.println("File not found.");
         }
