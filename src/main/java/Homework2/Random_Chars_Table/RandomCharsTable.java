@@ -3,22 +3,19 @@ package Homework2.Random_Chars_Table;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class RandomCharsTable {
     int length = 0;
     int height = 0;
     String input = "";
 
-    //получаю случайные числа
     static char getRandomChar(int min, int max) {
-        min = 65;
-        max = 90;
         max -= min;
         char randomCh = (char) ((int) (Math.random() * ++max) + min);
         return randomCh;
     }
 
-    //складываю случайые числа в массив  и делаю из них буквы
     public static char[][] getRandomCharsTable(int length, int height) {
         char[][] randomCharTable = new char[length][height];
         for (int i = 0; i < length; i++) {
@@ -30,26 +27,19 @@ public class RandomCharsTable {
         return randomCharTable;
     }
 
-    public boolean isValid() {
+    private boolean isValid(String input) {
+        return (input.matches("\\d+\\s\\d+\\sodd") || input.matches("\\d+\\s\\d+\\seven")
+                && height >= 0 && length >= 0);
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        try (reader) {
-            input = reader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (input.matches("\\d+\\s\\d+\\sodd") || input.matches("\\d+\\s\\d+\\seven")
-                && height >= 0 && length >= 0) {
-            return true;
-        } else
-
-            return false;
     }
 
-    //вся движуха с проверкой стратегии и чёт/нечёт
+
     public void run() {
         String strategy = "";
-        if (!isValid()) {
+        Scanner scanner = new Scanner(System.in);
+        input = scanner.nextLine();
+
+        if (!isValid(input)) {
             System.out.println("The line you entered does not fit the pattern");
         } else {
             String[] split = input.split(" ");
@@ -59,8 +49,7 @@ public class RandomCharsTable {
         }
 
         StringBuilder buildTable = new StringBuilder();
-
-        char[][] rCT = RandomCharsTable.getRandomCharsTable(length, height);
+        char[][] rCT = getRandomCharsTable(length, height);
 
         for (char[] ch : rCT) {
             buildTable.append("| ");
@@ -69,7 +58,7 @@ public class RandomCharsTable {
             }
             buildTable.append("\n");
         }
-        System.out.println(buildTable.toString());
+        System.out.println(buildTable);
 
         StringBuilder buildResult = new StringBuilder();
         if (strategy.equals("odd")) {
@@ -82,7 +71,6 @@ public class RandomCharsTable {
                 }
             }
         }
-        System.out.println(buildResult.toString());
 
         if (strategy.equals("even")) {
             buildResult.append("Even letters - ");
@@ -97,6 +85,26 @@ public class RandomCharsTable {
         System.out.println(buildResult.toString());
     }
 
+//    private String getResult(String strategy, char[][] rCT) {
+//        StringBuilder buildResult = new StringBuilder();
+//        String result = "";
+//
+//        for (int i = 0; i < length; i++) {
+//            for (int j = 0; j < height; j++) {
+//                if (rCT[i][j] % 2 == 0 && strategy.equals("odd")) {
+//                    buildResult.append("Odd letters - ");
+//                    buildResult.append(rCT[i][j]).append(" ");
+//                    result = buildResult.toString();
+//                } else {
+//                    buildResult.append("Even letters - ");
+//                    buildResult.append(rCT[i][j]).append(" ");
+//                    result = buildResult.toString();
+//                }
+//            }
+//        } return result;
+//
+//    }
 }
+
 
 

@@ -30,10 +30,10 @@ public class PyramidPrinter {
             size = Integer.parseInt(reader.readLine());
         } catch (IOException e) {
             System.out.println("Some problem with input stream: " + e.getMessage());
-            throw  new RuntimeException();
+            return;
         } catch (NumberFormatException e){
             System.out.println("The line you entered is not valid");
-            throw new RuntimeException();
+            return;
         }
 
         char[][] pyramidArray = getPyramidArray(size);
@@ -42,6 +42,7 @@ public class PyramidPrinter {
             System.out.println(c);
         }
     }
+
 }
 
 
