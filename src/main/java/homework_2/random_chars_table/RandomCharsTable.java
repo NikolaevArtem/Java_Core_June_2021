@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class RandomCharsTable {
 
     private boolean isEven;
-    int rows, columns;
+    private int rows, columns;
     private char[][] randomCharsTable;
     private final ArrayList<Character> selectedChars = new ArrayList<>();
 
@@ -46,7 +46,7 @@ public class RandomCharsTable {
     private void findSelectedChars() {
         for (char[] row : randomCharsTable) {
             for (char ch : row) {
-                if ((isEven && (int) ch % 2 == 0) || (!isEven && (int) ch % 2 == 1)) {
+                if ((isEven && ch % 2 == 0) || (!isEven && ch % 2 == 1)) {
                     selectedChars.add(ch);
                 }
             }
