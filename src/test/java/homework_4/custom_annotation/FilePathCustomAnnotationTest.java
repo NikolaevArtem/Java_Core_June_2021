@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FilePathCustomAnnotationTest extends UnitBase {
 
-    public final String DEFAULT_FILE_PATH_TEST = "./src/main/resources/custom_file_reader/testFile.txt";
+    private final String DEFAULT_FILE_PATH_TEST = "./src/main/resources/custom_file_reader/testFile.txt";
 
     @Test
     void testAnnotation() {
