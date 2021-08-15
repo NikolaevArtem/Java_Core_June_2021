@@ -9,5 +9,10 @@
 |     | [Pyramid printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_2/pyramid_printer) | The app that prints a pyramid based on user input |
 |     | [Random Chars Table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_2/random_chars_table) | The app that reads length, width, strategy from the console generates the table and prints even/odd letters |
 | HW3 | [ImmutableClass](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_3) | Immutable Class "Book" |
+| HW4 | [CustomFileReader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_4/custom_file_reader) |The app that reads the file in different ways and prints the text without(, .) |
+|     | [CustomSingleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_4/singleton) | Custom Singleton |
+|     | [CustomAnnotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_4/custom_annotation) | Custom Annotation  |
 
 [Link to markdown guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+[CodingBat](https://codingbat.com/done?user=asadulaevgamzat@gmail.com&tag=2887423202)
