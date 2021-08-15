@@ -12,6 +12,7 @@
 | HW3 | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/test/java/homework_2/) | HW_2 Tests |
 | HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/main/java/homework_4/singleton) | Singleton|
 | HW4 | [CustomAnnotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/main/java/homework_4/homework_4/сustom_annotation) | CustomAnnotation|
+| HW4 | [CustomFileReader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/main/java/homework_4/homework_4/custom_file_reader) | CustomFileReader|
 | HW4 | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/test/java/homework_4) | HW_4 Tests|
 
 
