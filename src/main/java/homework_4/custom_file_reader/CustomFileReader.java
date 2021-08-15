@@ -8,13 +8,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class CustomFileReader {
-    private final Path filePath = Paths.get("C:\\Java_Core_June_2021\\src\\main\\resources\\custom_file_reader\\test_file");
+    public String filePath = "C:\\Java_Core_June_2021\\src\\main\\resources\\custom_file_reader\\test_file";
 
     public void run() {
+        if (filePath == null) return;
 
-        if (Files.exists(filePath)) {
+        if (Files.exists(Paths.get(filePath))) {
             try {
-                byte[] bytes = Files.readAllBytes(filePath);
+                byte[] bytes = Files.readAllBytes(Paths.get(filePath));
                 String text = new String(bytes, StandardCharsets.UTF_8);
                 String resul = text.replaceAll("[,.]", "");
                 System.out.println(resul);
@@ -25,7 +26,9 @@ public class CustomFileReader {
     }
 
     public void run2() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(filePath)));
+        if (filePath == null) return;
+
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
         StringBuilder string = new StringBuilder();
 
         while (reader.ready()) {
@@ -37,7 +40,9 @@ public class CustomFileReader {
     }
 
     public void run3() throws IOException {
-        FileReader reader = new FileReader(String.valueOf(filePath));
+        if (filePath == null) return;
+
+        FileReader reader = new FileReader(filePath);
         StringBuffer stringBuffer = new StringBuffer();
 
         while (reader.ready()) {
@@ -48,8 +53,16 @@ public class CustomFileReader {
                 stringBuffer.append((char) scan);
             }
         }
-
         reader.close();
         System.out.println(stringBuffer);
     }
+
+    //test helper
+    public void changeFileText(String text) throws IOException {
+        FileWriter writer = new FileWriter(filePath);
+        if (text == null) return;
+        writer.write(text);
+        writer.close();
+    }
+
 }
