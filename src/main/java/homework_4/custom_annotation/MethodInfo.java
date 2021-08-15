@@ -6,10 +6,9 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD})
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MethodInfoCustomAnnotation {
+public @interface MethodInfo {
     String author() default "Khlebnikov Evgeniy";
-    String date();
     int version() default 1;
     boolean suppressExceptions() default false;
-    String comments();
+    String description();
 }

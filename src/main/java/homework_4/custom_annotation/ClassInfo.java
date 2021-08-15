@@ -9,9 +9,9 @@ import java.util.Calendar;
 @Target(ElementType.TYPE)
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ClassInfoCustomAnnotation {
+public @interface ClassInfo {
     String author() default "Khlebnikov Evgeniy";
     String date();
     int version() default 1;
-    String description();
+    String specification();
 }
