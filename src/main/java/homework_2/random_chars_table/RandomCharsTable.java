@@ -1,4 +1,4 @@
-package Homework_2.random_chars_table;
+package homework_2.random_chars_table;
 
 
 import java.util.Scanner;
@@ -7,7 +7,7 @@ public class RandomCharsTable {
     protected static final int MIN_ASCII_CODE = 65;
     protected static final int MAX_ASCII_CODE = 90;
 
-    protected void run(){
+    public void run(){
 
         System.out.println("Enter the dimensions of matrix and required strategy : two integers and required strategy - even|odd, delimiter - space character))");
 
@@ -15,7 +15,7 @@ public class RandomCharsTable {
         String inString = scanner.nextLine();
         String tempStr = "";
         char c;
-        int col=0; int row=0;
+        int cols =0; int rows =0;
         String strategy = "";
         int paramCount=0;
                 // parse of input procedure
@@ -27,13 +27,13 @@ public class RandomCharsTable {
                 }
                 else {
                     if(paramCount == 0) {
-                        col = Integer.parseInt(tempStr);
+                        cols = Integer.parseInt(tempStr);
                         paramCount++;
                         tempStr = "";
                         continue;
                     }
                     if(paramCount == 1) {
-                        row = Integer.parseInt(tempStr);
+                        rows = Integer.parseInt(tempStr);
                         paramCount++;
                         tempStr = "";
                         continue;
@@ -41,7 +41,7 @@ public class RandomCharsTable {
                 }
             }
             strategy = tempStr;
-            if ((!strategy.equals("even") && !strategy.equals("odd")) || col ==0 || row == 0){
+            if ((!strategy.equals("even") && !strategy.equals("odd")) || cols <=0 || rows <= 0){
                 throw new Exception();
             }
         } catch (Exception e) {
@@ -53,7 +53,7 @@ public class RandomCharsTable {
             scanner.close();
         }
         // if everything valid with input - create and print result
-        int [][] matrix = createCharsTable(col, row);
+        int [][] matrix = createCharsTable(cols, rows);
         printCharsTable(matrix, strategy);
     }//end of run;
 

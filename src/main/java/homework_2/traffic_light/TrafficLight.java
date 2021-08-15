@@ -1,6 +1,7 @@
-package Homework_2.traffic_light;
+package homework_2.traffic_light;
 
 import java.util.Scanner;
+
 
 public class TrafficLight {
     protected static final String RED_COLOUR = "\u001B[31m";
@@ -8,9 +9,9 @@ public class TrafficLight {
     protected static final String YELLOW_COLOUR = "\u001B[33m";
     protected static final String RESET_COLOUR = "\u001B[0m";
 
-    protected void run(){
+    public void run(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the time: valid range is from 0 to 86399 )");
+        System.out.println("Enter the time (valid range is from 0 to 86399 ):");
         int seconds = 0;
         //reading the value of seconds
         try {
@@ -51,5 +52,7 @@ public class TrafficLight {
         }
         System.out.println(res);
     }
+
+
 
 }

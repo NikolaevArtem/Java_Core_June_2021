@@ -1,10 +1,10 @@
-package Homework_2.pyramid_printer;
+package homework_2.pyramid_printer;
 
 import java.util.Scanner;
 
 public class PyramidPrinter {
 
-    protected void run(){
+    public void run(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the base of the pyramid, valid value is integer:");
 

@@ -1,8 +1,7 @@
-package Homework_2.pyramid_printer;
+package homework_2.traffic_light;
 
 public class Main {
     public static void main(String[] args) {
-        new PyramidPrinter().run();
-
+        new TrafficLight().run();
     }
 }
