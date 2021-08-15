@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface FilePathCustomAnnotation {
-    String path() default "./src/main/resources/custom_file_reader/testFile.txt";
+    String path() default "/src/main/resources/custom_file_reader/testFile.txt";
 }
