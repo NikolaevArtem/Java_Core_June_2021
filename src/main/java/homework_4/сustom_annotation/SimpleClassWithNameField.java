@@ -1,4 +1,4 @@
-package сustomAnnotation;
+package homework_4.сustom_annotation;
 
 import java.lang.reflect.Constructor;
 
