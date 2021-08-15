@@ -12,6 +12,9 @@
 | HW3 | [RandomCharsTableTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_2/random_chars_table) | Random chars table tests |
 | HW3 | [TrafficLightTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_2/traffic_light) | Traffic light tests|
 | HW3 | [ImmutableClass](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_3/ImmutableClass) | ImmutableClass|
+| HW4 | [CustomFileReader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_4/custom_file_reader) | This application reads the text from the file, removes commas and periods and them outputs the text to the console. |
+| HW4 | [CustomAnnotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_4/custom_annotation) | Create custom annotation|
+| HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_4/singleton) | This is a singleton app. you can create only 1 instance of this class.|
 
 
 [Link to CodingBat](https://codingbat.com/done?user=bomba_25@mail.ru&tag=8601275236)

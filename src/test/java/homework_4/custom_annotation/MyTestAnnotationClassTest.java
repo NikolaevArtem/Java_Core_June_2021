@@ -1,4 +1,4 @@
-package homework_4.CustomAnnotation;
+package homework_4.custom_annotation;
 
 import base.UnitBase;
 import org.junit.jupiter.api.Test;
