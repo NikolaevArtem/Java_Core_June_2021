@@ -12,7 +12,7 @@
 | HW3 | [PyramidPrinterTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/test/java/homework_2/pyramid_printer) | Pyramid printer tests |
 | HW3 | [RandomCharsTableTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/test/java/homework_2/random_chars_table) | Random chars table tests |
 | HW3 | [TrafficLightTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/test/java/homework_2/traffic_light) | Traffic light tests|
-| HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/test/java/homework_4/singleton) | Singleton|
+| HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/main/java/homework_4/singleton) | Singleton|
 | HW4 | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/test/java/homework_4) | HW_4 tests|
 
 
