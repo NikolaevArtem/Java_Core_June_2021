@@ -1,6 +1,7 @@
 package homework_4.singleton;
 
 import base.UnitBase;
+import homework_4.singleton.Singleton;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

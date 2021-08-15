@@ -11,6 +11,5 @@ public @interface MethodInfoCustomAnnotation {
     String date();
     int version() default 1;
     boolean suppressExceptions() default false;
-    @MaxFieldLength
     String comments();
 }
