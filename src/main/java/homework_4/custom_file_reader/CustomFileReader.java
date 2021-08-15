@@ -8,10 +8,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class CustomFileReader {
-    public String filePath = "C:\\Java_Core_June_2021\\src\\main\\resources\\custom_file_reader\\test_file";
+    private final String filePath = "C:\\Java_Core_June_2021\\src\\main\\resources\\custom_file_reader\\test_file";
 
-    public void run() {
-        if (filePath == null) return;
+    public void run1() {
 
         if (Files.exists(Paths.get(filePath))) {
             try {
@@ -26,7 +25,6 @@ public class CustomFileReader {
     }
 
     public void run2() throws IOException {
-        if (filePath == null) return;
 
         BufferedReader reader = new BufferedReader(new FileReader(filePath));
         StringBuilder string = new StringBuilder();
@@ -40,7 +38,6 @@ public class CustomFileReader {
     }
 
     public void run3() throws IOException {
-        if (filePath == null) return;
 
         FileReader reader = new FileReader(filePath);
         StringBuffer stringBuffer = new StringBuffer();

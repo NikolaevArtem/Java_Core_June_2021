@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         CustomFileReader reader = new CustomFileReader();
-        reader.run();
+        reader.run1();
         reader.run2();
         reader.run3();
     }
