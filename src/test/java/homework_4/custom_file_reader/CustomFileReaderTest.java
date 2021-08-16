@@ -19,6 +19,7 @@ class CustomFileReaderTest extends UnitBase {
             throw new IllegalArgumentException("Text contains symbol ',' or symbol '.'");
         }
         assertEquals(expected, getOutput());
+        printOut();
     }
 
     @Test
@@ -29,6 +30,7 @@ class CustomFileReaderTest extends UnitBase {
             throw new IllegalArgumentException("Text contains symbol ',' or symbol '.'");
         }
         assertEquals(expected, getOutput());
+        printOut();
     }
 
     @Test
@@ -39,5 +41,6 @@ class CustomFileReaderTest extends UnitBase {
             throw new IllegalArgumentException("Text contains symbol ',' or symbol '.'");
         }
         assertEquals(expected, getOutput());
+        printOut();
     }
 }

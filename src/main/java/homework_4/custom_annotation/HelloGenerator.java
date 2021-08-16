@@ -4,6 +4,13 @@ public class HelloGenerator {
     private String name;
     private int age;
 
+    public static void main(String args[]) {
+        HelloGenerator helloGenerator = new HelloGenerator();
+        HelloGenerator helloGenerator1 = new HelloGenerator(null, 5);
+        System.out.println(helloGenerator);
+        System.out.println(helloGenerator1);
+    }
+
     @CustomAnnotation
     public HelloGenerator() {
         String temp;
@@ -43,12 +50,6 @@ public class HelloGenerator {
         return age;
     }
 
-    public static void main(String[] args) {
-        HelloGenerator helloGenerator = new HelloGenerator();
-        HelloGenerator helloGenerator1 = new HelloGenerator(null, 5);
-        System.out.println(helloGenerator);
-        System.out.println(helloGenerator1);
-    }
 
     @Override
     public String toString() {
