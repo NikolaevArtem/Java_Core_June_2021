@@ -2,7 +2,7 @@ package homework_4.singleton;
 
 public class Singleton {
 
-    private static Singleton INSTANCE;
+    private static volatile Singleton INSTANCE;
     private static String nameOfInstance;
 
     private Singleton(String nameOfInstance) {
@@ -10,10 +10,16 @@ public class Singleton {
     }
 
     public static Singleton getInstance(String nameOfInstance) {
-        if (INSTANCE == null) {
-            INSTANCE = new Singleton(nameOfInstance);
+        Singleton local = INSTANCE;
+        if (local == null) {
+            synchronized (Singleton.class) {
+                local = INSTANCE;
+                if (local == null) {
+                    INSTANCE = local = new Singleton(nameOfInstance);
+                }
+            }
         }
-        return INSTANCE;
+        return local;
     }
 
     public String getNameOfInstance() {
