@@ -29,7 +29,7 @@ public final class ImmutableClass {
 
     public ImmutableClass(String s, Collection<String> col) {
         this.s = s;
-        this.col = col;
+        this.col = new ArrayList<>(col);
     }
 
     public String getS() {
@@ -38,6 +38,18 @@ public final class ImmutableClass {
 
     public Collection<String> getCol() {
         return Collections.unmodifiableCollection(this.col);
+    }
+
+    public ImmutableClass getNew(ImmutableClass original) {
+        return new ImmutableClass(original.getS(), original.getCol());
+    }
+
+    public ImmutableClass getNew(ImmutableClass original, String s) {
+        return new ImmutableClass(s, original.getCol());
+    }
+
+    public ImmutableClass getNew(ImmutableClass original, Collection col) {
+        return new ImmutableClass(original.getS(), col);
     }
 }
 

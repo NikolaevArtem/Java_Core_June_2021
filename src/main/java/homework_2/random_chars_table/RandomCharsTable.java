@@ -40,23 +40,23 @@ class RandomCharsTable {
                 int num = 65 + r.nextInt(26);
                 arr[i][j] = (char) (num);
                 if (num % 2 == (isEven ? 0 : 1)) {
-                    result.append(arr[i][j] + ", ");
+                    result.append(arr[i][j]).append(", ");
                 }
-                massive.append("|" + arr[i][j]);
+                massive.append("|").append(arr[i][j]);
                 hasNext = true;
 
             }
             if (hasNext) {
-                massive.append("|" + "\n");
+                massive.append("|\n");
             }
         }
 
-        System.out.println(massive);
+        System.out.print(massive);
         String strRes = result.toString();
         if (strRes.length() > 0) {
-            System.out.println((isEven ? "Even" : "Odd") + " letters - " + strRes.substring(0, strRes.length() - 2));
+            System.out.print((isEven ? "Even" : "Odd") + " letters - " + strRes.substring(0, strRes.length() - 2));
         } else {
-            System.out.println("No " + (isEven ? "even" : "odd") + " letters");
+            System.out.print("No " + (isEven ? "even" : "odd") + " letters");
         }
     }
 

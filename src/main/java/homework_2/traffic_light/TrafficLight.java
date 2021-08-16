@@ -24,13 +24,13 @@ class TrafficLight {
         int mod = seconds % 60;
 
         if (mod < 35) {
-            System.out.println("Green");
+            System.out.print("Green");
         } else if (mod < 40) {
-            System.out.println("Yellow");
+            System.out.print("Yellow");
         } else if (mod < 55) {
-            System.out.println("Red");
+            System.out.print("Red");
         } else {
-            System.out.println("Yellow");
+            System.out.print("Yellow");
         }
 
     }
@@ -40,17 +40,17 @@ class TrafficLight {
         try {
             seconds = Integer.parseInt(s);
         } catch (NumberFormatException e) {
-            System.out.println("Error: integer only");
+            System.out.print("Error: integer only");
             return false;
         }
 
         if (seconds < 0) {
-            System.out.println("Error: positive only");
+            System.out.print("Error: positive only");
             return false;
         }
 
         if (seconds > 86399) {
-            System.out.println("Error: day is over");
+            System.out.print("The day is over");
             return false;
         }
 
