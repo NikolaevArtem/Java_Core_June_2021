@@ -1,6 +1,6 @@
-package homework_5.exponentiation_via_recursion;
+package homework_5.exp_w_rec;
 
-public class ExponentiationViaRecursion {
+public class ExpWRec {
     public static double run(double number, int degree) {
        if (degree != 0){
             return number * run(number, degree - 1);
