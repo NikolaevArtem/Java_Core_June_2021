@@ -1,0 +1,2 @@
+file without commas and dots
+another line of file without commas and dots
