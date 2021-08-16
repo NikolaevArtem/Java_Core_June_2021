@@ -14,4 +14,5 @@
 | HW4_2 | [Custom File Reader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AlinaTsipko/src/main/java/homework_4/custom_file_reader) | Class with 3 types of File Readers|
 | HW4_3 | [Singlenton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AlinaTsipko/src/main/java/homework_4/singlenton) | Simple Singlenton |
 | Tests | [Unit Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AlinaTsipko/src/test/java/homework_2) | All Unit Tests for homeworks #2, 3, 4 |
+
 [CodingBat](https://codingbat.com/done?user=tcipkoalina2000@mail.ru&tag=9057287119)
