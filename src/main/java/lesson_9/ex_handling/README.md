@@ -1,0 +1,1 @@
+![](https://sematext.com/wp-content/uploads/2020/08/java-exceptions-post-1.png.webp)
