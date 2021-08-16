@@ -13,7 +13,7 @@ class CustomFileReaderTest extends UnitBase {
 
     CustomFileReader customFileReader = new CustomFileReader();
     String correctPath = "./src/main/resources/custom_file_reader/";
-    String correctFileName = "example.txt";
+    String correctFileName = "file.txt";
 
     @Test
     void testRun1() {
@@ -44,7 +44,7 @@ class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void testNotValidDataForConstuctorWParams() {
+    void testNotValidDataForConstructorWParams() {
         CustomFileReader cfr1 = new CustomFileReader(correctPath, "passwords.txt");
         String expected = "File " + "passwords.txt" + " not found at: " + correctPath;
         cfr1.run1();
@@ -53,7 +53,7 @@ class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void testNotValidDataForConstuctorWParams2() {
+    void testNotValidDataForConstructorWParams2() {
         CustomFileReader cfr1 = new CustomFileReader("./src/", correctFileName);
         String expected = "File " + correctFileName + " not found at: " + "./src/";
         cfr1.run4();
@@ -63,46 +63,10 @@ class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void testEmptyConstuctor() {
+    void testEmptyConstructor() {
         new CustomFileReader();
         String notExpected = "File " + correctFileName + " not found at: " + correctPath;
         assertNotEquals(notExpected, getOutput());
-    }
-
-    @Test
-    void testEmptyFileRun1() {
-        CustomFileReader cfr1 = new CustomFileReader(correctPath, "empty_file.txt");
-        cfr1.run1();
-        String expected = "File is empty!";
-        String output = getOutput();
-        assertEquals(expected, output);
-    }
-
-    @Test
-    void testEmptyFileRun2() {
-        CustomFileReader cfr2 = new CustomFileReader(correctPath, "empty_file.txt");
-        cfr2.run2();
-        String expected = "File is empty!";
-        String output = getOutput();
-        assertEquals(expected, output);
-    }
-
-    @Test
-    void testEmptyFileRun3() {
-        CustomFileReader cfr3 = new CustomFileReader(correctPath, "empty_file.txt");
-        cfr3.run3();
-        String expected = "File is empty!";
-        String output = getOutput();
-        assertEquals(expected, output);
-    }
-
-    @Test
-    void testEmptyFileRun4() {
-        CustomFileReader cfr4 = new CustomFileReader(correctPath, "empty_file.txt");
-        cfr4.run4();
-        String expected = "File is empty!";
-        String output = getOutput();
-        assertEquals(expected, output);
     }
 
     @Test
@@ -115,6 +79,7 @@ class CustomFileReaderTest extends UnitBase {
         File[] filesList = directoryPath.listFiles();
         StringBuilder tmp = new StringBuilder();
         tmp.append(correctPath).append(" contains:").append("\n--- --- ---\n");
+        assertNotNull(filesList);
         for (File file : filesList) {
             tmp.append(file.getName()).append("\tat: ").append(file.getAbsolutePath()).append("\n").append("---").append("\n");
         }

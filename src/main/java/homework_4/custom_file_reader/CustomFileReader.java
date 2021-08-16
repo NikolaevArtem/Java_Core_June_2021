@@ -8,14 +8,12 @@ import static homework_4.custom_file_reader.utils.ModifiedStringPrinter.printMod
 
 public class CustomFileReader {
 
-    private static final String FILE_IS_EMPTY = "File is empty!";
-
     private final String fileName;
     private final String dirPath;
 
     @ResourcesPath
     public CustomFileReader() {
-        this.fileName = "example.txt";
+        this.fileName = "file.txt";
         String tmpDirPath;
         try {
             ResourcesPath resourcesPath = (ResourcesPath) this.getClass().getConstructor().getDeclaredAnnotations()[0];
@@ -56,10 +54,6 @@ public class CustomFileReader {
         DirectoryScan.scanDir(this.dirPath);
     }
 
-    private boolean isNotEmpty(String res) {
-        return !res.equals("");
-    }
-
     private boolean isNotExists(String res) {
         return res == null;
     }
@@ -67,9 +61,7 @@ public class CustomFileReader {
     private void doExcellent(String result) {
         if (isNotExists(result)) {
             System.out.println("File " + this.fileName + " not found at: " + this.dirPath);
-        } else if (isNotEmpty(result)) {
-            printModifiedString(result);
-        } else System.out.println(FILE_IS_EMPTY);
+        } else printModifiedString(result);
     }
 
 }
