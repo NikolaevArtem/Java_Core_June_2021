@@ -11,7 +11,15 @@ import java.util.stream.Stream;
 import static java.nio.file.Files.readAllLines;
 
 public class CustomFileReader {
-    String filepath = "src/main/resources/custom_file_reader/custom_file.txt";
+    private String filepath;
+
+    public CustomFileReader(){
+        this.filepath = "src/main/resources/custom_file_reader/custom_file.txt";
+    }
+
+    public void myPath(String path){
+        this.filepath = path;
+    }
 
     //NIO
     public void run1(){
