@@ -19,7 +19,7 @@ class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void TestRun2() throws FileNotFoundException {
+    void TestRun2() throws IOException {
         run2();
         assertFalse(getOutput().contains("."));
         assertFalse(getOutput().contains(","));
