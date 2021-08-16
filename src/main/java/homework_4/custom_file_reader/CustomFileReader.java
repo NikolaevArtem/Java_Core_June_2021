@@ -44,7 +44,6 @@ public class CustomFileReader {
 
     public void run3(){
         try(FileInputStream inputStream = new FileInputStream(filepath)) {
-            int size = inputStream.available();
             int i = -1;
             StringBuilder text = new StringBuilder();
             while((i = inputStream.read()) != -1){

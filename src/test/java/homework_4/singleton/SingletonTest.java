@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class SingletonTest {
 
     @Test
-    void givenInvoke_whenRun_thenTakeOneInstance(){
+    void givenNothing_whenRun_thenCreatePlanetWithNameAndAge(){
         Singlenton first = Singlenton.getInstance();
         Singlenton second = Singlenton.getInstance();
 
