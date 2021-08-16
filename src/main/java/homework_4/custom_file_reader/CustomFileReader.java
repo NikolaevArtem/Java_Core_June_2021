@@ -13,6 +13,11 @@ public class CustomFileReader {
     String fileName;
 
     public CustomFileReader(String fileName) {
+
+        if (fileName == null) {
+            throw new IllegalArgumentException("Error: filename is null.");
+        }
+
         this.fileName = fileName;
     }
 
@@ -24,14 +29,8 @@ public class CustomFileReader {
                 String fullPath = ca.path() + fileName;
                 try {
                     m.invoke(this, fullPath);
-                } catch (IllegalArgumentException e) {
-                    System.out.println("IllegalArgumentException: " + e.getMessage());
-                }
-                catch (IllegalAccessException e) {
-                    System.out.println("IllegalAccessException: " + e.getMessage());
-                }
-                catch (InvocationTargetException e) {
-                    System.out.println("InvocationTargetException: " + e.getMessage());
+                } catch (Exception e) {
+                    System.out.println("Exception: " + e.getMessage());
                 }
             }
         }
@@ -39,6 +38,14 @@ public class CustomFileReader {
 
     @CustomAnnotation(path = "/custom_file_reader/")
     public void run1(String path) {
+
+        if (path == null) {
+            throw new IllegalArgumentException("Error: path is null.");
+        }
+
+        if (path == "") {
+            throw new IllegalArgumentException("Error: path is empty.");
+        }
 
         try (
                 InputStream inputStream = this.getClass().getResourceAsStream(path);
@@ -48,12 +55,21 @@ public class CustomFileReader {
         ) {
             lines.forEach(System.out::println);
         } catch (IOException e) {
-            System.out.println("IO Exception: " + e.getMessage());
+            throw new IllegalArgumentException("IO Exception: " + e.getMessage());
         }
     }
 
     @CustomAnnotation
     public void run2(String path) {
+
+        if (path == null) {
+            throw new IllegalArgumentException("Error: path is null.");
+        }
+
+        if (path == "") {
+            throw new IllegalArgumentException("Error: path is empty.");
+        }
+
         try (
                 FileReader fileReader = new FileReader(path);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -61,13 +77,22 @@ public class CustomFileReader {
         ) {
             lines.forEach(System.out::println);
         } catch (Exception e) {
-            System.out.println("Exception: " + e.getMessage());
+            throw new IllegalArgumentException("Exception: " + e.getMessage());
         }
 
     }
 
     @CustomAnnotation
     public void run3(String path) {
+
+        if (path == null) {
+            throw new IllegalArgumentException("Error: path is null.");
+        }
+
+        if (path == "") {
+            throw new IllegalArgumentException("Error: path is empty.");
+        }
+
         try (
                 BufferedReader bufferedReader = Files.newBufferedReader(
                         Paths.get(path)
@@ -76,7 +101,7 @@ public class CustomFileReader {
         ) {
             lines.forEach(System.out::println);
         } catch (IOException e) {
-            System.out.println("IO Exception: " + e.getMessage());
+            throw new IllegalArgumentException("IO Exception: " + e.getMessage());
         }
     }
 }
