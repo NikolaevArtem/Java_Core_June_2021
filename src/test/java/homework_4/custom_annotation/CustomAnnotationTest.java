@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CustomAnnotationTest extends UnitBase {
     HelloGenerator helloGenerator = new HelloGenerator();
     HelloGenerator helloGenerator1 = new HelloGenerator(null, 5);
+    HelloGenerator helloGenerator2 = new HelloGenerator("Aleksei", 35);
 
     @Test
     void givenEmptyNameField_whenCreateObject_thenTakeFromAnnotation(){
@@ -31,5 +32,17 @@ public class CustomAnnotationTest extends UnitBase {
     void run4(){
         int expected = 5;
         assertEquals(expected, helloGenerator1.getAge());
+    }
+
+    @Test
+    void run5(){
+        String expected = "Aleksei";
+        assertEquals(expected, helloGenerator2.getName());
+    }
+
+    @Test
+    void run6(){
+        int expected = 35;
+        assertEquals(expected, helloGenerator2.getAge());
     }
 }
