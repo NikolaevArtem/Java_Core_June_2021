@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class CustomFileReader {
 
-    private final Path path = Paths.get("src/main/resources/custom_file_reader");
+    private final Path path = Paths.get("src/main/resources/file.txt");
     private final String lineSeparator = System.lineSeparator();
     private String resultString = "";
 
