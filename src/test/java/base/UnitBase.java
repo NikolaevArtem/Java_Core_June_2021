@@ -8,6 +8,11 @@ import java.io.PrintStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+
+
 public abstract class UnitBase {
 
   protected ByteArrayOutputStream mockedOut = new ByteArrayOutputStream();
