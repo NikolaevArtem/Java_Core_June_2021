@@ -30,6 +30,7 @@ public abstract class UnitBase {
     System.setIn(new ByteArrayInputStream(input.getBytes()));
   }
 
+
   // returns whole output as string, will all line separators and etc
   protected String getOutput() {
     return mockedOut.toString().trim();
