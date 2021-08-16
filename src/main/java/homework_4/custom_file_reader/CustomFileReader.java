@@ -3,20 +3,17 @@ package homework_4.custom_file_reader;
 import homework_4.custom_annotation.ClassInfo;
 import homework_4.custom_annotation.FilePathCustomAnnotation;
 import homework_4.custom_annotation.MethodInfo;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-
 @ClassInfo(date = "15/08/2021", specification = "Customized FileReader Class")
 @FilePathCustomAnnotation
+
 public class CustomFileReader {
-
     private String filePath = CustomFileReader.class.getAnnotation(FilePathCustomAnnotation.class).path();
-
     @MethodInfo(description = "NIO2")
     public void run1() {
         Path path = Paths.get(filePath);
@@ -24,11 +21,11 @@ public class CustomFileReader {
             String result = bufferedReader.readLine();
             printResult(result);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("NIO2");
             printErrorMessage();
+            e.printStackTrace();
         }
     }
-
     @MethodInfo(description = "BufferedReaderFileReader")
     public void run2() {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
@@ -39,7 +36,6 @@ public class CustomFileReader {
             e.printStackTrace();
         }
     }
-
     @MethodInfo(description = "InputStreamFileReader")
     public void run3() {
         try (InputStream inputStream = CustomFileReader.class.getResourceAsStream(filePath)) {
@@ -71,6 +67,7 @@ public class CustomFileReader {
             e.printStackTrace();
         }
     }
+
 
     public void printResult(String result) {
         System.out.println(result.replaceAll("[.,]", ""));
