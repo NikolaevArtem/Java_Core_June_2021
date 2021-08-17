@@ -9,16 +9,18 @@ import java.util.stream.Stream;
 
 public class CustomFileReader {
 
-    private final String pathToFile = "src/main/resources/custom_file_reader/";
+    private static final String FILE_NOT_FOUND_MESSAGE = "File not found";
+    private static final String PATH_TO_FILE = "src/main/resources/custom_file_reader/";
+
     private final String sourceFile;
 
     public CustomFileReader() {
         String defaultFileName = "file.txt";
-        sourceFile = pathToFile + defaultFileName;
+        sourceFile = PATH_TO_FILE + defaultFileName;
     }
 
     public CustomFileReader(String fileName) {
-        sourceFile = pathToFile + fileName;
+        sourceFile = PATH_TO_FILE + fileName;
     }
 
     public void run1() {
@@ -62,7 +64,7 @@ public class CustomFileReader {
             }
             System.out.println(readText);
         } catch (FileNotFoundException exc) {
-            System.out.println("File not found");
+            System.out.println(FILE_NOT_FOUND_MESSAGE);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -80,7 +82,7 @@ public class CustomFileReader {
                 System.out.println(readText);
             }
         } catch (FileNotFoundException exc) {
-            System.out.println("File not found");
+            System.out.println(FILE_NOT_FOUND_MESSAGE);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -97,7 +99,7 @@ public class CustomFileReader {
                 readText = reader.readLine();
             }
         } catch (FileNotFoundException exc) {
-            System.out.println("File not found");
+            System.out.println(FILE_NOT_FOUND_MESSAGE);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -112,7 +114,7 @@ public class CustomFileReader {
                 readText = reader.readLine();
             }
         } catch (FileNotFoundException exc) {
-            System.out.println("File not found");
+            System.out.println(FILE_NOT_FOUND_MESSAGE);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -126,7 +128,7 @@ public class CustomFileReader {
                 System.out.println(readText);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            System.out.println(FILE_NOT_FOUND_MESSAGE);
         }
     }
 
@@ -139,7 +141,7 @@ public class CustomFileReader {
             readText = removePunctuation(readText);
             System.out.println(readText);
         } catch (FileNotFoundException exc) {
-            System.out.println("File not found");
+            System.out.println(FILE_NOT_FOUND_MESSAGE);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -151,7 +153,7 @@ public class CustomFileReader {
             lines.map(n -> n = n.replaceAll("[,.]", ""))
                     .forEach(System.out::println);
         } catch (NoSuchFileException exc) {
-            System.out.println("File not found");
+            System.out.println(FILE_NOT_FOUND_MESSAGE);
         } catch (IOException e) {
             e.printStackTrace();
         }
