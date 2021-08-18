@@ -11,7 +11,7 @@ import java.util.Scanner;
 import java.util.function.Consumer;
 
 public class CustomFileReader {
-    private static String FILE_PATH = "custom_file_reader" + File.separator + "file";
+    private static final String FILE_PATH = "custom_file_reader" + File.separator + "file";
     private static final Consumer<String> FUNCTION = x -> System.out.println(x.replaceAll("[,.]", ""));
 
     public static void run1() throws IOException {
@@ -32,14 +32,6 @@ public class CustomFileReader {
 
     private static URL getFileURL() {
         return ClassLoader.getSystemResource(FILE_PATH);
-    }
-
-    public static String getFilePath() {
-        return FILE_PATH;
-    }
-
-    public static void setFilePath(String filePath) {
-        FILE_PATH = filePath;
     }
 
 }
