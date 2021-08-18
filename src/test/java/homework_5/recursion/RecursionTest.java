@@ -15,7 +15,7 @@ public class RecursionTest {
 
     @ParameterizedTest
     @MethodSource("testsCases")
-    void givenNumbers_whenRecPow_thenCalculateResult(double n, double power, double expected) {
+    void givenNumbers_whenRecPow_thenCalculateResult(double n, int power, double expected) {
         assertEquals(expected, recursion.recPow(n, power), 0.000001);
     }
 

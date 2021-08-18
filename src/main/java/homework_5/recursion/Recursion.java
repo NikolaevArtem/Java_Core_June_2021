@@ -2,7 +2,7 @@ package homework_5.recursion;
 
 public class Recursion {
 
-    public double recPow(double n, double power) {
+    public double recPow(double n, int power) {
         if (power == 0) {
             return 1;
         } else if (power > 0) {
