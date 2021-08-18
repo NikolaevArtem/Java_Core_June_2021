@@ -24,4 +24,22 @@ class PowerTest {
         assertEquals(expected, Power.power(9, 12));
     }
 
+    @Test
+    void test0_PoweredBy_1() {
+        double expected = Math.pow(0, 1);
+        assertEquals(expected, Power.power(0, 1));
+    }
+
+    @Test
+    void test0_PoweredBy_0() {
+        double expected = Math.pow(0, 0);
+        assertEquals(expected, Power.power(0, 0));
+    }
+
+    @Test
+    void test3_PoweredBy_Negative3() {
+        double expected = Math.pow(3, -3);
+        assertEquals(expected, Power.power(3, -3));
+    }
+
 }
