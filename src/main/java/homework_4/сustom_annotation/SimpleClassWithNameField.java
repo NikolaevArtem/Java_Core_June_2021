@@ -6,11 +6,13 @@ public class SimpleClassWithNameField {
     private String name;
 
     @CustomAnnotation("test name string")
-    public SimpleClassWithNameField() {
+    public SimpleClassWithNameField(String name) {
+        Constructor<? extends SimpleClassWithNameField> constructor;
         try {
-            Constructor<? extends SimpleClassWithNameField> constructor = this.getClass ().getConstructor ();
+            constructor = this.getClass().getConstructor(String.class);
             CustomAnnotation annotation = constructor.getAnnotation(CustomAnnotation.class);
-            this.name = annotation.value();
+            if (annotation != null) this.name = annotation.value();
+            if (!name.isEmpty()) this.name = name;
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -18,11 +20,6 @@ public class SimpleClassWithNameField {
 
     public String getName() {
         return name;
-    }
-
-    public static void main(String[] args) {
-        SimpleClassWithNameField obj = new SimpleClassWithNameField();
-        System.out.println(obj.getName());
     }
 
 }
