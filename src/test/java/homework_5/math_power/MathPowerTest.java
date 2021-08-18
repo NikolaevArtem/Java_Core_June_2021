@@ -36,4 +36,9 @@ public class MathPowerTest {
         assertEquals(Math.pow(2.3, -7), MathPower.pow(2.3, -7));
     }
 
+    @Test
+    void test_value5_toPowOf_0() {
+        assertEquals(Math.pow(5, 0), MathPower.pow(5, 0));
+    }
+
 }
