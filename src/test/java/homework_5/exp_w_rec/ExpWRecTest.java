@@ -30,5 +30,9 @@ class ExpWRecTest {
         assertEquals(expected, ExpWRec.run(0, 0));
     }
 
-
+    @Test
+    void given5divide4and4_whenExponentiation_then1() {
+        double expected = Math.pow(5.4, 4);
+        assertEquals(expected, ExpWRec.run(5.4, 4));
+    }
 }
