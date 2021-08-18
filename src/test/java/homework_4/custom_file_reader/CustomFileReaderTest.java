@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CustomFileReaderTest extends UnitBase {
 
     CustomFileReader reader = new CustomFileReader();
-    private final String stringTest = "CustomFileReader test passed";
+    private final String stringTest = "Test  file";
 
     @Test
     void testNIO2() {
