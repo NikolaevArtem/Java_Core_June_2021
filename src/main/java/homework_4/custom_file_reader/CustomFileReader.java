@@ -36,25 +36,9 @@ public class CustomFileReader {
             e.printStackTrace();
         }
     }
-    @MethodInfo(description = "InputStreamFileReader")
-    public void run3() {
-        try (InputStream inputStream = CustomFileReader.class.getResourceAsStream(filePath)) {
-            if (inputStream != null) {
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-                    String result = reader.readLine();
-                    printResult(result);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        } catch (IOException e) {
-            printErrorMessage();
-            e.printStackTrace();
-        }
-    }
 
     @MethodInfo(description = "ScannerFileReader")
-    public void run4() {
+    public void run3() {
         try (Scanner scanner = new Scanner(new File(filePath))) {
             scanner.useDelimiter("[.,]");
             StringBuilder stringBuilder = new StringBuilder();

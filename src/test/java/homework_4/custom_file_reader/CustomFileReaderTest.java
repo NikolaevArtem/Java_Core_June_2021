@@ -23,14 +23,8 @@ class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void testInputStreamFileReader() {
-        reader.run3();
-        assertTrue(getOutput().contains(stringTest));
-    }
-
-    @Test
     void testScannerFileReader() {
-        reader.run4();
+        reader.run3();
         assertTrue(getOutput().contains(stringTest));
     }
 
