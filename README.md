@@ -16,6 +16,6 @@
 | HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_4/singleton) [Singleton Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_4/singleton)  | The class that can have only one instance |
 | HW4 | [Custom Annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_4/custom_annotation) [Custom Annotation Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_4/custom_annotation) | The annotation Author is used to get a default value when creating an instance of Book |
 | HW5 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_5/math_power) [PowerOfNumberTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_5/math_power) | PowerOfNumber App with method pow implemented via recursion |
-
+| HW5 | [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_5/custom_regex_matcher) [CustomRegexMatcherTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_5/custom_regex_matcher) | The App checks whether the arguments match the hardcoded regex |
 
 [Link to CodingBat profile](https://codingbat.com/done?user=sveta881@mail.ru&tag=8234249112)
