@@ -12,7 +12,7 @@ public abstract class AbstractFileReader {
         return fileContent;
     }
 
-    protected abstract String getFileContent(File file);
+    public abstract String getFileContent(File file);
 
     protected void fillFileContent(List<String> stringList) {
         Iterator<String> iterator = stringList.iterator();

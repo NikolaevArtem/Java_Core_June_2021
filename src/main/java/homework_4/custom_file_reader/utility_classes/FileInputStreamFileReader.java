@@ -1,9 +1,6 @@
 package homework_4.custom_file_reader.utility_classes;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-
+import java.io.*;
 public class FileInputStreamFileReader extends AbstractFileReader {
 
     @Override
