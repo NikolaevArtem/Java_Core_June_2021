@@ -1,4 +1,4 @@
-package homework_4.Singleton;
+package homework_4.singleton;
 
 public enum EnumSingleton {
 
@@ -8,10 +8,10 @@ public enum EnumSingleton {
 
     INSTANCE;
 
-    private EnumSingleton() {
+    EnumSingleton() {
     }
 
-    public EnumSingleton getInstance() {
+    public static EnumSingleton getInstance() {
         return INSTANCE;
     }
 

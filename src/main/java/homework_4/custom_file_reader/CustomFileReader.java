@@ -1,28 +1,15 @@
-package homework_4.CustomFileReader;
+package homework_4.custom_file_reader;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 
 public class CustomFileReader {
     private final String ERR_MSG = "File by the path doesn't exists!";
     private String content;
     private File source;
-    private String filePath = "./src/main/resources/file.txt";
-
-    public CustomFileReader() {
-
-    }
-
-    public CustomFileReader(File source) {
-        this.filePath = source.getPath();
-    }
-
-    public CustomFileReader(String filePath) {
-        this.filePath = filePath;
-    }
+    private String filePath = "./src/main/resources/custom_file_reader/file.txt";
 
     // Using InputStreams - binary stream
     public void run1() {
@@ -33,7 +20,9 @@ public class CustomFileReader {
             try (FileInputStream fis = new FileInputStream(filePath)) {
                 int i;
                 while ((i = fis.read()) != -1) {
-                    stringBuilder.append((char) i);
+                    if (i <= 127) {
+                        stringBuilder.append((char) i);
+                    }
                 }
                 content = stringBuilder.toString();
             } catch (IOException e) {
@@ -51,7 +40,10 @@ public class CustomFileReader {
             StringBuilder stringBuilder = new StringBuilder();
             try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
                 while (reader.ready()) {
-                    stringBuilder.append((char) reader.read());
+                    int read = reader.read();
+                    if (read >= 0 && read <= 127) {
+                        stringBuilder.append((char) read);
+                    }
                 }
                 content = stringBuilder.toString();
             } catch (IOException e) {
@@ -72,7 +64,9 @@ public class CustomFileReader {
                 StringBuilder stringBuilder = new StringBuilder();
                 for (byte by : characters
                 ) {
-                    stringBuilder.append((char) by);
+                    if (by >= 0 && by <= 127) {
+                        stringBuilder.append((char) by);
+                    }
                 }
                 content = stringBuilder.toString();
             } catch (IOException e) {
@@ -89,7 +83,7 @@ public class CustomFileReader {
     }
 
     private void printResult(String content) {
-        System.out.println(content.replaceAll("(\\.)|(,)", ""));
+        System.out.println(content.replaceAll("(\\.)|(,)", "").trim());
     }
 
 

@@ -1,4 +1,0 @@
-﻿simple text that contains comas - ,,, , dots - ... and some more punctuation marks like "" '' () ? ! : ;/
-comas and dots must be gone after run1() or run2() or run3().
-
-             

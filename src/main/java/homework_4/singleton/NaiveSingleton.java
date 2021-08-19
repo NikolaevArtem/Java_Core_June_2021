@@ -1,4 +1,4 @@
-package homework_4.Singleton;
+package homework_4.singleton;
 
 public final class NaiveSingleton {
 
