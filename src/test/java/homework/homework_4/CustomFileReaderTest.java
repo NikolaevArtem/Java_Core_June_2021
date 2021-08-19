@@ -1,6 +1,6 @@
 package homework.homework_4;
 
-import homework.homework_1.UnitBase;
+import homework.unit_base.UnitBase;
 import homework_4.custom_file_reader.CustomFileReader;
 import org.junit.jupiter.api.Test;
 

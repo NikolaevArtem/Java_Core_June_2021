@@ -1,6 +1,6 @@
 package homework.homework_2.pyramid_printer;
 
-import homework.homework_1.UnitBase;
+import homework.unit_base.UnitBase;
 import homework_2.pyramid_printer.PyramidPrinter;
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +21,7 @@ class PyramidPrinterTest extends UnitBase {
     // 8                     double value
 
     @Test
-    void givenPositiveInt_whenInputIsThree_thenPrintPyramid() {
+    void givenPositiveInt_whenRun_thenPrintPyramid() {
         setInput("3");
 
         new PyramidPrinter().run();

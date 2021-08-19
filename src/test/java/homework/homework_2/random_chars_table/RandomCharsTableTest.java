@@ -1,6 +1,6 @@
 package homework.homework_2.random_chars_table;
 
-import homework.homework_1.UnitBase;
+import homework.unit_base.UnitBase;
 import homework_2.random_chars_table.RandomCharsTable;
 import org.junit.jupiter.api.Test;
 
