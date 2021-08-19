@@ -14,7 +14,7 @@
 | HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_4/singleton/Singleton.java)| Simple example of singleton |
 | HW4 | [Custom Annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_4/custom_annotation/MyCustomAnnotation.java)| Simple exampel of Custom Annotation |
 | HW4 | [Tests for HW_4](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SergeyVolchenkov/src/test/java/homework_4)| Tests for homework 4|
-| HW5 | [Power Of Number](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_4/power_of_number/PowerOfNumber.java)| Recursively raises a number to a given power |
+| HW5 | [Power Of Number](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_5/power_of_number/PowerOfNumber.java)| Recursively raises a number to a given power |
 | HW5 | [Custom Regex Matcher] | Not ready |
 | HW5 | [Tests for HW_5](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SergeyVolchenkov/src/test/java/homework_5) | Tests for homework 5|
 
