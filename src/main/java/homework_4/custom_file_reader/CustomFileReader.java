@@ -23,7 +23,7 @@ public class CustomFileReader {
     }
 
     public String getFileContent() {
-        return fileContent.toString();
+        return fileContent;
     }
 
     private void run(AbstractFileReader reader) {
