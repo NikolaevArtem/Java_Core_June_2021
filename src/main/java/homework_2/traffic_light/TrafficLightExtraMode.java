@@ -21,9 +21,10 @@ public class TrafficLightExtraMode extends TrafficLight {
     }
 
     @Override
-    public boolean isValid(String arg) {
+    public boolean isValid(String... arg) {
+        if (arg.length > 1) return false;
         try {
-            secondsParsed = LocalTime.parse(arg).toSecondOfDay();
+            secondsParsed = LocalTime.parse(arg[0]).toSecondOfDay();
         } catch (DateTimeException exception) {
             System.out.println(ANSI_RED + "Only hh:mm:ss input format (hh < 24, mm < 60, ss < 60)" + ANSI_RESET);
             return false;

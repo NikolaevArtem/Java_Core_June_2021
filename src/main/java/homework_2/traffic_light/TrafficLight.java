@@ -1,16 +1,14 @@
 package homework_2.traffic_light;
 
+import base.BaseClazz;
+
 import java.util.Scanner;
 
-public class TrafficLight {
+public class TrafficLight extends BaseClazz {
 
-    protected static final String ANSI_RESET = "\033[0m";
-    protected static final String ANSI_RED = "\u001B[31m";
-    protected static final String ANSI_RED_BACKGROUND = "\u001B[41m";
-    protected static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
-    protected static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
     private static final String ERROR_MESSAGE = "Only 1 non-negative integer is allowed as passed parameter";
 
+    @Override
     public void run() {
         System.out.println("Enter the number");
         Scanner scanner = new Scanner(System.in);
@@ -27,18 +25,6 @@ public class TrafficLight {
             System.out.println(ANSI_RED + ERROR_MESSAGE + ANSI_RESET);
         }
         scanner.close();
-    }
-
-    protected boolean isValid(String arg) {
-        if (arg.matches("^\\s*[+]?[0-9]*\\s*$")) {
-            try {
-                Integer.parseInt(arg);
-            } catch (NumberFormatException exception) {
-                return false;
-            }
-            return true;
-        }
-        return false;
     }
 
     protected String getTrafficLight(int numberOfSeconds) {
