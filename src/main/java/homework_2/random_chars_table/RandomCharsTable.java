@@ -1,13 +1,14 @@
 package homework_2.random_chars_table;
 
+import base.BaseClazz;
+
 import java.util.*;
 
-public class RandomCharsTable {
+public class RandomCharsTable extends BaseClazz {
 
-    private static final String ANSI_RED = "\u001B[31m";
-    private static final String ANSI_RESET = "\033[0m";
     private static final String ERROR_MESSAGE = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
 
+    @Override
     public void run() {
         Scanner systemScanner = new Scanner(System.in);
 
@@ -29,8 +30,10 @@ public class RandomCharsTable {
         systemScanner.close();
     }
 
-    private boolean isValid(String inputStr) {
-        return inputStr.matches("^(([1-9][0-9]*\\s){2})(odd|even)");
+    @Override
+    protected boolean isValid(String... inputStr) {
+        if (inputStr.length > 1) return false;
+        return inputStr[0].matches("^(([1-9][0-9]*\\s){2})(odd|even)");
     }
 
     public void printTable(char[][] arrayOfChars) {
