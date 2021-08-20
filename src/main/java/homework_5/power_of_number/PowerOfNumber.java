@@ -29,7 +29,6 @@ public class PowerOfNumber {
     private String parseInput(Scanner scanner) {
         number = scanner.nextInt();
         power = scanner.nextInt();
-
         if (scanner.hasNextLine()) {
             return scanner.nextLine().trim();
         } else {
