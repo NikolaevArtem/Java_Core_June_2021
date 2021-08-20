@@ -60,16 +60,6 @@ public class CustomFileReader {
         this.run(new BufferedReaderFileReader());
     }
 
-    //used GuavaFiles
-    public void run6() {
-        this.run(new GuavaFileReader());
-    }
-
-    //user ApacheFileUtils
-    public void run7() {
-        this.run(new ApacheFileReader());
-    }
-
     private void printResult() {
         System.out.println(fileContent.replaceAll("[.,]", ""));
     }

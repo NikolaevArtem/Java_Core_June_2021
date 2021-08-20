@@ -154,60 +154,6 @@ class CustomFileReaderTest extends UnitBaseFileMode {
         assertEquals("File not found in path", getOutput());
     }
 
-    @ParameterizedTest
-    @MethodSource("testValidValue")
-    void givenContent_whenRun6_thenExpected(String filePath, String content, String expected) {
-        createAndFillTempFile(filePath, content);
-        new CustomFileReader(filePath).run6();
-
-        assertEquals(expected, getOutput());
-    }
-
-    @ParameterizedTest
-    @MethodSource("testEmpty")
-    void givenContent_whenRun6_thenEmpty(String filePath, String content) {
-        createAndFillTempFile(filePath, content);
-        new CustomFileReader(filePath).run6();
-
-        assertEquals("", getOutput());
-    }
-
-    @ParameterizedTest
-    @MethodSource("testFileNotFound")
-    void givenWrongFileName_whenRun6_thenFileNotFound(String filePath, String content) {
-        createAndFillTempFile("./src/main/resources/custom_file_reader/tempFile.txt", content);
-        new CustomFileReader(filePath).run6();
-
-        assertEquals("File not found in path", getOutput());
-    }
-
-    @ParameterizedTest
-    @MethodSource("testValidValue")
-    void givenContent_whenRun7_thenExpected(String filePath, String content, String expected) {
-        createAndFillTempFile(filePath, content);
-        new CustomFileReader(filePath).run7();
-
-        assertEquals(expected, getOutput());
-    }
-
-    @ParameterizedTest
-    @MethodSource("testEmpty")
-    void givenContent_whenRun7_thenEmpty(String filePath, String content) {
-        createAndFillTempFile(filePath, content);
-        new CustomFileReader(filePath).run7();
-
-        assertEquals("", getOutput());
-    }
-
-    @ParameterizedTest
-    @MethodSource("testFileNotFound")
-    void givenWrongFileName_whenRun7_thenFileNotFound(String filePath, String content) {
-        createAndFillTempFile("./src/main/resources/custom_file_reader/tempFile.txt", content);
-        new CustomFileReader(filePath).run7();
-
-        assertEquals("File not found in path", getOutput());
-    }
-
     private static Stream<Arguments> testFileNotFound() {
         return Stream.of(
                 Arguments.of("/src/main/resources/custom_file_reader/file.txt", "1,2,3,4,5,6,7,\n8,9."),
