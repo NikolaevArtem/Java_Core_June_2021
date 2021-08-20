@@ -25,7 +25,7 @@ public class Main {
         Method beforeMethod = null;
         Method afterMethod = null;
         for (Method method1 : method) {
-            if (method1.isAnnotationPresent(Test.class)) {
+            if (method1.isAnnotationPresent(TestAnnotation.class)) {
                 arrayList.add(method1);
             }
             if (method1.isAnnotationPresent(BeforeSuite.class)) {
@@ -39,7 +39,7 @@ public class Main {
                 } else throw new RuntimeException("Method afterSuite can be only one");
             }
         }
-        arrayList.sort((o1, o2) -> o2.getAnnotation(Test.class).priority() - o1.getAnnotation(Test.class).priority());
+        arrayList.sort((o1, o2) -> o2.getAnnotation(TestAnnotation.class).priority() - o1.getAnnotation(TestAnnotation.class).priority());
         if (beforeMethod != null) {
             try {
                 beforeMethod.invoke(testObj, null);
