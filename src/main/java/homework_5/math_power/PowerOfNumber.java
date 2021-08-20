@@ -20,7 +20,7 @@ public class PowerOfNumber {
         return powValue == 1 ? value : value * pow(value, powValue - 1);
     }
 
-    public static void printMessage(String text) {
+    private static void printMessage(String text) {
         System.out.print(text);
     }
 }
