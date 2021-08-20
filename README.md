@@ -11,8 +11,10 @@
 | HW3.1 | [Immutable class](./src/main/java/homework_3) | This is an example of simple immutable class.  |
 | HW3.2 | [JUnit Tests](./src/test/java/homework_2) | Tests for homework2.  |
 | HW4.1 | [CustomFileReader](./src/main/java/homework_4/customFileReader) | Here you can see 4 different ways to read text from file.txt.  |
-| HW4.2 | [Singleton](./src/main/java/homework_4/singleton) | Basic and Thread-safe examples of Singleton.  |
+| HW4.2 | [Singleton](./src/main/java/homework_4/singleton) | Here are Basic and Thread-safe examples of Singleton.  |
 | HW4.2 | [CustomAnnotation](./src/main/java/homework_4/customAnnotation) | This is an example of creating and using custom Annotations.  |
+| HW5.1 | [PowerOfNumber](./src/main/java/homework_5/powerOfNumber) | This console app realizes Math.pow(int base, int n) method using recursion.  |
+| HW5.2 | [CustomRegexMatcher](./src/main/java/homework_5/customRegexMatcher) | This console app verifies custom email with regex.   |
 
 [Link to my CodingBat](https://codingbat.com/done?user=ashandrikov@gmail.com&tag=8115696431)
 
