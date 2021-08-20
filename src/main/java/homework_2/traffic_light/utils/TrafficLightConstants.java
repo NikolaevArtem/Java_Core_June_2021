@@ -1,6 +1,6 @@
 package homework_2.traffic_light.utils;
 
-public class Constants {
+public final class TrafficLightConstants {
     public static final String ERROR_MESSAGE = "Only 1 non-negative integer is allowed as passed parameter";
     public static final String INFO_MESSAGE = "Hi! This is your guide to cross the road blindly!\n" +
             "You are in the default mode. To enter extra mode you should restart the program with argument 1.\n" +

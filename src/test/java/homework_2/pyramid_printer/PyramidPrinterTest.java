@@ -3,8 +3,8 @@ package homework_2.pyramid_printer;
 import base.UnitBase;
 import org.junit.jupiter.api.Test;
 
-import static homework_2.utils.Constants.ERROR_MESSAGE_PYRAMID_PRINTER;
-import static homework_2.utils.Constants.INFO_MESSAGE_PYRAMID_PRINTER;
+import static homework_2.utils.Homework2Constants.ERROR_MESSAGE_PYRAMID_PRINTER;
+import static homework_2.utils.Homework2Constants.INFO_MESSAGE_PYRAMID_PRINTER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PyramidPrinterTest extends UnitBase {

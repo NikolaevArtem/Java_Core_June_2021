@@ -2,13 +2,13 @@ package homework_2.traffic_light;
 
 import homework_2.traffic_light.exception.TrafficLightException;
 
-import static homework_2.traffic_light.utils.Constants.ERROR_MESSAGE;
-import static homework_2.traffic_light.utils.Constants.ERROR_MESSAGE_EXCEED_LIMIT;
-import static homework_2.traffic_light.utils.Constants.INFO_MESSAGE_TO_EXTRA_MODE;
-import static homework_2.traffic_light.utils.Constants.SECONDS_IN_HOUR;
-import static homework_2.traffic_light.utils.Constants.SECONDS_IN_MINUTE;
-import static homework_2.traffic_light.utils.Utils.getData;
-import static homework_2.traffic_light.utils.Utils.printMessage;
+import static homework_2.traffic_light.utils.TrafficLightConstants.ERROR_MESSAGE;
+import static homework_2.traffic_light.utils.TrafficLightConstants.ERROR_MESSAGE_EXCEED_LIMIT;
+import static homework_2.traffic_light.utils.TrafficLightConstants.INFO_MESSAGE_TO_EXTRA_MODE;
+import static homework_2.traffic_light.utils.TrafficLightConstants.SECONDS_IN_HOUR;
+import static homework_2.traffic_light.utils.TrafficLightConstants.SECONDS_IN_MINUTE;
+import static homework_2.traffic_light.utils.TrafficLightUtils.getData;
+import static homework_2.traffic_light.utils.TrafficLightUtils.printMessage;
 
 public class TrafficLightExtraMode extends TrafficLight {
 

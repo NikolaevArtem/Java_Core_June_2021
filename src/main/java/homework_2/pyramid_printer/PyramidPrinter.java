@@ -6,9 +6,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static homework_2.pyramid_printer.utils.Constants.ERROR_MESSAGE;
-import static homework_2.pyramid_printer.utils.Constants.INFO_MESSAGE;
-import static homework_2.pyramid_printer.utils.Constants.LETTER;
+import static homework_2.pyramid_printer.utils.PyramidPrinterConstants.ERROR_MESSAGE;
+import static homework_2.pyramid_printer.utils.PyramidPrinterConstants.INFO_MESSAGE;
+import static homework_2.pyramid_printer.utils.PyramidPrinterConstants.LETTER;
 
 public class PyramidPrinter {
 

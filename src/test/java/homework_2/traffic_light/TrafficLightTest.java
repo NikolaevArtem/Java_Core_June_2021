@@ -3,13 +3,13 @@ package homework_2.traffic_light;
 import base.UnitBase;
 import org.junit.jupiter.api.Test;
 
-import static homework_2.utils.Constants.ERROR_MESSAGE_EXCEED_LIMIT_TRAFFIC_LIGHT;
-import static homework_2.utils.Constants.ERROR_MESSAGE_TRAFFIC_LIGHT;
-import static homework_2.utils.Constants.GREEN_MESSAGE_TRAFFIC_LIGHT;
-import static homework_2.utils.Constants.INFO_MESSAGE_TO_EXTRA_MODE_TRAFFIC_LIGHT;
-import static homework_2.utils.Constants.INFO_MESSAGE_TRAFFIC_LIGHT;
-import static homework_2.utils.Constants.RED_MESSAGE_TRAFFIC_LIGHT;
-import static homework_2.utils.Constants.YELLOW_MESSAGE_TRAFFIC_LIGHT;
+import static homework_2.utils.Homework2Constants.ERROR_MESSAGE_EXCEED_LIMIT_TRAFFIC_LIGHT;
+import static homework_2.utils.Homework2Constants.ERROR_MESSAGE_TRAFFIC_LIGHT;
+import static homework_2.utils.Homework2Constants.GREEN_MESSAGE_TRAFFIC_LIGHT;
+import static homework_2.utils.Homework2Constants.INFO_MESSAGE_TO_EXTRA_MODE_TRAFFIC_LIGHT;
+import static homework_2.utils.Homework2Constants.INFO_MESSAGE_TRAFFIC_LIGHT;
+import static homework_2.utils.Homework2Constants.RED_MESSAGE_TRAFFIC_LIGHT;
+import static homework_2.utils.Homework2Constants.YELLOW_MESSAGE_TRAFFIC_LIGHT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrafficLightTest extends UnitBase {

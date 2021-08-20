@@ -1,8 +1,7 @@
 package homework_5.math_power;
 
-import static homework_5.math_power.utils.Constants.ERROR_MESSAGE;
-import static homework_5.math_power.utils.Utils.isValid;
-import static homework_5.math_power.utils.Utils.printMessage;
+import static homework_5.math_power.utils.PowerOfNumberConstants.ERROR_MESSAGE;
+import static homework_5.math_power.utils.PowerOfNumberValidator.isValid;
 
 public class PowerOfNumber {
 
@@ -19,5 +18,9 @@ public class PowerOfNumber {
             return 1;
         }
         return powValue == 1 ? value : value * pow(value, powValue - 1);
+    }
+
+    public static void printMessage(String text) {
+        System.out.print(text);
     }
 }

@@ -2,16 +2,16 @@ package homework_2.traffic_light;
 
 import homework_2.traffic_light.exception.TrafficLightException;
 
-import static homework_2.traffic_light.utils.Constants.ERROR_MESSAGE;
-import static homework_2.traffic_light.utils.Constants.ERROR_MESSAGE_EXCEED_LIMIT;
-import static homework_2.traffic_light.utils.Constants.INFO_MESSAGE;
-import static homework_2.traffic_light.utils.Constants.LIGHT_GREEN_MESSAGE;
-import static homework_2.traffic_light.utils.Constants.LIGHT_RED_MESSAGE;
-import static homework_2.traffic_light.utils.Constants.LIGHT_YELLOW_MESSAGE;
-import static homework_2.traffic_light.utils.Constants.SECONDS_IN_DAY;
-import static homework_2.traffic_light.utils.Constants.SECONDS_IN_MINUTE;
-import static homework_2.traffic_light.utils.Utils.getData;
-import static homework_2.traffic_light.utils.Utils.printMessage;
+import static homework_2.traffic_light.utils.TrafficLightConstants.ERROR_MESSAGE;
+import static homework_2.traffic_light.utils.TrafficLightConstants.ERROR_MESSAGE_EXCEED_LIMIT;
+import static homework_2.traffic_light.utils.TrafficLightConstants.INFO_MESSAGE;
+import static homework_2.traffic_light.utils.TrafficLightConstants.LIGHT_GREEN_MESSAGE;
+import static homework_2.traffic_light.utils.TrafficLightConstants.LIGHT_RED_MESSAGE;
+import static homework_2.traffic_light.utils.TrafficLightConstants.LIGHT_YELLOW_MESSAGE;
+import static homework_2.traffic_light.utils.TrafficLightConstants.SECONDS_IN_DAY;
+import static homework_2.traffic_light.utils.TrafficLightConstants.SECONDS_IN_MINUTE;
+import static homework_2.traffic_light.utils.TrafficLightUtils.getData;
+import static homework_2.traffic_light.utils.TrafficLightUtils.printMessage;
 
 public class TrafficLight {
 

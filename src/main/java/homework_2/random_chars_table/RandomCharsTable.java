@@ -6,11 +6,11 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static homework_2.random_chars_table.utils.Constants.ERROR_MESSAGE;
-import static homework_2.random_chars_table.utils.Constants.MAX_CHAR;
-import static homework_2.random_chars_table.utils.Constants.MIN_CHAR;
-import static homework_2.random_chars_table.utils.Utils.getData;
-import static homework_2.random_chars_table.utils.Utils.printMessage;
+import static homework_2.random_chars_table.utils.RandomCharsTableConstants.ERROR_MESSAGE;
+import static homework_2.random_chars_table.utils.RandomCharsTableConstants.MAX_CHAR;
+import static homework_2.random_chars_table.utils.RandomCharsTableConstants.MIN_CHAR;
+import static homework_2.random_chars_table.utils.RandomCharsTableUtils.getData;
+import static homework_2.random_chars_table.utils.RandomCharsTableUtils.printMessage;
 import static java.lang.System.lineSeparator;
 
 public class RandomCharsTable {

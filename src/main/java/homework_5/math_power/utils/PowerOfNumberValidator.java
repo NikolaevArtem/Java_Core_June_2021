@@ -1,6 +1,6 @@
 package homework_5.math_power.utils;
 
-public class Utils {
+public final class PowerOfNumberValidator {
 
     public static boolean isValid(String[] args) throws NumberFormatException {
         try {
@@ -8,9 +8,5 @@ public class Utils {
         } catch (NumberFormatException e) {
             return false;
         }
-    }
-
-    public static void printMessage(String text) {
-        System.out.print(text);
     }
 }
