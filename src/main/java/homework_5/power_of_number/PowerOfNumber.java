@@ -1,15 +1,16 @@
 package homework_5.power_of_number;
 
+import base.BaseClazz;
+
 import java.math.BigInteger;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
-public class PowerOfNumber {
+public class PowerOfNumber extends BaseClazz {
 
-    private static final String ANSI_RESET = "\033[0m";
-    private static final String ANSI_RED = "\u001B[31m";
     private static final String ERROR_MESSAGE = "Only 2 non-negative integers are allowed";
 
+    @Override
     public void run() {
         System.out.println("Enter the number and degree");
         System.out.println(printPowResult());
@@ -38,7 +39,8 @@ public class PowerOfNumber {
         return a;
     }
 
-    private boolean isValid(String[] inputStr) {
+    @Override
+    protected boolean isValid(String... inputStr) {
         if (inputStr.length != 2) {
             return false;
         }
