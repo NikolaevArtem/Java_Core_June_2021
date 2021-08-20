@@ -12,6 +12,7 @@ The constructor should do defensive copy for reference object
 Defensive copy to reference object should be for getters
  */
 public final class MyImmutableClass {
+
     private final String myName;
     private final int myAge;
     private final Map<String, String> myPassword;
