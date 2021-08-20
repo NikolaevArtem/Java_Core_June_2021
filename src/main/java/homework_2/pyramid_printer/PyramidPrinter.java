@@ -1,13 +1,14 @@
 package homework_2.pyramid_printer;
 
+import base.BaseClazz;
+
 import java.util.Scanner;
 
-public class PyramidPrinter {
+public class PyramidPrinter extends BaseClazz {
 
-    private static final String ANSI_RESET = "\033[0m";
-    private static final String ANSI_RED = "\u001B[31m";
     private static final String ERROR_MESSAGE = "Only 1 non-negative integer is allowed as passed parameter";
 
+    @Override
     public void run() {
         System.out.println("Enter the number");
         Scanner scanner = new Scanner(System.in);
@@ -18,18 +19,6 @@ public class PyramidPrinter {
             System.out.println(ANSI_RED + ERROR_MESSAGE + ANSI_RESET);
         }
         scanner.close();
-    }
-
-    private boolean isValid(String arg) {
-        if (arg.matches("^\\s*[+]?[0-9]+\\s*$")) {
-            try {
-                Integer.parseInt(arg);
-            } catch (NumberFormatException exception) {
-                return false;
-            }
-            return true;
-        }
-        return false;
     }
 
     private void printPyramid(int n) {
