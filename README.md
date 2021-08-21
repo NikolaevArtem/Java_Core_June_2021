@@ -12,6 +12,8 @@ HW3   | [Immutable Class](./src/main/java/homework_3/ImmutableClass.java) | Crea
 HW4.1 | [Custom File Reader](./src/main/java/homework_4/custom_file_reader/) <br/> [Tests](./src/test/java/homework_4/custom_file_reader/) | App reading data from file and prints to console. Text file path: main/resources/custom_file_reader/. Reading file in 4 different ways (one of them using NIO) executable with methods: run1(), run2(), run3(), run4() |
 HW4.2 | [Singleton](./src/main/java/homework_4/singleton/) <br/> [Tests](./src/test/java/homework_4/singleton/) | Singleton App: private constructor and public method getInstance() |
 HW4.3 | [Custom Annotation](./src/main/java/homework_4/custom_annotation/) <br/> [Tests](./src/test/java/homework_4/custom_annotation/) | Custom annotation class. |
+HW5.1 | [Power Of Number](./src/main/java/homework_5/power_of_number/) <br/> [Tests](./src/test/java/homework_5/power_of_number/) | Power of number recursion using App. Reads 2 non-negative integer numbers from console and prints out the result of exponentiation. Only for positive integer numbers. On any problem output message will be gotten: "Only 2 non-negative integers are allowed"  |
+HW5.2 | [Custom Regex Matcher](./src/main/java/homework_5/custom_regex_matcher/) <br/> [Tests](./src/test/java/homework_5/custom_regex_matcher/) | App reads input from keyboard and print true or false for the input matching to the hardcoded regex format. |
 
 <br>
 
