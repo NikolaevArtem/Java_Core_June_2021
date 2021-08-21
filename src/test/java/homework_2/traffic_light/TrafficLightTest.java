@@ -1,6 +1,5 @@
 package homework_2.traffic_light;
 
-import homework_2.random_chars_table.RandomCharsTable;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import base.UnitBase;
