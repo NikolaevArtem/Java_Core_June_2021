@@ -50,7 +50,7 @@ public class PowerOfNumberTest extends base.UnitBase {
 
     @Test
     void noArgumentsTest() {
-        setInput(" ");
+        setInput("");
 
         new PowerOfNumber().run();
         printOut();
