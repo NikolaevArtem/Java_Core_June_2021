@@ -10,8 +10,8 @@ class DigitTest {
         final long num1 = 15_005_532L;
         final long num2 = 12L;
 
-        assertEquals(8, Digit.getCountOfDigit(num1));
-        assertEquals(2, Digit.getCountOfDigit(num2));
+        assertEquals(8, Digit.calculate(num1));
+        assertEquals(2, Digit.calculate(num2));
     }
 
     @Test
@@ -19,7 +19,7 @@ class DigitTest {
         final long num1 = -15_005_532L;
         final long num2 = -12L;
 
-        assertEquals(8, Digit.getCountOfDigit(num1));
-        assertEquals(2, Digit.getCountOfDigit(num2));
+        assertEquals(8, Digit.calculate(num1));
+        assertEquals(2, Digit.calculate(num2));
     }
 }
