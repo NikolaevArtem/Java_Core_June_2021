@@ -13,6 +13,7 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class PowerOfNumberTest extends base.UnitBase {
 
+    private final String START_MESSAGE = "Please, input number and power.";
     private final String ERROR_MESSAGE = "Only 2 non-negative integers are allowed";
 
     @Test
@@ -21,7 +22,7 @@ public class PowerOfNumberTest extends base.UnitBase {
 
         new PowerOfNumber().run();
         printOut();
-        removeFromOutput("Please, input number and power.");
+        removeFromOutput(START_MESSAGE);
 
         assertEquals(ERROR_MESSAGE, getOutput());
     }
@@ -32,7 +33,7 @@ public class PowerOfNumberTest extends base.UnitBase {
 
         new PowerOfNumber().run();
         printOut();
-        removeFromOutput("Please, input number and power.");
+        removeFromOutput(START_MESSAGE);
 
         assertEquals(ERROR_MESSAGE, getOutput());
     }
@@ -43,7 +44,7 @@ public class PowerOfNumberTest extends base.UnitBase {
 
         new PowerOfNumber().run();
         printOut();
-        removeFromOutput("Please, input number and power.");
+        removeFromOutput(START_MESSAGE);
 
         assertEquals(ERROR_MESSAGE, getOutput());
     }
@@ -54,7 +55,7 @@ public class PowerOfNumberTest extends base.UnitBase {
 
         new PowerOfNumber().run();
         printOut();
-        removeFromOutput("Please, input number and power.");
+        removeFromOutput(START_MESSAGE);
 
         assertEquals(ERROR_MESSAGE, getOutput());
     }
@@ -65,7 +66,7 @@ public class PowerOfNumberTest extends base.UnitBase {
 
         new PowerOfNumber().run();
         printOut();
-        removeFromOutput("Please, input number and power.");
+        removeFromOutput(START_MESSAGE);
 
         assertEquals(ERROR_MESSAGE, getOutput());
     }
@@ -77,7 +78,7 @@ public class PowerOfNumberTest extends base.UnitBase {
 
         new PowerOfNumber().run();
         printOut();
-        removeFromOutput("Please, input number and power.");
+        removeFromOutput(START_MESSAGE);
 
         assertEquals(expected, getOutput());
     }
