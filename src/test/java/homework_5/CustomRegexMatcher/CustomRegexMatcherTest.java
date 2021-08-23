@@ -1,7 +1,7 @@
 package homework_5.CustomRegexMatcher;
 
 import base.UnitBase;
-import homework_5.powerOfNumber.CustomRegexMatcher;
+import homework_5.customRegexMatcher.CustomRegexMatcher;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;

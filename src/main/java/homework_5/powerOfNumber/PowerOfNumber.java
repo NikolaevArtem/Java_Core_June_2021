@@ -1,4 +1,4 @@
-package homework_5.customRegexMatcher;
+package homework_5.powerOfNumber;
 
 import java.io.BufferedReader;
 import java.io.IOException;

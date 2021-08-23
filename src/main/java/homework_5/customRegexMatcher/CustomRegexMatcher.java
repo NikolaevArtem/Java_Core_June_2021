@@ -1,4 +1,4 @@
-package homework_5.powerOfNumber;
+package homework_5.customRegexMatcher;
 
 import java.util.regex.Pattern;
 

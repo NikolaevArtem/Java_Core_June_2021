@@ -2,10 +2,15 @@ package homework_5.powerOfNumber;
 
 public class Main {
     public static void main(String[] args) {
-
-        String string = "192.168.00.00 - - [10/Jun/2021:07:21:22 +0000] PUT /api/v1/user/favorites HTTP/1.1 200 45 https://test.lab/login";
-
-        CustomRegexMatcher customRegexMatcher = new CustomRegexMatcher ();
-        customRegexMatcher.run (string);
+        PowerOfNumber powerOfNumber = new PowerOfNumber ();
+//        System.out.println (powerOfNumber.recursion (2, 2));
+//        System.out.println (powerOfNumber.recursion (2, 1));
+//        System.out.println (powerOfNumber.recursion (2, 0));
+//        System.out.println (powerOfNumber.recursion (0, 2));
+//        System.out.println (Math.pow(2,2));
+//        System.out.println (Math.pow(2,1));
+//        System.out.println (Math.pow(2,0));
+//        System.out.println (Math.pow(0,2));
+        powerOfNumber.run ();
     }
 }
