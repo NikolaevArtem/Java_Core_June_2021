@@ -14,7 +14,8 @@
 | HW4.2 | [CustomAnnotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/main/java/homework_4/custom_annotation) | Implemented two annotations: for filling class constructor and for printing field names and their value. |
 | HW4.3 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/main/java/homework_4/singleton) | Simple singleton |
 | HW4.Tests | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/test/java/homework_4) | Tests for homework_4 |
-| HW5 | [Recursion](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/main/java/homework_5/recursion) | Recursive way to calculate a power of a number. |
+| HW5.1 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/main/java/homework_5/power_of_number) | Recursive way to calculate a power of a number. |
+| HW5.2 | [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/main/java/homework_5/custom_regex_matcher) | The app reads a string and checks if it is a number in Russian format with slight differences  |
 | HW5.Tests | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/test/java/homework_5/) | Tests for homework_5 |
 
 [Link to CodingBat done page](https://codingbat.com/done?user=dmitrisedam11@gmail.com&tag=7827998073)
