@@ -7,13 +7,11 @@ import java.io.InputStreamReader;
 public class ConsoleSafeReader {
 
     public static String read() {
-        String s;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            s = reader.readLine();
+            return reader.readLine();
         } catch (IOException e) {
             return "Error.";
         }
-        return s;
     }
 
 }
