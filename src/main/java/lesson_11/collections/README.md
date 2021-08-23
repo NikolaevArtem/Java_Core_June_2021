@@ -1,0 +1,1 @@
+![](https://www.codejava.net/images/articles/javacore/collections/collections%20framework%20overview.png)
