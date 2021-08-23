@@ -32,8 +32,7 @@ public class PowerOfNumber {
                 result = rawInput.split("\\s");
             }
 
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println(ERR_MSG);
         }
         return result;

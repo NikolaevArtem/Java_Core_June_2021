@@ -22,7 +22,7 @@ public class PowerOfNumberTest extends UnitBase {
     // 10             123 21, result bigger then int
 
     @Test
-    public void givenString_whenRun_thenErrorOccurs(){
+    public void givenString_whenRun_thenErrorOccurs() {
         setInput("string");
         powerOfNumber.run();
         removeFromOutput("Enter the number and degree, please, only 2 non-negative integers are allowed:");
@@ -30,7 +30,7 @@ public class PowerOfNumberTest extends UnitBase {
     }
 
     @Test
-    public void givenOneInteger_whenRun_thenErrorOccurs(){
+    public void givenOneInteger_whenRun_thenErrorOccurs() {
         setInput("12");
         powerOfNumber.run();
         removeFromOutput("Enter the number and degree, please, only 2 non-negative integers are allowed:");
@@ -38,7 +38,7 @@ public class PowerOfNumberTest extends UnitBase {
     }
 
     @Test
-    public void givenThreeIntegers_whenRun_thenErrorOccurs(){
+    public void givenThreeIntegers_whenRun_thenErrorOccurs() {
         setInput("12 12 12");
         powerOfNumber.run();
         removeFromOutput("Enter the number and degree, please, only 2 non-negative integers are allowed:");
@@ -46,16 +46,16 @@ public class PowerOfNumberTest extends UnitBase {
     }
 
     @Test
-    public void givenEmptyInput_whenRun_thenErrorOccurs(){
+    public void givenEmptyInput_whenRun_thenErrorOccurs() {
         setInput("");
 
         removeFromOutput("Enter the number and degree, please, only 2 non-negative integers are allowed:");
-        assertThrows(NullPointerException.class,() ->
-        new PowerOfNumber().run());
+        assertThrows(NullPointerException.class, () ->
+                new PowerOfNumber().run());
     }
 
     @Test
-    public void givenTwoDoubles_whenRun_thenErrorOccurs(){
+    public void givenTwoDoubles_whenRun_thenErrorOccurs() {
         setInput("12.1 12.1");
         powerOfNumber.run();
         removeFromOutput("Enter the number and degree, please, only 2 non-negative integers are allowed:");
@@ -63,7 +63,7 @@ public class PowerOfNumberTest extends UnitBase {
     }
 
     @Test
-    public void givenNegativeInInput_whenRun_thenErrorOccurs(){
+    public void givenNegativeInInput_whenRun_thenErrorOccurs() {
         setInput("-2 12");
         powerOfNumber.run();
         removeFromOutput("Enter the number and degree, please, only 2 non-negative integers are allowed:");
@@ -77,7 +77,7 @@ public class PowerOfNumberTest extends UnitBase {
     }
 
     @Test
-    public void givenTwoAndThree_whenRun_thenErrorOccurs(){
+    public void givenTwoAndThree_whenRun_thenErrorOccurs() {
         setInput("2 3");
         powerOfNumber.run();
         removeFromOutput("Enter the number and degree, please, only 2 non-negative integers are allowed:");
@@ -85,13 +85,12 @@ public class PowerOfNumberTest extends UnitBase {
     }
 
     @Test
-    public void given123and21_whenRun_thenErrorOccurs(){
+    public void given123and21_whenRun_thenErrorOccurs() {
         setInput("123 21");
         powerOfNumber.run();
         removeFromOutput("Enter the number and degree, please, only 2 non-negative integers are allowed:");
         assertEquals("77269364466549865653073473388030061522211723", getOutput());
     }
-
 
 
 }
