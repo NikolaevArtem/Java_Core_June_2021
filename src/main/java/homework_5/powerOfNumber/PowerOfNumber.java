@@ -9,7 +9,7 @@ public class PowerOfNumber {
     private int number;
     private int power;
 
-    public int recursion(int firstNumber, int secondNumber) {
+    private int recursion(int firstNumber, int secondNumber) {
         if (secondNumber < 1) return 1;
         return firstNumber * recursion (firstNumber, secondNumber - 1);
     }
@@ -23,7 +23,7 @@ public class PowerOfNumber {
         }
     }
 
-    public String bufferReaderConsole() {
+    private String bufferReaderConsole() {
         try (BufferedReader reader = new BufferedReader (new InputStreamReader (System.in))) {
             return reader.readLine ();
         } catch (IOException ex) {
