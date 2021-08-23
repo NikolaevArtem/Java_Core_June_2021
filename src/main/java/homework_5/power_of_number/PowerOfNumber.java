@@ -17,10 +17,8 @@ public class PowerOfNumber {
                 return;
             }
             System.out.println(recursia(a, b));
-        } catch (NumberFormatException e) {
+        } catch (NullPointerException | IOException | NumberFormatException e) {
             System.out.println("Only 2 non-negative integers are allowed");
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

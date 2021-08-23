@@ -15,6 +15,8 @@
 | HW4 | [CustomFileReader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_4/custom_file_reader) | This application reads the text from the file, removes commas and periods and them outputs the text to the console. |
 | HW4 | [CustomAnnotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_4/custom_annotation) | Create custom annotation|
 | HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_4/singleton) | This is a singleton app. you can create only 1 instance of this class.|
+| HW5 | [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_5/custom_regex_matcher) | This app that accepts 2 numbers from the command line, and raises 1 number to the power of 2 numbers.|
+| HW5 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_4/power_of_number) | This app checks whether the email is entered correctly.|
 
 
 [Link to CodingBat](https://codingbat.com/done?user=bomba_25@mail.ru&tag=8601275236)

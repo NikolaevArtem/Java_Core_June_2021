@@ -9,20 +9,19 @@ import java.util.regex.Pattern;
 public class CustomRegexMatcher {
 
     public void run() {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
-
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.println("Regex Email: ");
             System.out.println(regex(reader.readLine()));
-
+        } catch (NullPointerException e) {
+            System.out.println(regex(""));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private boolean regex(String readLine) {
-        boolean result = readLine.matches("\\d");
-
-        return result;
+        if (readLine.length() < 3) return false;
+        return readLine.matches("(\\w+)@((mail)|(gmail)|(google)|(other)).([a-z]+)");
     }
 
 }
