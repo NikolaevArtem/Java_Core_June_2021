@@ -12,6 +12,8 @@
 | HW 4_1| [CustomAnnotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_4/custom_annotation)| Annotation for JSON Serialization 
 | HW 4_2| [CustomFileReader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_4/custom_file_reader) | File Reader which removes full stops and comas fro TXT file 
 | HW 4_3| [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_4/singleton)| Three singleton classes
+| HW 5_1| [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_5/custom_regex_matcher)| App is checking if input matches moderate password
+| HW 5_2| [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_5/power_of_number)|Recursively counts given degree of a given number 
 | Tests|[Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/test/java/homework) | Tests for homework
 
 [Link to CodingBat](https://codingbat.com/done?user=dvaschenko33@gmail.com&tag=4651459890)
