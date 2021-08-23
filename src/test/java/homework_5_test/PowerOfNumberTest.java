@@ -10,7 +10,6 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 class PowerOfNumberTest extends UnitBase {
 
     private static final String ERROR_MESSAGE = "Only 2 non-negative integers are allowed";
