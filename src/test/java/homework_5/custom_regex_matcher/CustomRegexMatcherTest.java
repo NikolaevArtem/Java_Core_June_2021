@@ -15,4 +15,34 @@ public class CustomRegexMatcherTest extends UnitBase {
 
         assertEquals("true",getOutput());
     }
+
+    @Test
+    public void givenMatching2_whenRun_thenPrintTrue() {
+        setInput("dimatroshkin@mail.ru");
+        CustomRegexMatcher.run();
+        printOut();
+        removeFromOutput("Please, enter your string...");
+
+        assertEquals("true",getOutput());
+    }
+
+    @Test
+    public void givenNonMatching1_whenRun_thenPrintFalse() {
+        setInput("my email is: dimatroshkin@mail.ru");
+        CustomRegexMatcher.run();
+        printOut();
+        removeFromOutput("Please, enter your string...");
+
+        assertEquals("false",getOutput());
+    }
+
+    @Test
+    public void givenNonMatching2_whenRun_thenPrintFalse() {
+        setInput("/.epof@.rert.surr");
+        CustomRegexMatcher.run();
+        printOut();
+        removeFromOutput("Please, enter your string...");
+
+        assertEquals("false",getOutput());
+    }
 }
