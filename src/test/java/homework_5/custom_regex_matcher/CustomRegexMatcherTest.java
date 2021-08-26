@@ -7,7 +7,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static homework_5.custom_regex_matcher.utils.CustomRegexMatcherConstants.ERROR_MESSAGE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CustomRegexMatcherTest extends UnitBase {
@@ -22,7 +21,7 @@ public class CustomRegexMatcherTest extends UnitBase {
 
     static Stream<Arguments> testCases() {
         return Stream.of(
-                Arguments.of(new String[]{}, ERROR_MESSAGE),
+                Arguments.of(new String[]{}, "false"),
                 Arguments.of(new String[]{"2021-02-09T18:18:24:424Z – [username9] - wanna scoop 182l"}, "true"),
                 Arguments.of(new String[]{"2021-02-09T18:18:24:424Z – [username9] - wanna scoop 182l",
                         "2021-02-09T18:18:23:081Z – [username10] - wanna top up 66l",

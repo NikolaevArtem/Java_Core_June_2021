@@ -6,11 +6,10 @@ import static java.lang.System.lineSeparator;
 
 public class CustomRegexMatcher {
     private static final String CUSTOM_REGEX = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}:\\d+?[zZ]\\s*–\\s*\\[.*]\\s*-\\s*.*";
-    public static final String ERROR_MESSAGE = "No arguments have been found";
 
     public void run(String[] args) {
         if (args.length < 1) {
-            printMessage(ERROR_MESSAGE);
+            printMessage("false");
         }
         for (String s : args) {
             printMessage(isMatching(s) + lineSeparator());
