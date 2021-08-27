@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class PowerOfNumber {
 
-    public  int pow(int number, int pow) {
+    public int pow(int number, int pow) {
         if(number < 0 || pow < 0){
             throw new IllegalArgumentException();
         }
