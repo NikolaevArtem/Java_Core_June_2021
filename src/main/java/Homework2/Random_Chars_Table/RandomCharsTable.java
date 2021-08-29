@@ -1,8 +1,5 @@
 package Homework2.Random_Chars_Table;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class RandomCharsTable {
@@ -30,19 +27,37 @@ public class RandomCharsTable {
     private boolean isValid(String input) {
         return (input.matches("\\d+\\s\\d+\\sodd") || input.matches("\\d+\\s\\d+\\seven")
                 && height >= 0 && length >= 0);
-
     }
 
+    public String getResult(String strategy, char[][] rCT) {
+        StringBuilder buildResult = new StringBuilder();
+        buildResult.append(strategy)
+                .append(" letters -");
+
+        boolean strategyOdd = strategy.equals("odd");
+
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < height; j++) {
+                boolean isOdd = rCT[i][j] % 2 == 1;
+
+                if ((!strategyOdd && !isOdd) || (strategyOdd && isOdd)) {
+                    buildResult.append(' ')
+                            .append(rCT[i][j]);
+                }
+            }
+        }
+        return buildResult.toString();
+    }
 
     public void run() {
-        String strategy = "";
+        String strategy;
         Scanner scanner = new Scanner(System.in);
         input = scanner.nextLine();
 
         if (!isValid(input)) {
-            System.out.println("The line you entered does not fit the pattern");
+            throw new IllegalArgumentException("The line you entered does not fit the pattern");
         } else {
-            String[] split = input.split(" ");
+            String[] split = input.split("\\s");
             length = Integer.parseInt(split[0]);
             height = Integer.parseInt(split[1]);
             strategy = split[2];
@@ -60,50 +75,9 @@ public class RandomCharsTable {
         }
         System.out.println(buildTable);
 
-        StringBuilder buildResult = new StringBuilder();
-        if (strategy.equals("odd")) {
-            buildResult.append("Odd letters - ");
-            for (int i = 0; i < length; i++) {
-                for (int j = 0; j < height; j++) {
-                    if (rCT[i][j] % 2 == 1) {
-                        buildResult.append(rCT[i][j]).append(" ");
-                    }
-                }
-            }
-        }
-
-        if (strategy.equals("even")) {
-            buildResult.append("Even letters - ");
-            for (int i = 0; i < length; i++) {
-                for (int j = 0; j < height; j++) {
-                    if (rCT[i][j] % 2 == 0) {
-                        buildResult.append(rCT[i][j]).append(" ");
-                    }
-                }
-            }
-        }
-        System.out.println(buildResult.toString());
+        System.out.println(getResult(strategy, rCT));
     }
 
-//    private String getResult(String strategy, char[][] rCT) {
-//        StringBuilder buildResult = new StringBuilder();
-//        String result = "";
-//
-//        for (int i = 0; i < length; i++) {
-//            for (int j = 0; j < height; j++) {
-//                if (rCT[i][j] % 2 == 0 && strategy.equals("odd")) {
-//                    buildResult.append("Odd letters - ");
-//                    buildResult.append(rCT[i][j]).append(" ");
-//                    result = buildResult.toString();
-//                } else {
-//                    buildResult.append("Even letters - ");
-//                    buildResult.append(rCT[i][j]).append(" ");
-//                    result = buildResult.toString();
-//                }
-//            }
-//        } return result;
-//
-//    }
 }
 
 

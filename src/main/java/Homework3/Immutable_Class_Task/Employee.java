@@ -2,13 +2,30 @@ package Homework3.Immutable_Class_Task;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class Student {
+/*
+Requirements for immutable classes
+1. The class must be declared as final/
+
+2.Fields in the class must be declared as private
+
+3.Data members in the class must be declared as final
+(So that we can’t change the value of it after object creation)
+
+4. A parameterized constructor should initialize all the fields performing a deep copy
+(So that data members can’t be modified with object reference)
+5.Deep Copy of objects should be performed in the getter methods
+(To return a copy rather than returning the actual object reference)
+
+6. No setters
+ */
+
+public final class Employee {
         private final String name;
         private final int regNo;
         private final Map<String, String> metadata;
 
-        public Student(String name, int regNo,
-                       Map<String, String> metadata)
+        public Employee(String name, int regNo,
+                        Map<String, String> metadata)
         {
             this.name = name;
             this.regNo = regNo;
@@ -35,26 +52,19 @@ public final class Student {
         }
     }
 
-    // Driver class
-    class Test {
+
+    class Main {
         public static void main(String[] args)
         {
             Map<String, String> map = new HashMap<>();
             map.put("1", "first");
             map.put("2", "second");
-            Student s = new Student("ABC", 101, map);
+            Employee s = new Employee("ABC", 101, map);
             System.out.println(s.getName());
             System.out.println(s.getRegNo());
             System.out.println(s.getMetadata());
 
-            // Uncommenting below line causes error
-            // s.regNo = 102;
 
-            map.put("3", "third");
-            System.out.println(s.getMetadata()); // Remains unchanged due to deep copy in constructor
-
-            s.getMetadata().put("4", "fourth");
-            System.out.println(s.getMetadata()); // Remains unchanged due to deep copy in getter
         }
     }
 

@@ -7,42 +7,37 @@ import java.io.InputStreamReader;
 public class TrafficLight {
     final int END_OF_THE_DAY = 86399;
 
-    TrafficLight getTrafficLight(int input) {
-        TrafficLight trafficLight = new TrafficLight();
-
+    String getTrafficLight(int input) {
         if (input < 0) {
-            System.out.println("Error. You can't enter negative numbers");
+            throw new IllegalArgumentException("Error. You can't enter negative numbers");
 
         } else if (input > END_OF_THE_DAY) {
-            System.out.println("Error. The day has come to an end");
-
+            throw new IllegalArgumentException("Error. The day has come to an end");
         }
-
         int lightInterval = input % 60;
-
+        String light = "";
         if (lightInterval >= 0 && lightInterval < 35) {
-            System.out.println("Green");
+            light = "Green";
         } else if (lightInterval >= 35 && lightInterval < 40) {
-            System.out.println("Yellow");
+            light = "Yellow";
         } else if (lightInterval >= 40 && lightInterval < 55) {
-            System.out.println("Red");
+            light = "Red";
         } else if (lightInterval >= 55 && lightInterval < 60) {
-            System.out.println("Yellow");
+            light = "Yellow";
         }
-        return trafficLight;
+        return light;
     }
 
     public void run() {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int input = 0;
-        try (reader) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             input = Integer.parseInt(reader.readLine());
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NumberFormatException e) {
             System.out.println("Input does not contain numbers");
         }
-        getTrafficLight(input);
+        System.out.println(getTrafficLight(input));
     }
 }
 

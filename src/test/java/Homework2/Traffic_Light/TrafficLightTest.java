@@ -10,19 +10,57 @@ class TrafficLightTest extends UnitBase {
     static TrafficLight trafficLight;
 
     @BeforeAll
-    public void init(){
+    public static void init(){
         trafficLight = new TrafficLight();
     }
 
     @Test
-    void getTrafficLightTest() {
-        trafficLight.getTrafficLight(0);
-
-
+    void getTrafficLightTestZero() {
+        String color = TrafficLightTest.trafficLight.getTrafficLight(0);
+        assertEquals("Green", color);
     }
 
+    @Test
+    void getTrafficLigthTest(){
+        String color = TrafficLightTest.trafficLight.getTrafficLight(357);
+        assertEquals("Yellow", color);
+    }
 
     @Test
-    void runTest() {
+    void negativeInputNumberTest(){
+        assertThrows(IllegalArgumentException.class, () -> TrafficLightTest.trafficLight.getTrafficLight(-6));
+    }
+
+    @Test
+    void endOfTheDayTest(){
+        assertThrows(IllegalArgumentException.class, () -> TrafficLightTest.trafficLight.getTrafficLight(87000));
+    }
+
+    @Test
+    void runTestZero() {
+        setInput("0");
+        TrafficLightTest.trafficLight.run();
+        String color = getOutput();
+        assertEquals("Green", color);
+    }
+
+    @Test
+    void runTest(){
+        setInput("357");
+        TrafficLightTest.trafficLight.run();
+        String color = getOutput();
+        assertEquals("Yellow", color);
+    }
+
+    @Test
+    void runTestNegative(){
+        setInput("-6");
+        assertThrows(IllegalArgumentException.class, () -> TrafficLightTest.trafficLight.run());
+    }
+
+    @Test
+    void runTestEndOfTheDay(){
+        setInput("87000");
+        assertThrows(IllegalArgumentException.class, () -> TrafficLightTest.trafficLight.run());
     }
 }

@@ -39,5 +39,22 @@ class PyramidPrinterTest extends UnitBase {
         setInput("qwery");
         assertDoesNotThrow(() -> pyramidPrinter.run());
     }
+    @Test
+    public void runWithValidInputTest(){
+      setInput("3");
+       pyramidPrinter.run();
+       printOut();
+
+        assertEquals("x  ", getOutputLines()[0]);
+        assertEquals("xx ", getOutputLines()[1]);
+        assertEquals("xxx", getOutputLines()[2]);
+
+    }
+    @Test
+    public void runWithInvalidInputTest(){
+        setInput("dff");
+        assertDoesNotThrow(()-> pyramidPrinter.run());
+    }
+
 
 }
