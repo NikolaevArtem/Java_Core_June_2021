@@ -19,6 +19,11 @@ public class MutableClass {
     }
 
     @Override
+    public String toString() {
+        return String.valueOf(a);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
