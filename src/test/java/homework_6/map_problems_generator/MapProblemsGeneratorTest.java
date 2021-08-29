@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MapProblemsGeneratorTest {
 
-    Map<Getable, String> map = new HashMap<>();
+    Map<MapKeyable, String> map = new HashMap<>();
     MapProblemsGenerator mapProblemsGenerator = new MapProblemsGenerator();
 
     @SuppressWarnings("java:S5785")

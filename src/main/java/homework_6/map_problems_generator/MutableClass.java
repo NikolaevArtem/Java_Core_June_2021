@@ -3,7 +3,7 @@ package homework_6.map_problems_generator;
 import java.util.Objects;
 import java.util.Random;
 
-public class MutableClass implements Getable {
+public class MutableClass implements MapKeyable {
 
     private String val;
 
