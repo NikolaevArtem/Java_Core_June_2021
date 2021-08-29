@@ -15,6 +15,7 @@
 | HW4.2 | [CustomAnnotation](./src/main/java/homework_4/customAnnotation) | This is an example of creating and using custom Annotations.  |
 | HW5.1 | [PowerOfNumber](./src/main/java/homework_5/powerOfNumber) | This console app realizes Math.pow(int base, int n) method using recursion.  |
 | HW5.2 | [CustomRegexMatcher](./src/main/java/homework_5/customRegexMatcher) | This console app verifies custom email with regex.   |
+| HW6 | [MapProblemsGenerator](./src/main/java/homework_6/mapProblemsGenerator) | Here you can find example of incorrect hash method overriding and a case where we can loose information in our map.  |
 
 [Link to my CodingBat](https://codingbat.com/done?user=ashandrikov@gmail.com&tag=8115696431)
 
