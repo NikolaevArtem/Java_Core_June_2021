@@ -1,4 +1,4 @@
-package homework_6.map_problems_generator;
+package homework_6.map_problems_collision_generator;
 
 public class GenerateCollisions implements MapKeyable {
 

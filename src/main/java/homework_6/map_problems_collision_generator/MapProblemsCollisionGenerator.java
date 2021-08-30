@@ -1,6 +1,6 @@
-package homework_6.map_problems_generator;
+package homework_6.map_problems_collision_generator;
 
-public class MapProblemsGenerator {
+public class MapProblemsCollisionGenerator {
 
     public GenerateCollisions getGenerateCollisions(String value) {
         return new GenerateCollisions(value);
