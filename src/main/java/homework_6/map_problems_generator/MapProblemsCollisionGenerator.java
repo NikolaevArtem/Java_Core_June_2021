@@ -1,10 +1,10 @@
 package homework_6.map_problems_generator;
 
-public class MapProblemsGenerator {
+public class MapProblemsCollisionGenerator {
 
     private int a;
 
-    public MapProblemsGenerator(int a) {
+    public MapProblemsCollisionGenerator(int a) {
         this.a = a;
     }
 
@@ -16,12 +16,12 @@ public class MapProblemsGenerator {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MapProblemsGenerator that = (MapProblemsGenerator) o;
+        MapProblemsCollisionGenerator that = (MapProblemsCollisionGenerator) o;
         return a == that.a;
     }
 
     @Override
     public int hashCode() {
-        return 1;
+        return 0;
     }
 }

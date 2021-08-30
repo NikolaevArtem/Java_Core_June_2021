@@ -2,11 +2,11 @@ package homework_6.map_problems_generator;
 
 import java.util.Random;
 
-public class MutableClass {
+public class MapProblemsMutableGenerator {
 
     private int a;
 
-    public MutableClass(int a) {
+    public MapProblemsMutableGenerator(int a) {
         this.a = a;
     }
 
@@ -27,7 +27,7 @@ public class MutableClass {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MutableClass that = (MutableClass) o;
+        MapProblemsMutableGenerator that = (MapProblemsMutableGenerator) o;
         return a == that.a;
     }
 
