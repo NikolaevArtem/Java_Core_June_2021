@@ -17,8 +17,8 @@
 | HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_4/singleton) | This is a singleton app. you can create only 1 instance of this class.|
 | HW5 | [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_5/custom_regex_matcher) | This app that accepts 2 numbers from the command line, and raises 1 number to the power of 2 numbers.|
 | HW5 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/test/java/homework_4/power_of_number) | This app checks whether the email is entered correctly.|
-| HW6 | [MapProblemsGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/main/java/homework_6/map_problems_generator) | This app creates collisions in HashMap.|
-| HW6 | [MutableClass](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/main/java/homework_6/map_problems_generator) | A mutable class is declared, this object in HashMap we will not be able to get this object by the key. |
+| HW6 | [MapProblemsCollisionGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/main/java/homework_6/map_problems_generator) | This app creates collisions in HashMap.|
+| HW6 | [MapProblemsMutableGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/main/java/homework_6/map_problems_generator) | A mutable class is declared, this object in HashMap we will not be able to get this object by the key. |
 
 
 [Link to CodingBat](https://codingbat.com/done?user=bomba_25@mail.ru&tag=8601275236)
