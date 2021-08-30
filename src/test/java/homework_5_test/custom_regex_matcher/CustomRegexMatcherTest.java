@@ -1,4 +1,4 @@
-package homework_5_test;
+package homework_5_test.custom_regex_matcher;
 
 import base.UnitBase;
 import homework_5.custom_regex_matcher.CustomRegexMatcher;

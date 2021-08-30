@@ -1,4 +1,4 @@
-package homework_5_test;
+package homework_5_test.power_of_number;
 
 import base.UnitBase;
 import homework_5.power_of_number.PowerOfNumber;

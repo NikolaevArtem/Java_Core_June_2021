@@ -14,5 +14,10 @@
 | HW4.2 | [Custom File Reader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ChertovNikita/src/main/java/homework_4/custom_file_reader) | The app reads text from file and outputs it without dots and commas|
 | HW4.3 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ChertovNikita/src/main/java/homework_4/singleton) | Theater class as an example of singleton pattern|
 | HW4 Tests | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ChertovNikita/src/test/java/homework_4_test/) | Tests for homework 4|
+| HW5.1 | [Power of number](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ChertovNikita/src/main/java/homework_5/power_of_number) | The app that raises a number to a power |
+| HW5.2 | [Custom regex matcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ChertovNikita/src/main/java/homework_5/custom_regex_matcher) | The app that checks input text for IP |
+| HW5 Tests | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ChertovNikita/src/test/java/homework_5_test/) | Tests for homework 5|
+| HW6 | [Map problems generator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ChertovNikita/src/main/java/homework_6/) | Class with subclasses that create collisions and retrieval problems in hashmap |
+| HW6 Tests | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ChertovNikita/src/test/java/homework_6_test/) | Tests for homework 6|
 
 [Link to my CodingBat](https://codingbat.com/done?user=sotheres@gmail.com&tag=6008519258)
