@@ -1,14 +1,19 @@
 package homework_6.mapProblemsGenerator;
 
-import lombok.Data;
-
 /**
  * Class Cat with incorrect hashCode() method that creates collisions every time.
  */
 
-@Data
 public final class Cat {
-    final int age;
+    private final int age;
+
+    public Cat(int age) {
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
 
     @Override
     public int hashCode() {

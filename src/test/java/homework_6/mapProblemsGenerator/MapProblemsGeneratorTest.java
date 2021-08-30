@@ -3,23 +3,33 @@ package homework_6.mapProblemsGenerator;
 import base.UnitBase;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class MapProblemsGeneratorTest extends UnitBase {
 
     @Test
-    void given2cats_whenRunCatIssue_thenHashcodeCollision(){
-        new MapProblemsGenerator().runCatIssue();
-        assertEquals("cat1.equals(cat2): false", getOutputLines()[0]);
-        assertEquals("cat1.hashCode() == cat2.hashCode(): true", getOutputLines()[1]);
+    void testCatClass() {
+        Cat cat1 = new Cat(3);
+        Cat cat2 = new Cat(4);
+        assertEquals(cat1.hashCode(), cat2.hashCode());
+        assertNotEquals(cat1, cat2);
     }
 
     @Test
-    void givenMutableDog_whenRunDogIssue_thenLooseDog(){
-        new MapProblemsGenerator().runDogIssue();
-        assertEquals("map.containsKey(dog) = true", getOutputLines()[0]);
-        assertEquals("dog grows...", getOutputLines()[1]);
-        assertEquals("map.containsKey(dog) = false", getOutputLines()[2]);
+    void testDatClass() {
+        Dog dog1 = new Dog(3);
+        Dog dog2 = new Dog(3);
+        Dog dog3 = new Dog(4);
+        assertEquals(dog1, dog2);
+        assertNotEquals(dog1, dog3);
+
+        Map<Dog, String> map = new HashMap<>();
+        map.put(dog1, "Gav");
+        dog1.setAge(4);
+        assertFalse(map.containsKey(dog1));
     }
 
 }

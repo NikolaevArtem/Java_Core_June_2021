@@ -1,18 +1,23 @@
 package homework_6.mapProblemsGenerator;
 
-import lombok.Data;
-
 import java.util.Objects;
 
 /**
  * Class Dog with mutable field age.
  */
 
-@Data
 public final class Dog {
-    int age;
+    private int age;
 
     public Dog(int age) {
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
         this.age = age;
     }
 
