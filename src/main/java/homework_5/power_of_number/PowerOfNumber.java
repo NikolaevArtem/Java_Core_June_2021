@@ -1,4 +1,4 @@
-package homework_5.powerOfNumber;
+package homework_5.power_of_number;
 
 import homework_5.AppHW_5;
 

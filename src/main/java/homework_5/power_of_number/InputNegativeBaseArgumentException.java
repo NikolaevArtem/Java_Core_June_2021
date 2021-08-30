@@ -1,4 +1,4 @@
-package homework_5.powerOfNumber;
+package homework_5.power_of_number;
 
 public class InputNegativeBaseArgumentException extends RuntimeException {
 }

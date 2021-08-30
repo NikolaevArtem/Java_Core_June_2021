@@ -1,4 +1,4 @@
-package homework_5.powerOfNumber;
+package homework_5.power_of_number;
 
 public class Exponent {
     public static long calculate(int base, int pow) throws InputNegativeBaseArgumentException {

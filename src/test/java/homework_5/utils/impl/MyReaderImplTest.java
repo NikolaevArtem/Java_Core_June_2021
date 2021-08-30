@@ -1,7 +1,6 @@
 package homework_5.utils.impl;
 
 import base.UnitBase;
-import homework_5.customRegexMatcher.CustomRegexMatcher;
 import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;

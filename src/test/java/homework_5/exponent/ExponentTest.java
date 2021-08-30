@@ -1,7 +1,7 @@
 package homework_5.exponent;
 
-import homework_5.powerOfNumber.Exponent;
-import homework_5.powerOfNumber.InputNegativeBaseArgumentException;
+import homework_5.power_of_number.Exponent;
+import homework_5.power_of_number.InputNegativeBaseArgumentException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

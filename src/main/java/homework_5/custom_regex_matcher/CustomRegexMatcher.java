@@ -1,4 +1,4 @@
-package homework_5.customRegexMatcher;
+package homework_5.custom_regex_matcher;
 
 import homework_5.AppHW_5;
 

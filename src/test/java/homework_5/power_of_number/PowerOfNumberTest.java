@@ -1,10 +1,7 @@
-package homework_5.powerOfNumber;
+package homework_5.power_of_number;
 
 import base.UnitBase;
-import homework_5.customRegexMatcher.CustomRegexMatcher;
 import org.junit.jupiter.api.Test;
-
-import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
