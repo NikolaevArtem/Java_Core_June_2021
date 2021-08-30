@@ -160,6 +160,6 @@ public class CustomFileReader {
     }
 
     private String removePunctuation(String text) {
-        return text.replace(".", "").replace(",", "");
+        return text.replaceAll("[.,]", "");
     }
 }
