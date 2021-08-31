@@ -12,24 +12,24 @@ class MapProblemsGeneratorTest extends UnitBase {
 
     @Test
     void testCatClass() {
-        Cat cat1 = new Cat(3);
-        Cat cat2 = new Cat(4);
-        assertEquals(cat1.hashCode(), cat2.hashCode());
-        assertNotEquals(cat1, cat2);
+        MapProblemsCollisionGenerator generator1 = new MapProblemsCollisionGenerator(3);
+        MapProblemsCollisionGenerator generator2 = new MapProblemsCollisionGenerator(4);
+        assertEquals(generator1.hashCode(), generator2.hashCode());
+        assertNotEquals(generator1, generator2);
     }
 
     @Test
     void testDatClass() {
-        Dog dog1 = new Dog(3);
-        Dog dog2 = new Dog(3);
-        Dog dog3 = new Dog(4);
-        assertEquals(dog1, dog2);
-        assertNotEquals(dog1, dog3);
+        MapProblemsMutableGenerator generator1 = new MapProblemsMutableGenerator(3);
+        MapProblemsMutableGenerator generator2 = new MapProblemsMutableGenerator(3);
+        MapProblemsMutableGenerator generator3 = new MapProblemsMutableGenerator(4);
+        assertEquals(generator1, generator2);
+        assertNotEquals(generator1, generator3);
 
-        Map<Dog, String> map = new HashMap<>();
-        map.put(dog1, "Gav");
-        dog1.setAge(4);
-        assertFalse(map.containsKey(dog1));
+        Map<MapProblemsMutableGenerator, String> map = new HashMap<>();
+        map.put(generator1, "someString");
+        generator1.setSomeField(4);
+        assertFalse(map.containsKey(generator1));
     }
 
 }
