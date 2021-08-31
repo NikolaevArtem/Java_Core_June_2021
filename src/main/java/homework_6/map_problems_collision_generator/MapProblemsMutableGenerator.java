@@ -3,16 +3,20 @@ package homework_6.map_problems_collision_generator;
 import java.util.Objects;
 import java.util.Random;
 
-public class MutableClass implements MapKeyable {
+public class MapProblemsMutableGenerator {
 
     private String val;
+
+    public MapProblemsMutableGenerator() {
+        setVal("кладем?");
+    }
 
     public String getVal() {
         return val;
     }
 
-    public void setVal(String s) {
-        this.val = s;
+    public void setVal(String val) {
+        this.val = val;
     }
 
     @Override
@@ -24,9 +28,8 @@ public class MutableClass implements MapKeyable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MutableClass that = (MutableClass) o;
+        MapProblemsMutableGenerator that = (MapProblemsMutableGenerator) o;
         return Objects.equals(val, that.val);
     }
-
 
 }

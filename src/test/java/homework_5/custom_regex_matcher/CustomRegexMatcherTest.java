@@ -22,7 +22,7 @@ class CustomRegexMatcherTest extends UnitBase {
     }
 
     @Test
-    void testOneMoreValidPhoneNumber() {
+    void testValidUnicodeInputNumber() {
         String expected = "true";
         setInput("\u002B\u0031 \u0028\u0032\u0036\u0037\u0029 \u0037\u0035\u0039\u002D\u0038\u0039\u0038\u0039");
         CustomRegexMatcher.run();
@@ -30,7 +30,7 @@ class CustomRegexMatcherTest extends UnitBase {
         assertEquals(expected, getOutput());
     }
 
-    public static Stream<Arguments> falseTestCases() {
+    public static Stream<Arguments> incorrectPhoneNumbersFormats() {
         return Stream.of(
                 Arguments.of("+9 (2902) 123-4567"),
                 Arguments.of("not number at all, ho-ho"),
@@ -44,14 +44,13 @@ class CustomRegexMatcherTest extends UnitBase {
     }
 
     @ParameterizedTest
-    @MethodSource("falseTestCases")
-    void testFactorial(String input) {
+    @MethodSource("incorrectPhoneNumbersFormats")
+    void testSetOfIncorrectPhoneNumbersFormats(String input) {
         String expected = "false";
         setInput(input);
         CustomRegexMatcher.run();
         printOut();
         assertEquals(expected, getOutput());
     }
-
 
 }

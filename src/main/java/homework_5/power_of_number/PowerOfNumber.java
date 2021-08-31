@@ -18,11 +18,10 @@ public class PowerOfNumber {
             String[] input = scanner.nextLine().split(" ");
             if (input.length == 2) {
                 int[] result = new int[2];
-                for (int i = 0; i < input.length; i++) {
+                for (int i = 0; i < 2; i++) {
                     result[i] = Integer.parseInt(input[i]);
                     if (!isValid(result[i])) {
-                        System.out.println(ERROR);
-                        return new int[0];
+                        throw new NumberFormatException();
                     }
                 }
                 return result;

@@ -8,7 +8,6 @@ import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 class CustomFileReaderTest extends UnitBase {
 
     CustomFileReader customFileReader = new CustomFileReader();
@@ -16,35 +15,35 @@ class CustomFileReaderTest extends UnitBase {
     String correctFileName = "file.txt";
 
     @Test
-    void testRun1() {
+    void testValidRun1Method() {
         customFileReader.run1();
         String result = getOutput();
         assertTrue(checkResult(result));
     }
 
     @Test
-    void testRun2() {
+    void testValidRun2Method() {
         customFileReader.run2();
         String result = getOutput();
         assertTrue(checkResult(result));
     }
 
     @Test
-    void testRun3() {
+    void testValidRun3Method() {
         customFileReader.run3();
         String result = getOutput();
         assertTrue(checkResult(result));
     }
 
     @Test
-    void testRun4() {
+    void testValidRun4Method() {
         customFileReader.run4();
         String result = getOutput();
         assertTrue(checkResult(result));
     }
 
     @Test
-    void testNotValidDataForConstructorWParams() {
+    void testNotExistingFileAsConstructorParameter() {
         CustomFileReader cfr1 = new CustomFileReader(correctPath, "passwords.txt");
         String expected = "File " + "passwords.txt" + " not found at: " + correctPath;
         cfr1.run1();
@@ -53,12 +52,11 @@ class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void testNotValidDataForConstructorWParams2() {
+    void testCorrectFileNameAndIncorrectFilePathAsConstuctorParameter() {
         CustomFileReader cfr1 = new CustomFileReader("./src/", correctFileName);
         String expected = "File " + correctFileName + " not found at: " + "./src/";
         cfr1.run4();
         String output = getOutput();
-        System.out.println(output);
         assertEquals(expected, output);
     }
 
@@ -81,7 +79,13 @@ class CustomFileReaderTest extends UnitBase {
         tmp.append(correctPath).append(" contains:").append("\n--- --- ---\n");
         assertNotNull(filesList);
         for (File file : filesList) {
-            tmp.append(file.getName()).append("\tat: ").append(file.getAbsolutePath()).append("\n").append("---").append("\n");
+            tmp
+                    .append(file.getName())
+                    .append("\tat: ")
+                    .append(file.getAbsolutePath())
+                    .append("\n")
+                    .append("---")
+                    .append("\n");
         }
         tmp.append("--- --- ---");
         String expected = String.valueOf(tmp);

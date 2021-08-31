@@ -7,7 +7,6 @@ import java.lang.reflect.Constructor;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 class ResourcesPathTest {
 
     @Test
