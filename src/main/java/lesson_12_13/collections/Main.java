@@ -1,8 +1,12 @@
-package lesson_11.collections;
+package lesson_12_13.collections;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.BitSet;
+import java.util.Collections;
+import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -10,6 +14,7 @@ import java.util.IdentityHashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Stack;
 import java.util.TreeMap;
@@ -49,7 +54,6 @@ public class Main {
     new PriorityQueue<>();
     new ArrayDeque<>();
     new ArrayBlockingQueue<>(5);
-
   }
 
 }
