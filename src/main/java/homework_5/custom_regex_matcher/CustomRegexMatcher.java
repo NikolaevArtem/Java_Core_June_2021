@@ -6,13 +6,19 @@ import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CustomRegexMatcher {
+class CustomRegexMatcher {
 
     void run() {
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
 
             String inputStr = reader.readLine();
+
+            if (inputStr == null) {
+                System.out.println("false");
+                return;
+            }
+
             String patternStr = "^<([a-z]+)([^>]+)*(?:>(.*)<\\/\\1>|\\s+\\/>)$";
             Pattern pattern = Pattern.compile(patternStr);
             Matcher matcher = pattern.matcher(inputStr);
