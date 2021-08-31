@@ -12,6 +12,8 @@
 | HW_4_1 | [Custom File Reader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/homework_4/custom_file_reader) | The app which gets data from file and then print it without any commas and dots (there are different ways for reading from a file) |
 | HW_4_2 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/homework_4/singleton) | The app - singleton |
 | HW_4_3 | [Custom annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/homework_4/custom_annotation) | A custom annotation |
+| HW_5_1 | [Power Of Number](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/homework_5/power_of_number) | The app which read number and its power and calculate the result. Recursion should be used here |
+
  
 [Link to Coding Bat](https://codingbat.com/done?user=lerarodina24@gmail.com&tag=9318549243)
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
