@@ -5,9 +5,17 @@ import java.util.Objects;
 
 public class MapProblemsCollisionGenerator {
 
-    int id;
+    private int id;
 
     public MapProblemsCollisionGenerator(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 
