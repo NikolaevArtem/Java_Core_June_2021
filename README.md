@@ -4,7 +4,6 @@
 
 | Number | Solution  | Short description
 | --- | --- | --- |
-
 | HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/DmitriyPrihodko/src/main/java/homework_1) | The app that reads input arguments and prints them, until "error" argument |
 | HW2 | [TrafficLight](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyPrihodko/src/main/java/homework_2/traffic_light) | App reads one time the number of seconds since the beginning of the day and prints the traffic light|
 | HW2 | [PyramidPrinter](./src/main/java/homework_2/traffic_light) | App reads the number one time from the command line, and prints a pyramid of "x". |
