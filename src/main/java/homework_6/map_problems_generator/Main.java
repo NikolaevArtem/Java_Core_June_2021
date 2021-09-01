@@ -13,8 +13,8 @@ public class Main {
         Map<MapProblemsGenerator<String>, Integer> mapWithCollidingKeys = new HashMap<>();
         MapProblemsGenerator<String> myObject1 = new CollidingMapProblemsGeneratorKey<>();
         MapProblemsGenerator<String> myObject2 = new CollidingMapProblemsGeneratorKey<>("2");
-        System.out.println("myObject1 == myObject2 = " + (myObject1 == myObject2));
         System.out.println("myObject1.hashCode() == myObject2.hashCode() = " + (myObject1.hashCode() == myObject2.hashCode()));
+        System.out.println("myObject1.equals(myObject2) = " + myObject1.equals(myObject2));
         mapWithCollidingKeys.put(myObject1, 1);
         mapWithCollidingKeys.put(myObject2, 1);
         System.out.println("mapWithCollidingKeys.size() = " + mapWithCollidingKeys.size());
