@@ -61,13 +61,15 @@ public class RandomCharsTable {
             result += words.stream().filter(i -> i % 2 == 0)
                     .distinct()
                     .map(i -> String.valueOf((char) i.intValue()))
-                    .collect(Collectors.joining(", "));
+                    .collect(Collectors.joining(", "))
+                    .trim();
         } else {
             result = "Odd letters - ";
             result += words.stream().filter(i -> i % 2 == 1)
                     .distinct()
                     .map(i -> String.valueOf((char) i.intValue()))
-                    .collect(Collectors.joining(", "));
+                    .collect(Collectors.joining(", "))
+                    .trim();
         }
         return result;
     }
