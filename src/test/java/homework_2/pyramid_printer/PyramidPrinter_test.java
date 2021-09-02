@@ -70,7 +70,7 @@ public class PyramidPrinter_test extends UnitBase {
         printOut();
         removeFromOutput("Please input number");
 
-        assertEquals("invalid format data, please enter integer", getOutputLines()[0]);
+        assertEquals("Error, only numbers are allowed", getOutputLines()[0]);
     }
 
     @Test
@@ -82,7 +82,7 @@ public class PyramidPrinter_test extends UnitBase {
         printOut();
         removeFromOutput("Please input number");
 
-        assertEquals("invalid format data, please enter integer", getOutputLines()[0]);
+        assertEquals("Error, only numbers are allowed", getOutputLines()[0]);
     }
 
 }

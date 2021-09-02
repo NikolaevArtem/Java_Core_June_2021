@@ -32,7 +32,7 @@ public class TrafficLighter extends UnitBase {
         printOut();
         removeFromOutput("Please input number");
 
-        assertEquals("it's a new day...", getOutputLines()[0]);
+        assertEquals("Error, the day is over", getOutputLines()[0]);
     }
 
     @Test
@@ -56,7 +56,7 @@ public class TrafficLighter extends UnitBase {
         printOut();
         removeFromOutput("Please input number");
 
-        assertEquals("Error, negative numbers are not valid", getOutputLines()[0]);
+        assertEquals("Error, negative numbers are not allowed", getOutputLines()[0]);
     }
 
     @Test
@@ -104,7 +104,7 @@ public class TrafficLighter extends UnitBase {
         printOut();
         removeFromOutput("Please input number");
 
-        assertEquals("Invalid data format, please enter integer", getOutputLines()[0]);
+        assertEquals("Error, invalid data format, please enter integer", getOutputLines()[0]);
     }
 
 }
