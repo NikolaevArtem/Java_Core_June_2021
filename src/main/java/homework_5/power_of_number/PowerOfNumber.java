@@ -7,13 +7,11 @@ import java.util.regex.Pattern;
 
 public class PowerOfNumber {
 
-    private int number;
-    private int power;
-
     public void run() {
         System.out.println("Please, input number and power.");
-        if (validation()) {
-            System.out.println(numberToPower(number, power));
+        String input = setInput();
+        if (isValid(input)) {
+            System.out.println(numberToPower(getNumber(input), getPower(input)));
         } else {
             System.out.println("Only 2 non-negative integers are allowed");
         }
@@ -26,29 +24,26 @@ public class PowerOfNumber {
         return number * numberToPower(number, power - 1);
     }
 
-    private boolean validation() {
-        try {
-            String inputLine = readInputData();
-            if (inputLine == null) {
-                return false;
-            }
-            inputLine = inputLine.trim();
-            if (!Pattern.matches("\\d+\\s\\d+", inputLine)) {
-                return false;
-            }
-            String[] values = inputLine.split(" ");
-            number = Integer.parseInt(values[0]);
-            power = Integer.parseInt(values[1]);
-        } catch (IOException | NumberFormatException e) {
-            e.printStackTrace();
+    private boolean isValid(String inputString) {
+        if(inputString == null) {
             return false;
         }
-        return true;
+        return Pattern.matches("\\d+\\s\\d+", inputString);
     }
 
-    private String readInputData() throws IOException {
+    private int getNumber(String inputString) {
+        return Integer.parseInt(inputString.split(" ")[0]);
+    }
+
+    private int getPower(String inputString) {
+        return Integer.parseInt(inputString.split(" ")[1]);
+    }
+
+    private String setInput() {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             return br.readLine();
+        } catch (IOException e) {
+            return null;
         }
     }
 
