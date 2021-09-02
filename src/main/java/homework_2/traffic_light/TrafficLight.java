@@ -3,33 +3,41 @@ package homework_2.traffic_light;
 import java.util.Scanner;
 
 public class TrafficLight {
-    public static final String RED = "\u001b[31m";
-    public static final String YELLOW = "\u001B[33m";
-    public static final String GREEN = "\u001B[32m";
-    public static final String RESET = "\u001b[0m";
+    private static final String RED = "\u001b[31m";
+    private static final String YELLOW = "\u001B[33m";
+    private static final String GREEN = "\u001B[32m";
+    private static final String RESET = "\u001b[0m";
+    private static final String ERROR_MESSAGE = "Only 1 non-negative integer is allowed as passed parameter";
 
-    public static void run(){
+    public void run(){
         Scanner sc = new Scanner(System.in);
         int numb;
+        String str;
         System.out.println("Please enter time in seconds:");
         if (!sc.hasNextInt()) {
-            System.out.println("Only 1 non-negative integer is allowed as passed parameter");
+            System.out.println(ERROR_MESSAGE);
             return;
         } else {
-            numb = sc.nextInt();
+            str = sc.nextLine();
+            str = str.trim();
+            if (!str.matches("[-+]?\\d+")) {
+                System.out.println(ERROR_MESSAGE);
+                return;
+            }
+            numb = Integer.parseInt(str);
             if (numb < 0) {
-                System.out.println("Only 1 non-negative integer is allowed as passed parameter");
+                System.out.println(ERROR_MESSAGE);
                 return;
             } else if (numb > 86399) {
                 System.out.println("The day is over");
                 return;
             } else {
-                color(numb);
+                printTrafficLight(numb);
             }
         }
     }
 
-    public static void color(int sec){
+    public void printTrafficLight(int sec){
         int light = sec % 60;
         if ((light >=0) && (light < 35)) {
             System.out.println(GREEN + "GREEN" + RESET);

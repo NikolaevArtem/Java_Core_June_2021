@@ -4,16 +4,17 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class RandomCharsTable {
-    public static void run(){
+
+    private static final String ERROR_MESSAGE = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
+
+    public void run(){
         System.out.println("Please enter number of rows, columns and even|odd:");
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
-        String[] subStr;
-        String delimiter = " ";
-        subStr = str.split(delimiter);
+        String[] subStr= str.split(" ");
 
         if (subStr.length != 3) {
-            System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
+            System.out.println(ERROR_MESSAGE);
             return;
         }
 
@@ -24,39 +25,31 @@ public class RandomCharsTable {
             rows = Integer.parseInt(subStr[0]);
             columns = Integer.parseInt(subStr[1]);
         } catch (NumberFormatException ex) {
-            System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
+            System.out.println(ERROR_MESSAGE);
             return;
         }
 
         if ((!subStr[2].equals("even")) && (!subStr[2].equals("odd"))) {
-            System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
+            System.out.println(ERROR_MESSAGE);
             return;
         }
 
+        if (rows < 1 || columns < 1) {
+            System.out.println(ERROR_MESSAGE);
+        }
+
         String evenOrOdd = subStr[2];
-        boolean evenCheck = false;
+        boolean isEven = false;
 
         if (evenOrOdd.equals("even")){
-            evenCheck = true;
+            isEven = true;
         }
 
-        String ans = printTable(rows, columns, evenCheck);
-
-        if (ans.length() == 0) {
-            ans = "";
-        } else {
-            ans = ans.substring(0, ans.length() - 1);
-        }
-
-        if (evenCheck){
-            System.out.print("Even letters - " + ans);
-        } else {
-            System.out.print("Odd letters - " + ans);
-        }
+        printTable(rows, columns, isEven);
     }
 
-    private static String printTable(int rows, int columns, boolean evenCheck) {
-        String ans = "";
+    private void printTable(int rows, int columns, boolean isEven) {
+        String result = "";
         Random random = new Random();
         int [][] arr = new int[rows][columns];
         int a = 65;
@@ -67,14 +60,24 @@ public class RandomCharsTable {
                 arr[i][j] = a + (random.nextInt(b - a + 1));
                 System.out.print("|");
                 System.out.print((char)arr[i][j]);
-                if (!(arr[i][j] % 2 == 0) ^ (evenCheck)) {
-                    ans = ans.concat(Character.toString((char)arr[i][j]));
-                    ans = ans.concat(",");
+                if (!(arr[i][j] % 2 == 0) ^ (isEven)) {
+                    result = result.concat(Character.toString((char)arr[i][j]));
+                    result = result.concat(",");
                 }
             }
             System.out.print("|\n");
         }
 
-        return ans;
+        if (result.length() == 0) {
+            result = "";
+        } else {
+            result = result.substring(0, result.length() - 1);
+        }
+
+        if (isEven){
+            System.out.print("Even letters - " + result);
+        } else {
+            System.out.print("Odd letters - " + result);
+        }
     }
 }
