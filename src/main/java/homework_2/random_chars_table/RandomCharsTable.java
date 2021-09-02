@@ -18,7 +18,7 @@ public class RandomCharsTable {
             y = Integer.parseInt(str[1]);
             word = str[2];
 
-            if (x < 1 || y < 1 || !(word.equals("even") || word.equals("odd")) || str.length>3) {
+            if (x < 1 || y < 1 || !(word.equals("even") || word.equals("odd")) || str.length > 3) {
                 System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
                 return;
             }
@@ -43,7 +43,8 @@ public class RandomCharsTable {
 
         if (word.equals("even")) {
             System.out.println(getResultChar(words, true));
-        } if(word.equals("odd")) {
+        }
+        if (word.equals("odd")) {
             System.out.println(getResultChar(words, false));
         } else {
             System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
