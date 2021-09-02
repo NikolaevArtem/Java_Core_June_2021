@@ -10,11 +10,11 @@ public class Cat {
     @MyAnnotation
     public Cat() {
         try {
-            Constructor constructor = this.getClass ().getConstructor (null);
-            MyAnnotation myAnnotation = (MyAnnotation) constructor.getAnnotation (MyAnnotation.class);
-            this.testValue = myAnnotation.value ();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace ();
+            Constructor constructor = this.getClass().getConstructor(null);
+            MyAnnotation myAnnotation = (MyAnnotation) constructor.getAnnotation(MyAnnotation.class);
+            this.testValue = myAnnotation.value();
+        } catch(NoSuchMethodException e) {
+            e.printStackTrace();
         }
     }
 }

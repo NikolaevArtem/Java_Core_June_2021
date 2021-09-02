@@ -9,8 +9,8 @@ package homework_3;
 
 public final class ImmutableClass {
 
-   private final String string ;
-   private final int intVal;
+    private final String string;
+    private final int intVal;
 
     private ImmutableClass(String string, int intVal) {
         this.string = string;
@@ -23,7 +23,7 @@ public final class ImmutableClass {
     }
 
     private ImmutableClass createNewObj() {
-        return new ImmutableClass ();
+        return new ImmutableClass();
     }
 
 }

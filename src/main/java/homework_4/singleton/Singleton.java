@@ -20,8 +20,8 @@ public final class Singleton {
     }
 
     public static Singleton getInstance() {
-        if (instance == null) {
-            instance = new Singleton (1, "Chel");
+        if(instance == null) {
+            instance = new Singleton(1, "Chel");
         }
         return instance;
     }

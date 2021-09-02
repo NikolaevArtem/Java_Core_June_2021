@@ -84,6 +84,18 @@ public class TrafficLighter extends UnitBase {
     }
 
     @Test
+    public void testInput55() throws IOException {
+        setInput("55");
+
+        TrafficLight traffic_light = new TrafficLight ();
+        traffic_light.run();
+        printOut();
+        removeFromOutput("Please input number");
+
+        assertTrue(getOutputLines()[0].contains("Yellow"));
+    }
+
+    @Test
     public void testInputText() throws IOException {
         setInput("text");
 

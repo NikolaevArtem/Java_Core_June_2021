@@ -1,7 +1,5 @@
 package homework_2.traffic_light;
 
-import homework_2.bufferReaders.IOHelper;
-
 public class TrafficLight {
 
     private static final String ANSI_RESET = "\u001B[0m";
@@ -10,7 +8,7 @@ public class TrafficLight {
     private static final String ANSI_STRIKEOUT_YELLOW = "\u001B[33;9m";
 
     public void run() {
-        IOHelper IOHelper = new IOHelper ();
+        InputTrafficLightReader IOHelper = new InputTrafficLightReader();
         checkColor(IOHelper.bufferReaderConsole());
     }
 
@@ -18,9 +16,9 @@ public class TrafficLight {
         if(time < 0 || time >= 86400) return;
 
         int sec = time % 60;
-        if (sec < 35) {
+        if(sec < 35) {
             System.out.println(ANSI_STRIKEOUT_GREEN + "Green" + ANSI_RESET);
-        } else if (sec < 40) {
+        } else if(sec < 40 || sec >= 55) {
             System.out.println(ANSI_STRIKEOUT_YELLOW + "Yellow" + ANSI_RESET);
         } else {
             System.out.println(ANSI_STRIKEOUT_RED + "Red" + ANSI_RESET);

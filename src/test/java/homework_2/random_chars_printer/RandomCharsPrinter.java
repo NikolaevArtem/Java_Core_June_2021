@@ -20,7 +20,7 @@ public class RandomCharsPrinter extends UnitBase {
         printOut();
         removeFromOutput("Please input number");
 
-        assertTrue(getOutputLines()[3].contains("odd letters - "));
+        assertTrue(getOutputLines()[3].contains("odd letters -"));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class RandomCharsPrinter extends UnitBase {
         assertEquals(6, getOutputLines()[0].length());
         assertEquals(6, getOutputLines()[1].length());
         assertEquals(0, getOutputLines()[2].length());
-        assertTrue(getOutputLines()[3].contains("even letters - "));
+        assertTrue(getOutputLines()[3].contains("even letters -"));
     }
 
     @Test
@@ -73,4 +73,5 @@ public class RandomCharsPrinter extends UnitBase {
 
         assertEquals("Wrong type parameter", getOutputLines()[0]);
     }
+
 }
