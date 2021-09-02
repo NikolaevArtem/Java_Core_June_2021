@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class RandomCharsTable {
-
     public void run() {
-
         int x;
         int y;
         String word;
@@ -83,5 +81,4 @@ public class RandomCharsTable {
             System.out.println();
         }
     }
-
 }
