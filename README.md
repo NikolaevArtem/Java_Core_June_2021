@@ -14,6 +14,10 @@
 | HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_4/singleton) | Singleton design pattern implementation. |
 | HW4 | [Custom Annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_4/custom_annotation) | Annotation. |
 | HW4 | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/test/java/homework_4) | Tests for homework 4. |
+| HW5 | [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_5/custom_regex_mathcer) | The app that checks if input string matches pattern. |
+| HW5 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_5/power_of_number) | The app that calculates a number in a power using recursion. |
+| HW5 | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/test/java/homework_5) | Tests for homework 5. |
+| HW6 | [MapProblemsCollisionGenerator & MapProblemMutableGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_6) | Classes that create problems in HashMap. |
 
 [Link to CodingBat](https://codingbat.com/done?user=mari.waranko@gmail.com&tag=3702089539)
 
