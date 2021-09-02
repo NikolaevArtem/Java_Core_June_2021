@@ -13,13 +13,14 @@ public class Field {
         }
     }
 
-    public void addShip(Ship ship){
+    public boolean addShip(Ship ship){
         int[] a = ship.getPosition();
         for(int i = 0; i < ship.getSize(); i++){
             if (ship.getOrientation()) {
                 field[a[0]+i][a[1]] = 5;
             } else field[a[0]][a[1]+i] = 5;
         }
+        return true;
 
     }
 

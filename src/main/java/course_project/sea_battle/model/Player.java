@@ -18,4 +18,8 @@ public class Player {
         return playerFild;
     }
 
+    public boolean addShip(Ship ship){
+        return playerFild.addShip(ship);
+    }
+
 }
