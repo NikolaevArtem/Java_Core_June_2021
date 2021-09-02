@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 import static homework_2.traffic_light.ColorSelector.pickColor;
 
-class TrafficLight {
+public class TrafficLight {
 
-    public static void run() {
+    public void run() {
         System.out.println("Provide time in seconds:");
         try (Scanner scan = new Scanner(System.in)) {
-            int seconds = scan.nextInt();
+            int seconds = Integer.parseInt(scan.nextLine());
             if (seconds < 0) {
                 System.out.println("Only 1 non-negative integer is allowed as passed parameter");
             } else if (seconds >= 86400) {
@@ -18,7 +18,7 @@ class TrafficLight {
             } else {
                 getSeconds(seconds);
             }
-        } catch (InputMismatchException e) {
+        } catch (InputMismatchException | NumberFormatException e) {
             System.out.println("Only 1 non-negative integer is allowed as passed parameter");
         }
     }
@@ -34,24 +34,3 @@ class TrafficLight {
         }
     }
 }
-
-//    private static void selectMode(int mode) {
-//        if (mode == 1) {
-//            firstMode();
-//        } else if (mode == 2) {
-//            secondMode();
-//        } else {
-//            System.out.println("You entered wrong mode number.");
-//        }
-//    }
-
-
-//    public static void greeting() {
-//        System.out.println("Pick mode: 1 - provide seconds, 2 - provide time in format \"hh:mm:ss\": ");
-//        try (Scanner scan = new Scanner(System.in)) {
-//            int mode = scan.nextInt();
-//            selectMode(mode);
-//        } catch (InputMismatchException e) {
-//            System.out.println("Only 1 or 2 allow");
-//        }
-//    }

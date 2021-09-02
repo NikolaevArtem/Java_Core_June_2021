@@ -11,7 +11,7 @@ class PowerOfNumberTest extends UnitBase {
     void given5and2_whenPoW_then25() {
         String expected = String.valueOf((int) Math.pow(5, 2));
         setInput("5 2");
-        PowerOfNumber.run();
+        new PowerOfNumber().run();
         assertEquals(expected, getOutput());
         printOut();
     }
@@ -20,7 +20,7 @@ class PowerOfNumberTest extends UnitBase {
     void given0and5_whenPoW_then25() {
         String expected = String.valueOf((int) Math.pow(0, 5));
         setInput("0 5");
-        PowerOfNumber.run();
+        new PowerOfNumber().run();
         assertEquals(expected, getOutput());
         printOut();
     }
@@ -29,7 +29,7 @@ class PowerOfNumberTest extends UnitBase {
     void given3and0_whenPoW_then1() {
         String expected = String.valueOf((int) Math.pow(3, 0));
         setInput("3 0");
-        PowerOfNumber.run();
+        new PowerOfNumber().run();
         assertEquals(expected, getOutput());
         printOut();
     }
@@ -38,7 +38,7 @@ class PowerOfNumberTest extends UnitBase {
     void givenWrongInput_whenPoW_thenPrintError() {
         String expected = "Only 2 non-negative integers are allowed";
         setInput("asd fdf");
-        PowerOfNumber.run();
+        new PowerOfNumber().run();
         assertEquals(expected, getOutput());
         printOut();
     }
@@ -47,7 +47,7 @@ class PowerOfNumberTest extends UnitBase {
     void givenOnlyOneArgument_whenPoW_thenPrintError() {
         String expected = "Only 2 non-negative integers are allowed";
         setInput("5");
-        PowerOfNumber.run();
+        new PowerOfNumber().run();
         assertEquals(expected, getOutput());
         printOut();
     }

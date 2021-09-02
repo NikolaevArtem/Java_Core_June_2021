@@ -11,7 +11,7 @@ class CustomRegexMatcherTest extends UnitBase {
     void givenCorrectUserName_whenCheckRegex_thenTrue() {
         String expected = "true";
         setInput("nuker228");
-        CustomRegexMatcher.run();
+        new CustomRegexMatcher().run();
         removeFromOutput("Enter your username, it must only contain letters, numbers and dot, minimum length 5, maximum length 10(inclusive):");
         assertEquals(expected, getOutput());
         printOut();
@@ -21,7 +21,7 @@ class CustomRegexMatcherTest extends UnitBase {
     void givenCorrectUserNameWithDot_whenCheckRegex_thenTrue() {
         String expected = "true";
         setInput("nuker.228");
-        CustomRegexMatcher.run();
+        new CustomRegexMatcher().run();
         removeFromOutput("Enter your username, it must only contain letters, numbers and dot, minimum length 5, maximum length 10(inclusive):");
         assertEquals(expected, getOutput());
         printOut();
@@ -31,7 +31,7 @@ class CustomRegexMatcherTest extends UnitBase {
     void givenIncorrectUserName_whenCheckRegex_thenFalse() {
         String expected = "false";
         setInput("nuker@228");
-        CustomRegexMatcher.run();
+        new CustomRegexMatcher().run();
         removeFromOutput("Enter your username, it must only contain letters, numbers and dot, minimum length 5, maximum length 10(inclusive):");
         assertEquals(expected, getOutput());
         printOut();

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class PowerOfNumber {
 
-    public static void run() {
+    public void run() {
         int[] input = getInput();
         if (input.length != 2) {
             System.out.println("Only 2 non-negative integers are allowed");

@@ -8,7 +8,7 @@ public class CustomRegexMatcher {
 
     private static final String CHECK_USERNAME = "^[a-z0-9.-]{5,10}$";
 
-    public static void run() {
+    public void run() {
         System.out.println(checkRegex());
     }
 

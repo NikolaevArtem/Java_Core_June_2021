@@ -1,6 +1,5 @@
 package homework_4.custom_annotation;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class HelloGenerator {
@@ -19,8 +18,8 @@ public class HelloGenerator {
         int[] res = new int[n * (n + 1) / 2];
         int index = 0;
 
-        for(int i = 1; i <= n; i++) {
-            for(int j = 0; j < i; j++) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j < i; j++) {
                 res[index + j] = j + 1;
             }
             index += i;
@@ -29,6 +28,7 @@ public class HelloGenerator {
         System.out.println(Arrays.toString(res));
         return res;
     }
+
     @CustomAnnotation
     public HelloGenerator() {
         String temp;
@@ -67,9 +67,6 @@ public class HelloGenerator {
     public int getAge() {
         return age;
     }
-
-
-
 
     @Override
     public String toString() {

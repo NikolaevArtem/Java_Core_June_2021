@@ -1,5 +1,7 @@
 package homework_2.random_chars_table;
 
+import lombok.experimental.SuperBuilder;
+
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -9,23 +11,22 @@ public class RandomCharsTable {
     private static int length;
     private static int width;
 
-    public static void run() {
+    public void run() {
         System.out.println("Enter valid table length, width and strategy(even or odd) in format \"length width strategy\" ");
-        getParameters();
+        getInput();
     }
 
-    private static void getParameters() {
+    private static void getInput() {
         try (Scanner scanner = new Scanner(System.in)) {
-            length = scanner.nextInt();
-            width = scanner.nextInt();
-            String strategy = scanner.next();
+            String[] input= scanner.nextLine().split(" ");
+            length = Integer.parseInt(input[0]);
+            width = Integer.parseInt(input[1]);
+            String strategy = input[2];
             checkLengthAndWidth(length, width);
             checkStrategyValid(strategy);
             char[][] table = new char[length][width];
             fillAndPrintTable(strategy, table);
-        } catch (NegativeArraySizeException e) {
-            System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
-        } catch (InputMismatchException e) {
+        } catch (NegativeArraySizeException | InputMismatchException | NumberFormatException e) {
             System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
         }
     }
@@ -38,12 +39,12 @@ public class RandomCharsTable {
 
     private static void fillAndPrintTable(String strategy, char[][] table) {
         Random random = new Random();
-
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j++) {
-                table[i][j] = (char) (random.nextInt((26) + 1) + 65);
-                System.out.print("|" + table[i][j] + "|");
+                table[i][j] = (char) (random.nextInt(((90 - 65) + 1)) + 65);
+                System.out.print("|" + table[i][j]);
             }
+            System.out.print("|");
             System.out.println();
         }
         checkStratAndExecute(strategy, table);
@@ -56,24 +57,28 @@ public class RandomCharsTable {
     }
 
     private static void checkStratAndExecute(String strategy, char[][] table) {
+        StringBuilder str = new StringBuilder();
         if (strategy.equals("even")) {
             System.out.print("Even letters - ");
             for (int i = 0; i < length; i++) {
                 for (int j = 0; j < width; j++) {
                     if (table[i][j] % 2 == 0) {
-                        System.out.print(table[i][j] + " ");
+                        str.append(table[i][j]).append(", ");
                     }
                 }
             }
-        } else if (strategy.equals("odd")) {
+        } else {
             System.out.print("Odd letters - ");
             for (int i = 0; i < length; i++) {
                 for (int j = 0; j < width; j++) {
                     if (table[i][j] % 2 != 0) {
-                        System.out.print(table[i][j] + " ");
+                        str.append(table[i][j]).append(", ");
                     }
                 }
             }
+        }
+        if (str.length() > 2) {
+            System.out.print(str.substring(0, str.length() - 2));
         }
     }
 }

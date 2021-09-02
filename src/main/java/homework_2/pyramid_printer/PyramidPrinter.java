@@ -3,8 +3,8 @@ package homework_2.pyramid_printer;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static homework_2.pyramid_printer.Utils.INPUT;
-import static homework_2.pyramid_printer.Utils.INPUT_MISMATCH;
+import static homework_2.pyramid_printer.Constants.INPUT;
+import static homework_2.pyramid_printer.Constants.INPUT_MISMATCH;
 
 public class PyramidPrinter {
 
