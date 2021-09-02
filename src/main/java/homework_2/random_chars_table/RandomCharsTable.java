@@ -7,54 +7,61 @@ import java.util.ArrayList;
 
 public class RandomCharsTable {
 
-    private boolean isEven;
-    private int rows, columns;
-    private char[][] randomCharsTable;
-    private final ArrayList<Character> selectedChars = new ArrayList<>();
-
     public void run() {
         System.out.println("Please, enter array length, array width and strategy (odd or even):");
-        if (validation()) {
-            randomCharsTable = new RandomCharsTableCreator(rows, columns).createTable();
-            findSelectedChars();
-            printTable();
-            printSelection();
+        String input = setInput();
+        if (isValid(input)) {
+            char[][] randomCharsTable = new RandomCharsTableCreator(getRows(input), getColumns(input)).createTable();
+            ArrayList<Character> selectedChars = findSelectedChars(randomCharsTable, isEven(input));
+            printTable(randomCharsTable);
+            printSelection(selectedChars, isEven(input));
         } else {
             System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
         }
     }
 
-    private boolean validation() {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            String[] inputValues = br.readLine().split(" ");
-            if (inputValues.length != 3) {
-                return false;
-            }
-            rows = Integer.parseInt(inputValues[0]);
-            columns = Integer.parseInt(inputValues[1]);
-            if (rows <= 0 || columns <= 0 ||
-                    (!inputValues[2].equals("even") && !inputValues[2].equals("odd"))) {
-                return false;
-            }
-            isEven = inputValues[2].equals("even");
-        } catch (IOException | NumberFormatException e) {
-            return false;
+    protected String setInput() {
+        try(BufferedReader br =
+                    new BufferedReader(new InputStreamReader(System.in))) {
+            return br.readLine();
+        } catch (IOException e) {
+            return null;
         }
-        return true;
     }
 
-    private void findSelectedChars() {
-        for (char[] row : randomCharsTable) {
+    private boolean isValid(String inputString) {
+        if(inputString == null) {
+            return false;
+        }
+         return inputString.matches("\\d+ \\d+ (odd|even)");
+    }
+
+    private int getRows(String inputString) {
+        return Integer.parseInt(inputString.split(" ")[0]);
+    }
+
+    private int getColumns(String inputString) {
+        return Integer.parseInt(inputString.split(" ")[1]);
+    }
+
+    private boolean isEven(String inputString) {
+        return inputString.split(" ")[2].equals("even");
+    }
+
+    private ArrayList<Character> findSelectedChars(char[][] table, boolean isEven) {
+        ArrayList<Character> selectedChars = new ArrayList<>();
+        for (char[] row : table) {
             for (char ch : row) {
                 if ((isEven && ch % 2 == 0) || (!isEven && ch % 2 == 1)) {
                     selectedChars.add(ch);
                 }
             }
         }
+        return selectedChars;
     }
 
-    private void printTable() {
-        for (char[] row : randomCharsTable) {
+    private void printTable(char[][] table) {
+        for (char[] row : table) {
             System.out.print("|");
             for (char ch : row) {
                 System.out.print(ch + "|");
@@ -63,7 +70,7 @@ public class RandomCharsTable {
         }
     }
 
-    private void printSelection() {
+    private void printSelection(ArrayList<Character> selectedChars, boolean isEven) {
         if (isEven) {
             System.out.print("Even letters - ");
         } else {

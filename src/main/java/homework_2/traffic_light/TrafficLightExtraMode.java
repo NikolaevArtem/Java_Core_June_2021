@@ -1,34 +1,41 @@
 package homework_2.traffic_light;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class TrafficLightExtraMode extends TrafficLight {
 
     @Override
-    protected boolean validation() {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            String input = br.readLine();
-            if (!input.contains(":")) {
-                return false;
-            }
-            String[] time = input.split(":");
-            if (time.length != 3) {
-                return false;
-            }
+    protected boolean isValid(String inputString) {
+        if(inputString == null) {
+            return false;
+        }
+        if (!inputString.contains(":")) {
+            return false;
+        }
+        String[] time = inputString.split(":");
+        if (time.length != 3) {
+            return false;
+        }
+        try {
             int hours = Integer.parseInt(time[0]);
             int minutes = Integer.parseInt(time[1]);
-            seconds = Integer.parseInt(time[2]);
-            if ((hours < 0 || hours > 23)
+            int seconds = Integer.parseInt(time[2]);
+            if ((hours < 0)
                     || (minutes < 0 || minutes > 59)
                     || (seconds < 0 || seconds > 59)) {
                 return false;
             }
-        } catch (IOException | NumberFormatException e) {
+        } catch (NumberFormatException e) {
             return false;
         }
         return true;
+    }
+
+    @Override
+    protected int getSeconds(String inputString) {
+        String[] time = inputString.split(":");
+        int hours = Integer.parseInt(time[0]);
+        int minutes = Integer.parseInt(time[1]);
+        int seconds = Integer.parseInt(time[2]);
+        return hours * 60 * 60 + minutes * 60 + seconds;
     }
 
     @Override

@@ -63,7 +63,7 @@ public class TrafficLightTest extends base.UnitBase {
         printOut();
         removeFromOutput(START_MESSAGE);
 
-        assertEquals(ERROR_MESSAGE, getOutput());
+        assertEquals("day is over", getOutput());
     }
 
     @Test

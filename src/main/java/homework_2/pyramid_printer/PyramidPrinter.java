@@ -6,27 +6,39 @@ import java.io.InputStreamReader;
 
 public class PyramidPrinter {
 
-    private int pyramidSize;
-
     public void run() {
         System.out.println("Please, input number:");
-        if (validation()) {
-            printPyramid();
+        String input = setInput();
+        if (isValid(input)) {
+            printPyramid(Integer.parseInt(input));
         } else {
             System.out.println("Only 1 non-negative integer is allowed as passed parameter");
         }
     }
 
-    private boolean validation() {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            pyramidSize = Integer.parseInt(br.readLine());
-        } catch (NumberFormatException | IOException ex) {
+    protected String setInput() {
+        try(BufferedReader br =
+                    new BufferedReader(new InputStreamReader(System.in))) {
+            return br.readLine();
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    private boolean isValid(String inputString) {
+        if(inputString == null) {
+            return false;
+        }
+        int pyramidSize;
+        try {
+            pyramidSize = Integer.parseInt(inputString);
+        } catch (NumberFormatException ex) {
             return false;
         }
         return pyramidSize >= 0;
     }
 
-    private void printPyramid() {
+    private void printPyramid(int pyramidSize) {
         for (int i = 1; i <= pyramidSize; i++) {
             for (int j = 1; j <= i; j++) {
                 System.out.print("x");
