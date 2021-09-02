@@ -41,7 +41,7 @@ class RandomCharsTableTest extends UnitBase {
         array.add(77);
         array.add(88);
 
-        assertEquals("Even letters - B,V,X", RandomCharsTable.getResultChar(array, true));
+        assertEquals("Even letters - B, V, X", RandomCharsTable.getResultChar(array, true));
     }
 
     @Test
@@ -52,7 +52,7 @@ class RandomCharsTableTest extends UnitBase {
         array.add(77);
         array.add(88);
 
-        assertEquals("Odd letters - E,C,M", RandomCharsTable.getResultChar(array, false));
+        assertEquals("Odd letters - E, C, M", RandomCharsTable.getResultChar(array, false));
     }
 
     @Test
