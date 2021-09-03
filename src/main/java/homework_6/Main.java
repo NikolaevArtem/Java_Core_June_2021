@@ -6,12 +6,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MapProblemsMutableGenerator problem = new MapProblemsMutableGenerator("first");
-        MapProblemsMutableGenerator problem2 = new MapProblemsMutableGenerator("second");
-        HashMap<String, Integer> map = new HashMap();
-        map.put(problem.getName(), 1);
-        map.put(problem2.getName(), 2);
-        System.out.println(map.get(problem.getName()));
+        HashMap<MapProblemsCollisionGenerator, String> map = new HashMap<>();
+        MapProblemsCollisionGenerator k1 = new MapProblemsCollisionGenerator(1, "firstKey");
+        MapProblemsCollisionGenerator k2 = new MapProblemsCollisionGenerator(2, "secondKey");
+
+        System.out.println("storing value for k1");
+        map.put(k1, "firstValue");
+        System.out.println("storing value for k2");
+        map.put(k2, "secondValue");
+
+        System.out.println("retrieving value for k1");
+        String v1 = map.get(k1);
+        System.out.println("retrieving value for k2");
+        String v2 = map.get(k2);
 
     }
 }

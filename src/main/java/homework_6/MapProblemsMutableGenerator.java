@@ -4,33 +4,37 @@ import java.util.Objects;
 
 public class MapProblemsMutableGenerator {
 
-private String name;
+    private StringBuilder name;
+
+    public MapProblemsMutableGenerator(String name) {
+        this.name = new StringBuilder(name);
+    }
+
+    public StringBuilder getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = new StringBuilder(name);
+    }
 
     @Override
     public boolean equals(Object o) {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
         MapProblemsMutableGenerator that = (MapProblemsMutableGenerator) o;
-        return Objects.equals(name, that.name);
+        return name.toString().equals(that.name.toString());
     }
-
-    public MapProblemsMutableGenerator(String name) {
-        this.name = name;
-    }
-
-
 
     @Override
     public int hashCode() {
-        return 123;
+        return Objects.hash(name);
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public String toString() {
+        return "MapProblemsMutableGenerator{" +
+                "stringBuilder=" + name +
+                '}';
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 }
