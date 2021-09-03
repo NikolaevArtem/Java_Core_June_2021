@@ -1,12 +1,11 @@
 package homework_2.pyramid_printer;
 
-import homework_1.Run;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class PyramidPrinter implements Run {
+public class PyramidPrinter {
 
     public void run() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {

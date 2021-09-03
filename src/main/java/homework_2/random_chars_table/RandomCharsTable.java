@@ -1,12 +1,13 @@
 package homework_2.random_chars_table;
 
-import homework_1.Run;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class RandomCharsTable implements Run {
+public class RandomCharsTable {
+    private static final String ERROR_MESSAGE = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
 
     private static void printResult(int length, int width, char arr[][], String strategy, String res) {
         for (int i = 0; i < length; i++) {
@@ -17,8 +18,8 @@ public class RandomCharsTable implements Run {
             System.out.println();
         }
         if (strategy.equals("even")) {
-            System.out.println("Even number -" + res.substring(0, res.length() - 1));
-        } else System.out.println("Odd number -" + res.substring(0, res.length() - 1));
+            System.out.println("Even letters -" + res.substring(0, res.length() - 1));
+        } else System.out.println("Odd letters -" + res.substring(0, res.length() - 1));
     }
 
     public void run()  {
@@ -29,8 +30,8 @@ public class RandomCharsTable implements Run {
             String array[] = str.split(" ");
             int length = Integer.parseInt(array[0]);
             int width = Integer.parseInt(array[1]);
-            if (length<=1||width<=1) {
-                System.out.println("Use number bigger than one");
+            if (length<=0||width<=0) {
+                System.out.println(ERROR_MESSAGE);
                 return;
             }
             String strategy = array[2];
@@ -56,14 +57,17 @@ public class RandomCharsTable implements Run {
                 }
                 printResult(length, width, arr, strategy, res);
             } else {
-                System.out.println("After two number you should print even or odd");
+                System.out.println(ERROR_MESSAGE);
                 return;
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("You need to print two number and one String");
+            System.out.println(ERROR_MESSAGE);
             return;
         } catch (IOException e) {
             e.printStackTrace();
+        }catch (Exception e) {
+            System.out.println(ERROR_MESSAGE);
+            return;
         } finally {
             try {
                 reader.close();

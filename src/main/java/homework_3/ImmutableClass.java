@@ -3,7 +3,7 @@ package homework_3;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ImmutableClass {
+public final class ImmutableClass {
     /*
     no setters methods
     make variables private and final
@@ -21,13 +21,6 @@ public class ImmutableClass {
         this.someDouble = someDouble;
         this.someString = someString;
         this.list = list;
-    }
-
-    public ImmutableClass(List<String> list) {
-        this.list = new LinkedList<>(list);
-        this.someDouble = 0.0;
-        this.someInt = 0;
-        this.someString = "default";
     }
 
     public int getSomeInt() {
