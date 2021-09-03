@@ -14,6 +14,7 @@
 |     | [CustomAnnotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_4/custom_annotation) | Custom Annotation  |
 | HW5 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_5/power_of_number) | The app that reads the number from the console and raises it to the power |
 |     | [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_5/custom_regex_matcher) | The app that reads the number from the console and checks it for validity |
+| HW6 | [MapProblemsGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_6/map_problems_generator) |  |
 
 [Link to markdown guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
