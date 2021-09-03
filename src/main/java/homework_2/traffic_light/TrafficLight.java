@@ -35,6 +35,7 @@ public class TrafficLight {
                 printTrafficLight(numb);
             }
         }
+        sc.close();
     }
 
     public void printTrafficLight(int sec){

@@ -28,6 +28,7 @@ public class PyramidPrinter {
                 printPyramid(numb);
             }
         }
+        sc.close();
     }
 
     public void printPyramid(int numb){

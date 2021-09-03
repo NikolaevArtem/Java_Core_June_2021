@@ -46,6 +46,7 @@ public class RandomCharsTable {
         }
 
         printTable(rows, columns, isEven);
+        sc.close();
     }
 
     private void printTable(int rows, int columns, boolean isEven) {
