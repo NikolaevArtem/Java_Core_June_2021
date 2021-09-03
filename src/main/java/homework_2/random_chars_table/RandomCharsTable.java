@@ -1,43 +1,49 @@
 package homework_2.random_chars_table;
 
-import lombok.experimental.SuperBuilder;
-
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class RandomCharsTable {
 
-    private static int length;
-    private static int width;
+    private int length;
+    private int width;
+    private String strategy;
 
     public void run() {
-        System.out.println("Enter valid table length, width and strategy(even or odd) in format \"length width strategy\" ");
-        getInput();
+        createTableWithRandomCharacters();
     }
 
-    private static void getInput() {
+    private void createTableWithRandomCharacters() {
+        System.out.println("Enter valid table length, width and strategy(even or odd) in format \"length width strategy\" ");
+        inputData();
+        checkLengthAndWidth(length, width);
+        checkStrategyValid(strategy);
+        fillAndPrintTable(strategy, getTable());
+    }
+
+    private char[][] getTable() {
+        return new char[length][width];
+    }
+
+    private void inputData() {
         try (Scanner scanner = new Scanner(System.in)) {
-            String[] input= scanner.nextLine().split(" ");
+            String[] input = scanner.nextLine().split(" ");
             length = Integer.parseInt(input[0]);
             width = Integer.parseInt(input[1]);
-            String strategy = input[2];
-            checkLengthAndWidth(length, width);
-            checkStrategyValid(strategy);
-            char[][] table = new char[length][width];
-            fillAndPrintTable(strategy, table);
+            strategy = input[2];
         } catch (NegativeArraySizeException | InputMismatchException | NumberFormatException e) {
             System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
         }
     }
 
-    private static void checkLengthAndWidth(int length, int width) {
+    private void checkLengthAndWidth(int length, int width) {
         if (length == 0 || width == 0) {
             throw new InputMismatchException();
         }
     }
 
-    private static void fillAndPrintTable(String strategy, char[][] table) {
+    private void fillAndPrintTable(String strategy, char[][] table) {
         Random random = new Random();
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j++) {
@@ -47,16 +53,16 @@ public class RandomCharsTable {
             System.out.print("|");
             System.out.println();
         }
-        checkStratAndExecute(strategy, table);
+        checkStrategyAndExecute(strategy, table);
     }
 
-    private static void checkStrategyValid(String strategy) {
+    private void checkStrategyValid(String strategy) {
         if (!strategy.equals("even") && !strategy.equals("odd")) {
             throw new InputMismatchException();
         }
     }
 
-    private static void checkStratAndExecute(String strategy, char[][] table) {
+    private void checkStrategyAndExecute(String strategy, char[][] table) {
         StringBuilder str = new StringBuilder();
         if (strategy.equals("even")) {
             System.out.print("Even letters - ");
