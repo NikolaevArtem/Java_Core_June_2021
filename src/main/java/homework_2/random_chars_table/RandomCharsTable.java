@@ -7,14 +7,12 @@ import java.util.Arrays;
 import java.util.Locale;
 
 public class RandomCharsTable {
-    private final String ERR_MSG = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
+    private static final String ERR_MSG = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
 
     public void run() {
 
         RandomCharsTable table = new RandomCharsTable();
-        String lenStr;
-        String widStr;
-        String method;
+        String lenStr, widStr, method;
 
         String[] strings = table.getInput();
 
@@ -25,8 +23,8 @@ public class RandomCharsTable {
             method = strings[2].toLowerCase(Locale.ROOT);
 
             char[][] toPrint = table.getTable(lenStr, widStr);
-            if (toPrint.length == 0) {
-                System.out.println("Table is empty");
+            if (toPrint.length <= 1) {
+                System.out.println(ERR_MSG);
                 return;
             }
 
@@ -56,7 +54,7 @@ public class RandomCharsTable {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
 
             String rawInput = reader.readLine();
-            result = rawInput.split(" ");
+            return rawInput.split(" ");
 
         } catch (IOException e) {
             System.out.println(ERR_MSG);
@@ -73,8 +71,14 @@ public class RandomCharsTable {
         if (strings.length < 3) {
             return false;
         } else if (strings.length == 3) {
-            firstDigit = strings[0].chars().allMatch(Character::isDigit);
-            secondDigit = strings[1].chars().allMatch(Character::isDigit);
+            if(strings[0].chars().allMatch(Character::isDigit)){
+                long intResFirst = Long.parseLong(strings[0]);
+                firstDigit = intResFirst > 0 && intResFirst < Integer.MAX_VALUE;
+            }
+            if(strings[1].chars().allMatch(Character::isDigit)){
+                long intResSecond = Long.parseLong(strings[0]);
+                secondDigit = intResSecond > 0 && intResSecond < Integer.MAX_VALUE;
+            }
             oddOrEven = (strings[2].equals("odd") || strings[2].equals("even"));
         }
         return (firstDigit && secondDigit && oddOrEven);

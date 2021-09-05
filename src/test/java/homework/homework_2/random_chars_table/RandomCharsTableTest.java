@@ -19,7 +19,9 @@ class RandomCharsTableTest extends UnitBase {
     //                more than 3 args
     //                three args, wrong order
     //                0 0 odd table
-    // 10             0 0 even table
+    //                0 0 even table
+    //                0 1 even table
+    //12              1 0 even table
 
 
     @Test
@@ -153,23 +155,42 @@ class RandomCharsTableTest extends UnitBase {
     @Test
     public void givenZeroZeroOddMethod_whenRun_thenAllGood() {
         setInput("0 0 odd");
-        String expected = "Table is empty";
 
         new RandomCharsTable().run();
         removeFromOutput("Enter two Integers and sorting method, even or odd, e.g.  12 12 odd");
 
-        assertEquals(expected, getOutput());
+        assertEquals(ERR_MSG, getOutput());
     }
 
     @Test
     public void givenZeroZeroEvenMethod_whenRun_thenAllGood() {
         setInput("0 0 even");
-        String expected = "Table is empty";
 
         new RandomCharsTable().run();
         removeFromOutput("Enter two Integers and sorting method, even or odd, e.g.  12 12 odd");
 
-        assertEquals(expected, getOutput());
+        assertEquals(ERR_MSG, getOutput());
     }
+
+    @Test
+    public void givenZeroOneEvenMethod_whenRun_thenAllGood() {
+        setInput("0 1 even");
+
+        new RandomCharsTable().run();
+        removeFromOutput("Enter two Integers and sorting method, even or odd, e.g.  12 12 odd");
+
+        assertEquals(ERR_MSG, getOutput());
+    }
+
+    @Test
+    public void givenOneZeroEvenMethod_whenRun_thenAllGood() {
+        setInput("1 0 even");
+
+        new RandomCharsTable().run();
+        removeFromOutput("Enter two Integers and sorting method, even or odd, e.g.  12 12 odd");
+
+        assertEquals(ERR_MSG, getOutput());
+    }
+
 
 }

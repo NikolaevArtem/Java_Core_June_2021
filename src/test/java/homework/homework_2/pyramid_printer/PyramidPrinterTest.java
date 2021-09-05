@@ -70,7 +70,7 @@ class PyramidPrinterTest extends UnitBase {
         new PyramidPrinter().run();
         removeFromOutput("Enter the Pyramid size. please: ");
         printOut();
-        assertEquals(ERR_MSG, getOutputLines()[0]);
+        assertTrue(getOutput().contains(ERR_MSG));
     }
 
     @Test

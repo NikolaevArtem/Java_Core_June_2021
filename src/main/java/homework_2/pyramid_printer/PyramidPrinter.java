@@ -12,6 +12,8 @@ public class PyramidPrinter {
 
         if (isValid(sizeOfPyramid)) {
             printPyramid(Integer.parseInt(sizeOfPyramid));
+        } else {
+            System.out.println(ERR_MSG);
         }
     }
 
@@ -42,6 +44,11 @@ public class PyramidPrinter {
     }
 
     private boolean isValid(String input) {
-        return input != null && input.chars().allMatch(Character::isDigit);
+
+        if (input != null && input.chars().allMatch(Character::isDigit)){
+         long intRes = Long.parseLong(input);
+            return intRes >= 0 && intRes < Integer.MAX_VALUE;
+        }
+    return false;
     }
 }
