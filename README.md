@@ -12,8 +12,10 @@
 |HW4 | [customAnnotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_4/customAnnotation) | The app create object with default value from constructor using annotation |
 |HW4 | [customFileReader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_4/customFileReader) | The app that reads from file |
 |HW4 | [singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_4/singleton) | The singleton app  |
-|HW5 | [customRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_5/customRegexMatcher) | The singleton app  |
-|HW5 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_5/PowerOfNumber) | The singleton app  |
+|HW5 | [customRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_5/customRegexMatcher) | The  app  |
+|HW5 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_5/PowerOfNumber) | The  app  |
+|HW5 | [MapProblemsCollisionGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_6/MapProblemsCollisionGenerator) | The  app  |
+|HW5 | [MapProblemsMutableGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_6/MapProblemsMutableGenerator) | The  app  |
 
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) | 
 [Link to CodingBat](https://codingbat.com/done?user=segodnik@gmail.com&tag=8130222420)  
