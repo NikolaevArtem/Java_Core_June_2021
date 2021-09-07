@@ -2,7 +2,7 @@ package course_project.sea_battle.view;
 
 import course_project.sea_battle.model.Player;
 
-import java.io.IOException;
+import java.util.ArrayList;
 
 public class PaintFieldPlayer {
 
@@ -11,27 +11,23 @@ public class PaintFieldPlayer {
         public PaintFieldPlayer(Player player) {
             this.player = player;
         }
-    //9972 ships 9967 shot (char) 9949
+
         public void paintField() {
 
             System.out.println(player.getName() + " field: ");
-            char col = 'A';
-            System.out.print("   ");
-            for (int i = 0; i < 10; i++){
-
-                System.out.printf("%-4s", (char)(col+i));
-
-            }
-            System.out.println();
-            //System.out.println(" A   B   C  D   E  F   J   H  I   G");
+            System.out.println("    A   B   C  D   E  F   G   H  I   G");
             for (int i = 0; i < 10; i++) {
-                if (i == 9) System.out.print((i + 1) + " ");
-                else System.out.print((i + 1) + "  ");
+                if (i == 9) System.out.print((i + 1) + "");
+                else System.out.print((i + 1) + " ");
                 for (int j = 0; j < 10; j++) {
-                    int current = player.getPlayerFild().getField()[i][j];
-                    char paint = (char) 9949;
-                    if(current==5) paint = (char) 9972;
-                    System.out.printf("%-3s", paint);
+                    int current = player.getPlayerField().getField()[i][j];
+                    String paint         = "  " + "\u001B[34m" + '\u26C6' + "\u001B[0m";
+                    if(current==5) paint = "  " + "\u001B[33m" + '\u26F4' + "\u001B[0m";
+                    if(current==3) paint = "  " + "\u001B[37m" + '\u2716' + "\u001B[0m";
+                    if(current==7) paint = "  " + "\u001B[31m" + '\u26F4' + "\u001B[0m";
+
+                    System.out.printf(paint);
+
                 }
                 System.out.println();
             }

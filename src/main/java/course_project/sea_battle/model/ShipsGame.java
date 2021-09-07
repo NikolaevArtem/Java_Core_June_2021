@@ -7,43 +7,40 @@ import java.util.List;
 
 public class ShipsGame {
 
-    List<Ships> ones = new ArrayList<>();
-    List<Ships> twos = new ArrayList<>();
-    List<Ships> trees = new ArrayList<>();
-    List<Ships> fours = new ArrayList<>();
+    private List<Ships> allShips;
+    private final int shipOne = 4;
+    private final int shipTwo = 3;
+    private final int shipTree = 2;
+    private final int shipFore = 1;
 
     public ShipsGame() {
+        allShips = new ArrayList<>();
     }
 
-    public List<Ships> getOnes() {
-        return ones;
+    public List<Ships> getAllShips() {
+        return allShips;
     }
 
-    public void setOnes(List<Ships> ones) {
-        this.ones = ones;
+    public boolean ready() {
+        return allShips.size() >= 10;
+    }
+    public void addShip(Ship ship){
+
+        allShips.add(ship);
     }
 
-    public List<Ships> getTwos() {
-        return twos;
-    }
-
-    public void setTwos(List<Ships> twos) {
-        this.twos = twos;
-    }
-
-    public List<Ships> getTrees() {
-        return trees;
-    }
-
-    public void setTrees(List<Ships> trees) {
-        this.trees = trees;
-    }
-
-    public List<Ships> getFours() {
-        return fours;
-    }
-
-    public void setFours(List<Ships> fours) {
-        this.fours = fours;
+    public boolean getShipInSize(int size){
+        int a = 0;
+        for(Ships ships: allShips){
+            if(ships.getSize()==size){
+                a++;
+            }
+        }
+        switch (size){
+             case 1: return a<shipOne;
+             case 2: return a<shipTwo;
+             case 3: return a<shipTree;
+            default: return a<shipFore;
+        }
     }
 }
