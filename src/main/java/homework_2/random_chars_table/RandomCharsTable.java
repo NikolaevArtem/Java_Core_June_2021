@@ -47,8 +47,6 @@ public class RandomCharsTable {
         }
         if (word.equals("odd")) {
             System.out.println(getResultChar(words, false));
-        } else {
-            System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
         }
     }
 
