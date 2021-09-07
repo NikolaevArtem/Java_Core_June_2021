@@ -12,6 +12,7 @@
 | HW4.1 | [Custom File Reader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KrylosovArkady/src/main/java/homework_4/custom_file_reader) |The app that reads file 3 different ways and print the result into console | 
 | HW4.2 | [My annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KrylosovArkady/src/main/java/homework_4/custom_annotation) | My custom annotation that allows to put annotated fields into JSON file| 
 | HW4.3 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KrylosovArkady/src/main/java/homework_4/singleton) |Example of singleton design pattern | 
-
+| HW5.1 | [Power of Number](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KrylosovArkady/src/main/java/homework_5/power_of_number) |The app that raises to the power of input using recursion  |
+| HW5.2 | [Custom regex matcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KrylosovArkady/src/main/java/homework_5/custom_regex_matcher) |The app that simulate password regex matcher |
 [Link to codingBat](https://codingbat.com/done?user=krylosov.arkady@yandex.ru&tag=8157289593)
 [Link to markdown guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
