@@ -3,6 +3,7 @@ package homework_2.random_chars_table;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class RandomCharsTable {
@@ -57,21 +58,19 @@ public class RandomCharsTable {
 
     public static String getResultChar(ArrayList<Integer> words, boolean even) {
         String result;
+        Predicate<Integer> predicate;
         if (even) {
             result = "Even letters - ";
-            result += words.stream().filter(i -> i % 2 == 0)
-                    .distinct()
-                    .map(i -> String.valueOf((char) i.intValue()))
-                    .collect(Collectors.joining(", "))
-                    .trim();
+            predicate = i -> i % 2 == 0;
         } else {
             result = "Odd letters - ";
-            result += words.stream().filter(i -> i % 2 == 1)
-                    .distinct()
-                    .map(i -> String.valueOf((char) i.intValue()))
-                    .collect(Collectors.joining(", "))
-                    .trim();
+            predicate = i -> i % 2 == 1;
         }
+        result += words.stream().filter(predicate)
+                .distinct()
+                .map(i -> String.valueOf((char) i.intValue()))
+                .collect(Collectors.joining(", "))
+                .trim();
         return result;
     }
 
