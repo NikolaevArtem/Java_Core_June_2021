@@ -1,4 +1,4 @@
-package homework_6;
+package homework_6.map_problems_generator;
 
 import java.util.Objects;
 
