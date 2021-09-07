@@ -6,14 +6,15 @@ public class ParserInputData {
 
         String[] arrayWithInputData = input.trim().split(" ");
         try {
-            int row = Integer.parseInt(arrayWithInputData[0]);
-            int column = Integer.parseInt(arrayWithInputData[1]);
-
-            String typeOfParity = arrayWithInputData[2];
 
             if(arrayWithInputData.length != 3) {
                 throw new ParserError("Should be typed 3 parameters (e.g. 3 3 odd)");
             }
+
+            int row = Integer.parseInt(arrayWithInputData[0]);
+            int column = Integer.parseInt(arrayWithInputData[1]);
+
+            String typeOfParity = arrayWithInputData[2];
 
             if(row < 0 || column < 0) {
                 throw new ParserError("negative isn't allowed");
