@@ -1,4 +1,4 @@
-package lesson_15.java8.optional;
+package lesson_15_16.java8.optional;
 
 import java.util.StringJoiner;
 

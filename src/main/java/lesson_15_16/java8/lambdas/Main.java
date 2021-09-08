@@ -1,4 +1,4 @@
-package lesson_15.java8.lambdas;
+package lesson_15_16.java8.lambdas;
 
 import java.util.function.Function;
 import java.util.function.Supplier;

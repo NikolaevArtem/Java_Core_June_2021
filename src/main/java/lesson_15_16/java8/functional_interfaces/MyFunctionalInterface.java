@@ -1,4 +1,4 @@
-package lesson_15.java8.functional_interfaces;
+package lesson_15_16.java8.functional_interfaces;
 
 @FunctionalInterface
 public interface MyFunctionalInterface <T> {
