@@ -11,5 +11,6 @@
 |     | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/test/java/homework_2_tests ) | Tests to homework_2 |
 | HW3 | [Immutable class](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_3 ) | Immutable class describing the required contents of my bag |
 | HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_4/singleton ) | Singleton app |
+| HW5 | [Custom Regex Matcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_5/custom_regex_matcher ) | The app reads input string and checks password strength |
 
 [Link to CodingBat](https://codingbat.com/done?user=gabdrakhimovarr@gmail.com&tag=707251349)
