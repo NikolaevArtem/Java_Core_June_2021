@@ -7,21 +7,24 @@ public class Field {
     public Field() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                field[i][j] = new Cell(i, j);
+                field[i][j] = new Cell();
             }
         }
     }
 
-    public Cell getCell(String point) {
-        Coordinate coordinate = new Coordinate(point);
-        return field[coordinate.row][coordinate.column];
+    public Cell getCell(String coordinate) {
+        return getCell(new Coordinate(coordinate));
     }
 
     public Cell getCell(Coordinate coordinate) {
         return field[coordinate.row][coordinate.column];
     }
 
-    void print(boolean forFoe) {
+    public void setCell(Coordinate point, CellState newState) {
+        getCell(point).setState(newState);
+    }
+
+    public void print(boolean hideShips) {
         System.out.println(letters());
         for (int i = 0; i < SIZE; i++) {
                 for (int j = 0; j < SIZE + 1; j++) {
@@ -29,9 +32,9 @@ public class Field {
                         System.out.printf("%2s", i + 1);
                     } else {
                         Cell cell = field[i][j - 1];
-                        boolean isSecret = forFoe && cell.getState().equals(CellState.DECK);
-                        String notSecret = isSecret ? CellState.EMPTY.toString() : cell.toString();
-                        System.out.printf(" %s", notSecret);
+                        boolean isSecret = hideShips && cell.getState().equals(CellState.DECK);
+                        String allowed = isSecret ? CellState.EMPTY.toString() : cell.toString();
+                        System.out.printf(" %s", allowed);
                     }
                 }
             System.out.println();
