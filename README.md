@@ -14,6 +14,7 @@
 | HW4 | [Custom Annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AlexanderBelyaevskov/src/main/java/homework_4/custom_annotation) | Example of an annotation that changes field name in ToString() method |
 | HW5 | [Power of number](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/AlexanderBelyaevskov/src/main/java/homework_5/power_of_number/PowerOfNumber.java) | Power of number implementation with recursion method |
 | HW5 | [Custom regex matcher](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/AlexanderBelyaevskov/src/main/java/homework_5/custom_regex_matcher/CustomRegexMatcher.java) | Input email argument check with regex |
+| HW6 | [Map problems generator](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/AlexanderBelyaevskov/src/main/java/homework_6/map_problems_generator/MapProblemsCollisionGenerator.java) | Implement a class with overdid equals() and hashCode() methods, which generates 100% collision when used as key in HashMap collection.|
 
 [CodingBat done page](https://codingbat.com/done?user=abelyaevskov@gmail.com&tag=6930560875)
 
