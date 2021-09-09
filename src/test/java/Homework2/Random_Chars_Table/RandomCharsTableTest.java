@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RandomCharsTableTest extends UnitBase {
     static RandomCharsTable randomCharsTable;
     static char[][] charTable;
+    final String checkTableLines = "\\|(\\s\\w\\s\\|){2}\\s";
 
     @BeforeAll
     public static void init() {
@@ -25,6 +26,7 @@ class RandomCharsTableTest extends UnitBase {
     @Test
     void getEvenResultTest() {
         String expectedEven = "even letters - B D F H";
+        init();
         String evenResult = randomCharsTable.getResult("even", charTable);
 
         assertEquals(expectedEven, evenResult);
@@ -33,6 +35,7 @@ class RandomCharsTableTest extends UnitBase {
     @Test
     void getOddResultTest() {
         String expectedOdd = "odd letters - A C E G I";
+        init();
         String oddResult = randomCharsTable.getResult("odd", charTable);
 
         assertEquals(expectedOdd, oddResult);
@@ -40,17 +43,30 @@ class RandomCharsTableTest extends UnitBase {
 
     @Test
     void runWithValidOddInputTest() {
-        setInput("3 3 odd");
+        setInput("2 2 odd");
         randomCharsTable.run();
         printOut();
+        String actualTableRow1 = getOutputLines()[0];
+        String actualTableRow2 = getOutputLines()[1];
+        String actual = getOutputLines()[3];
 
+        assertTrue(actualTableRow1.matches(checkTableLines));
+        assertTrue(actualTableRow2.matches(checkTableLines));
+        assertEquals("odd letters - ", actual.substring(0, 14));
     }
 
     @Test
     void runWithValidEvenInputTest() {
-        setInput("3 3 even");
+        setInput("2 2 even");
         randomCharsTable.run();
         printOut();
+        String actualTableRow1 = getOutputLines()[0];
+        String actualTableRow2 = getOutputLines()[1];
+        String actual = getOutputLines()[3];
+
+        assertTrue(actualTableRow1.matches(checkTableLines));
+        assertTrue(actualTableRow2.matches(checkTableLines));
+        assertEquals("even letters - ", actual.substring(0, 15));
     }
 
     @Test
