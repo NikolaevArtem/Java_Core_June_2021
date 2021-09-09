@@ -17,8 +17,15 @@ public class Ship {
         return cells.contains(cell);
     }
 
+    public boolean takeAShot(Cell cell) {
+        if (!isDestroyed()) {
+            cell.setState(CellState.HIT);
+            decks--;
+        }
+        return isDestroyed();
+    }
+
     boolean isDestroyed() {
-        decks--;
         return decks == 0;
     }
 }
