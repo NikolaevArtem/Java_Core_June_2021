@@ -1,4 +1,4 @@
-package homework_7;
+package homework_7.kitten_to_cat_function;
 
 import java.util.ArrayList;
 import java.util.Arrays;
