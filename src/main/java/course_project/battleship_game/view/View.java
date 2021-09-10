@@ -6,7 +6,9 @@ import course_project.battleship_game.model.GameMode;
 import course_project.battleship_game.model.Player;
 import course_project.battleship_game.utils.Validator;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 import static course_project.battleship_game.utils.Constants.CHOOSE_GAME_MODE_MESSAGE;
 import static course_project.battleship_game.utils.Constants.CHOOSE_MODE_TO_CREATE_FLEET_MESSAGE;
@@ -19,7 +21,7 @@ import static course_project.battleship_game.utils.Constants.PLAYER_BOARD_MESSAG
 import static java.lang.System.lineSeparator;
 
 public class View {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
 
     public String getPlayerName() {
         printMessage(GET_PLAYER_NAME_MESSAGE);
@@ -92,7 +94,11 @@ public class View {
     }
 
     private String readLine() {
-        return scanner.nextLine();
+        try {
+            return READER.readLine();
+        } catch (IOException e) {
+            return "";
+        }
     }
 
     private int getZeroOrOne() {
