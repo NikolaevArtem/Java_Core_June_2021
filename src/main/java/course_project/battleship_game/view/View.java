@@ -91,7 +91,7 @@ public class View {
         }
     }
 
-    public String readLine() {
+    private String readLine() {
         return scanner.nextLine();
     }
 
