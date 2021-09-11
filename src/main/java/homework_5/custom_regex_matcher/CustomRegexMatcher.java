@@ -1,15 +1,11 @@
 package homework_5.custom_regex_matcher;
 
-
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 class CustomRegexMatcher {
-
     public void run() {
-
         try (Scanner scanner = new Scanner(System.in)) {
             String str = scanner.nextLine();
             //String str = "Java_Core_June_2021.package homework_5.custom_regex_matcher";

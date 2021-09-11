@@ -12,7 +12,6 @@ import java.util.*;
 
 @Getter
 public final class LibraryCard {
-
     private enum Section {
         MYSTERY,
         HORROR,

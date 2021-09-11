@@ -1,11 +1,9 @@
 package homework_3.library;
 
 import lombok.Data;
-import lombok.NonNull;
 
 @Data
 public class Author {
-
     private String name;
     private String country;
     private String century;

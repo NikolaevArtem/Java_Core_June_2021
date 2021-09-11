@@ -4,12 +4,10 @@ import lombok.Data;
 
 @Data
 public class Cat {
-
     public enum Sex {
         MALE,
         FEMALE
     }
-
     private String name;
     private Sex sex;
     private int ageInYears;
