@@ -21,7 +21,4 @@ public class Cat {
         this.ageInYears = ageInYears;
         this.colour = colour;
     }
-
-    public Cat() {
-    }
 }
