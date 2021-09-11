@@ -6,8 +6,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import static org.junit.jupiter.api.Assertions.*;
 
-
-class CustomFileReaderTest {
+public class CustomFileReaderTest {
 
     @Test
     void testRightCaseFileReaderCustomFileReader() {
@@ -19,7 +18,6 @@ class CustomFileReaderTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         final String actual = cfr.replaceDotsCommas(str);
 
         assertEquals(getExpectedText(), actual);
@@ -55,7 +53,6 @@ class CustomFileReaderTest {
             e.printStackTrace();
         }
         String str2 = cfr.replaceDotsCommas(str);
-
         final String actual = cfr.replaceDotsCommas(str);
 
         assertEquals(getExpectedText(), actual);
@@ -83,7 +80,6 @@ class CustomFileReaderTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         final String actual = cfr.replaceDotsCommas(str);
 
         assertEquals(getExpectedText(), actual);

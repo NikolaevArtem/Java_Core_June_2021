@@ -4,9 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-class TrafficLight {
-
-    public static enum Colour {
+public class TrafficLight {
+    public enum Colour {
         RED,
         YELLOW,
         GREEN

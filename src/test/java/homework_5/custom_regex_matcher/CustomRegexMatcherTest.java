@@ -3,9 +3,7 @@ package homework_5.custom_regex_matcher;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class CustomRegexMatcherTest {
+public class CustomRegexMatcherTest {
 
     @Test
     void testRightCaseCustomRegexMatcher() {

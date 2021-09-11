@@ -1,12 +1,10 @@
 package homework_2.random_chars_table;
 
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-
-class RandomCharsTableTest {
+public class RandomCharsTableTest {
 
     @Test
     void testOddCaseRandomCharsTable() {
@@ -49,28 +47,24 @@ class RandomCharsTableTest {
     @Test
     void testWrongNumberOfParametersCaseRandomCharsTable() {
         RandomCharsTable rct = new RandomCharsTable();
-
         Assertions.assertThrows(IllegalArgumentException.class, () -> rct.setParameters(new String[] {"3", "4", "odd", "ODD"}));
     }
 
     @Test
     void testNotANumberInParameterCaseRandomCharsTable() {
         RandomCharsTable rct = new RandomCharsTable();
-
         Assertions.assertThrows(NumberFormatException.class, () -> rct.setParameters(new String[] {"3", "j", "ODD"}));
     }
 
     @Test
     void testNegativeNumberInParameterCaseRandomCharsTable() {
         RandomCharsTable rct = new RandomCharsTable();
-
         Assertions.assertThrows(IllegalArgumentException.class, () -> rct.setParameters(new String[] {"3", "-2", "EVEN"}));
     }
 
     @Test
     void testWrongStrategyInParameterCaseRandomCharsTable() {
         RandomCharsTable rct = new RandomCharsTable();
-
         Assertions.assertThrows(IllegalArgumentException.class, () -> rct.setParameters(new String[] {"3", "2", "eeven"}));
     }
 }

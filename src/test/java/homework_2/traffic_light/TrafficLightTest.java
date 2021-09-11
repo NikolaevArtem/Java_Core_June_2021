@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-
-class TrafficLightTest {
+public class TrafficLightTest {
 
     @Test
     void testGreenCaseTrafficLight()  throws TrafficLight.WrongSecondsException {
@@ -43,14 +42,12 @@ class TrafficLightTest {
     @Test
     void testNegativeSecondsTrafficLight() {
         TrafficLight trl = new TrafficLight();
-
         Assertions.assertThrows(TrafficLight.WrongSecondsException.class, () -> trl.setTrafficLightColour(-37));
     }
 
     @Test
     void testTooBigValueSecondsCaseTrafficLight() {
         TrafficLight trl = new TrafficLight();
-
         Assertions.assertThrows(TrafficLight.WrongSecondsException.class, () -> trl.setTrafficLightColour(86401));
     }
 }

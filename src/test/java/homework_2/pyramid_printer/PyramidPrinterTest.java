@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-
-class PyramidPrinterTest {
+public class PyramidPrinterTest {
 
     @Test
     void testRightCasePyramidPrinter() {
@@ -21,7 +20,6 @@ class PyramidPrinterTest {
     @Test
     void testNegativeNumberInParameterCasePyramidPrinter() {
         PyramidPrinter ppr = new PyramidPrinter();
-
         Assertions.assertThrows(ArithmeticException.class, () -> ppr.buildPyramidString(-3));
     }
 }

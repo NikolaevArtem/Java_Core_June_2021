@@ -7,7 +7,7 @@ import java.util.InputMismatchException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PowerOfNumberTest {
+public class PowerOfNumberTest {
 
     @Test
     void testRightCasePowerOfNumber() {
@@ -21,6 +21,7 @@ class PowerOfNumberTest {
     @Test
     void testNotANumberCasePowerOfNumber() {
         PowerOfNumber pon = new PowerOfNumber();
+
         Assertions.assertThrows(NumberFormatException.class, () -> pon.validateNumbers(new String[]{"j", "2"}));
         Assertions.assertThrows(NumberFormatException.class, () -> pon.validateNumbers(new String[]{"2", "k"}));
         Assertions.assertThrows(NumberFormatException.class, () -> pon.validateNumbers(new String[]{"j", "k"}));
@@ -29,12 +30,14 @@ class PowerOfNumberTest {
     @Test
     void testWrongAmountOfNumbersCasePowerOfNumber() {
         PowerOfNumber pon = new PowerOfNumber();
+
         Assertions.assertThrows(InputMismatchException.class, () -> pon.validateNumbers(new String[]{"2", "3", "3"}));
         Assertions.assertThrows(InputMismatchException.class, () -> pon.validateNumbers(new String[]{"3"}));
     }
     @Test
     void testNegativeNumberCasePowerOfNumber() {
         PowerOfNumber pon = new PowerOfNumber();
+
         Assertions.assertThrows(InputMismatchException.class, () -> pon.validateNumbers(new String[]{"-3", "3"}));
         Assertions.assertThrows(InputMismatchException.class, () -> pon.validateNumbers(new String[]{"3", "-3"}));
     }

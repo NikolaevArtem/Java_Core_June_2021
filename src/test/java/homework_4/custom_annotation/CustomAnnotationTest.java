@@ -3,8 +3,7 @@ package homework_4.custom_annotation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
-class CustomAnnotationTest {
+public class CustomAnnotationTest {
     Main main = new Main();
 
     @Test

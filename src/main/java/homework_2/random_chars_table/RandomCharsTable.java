@@ -1,13 +1,10 @@
 package homework_2.random_chars_table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import java.util.*;
 
-@Getter
-@Setter
+@Data
 public class RandomCharsTable {
-
     public enum Strategy {
         EVEN,
         ODD
@@ -20,8 +17,8 @@ public class RandomCharsTable {
     public void run() {
         Scanner scanner = new Scanner(System.in);
         String[] arr = scanner.nextLine().trim().split("\\s");
-
         scanner.close();
+
         try {
             setParameters(arr);
         } catch (NumberFormatException ex) {
@@ -32,6 +29,7 @@ public class RandomCharsTable {
             return;
         }
         initializeTable();
+
         System.out.println(getStrForPrinting());
         System.out.println(getStrForPrintingByStrategy(getStrategy()));
     }
