@@ -6,20 +6,19 @@ import java.util.Scanner;
 
 @Data
 public class PyramidPrinter {
-    private StringBuilder pyramidString = new StringBuilder();
 
     public void run() {
         try (Scanner scanner = new Scanner(System.in)) {
             String str = scanner.nextLine();
             int number = Integer.parseInt(str);
-            buildPyramidString(number);
-            System.out.println(pyramidString);
+            System.out.println(buildPyramidString(number));
         } catch (ArithmeticException | InputMismatchException ex) {
             System.out.println("Only non-negative integer is allowed as passed parameter!");
         }
     }
 
-    void buildPyramidString(int number) {
+    StringBuilder buildPyramidString(int number) {
+        StringBuilder pyramidString = new StringBuilder();
         if (number < 0) {
             throw new ArithmeticException();
         }
@@ -30,5 +29,6 @@ public class PyramidPrinter {
             }
             pyramidString.append('\n');
         }
+        return pyramidString;
     }
 }

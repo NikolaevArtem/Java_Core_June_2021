@@ -9,9 +9,8 @@ public class PyramidPrinterTest {
     @Test
     void testRightCasePyramidPrinter() {
         PyramidPrinter ppr = new PyramidPrinter();
-        ppr.buildPyramidString(3);
 
-        final StringBuilder actual = ppr.getPyramidString();
+        final StringBuilder actual = ppr.buildPyramidString(3);
         final String expected = "x" + '\n' + "xx" + '\n' + "xxx" + '\n';
 
         assertEquals(actual.toString(), expected);
