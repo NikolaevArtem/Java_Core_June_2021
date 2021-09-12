@@ -12,7 +12,7 @@ public class PyramidPrinter {
             String str = scanner.nextLine();
             int number = Integer.parseInt(str);
             System.out.println(buildPyramidString(number));
-        } catch (ArithmeticException | InputMismatchException ex) {
+        } catch (NumberFormatException | ArithmeticException | InputMismatchException ex) {
             System.out.println("Only non-negative integer is allowed as passed parameter!");
         }
     }
