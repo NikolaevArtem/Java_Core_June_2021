@@ -21,9 +21,6 @@ public class RandomCharsTable {
 
         try {
             setParameters(arr);
-        } catch (NumberFormatException ex) {
-            System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]!");
-            return;
         } catch (IllegalArgumentException ex) {
             System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]!");
             return;
@@ -39,28 +36,17 @@ public class RandomCharsTable {
             throw new IllegalArgumentException();
         }
 
-        for (int i = 0; i < 3; i++) {
-            if (i < 2) {
-                int j = Integer.parseInt(arr[i]);
+        length = Integer.parseInt(arr[0]);
+        width = Integer.parseInt(arr[1]);
+        if (length < 1 || width < 1) {
+            throw new IllegalArgumentException();
+        }
 
-                if (j < 1) {
-                    throw new IllegalArgumentException();
-                }
-
-                if (i == 0) {
-                    setLength(j);
-                } else {
-                    setWidth(j);
-                }
-            } else {
-                String strategyStr = arr[i];
-
-                if (Strategy.EVEN.equals(Strategy.valueOf(strategyStr.toUpperCase())) || Strategy.ODD.equals(Strategy.valueOf(strategyStr.toUpperCase()))) {
-                    strategy = Strategy.valueOf(strategyStr.toUpperCase());
-                } else {
-                    throw new IllegalArgumentException();
-                }
-            }
+        String strategyStr = arr[2];
+        if (Strategy.EVEN.equals(Strategy.valueOf(strategyStr.toUpperCase())) || Strategy.ODD.equals(Strategy.valueOf(strategyStr.toUpperCase()))) {
+            strategy = Strategy.valueOf(strategyStr.toUpperCase());
+        } else {
+            throw new IllegalArgumentException();
         }
     }
 
