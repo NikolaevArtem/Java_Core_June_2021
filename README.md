@@ -18,6 +18,7 @@
 | HW5.2 | [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/main/java/homework_5/custom_regex_matcher) | The app reads a string and checks if it is a number in Russian format with slight differences  |
 | HW5.Tests | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/test/java/homework_5/) | Tests for homework_5 |
 | HW6 | [MapProblemsGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/main/java/homework_6/map_problems_generator) | Two classes that make problems in working with HashMap  |
+| HW7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/main/java/homework_7/kitten_to_cat_function) | Custom function for transforming a kitten to a cat |
 
 [Link to CodingBat done page](https://codingbat.com/done?user=dmitrisedam11@gmail.com&tag=7827998073)
 
