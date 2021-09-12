@@ -4,8 +4,8 @@ public class Cell {
     private CellState state = CellState.EMPTY;
     private final Coordinate coordinate;
 
-    public Cell(int row, int column) {
-        this.coordinate = new Coordinate(row, column);
+    public Cell(int r, int c) {
+        this.coordinate = new Coordinate(r, c);
     }
 
     public void setState(CellState state) {
@@ -14,6 +14,10 @@ public class Cell {
 
     public CellState getState() {
         return state;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
     }
 
     @Override
