@@ -16,6 +16,7 @@
 | HW5.1 | [PowerOfNumber](./src/main/java/homework_5/powerOfNumber) | This console app realizes Math.pow(int base, int n) method using recursion.  |
 | HW5.2 | [CustomRegexMatcher](./src/main/java/homework_5/customRegexMatcher) | This console app verifies custom email with regex.   |
 | HW6 | [MapProblemsGenerator](./src/main/java/homework_6/mapProblemsGenerator) | Here you can find example of incorrect hash method overriding and a case where we can loose information in our map.  |
+| HW7 | [KittenToCatFunction](./src/main/java/homework_7/catToKittenFunction) | This is an example of realization my functional interface that takes a Kitty as a parameter and returns a Cat.  |
 
 [Link to my CodingBat](https://codingbat.com/done?user=ashandrikov@gmail.com&tag=8115696431)
 
