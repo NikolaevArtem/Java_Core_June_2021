@@ -3,10 +3,20 @@ package homework_7.catToKittenFunction;
 public class Cat {
     private int age;
     private String name;
+    private Kitten kitten;
 
-    public Cat(int age, String name) {
+    public Cat(int age, String name, Kitten kitten) {
         this.age = age;
         this.name = name;
+        this.kitten = kitten;
+    }
+
+    public Kitten getKitten() {
+        return kitten;
+    }
+
+    public void setKitten(Kitten kitten) {
+        this.kitten = kitten;
     }
 
     public int getAge() {
