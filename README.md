@@ -16,7 +16,7 @@
 | HW5 | [PowerOfNumber homework](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/konstantinIvanov/src/main/java/homework_5/powerOfNumber/PowerOfNumber.java) |
 The app realizes PowerOfNumber method  which using recursion. |
 | HW6 | [MapProblemsGenerator homework](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/konstantinIvanov/src/main/java/homework_6/MapProblemsCollisionGenerator.java) |
-The app has two classes, MapProblemsCollisionGenerator which creates 100% collision and MapProblemsMutableGenerator with hashcoreEquals. |
+The app has two classes, MapProblemsCollisionGenerator which creates 100% collision and MapProblemsMutableGenerator with hashcoreEquals.|
 | HW6 | [MapProblemsGenerator homework](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/konstantinIvanov/src/main/java/homework_6/MapProblemsCollisionGenerator.java) |
 The app has two classes, MapProblemsCollisionGenerator which creates 100% collision and MapProblemsMutableGenerator with hashcoreEquals. |
 | HW7 | [KittenToCatFunction homework](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/konstantinIvanov/src/main/java/homework_7/KittenToCat.java) |
