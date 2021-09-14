@@ -12,6 +12,7 @@
 | HW4 | [Singleton homework](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/konstantinIvanov/src/main/java/homework_4/Singleton/MySingleton.java) | Singleton |
 | HW4 | [CustomFileReader homework](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/konstantinIvanov/src/main/java/homework_4/custom_file_reader/CustomFileReader.java) | The app that reads from a file using nio io |
 | HW4 | [CustomAnnotation homework](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/konstantinIvanov/src/main/java/homework_4/custom_annotation/test_annotation/Main.java) | The app has three annotation, BeforeSuite, which runs once at the beginning, AfterSuite, which runs once at the end, and Test which runs methods by priority |
+
 | HW5 | [CustomRegexMatcher homework]
 (https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/konstantinIvanov/src/main/java/homework_5/customRegexMatcher/CustomRegexMatcher.java) |
 The app with customRegexMatcher |
