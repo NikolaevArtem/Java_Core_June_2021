@@ -2,10 +2,12 @@ package homework_6.map_problems_generator;
 
 import homework_6.map_problems_generator.problem_impl.Wrapper;
 
+import java.io.UncheckedIOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         MapProblemsGenerator<String> generator = new MapProblemsGenerator<>();
         Map<Problem<String>, Integer> problemIntegerHashMap = new HashMap<>();

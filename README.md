@@ -19,6 +19,7 @@
 | HW5 | [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/main/java/homework_5/custom_regex_matcher) | CustomRegexMatcher|
 | HW5 | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/test/java/homework_5) | HW_5 Tests|
 | HW6 | [MapProblemsGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/main/java/homework_6/map_problems_generator) | MapProblemsGenerator|
+| HW7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KirillFilipchik/src/main/java/homework_7/kitten_to_cat_function) | KittenToCatFunction|
 
 
 [Link to CodingBat](https://codingbat.com/done?user=parallaksik@gmail.com&tag=9517187513)
