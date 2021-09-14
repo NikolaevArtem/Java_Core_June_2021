@@ -12,6 +12,7 @@
 | HW3 | [Immutable class](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_3 ) | Immutable class describing the required contents of my bag |
 | HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_4/singleton ) | Singleton app |
 |     | [Custom File Reader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_4/custom_file_reader ) | The app reads a file in different ways and outputs text excluding the characters "," and ".". |
+|     | [Custom Annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_4/custom_annotation ) | Student class uses custom annotation StudentInformation to fill fields in class constructor. |
 | HW5 | [Custom Regex Matcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_5/custom_regex_matcher ) | The app reads input string and checks password strength |
 
 [Link to CodingBat](https://codingbat.com/done?user=gabdrakhimovarr@gmail.com&tag=707251349)
