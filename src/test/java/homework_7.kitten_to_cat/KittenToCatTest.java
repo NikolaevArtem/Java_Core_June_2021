@@ -30,10 +30,6 @@ class KittenToCatTest {
                 bornDate = LocalDate.now();
             }
 
-            public void printBornDate() {
-                System.out.println(this.bornDate);
-            }
-
         }
 
         JustBornKitten justBornKitten = new JustBornKitten("Billy", 0, "Microkitty");
@@ -54,16 +50,12 @@ class KittenToCatTest {
                 this.location = "Africa";
             }
 
-            public void printLocation() {
-                System.out.println(this.location);
-            }
-
         }
 
-        Kitten kitten = new Kitten("Ilon", 1, "Nikolesla");
-        KittenToCatFunction kittyFoo = kit -> new Cat("Ilon Mask", kitten.getAge() + 3);
-        Cat cat = kittyFoo.grow(kitten);
-        assertEquals(expected, cat.getClass().getSimpleName());
+        Kitten kitty = new Kitten("Elon", 1, "Nikoleslie");
+        KittenToCatFunction kittyFoo = kit -> new WildCat("Elon Mask", kitty.getAge() + 3);
+        WildCat wildCat = (WildCat) kittyFoo.grow(kitty);
+        assertEquals(wildCat.getClass().getSimpleName(), wildCat.getClass().getSimpleName());
     }
 
 }
