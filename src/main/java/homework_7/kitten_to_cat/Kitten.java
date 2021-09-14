@@ -27,10 +27,6 @@ public class Kitten {
         this.breed = breed;
     }
 
-    public Cat grow(CatToKittenFunction<Kitten, Cat> function) {
-        return function.grow(this);
-    }
-
     private boolean isNameValid() {
         return this.name.length() > 2;
     }
