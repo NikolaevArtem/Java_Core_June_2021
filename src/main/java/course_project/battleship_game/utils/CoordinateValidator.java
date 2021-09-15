@@ -1,6 +1,6 @@
 package course_project.battleship_game.utils;
 
-public class Validator {
+public class CoordinateValidator {
 
     public static boolean isCoordinate(String coordinate) {
         if (coordinate.length() > 3) {
@@ -8,7 +8,7 @@ public class Validator {
         }
         boolean isFirstLetter = coordinate.toUpperCase().charAt(0) > 64 &&
                 coordinate.toUpperCase().charAt(0) < 75;
-        boolean isNumber = isSuitableForCellCoordinate(coordinate.substring(1));
+        boolean isNumber = coordinate.length() > 1 && isSuitableForCellCoordinate(coordinate.substring(1));
         return isFirstLetter && isNumber;
     }
 

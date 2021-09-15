@@ -1,7 +1,6 @@
 package course_project.battleship_game.model;
 
 import java.util.Objects;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Cell {
     private final int x;
@@ -17,12 +16,6 @@ public class Cell {
     public Cell(int x, int y) {
         this.x = x;
         this.y = y;
-    }
-
-    public static Cell generateRandomCell() {
-        int x = ThreadLocalRandom.current().nextInt(0, 10);
-        int y = ThreadLocalRandom.current().nextInt(0, 10);
-        return new Cell(x, y);
     }
 
     public int getX() {

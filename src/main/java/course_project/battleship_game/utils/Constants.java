@@ -1,6 +1,7 @@
 package course_project.battleship_game.utils;
 
 public class Constants {
+    public static final int BOARD_SIZE = 10;
     public static final String DEFAULT_PLAYER_NAME = "Player";
     public static final String DEFAULT_COMPUTER_NAME = "Computer";
     public static final String WELCOME_MESSAGE = "Welcome to the Battleship game!\n";

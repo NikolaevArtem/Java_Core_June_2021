@@ -1,6 +1,7 @@
 package course_project.battleship_game.model;
 
-import java.util.ArrayList;
+import course_project.battleship_game.service.CreateService;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -10,7 +11,7 @@ public class Ship {
 
     public Ship(Cell start, ShipType type, int direction) {
         this.type = type;
-        this.cellsList = generateShipCells(start, type, direction);
+        this.cellsList = new CreateService().createShipCells(start, type, direction);
     }
 
     public ShipType getType() {
@@ -19,18 +20,6 @@ public class Ship {
 
     public List<Cell> getCellsList() {
         return cellsList;
-    }
-
-    public boolean isHit(Cell cell) {
-        if (cellsList.contains(cell)) {
-            cellsList.get(cellsList.indexOf(cell)).setCellStatus(CellStatus.HIT);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean isNotAlive() {
-        return cellsList.stream().allMatch(c -> c.getCellStatus().equals(CellStatus.HIT));
     }
 
     @Override
@@ -45,15 +34,5 @@ public class Ship {
     @Override
     public int hashCode() {
         return Objects.hash(getType(), getCellsList());
-    }
-
-    private List<Cell> generateShipCells(Cell start, ShipType type, int direction) {
-        List<Cell> cells = new ArrayList<>();
-        for (int i = 0; i < type.getLength(); i++) {
-            int x = direction == 1 ? start.getX() : start.getX() + i;
-            int y = direction == 1 ? start.getY() + i : start.getY();
-            cells.add(new Cell(x, y, CellStatus.SHIP));
-        }
-        return cells;
     }
 }
