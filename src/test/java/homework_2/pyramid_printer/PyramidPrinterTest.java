@@ -1,7 +1,6 @@
-package homework_2.pyramid_printer.sources;
+package homework_2.pyramid_printer;
 
 import base.UnitBase;
-import homework_2.pyramid_printer.PyramidPrinter;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -11,7 +10,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class PyramidPrintTest extends UnitBase {
+class PyramidPrinterTest extends UnitBase {
 
     PyramidPrinter pyramidPrinter = new PyramidPrinter();
 
