@@ -1,41 +1,67 @@
 package course_project.sea_battle.conroller;
 
 import course_project.sea_battle.model.Field;
-import course_project.sea_battle.model.Player;
-import course_project.sea_battle.model.Ship;
-import course_project.sea_battle.view.PaintFieldPlayer;
+import course_project.sea_battle.model.ModelPlayer;
+import course_project.sea_battle.view.PaintFieldInPlay;
 import course_project.sea_battle.view.Speaker;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
-public class SeaBattle {
+public class SeaBattle extends Thread {
 
     public void run() {
-      try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-          Dialog dialog = new Dialog(reader);
-          Speaker.speakYouName();
-          Player player = new Player("TTTTTTT", new Field(10, 10));
-          PaintFieldPlayer paintPlayerField = new PaintFieldPlayer(player);
-          while (!player.readyToGame()){
-          player.addShip(dialog.reader());
-          paintPlayerField.paintField();
-          }
-         // player.addShip(new Ship(true, 3, 4, 4));
-        //  player.addShip(new Ship(false, 1, 6, 2));
-       //   player.addShip(new Ship(true, 6, 8, 1));
-          paintPlayerField.paintField();
-//     while (true){
-//         System.out.println(dialog.shotPlayer(player));
-//         paintPlayerField.paintField();
-//     }
+        try (Scanner scanner = new Scanner(System.in)) {
+            Dialog dialog = new Dialog(scanner);
+            Speaker.voice("dialogName");
+            String PlayerName = dialog.namePlayerGet();
 
-      } catch (Exception ignored){
+            ModelPlayer player = new ModelPlayer("PlayerName", new Field(10, 10));
+            ModelPlayer IIPlayer = new ModelPlayer("BOT2", new Field(10, 10));
+            Speaker.voice("autoGenerate");
+            boolean choiceGenerate = dialog.autoGenerate();
 
-      }
+            if (choiceGenerate) {
+                player.autoGenerateShips();
+            } else {
+                dialog.generateShips(player);
+            }
+            IIPlayer.autoGenerateShips();
 
+            PaintFieldInPlay play = new PaintFieldInPlay(player, IIPlayer);
+            boolean whoCanGo = true;
+            do {
+                play.paintFields();
+                if (whoCanGo) {
+                    Speaker.voice("queuePlayer");
+                    String shot1 = dialog.shotPlayer(IIPlayer);
 
+                    if ("7".equals(shot1)) {
+                        whoCanGo = true;
+                    } else {
+                        whoCanGo = false;
+                    }
+                    Speaker.voice("shot", shot1);
+                    Thread.sleep(1000);
+                } else {
+                    String shot2 = player.autoShot();
+                    Speaker.voice("queueII", shot2);
+                    Thread.sleep(1000);
+                    if ("7".equals(shot2)) {
+                        whoCanGo = false;
+                    } else {
+                        whoCanGo = true;
+                    }
+                }
 
+            } while (!player.lose() && !IIPlayer.lose());
+
+            if (player.lose()) {
+                Speaker.voice("lose1", player.getName());
+            } else Speaker.voice("lose1", IIPlayer.getName());
+
+        } catch (Exception e) {
+            System.out.println(e + " FAIL");
+        }
 
 
     }

@@ -1,21 +1,19 @@
 package course_project.sea_battle.view;
 
-import course_project.sea_battle.model.Player;
-
-import java.util.ArrayList;
+import course_project.sea_battle.model.ModelPlayer;
 
 public class PaintFieldPlayer {
 
-        Player player;
+        ModelPlayer player;
 
-        public PaintFieldPlayer(Player player) {
+        public PaintFieldPlayer(ModelPlayer player) {
             this.player = player;
         }
 
         public void paintField() {
 
             System.out.println(player.getName() + " field: ");
-            System.out.println("    A   B   C  D   E  F   G   H  I   G");
+            System.out.println("    A   B   C  D   E  F   G   H  I   J");
             for (int i = 0; i < 10; i++) {
                 if (i == 9) System.out.print((i + 1) + "");
                 else System.out.print((i + 1) + " ");

@@ -1,13 +1,13 @@
 package course_project.sea_battle.model;
 
-public class Player {
+public class ModelPlayer {
 
     String name;
     Field playerField;
 
-    public Player(String name, Field playerFild) {
+    public ModelPlayer(String name, Field playerField) {
         this.name = name;
-        this.playerField = playerFild;
+        this.playerField = playerField;
     }
 
     public String getName() {
@@ -19,16 +19,12 @@ public class Player {
     }
 
     public String addShip(Ship ship) {
-        if(ship==null) {
-            return "Fail Ship null";
+        if(playerField.canAddThisSize(ship.getSize())) {
+            if (playerField.addShip(ship)) {
+                return "Correct";
+            }
         }
-        if(!playerField.checkShipsSize(ship)){
-            return "you can't add a ship of this length anymore";
-        }
-        if (playerField.addShip(ship)) {
-            return "Correct";
-        }
-        return "Fail Position Not Correct";
+        return "coordinateFalse";
     }
 
     public boolean readyToGame() {
@@ -43,4 +39,13 @@ public class Player {
        return playerField.shot(shot);
     }
 
+    public boolean lose() {
+        return playerField.shipsDead();
+    }
+    public void autoGenerateShips() {
+        playerField.autoGenerateShips();
+    }
+    public String autoShot(){
+        return playerField.autoShot();
+    }
 }

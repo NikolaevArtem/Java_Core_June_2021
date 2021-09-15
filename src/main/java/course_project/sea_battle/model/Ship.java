@@ -23,21 +23,9 @@ public class Ship implements Ships {
         return startPositionB;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
     @Override
     public boolean isDead() {
         return size==damage;
-    }
-
-    public boolean isOrientation() {
-        return orientation;
-    }
-
-    public int getDamage() {
-        return damage;
     }
 
     @Override
@@ -51,24 +39,29 @@ public class Ship implements Ships {
     }
 
     @Override
-    public boolean shot(int a, int b) {
+    public boolean shot(int pointA, int pointB) {
         boolean damageThis = false;
         if(getOrientation()){
             for(int i = startPositionA; i<startPositionA+size; i++){
-                if(i==a&&b==startPositionB){
+                if(i==pointA&&pointB==startPositionB){
                     damageThis = true;
                 }
             }
         } else {
             for(int i = startPositionB; i<startPositionB+size; i++){
-                if(a==startPositionA&&(i==b)){
+                if(pointA==startPositionA&&(i==pointB)){
                     damageThis = true;
                 }
             }
         }
         if(damageThis){
-            damage++;
+            takeDamage();
         }
         return damageThis;
+    }
+
+    @Override
+    public void takeDamage() {
+        this.damage++;
     }
 }

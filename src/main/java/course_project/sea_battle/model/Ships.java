@@ -6,6 +6,9 @@ public interface Ships {
     int getSize();
     boolean isDead();
     boolean shot(int a, int b);
+    int getStartPositionA();
+    int getStartPositionB();
+    void takeDamage();
 
 }
 

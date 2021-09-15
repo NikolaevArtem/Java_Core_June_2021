@@ -3,18 +3,23 @@ package course_project.sea_battle.model;
 import course_project.sea_battle.model.Ships;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ShipsGame {
 
     private List<Ships> allShips;
-    private final int shipOne = 4;
-    private final int shipTwo = 3;
-    private final int shipTree = 2;
-    private final int shipFore = 1;
+    Map<Integer, Integer> inListSizeShip;
 
     public ShipsGame() {
         allShips = new ArrayList<>();
+        inListSizeShip = new HashMap<>();
+        inListSizeShip.put(1, 4);
+        inListSizeShip.put(2, 3);
+        inListSizeShip.put(3, 2);
+        inListSizeShip.put(4, 1);
+
     }
 
     public List<Ships> getAllShips() {
@@ -24,23 +29,25 @@ public class ShipsGame {
     public boolean ready() {
         return allShips.size() >= 10;
     }
-    public void addShip(Ship ship){
 
-        allShips.add(ship);
+    public boolean addShip(Ship ship){
+            int key = ship.getSize();
+            int value = inListSizeShip.get(ship.getSize()) - 1;
+            inListSizeShip.put(key, value);
+            return allShips.add(ship);
     }
 
-    public boolean getShipInSize(int size){
-        int a = 0;
-        for(Ships ships: allShips){
-            if(ships.getSize()==size){
-                a++;
+    public boolean shipsDead() {
+        int dead = 0;
+        for(Ships ship: allShips) {
+            if(ship.isDead()) {
+                dead++;
             }
         }
-        switch (size){
-             case 1: return a<shipOne;
-             case 2: return a<shipTwo;
-             case 3: return a<shipTree;
-            default: return a<shipFore;
-        }
+        return dead==allShips.size();
+    }
+
+    public boolean canAddThisSize(int size) {
+        return inListSizeShip.get(size)>0;
     }
 }
