@@ -5,7 +5,10 @@ import lombok.Getter;
 @Getter
 public class Playground {
     static final int FIELD_SIZE = 10;
+    static final int SHIP_AMOUNT = 5;
+
     final private PlaygroundCell[][] cells;
+    private int killedShips;
 
     public Playground () {
         cells = new PlaygroundCell[FIELD_SIZE][FIELD_SIZE];
@@ -15,6 +18,8 @@ public class Playground {
                 cells[i][j] = new PlaygroundCell();
             }
         }
+
+        killedShips = 0;
     }
 
     public PlaygroundCell getCell(CellData data) {
@@ -23,6 +28,14 @@ public class Playground {
 
     public static int getFieldSize() {
         return FIELD_SIZE;
+    }
+
+    public static int getShipAmount() {
+        return SHIP_AMOUNT;
+    }
+
+    public void killShip() {
+        killedShips++;
     }
 
     public String toStringMine() {
@@ -35,7 +48,7 @@ public class Playground {
 
     public String toStringBoth(boolean isMine) {
         final String INIT_SYMBOL = "-";
-        final String MISSED_SYMBOL = "_";
+        final String MISSED_SYMBOL = " ";
         final String HIT_SYMBOL = "x";
         final String KILLED_SYMBOL = "X";
 
@@ -51,22 +64,23 @@ public class Playground {
             stringBuilder.append((char) (i + 'A')).append(" ");
             for (int j = 0; j < FIELD_SIZE; j++) {
                 PlaygroundCell currentCell = cells[i][j];
-                if (currentCell.isHit()) {
-                    if (currentCell.getShip().isKilled()) {
-                        stringBuilder.append(KILLED_SYMBOL).append(" ");
-                    } else {
+
+                switch(currentCell.getStatus()) {
+                    case HIT:
                         stringBuilder.append(HIT_SYMBOL).append(" ");
-                    }
-                } else {
-                    if (currentCell.isMissed()) {
+                        break;
+                    case KILLED:
+                        stringBuilder.append(KILLED_SYMBOL).append(" ");
+                        break;
+                    case MISSED:
                         stringBuilder.append(MISSED_SYMBOL).append(" ");
-                    } else {
-                        if (currentCell.isOccupied()) {
-                            stringBuilder.append(OCCUPIED_SYMBOL).append(" ");
-                        } else {
-                            stringBuilder.append(INIT_SYMBOL).append(" ");
-                        }
-                    }
+                        break;
+                    case OCCUPIED:
+                        stringBuilder.append(OCCUPIED_SYMBOL).append(" ");
+                        break;
+                    default:
+                        stringBuilder.append(INIT_SYMBOL).append(" ");
+
                 }
             }
             stringBuilder.append("\n");

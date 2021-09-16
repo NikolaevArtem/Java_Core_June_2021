@@ -5,7 +5,6 @@ import course_project.sea_battle.playground.CellData;
 import course_project.sea_battle.playground.Playground;
 import course_project.sea_battle.ships.Ship;
 import course_project.sea_battle.ships.ShipType;
-import course_project.sea_battle.utils.ShotResultCode;
 import homework_2.WrongInputException;
 import lombok.Getter;
 
@@ -27,22 +26,26 @@ public class ComputerPlayer extends Player {
         Ship[] ships = new Ship[SHIP_AMOUNT];
 
         for (int i = 0; i < SHIP_AMOUNT; i++) {
-            ships[i] = new Ship(ShipType.values()[i]);
+            ships[i] = new Ship(ShipType.values()[i], playground);
             new Helper().setShip(ships[i]);
         }
     }
 
     @Override
-    CellData makeMove() {
-        // somehow figure next move data
-        // randomly or need to apply some algorithm
-        //..
-
-        return new CellData('J', 3);
+    public CellData makeMove() {
+        // TODO: might be some more complex logic
+        // check if it is hit or missed at least
+        CellData cellData = CellData.generateCellData();
+        return cellData;
+//        return RandomGenerator.getRandomCellData();
     }
 
     @Override
-    ShotResultCode checkOwnField(CellData cellData) {
-        return ShotResultCode.MISS;
+    public String toString() {
+        return "COMPUTER";
+    }
+
+    public String toStringWhose() {
+        return "COMPUTER'S";
     }
 }

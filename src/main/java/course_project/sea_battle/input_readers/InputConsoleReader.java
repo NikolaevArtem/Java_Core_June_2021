@@ -12,8 +12,8 @@ public class InputConsoleReader extends InputReader {
         super("Can't parse input. Please, follow the format: [char A-J]-[integer 1-10]");
 
         // temporary reading user ships set from file (for quick debugging and testing)
-        br = new BufferedReader(new FileReader(new File("src/main/resources/course_project/sea_battle.txt")));
-//        br = new BufferedReader(new InputStreamReader(System.in));
+//        br = new BufferedReader(new FileReader(new File("src/main/resources/course_project/sea_battle.txt")));
+        br = new BufferedReader(new InputStreamReader(System.in));
     }
 
     @Override

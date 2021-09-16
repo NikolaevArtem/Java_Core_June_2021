@@ -4,19 +4,27 @@ import course_project.sea_battle.ships.Ship;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
 public class PlaygroundCell {
-    private boolean isOccupied;
-    private boolean isHit;
-    private boolean isMissed;
+    private CellStatus status;
 
     private Ship ship;
 
+    public void setHit() {
+        if (status == CellStatus.HIT) {
+            return;
+        }
+        setStatus(CellStatus.HIT);
+        ship.hit();
+        if (ship.isKilled()) {
+            status = CellStatus.KILLED;
+        }
+    }
+
     public PlaygroundCell() {
-        this.isOccupied = false;
-        this.isHit = false;
-        this.isMissed = false;
+        status = CellStatus.FREE;
+
         this.ship = null;
     }
 }

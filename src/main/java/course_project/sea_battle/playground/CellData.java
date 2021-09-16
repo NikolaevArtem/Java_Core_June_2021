@@ -17,11 +17,22 @@ public class CellData {
         this.row = line - 65;
     }
 
-    public CellData generateCellData() {
+    public CellData(int row, int col) {
+        this.row = row - 1;
+        this.col = col;
+        this.line = (char) (row + 65 - 1);
+    }
+
+    public static CellData generateCellData() {
         return new CellData((char) (getRandomPosition() + 65), getRandomPosition() + 1);
     }
 
-    private int getRandomPosition() {
+    private static int getRandomPosition() {
         return RandomGenerator.getRandomInRange(Playground.getFieldSize() - 1, 0);
+    }
+
+    @Override
+    public String toString() {
+        return line + "-" + col;
     }
 }

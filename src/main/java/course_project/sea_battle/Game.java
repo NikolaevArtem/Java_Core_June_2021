@@ -11,10 +11,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Game {
-    private Player player;
-    private Player computer;
-    private InputConsoleReader inputConsoleReader;
-    private InputFileReader inputFileReader;
+    private final Player player;
+    private final Player computer;
+    private final InputConsoleReader inputConsoleReader;
+    private final InputFileReader inputFileReader;
 
     public Game() throws FileNotFoundException {
         this.inputConsoleReader = new InputConsoleReader();
@@ -26,16 +26,23 @@ public class Game {
 
     public void play() {
         System.out.println("Hi there, ready to play?");
+        Player winner;
 
         try {
-            setShips();
-            printPlaygrounds();
+            Gameplay gameplay = new Gameplay(player, computer);
+            gameplay.setShips();
+
+            gameplay.printPlaygrounds();
+
+            winner = gameplay.getWinner();
+            gameplay.printCongratsToWinner(winner);
 
         } catch (IOException e) {
             e.printStackTrace();
         } catch (WrongInputException e) {
             System.out.println(e.getMessage());
         } catch (InterruptedException e) {
+            //TODO: exception handling (everywhere)
             e.printStackTrace();
         } finally {
             try {
@@ -45,23 +52,5 @@ public class Game {
                 System.out.println("IO Exception");
             }
         }
-    }
-
-    private void setShips() throws IOException, WrongInputException, InterruptedException {
-        System.out.println(player.getPlayground().toStringMine());
-        player.setShips();
-
-        System.out.println("Setting ships for computer...\n");
-        computer.setShips();
-
-        //imitating AI thinking while setting ships
-        Thread.sleep(2000);
-    }
-
-    private void printPlaygrounds() {
-        System.out.println("Computers playground:");
-        System.out.println(computer.getPlayground().toStringOthers());
-        System.out.println("Your playground:");
-        System.out.println(player.getPlayground().toStringMine());
     }
 }

@@ -1,6 +1,7 @@
 package course_project.sea_battle.players;
 
 import course_project.sea_battle.playground.CellData;
+import course_project.sea_battle.playground.CellStatus;
 import course_project.sea_battle.ships.Ship;
 import course_project.sea_battle.utils.ShotResultCode;
 import course_project.sea_battle.input_readers.InputReader;
@@ -23,9 +24,28 @@ public abstract class Player {
 
     public abstract void setShips() throws IOException, WrongInputException;
 
-    abstract CellData makeMove();
+    public abstract CellData makeMove() throws IOException, WrongInputException;
 
-    abstract ShotResultCode checkOwnField(CellData cellData);
+    public ShotResultCode checkOwnField(CellData cellData) {
+        PlaygroundCell cell = getPlayground().getCell(cellData);
+
+        if (cell.getStatus() == CellStatus.OCCUPIED) {
+            cell.setHit();
+
+            if (cell.getStatus() == CellStatus.KILLED) {
+                return ShotResultCode.KILL;
+            }
+            return ShotResultCode.HIT;
+        }
+        cell.setStatus(CellStatus.MISSED);
+        return ShotResultCode.MISS;
+    }
+
+    public boolean isLoser() {
+        return getPlayground().getKilledShips() == Playground.getShipAmount();
+    }
+
+    public abstract String toStringWhose();
 
     class Helper {
 
@@ -34,8 +54,9 @@ public abstract class Player {
                 CellData data = inputReader.readShotData();
                 //TODO: check if the cells are together
                 PlaygroundCell currentCell = getPlayground().getCell(data);
-                currentCell.setOccupied(true);
+                currentCell.setStatus(CellStatus.OCCUPIED);
                 currentCell.setShip(ship);
+                ship.setCell(data);
             }
         }
     }
