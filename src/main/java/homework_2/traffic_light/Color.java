@@ -7,15 +7,15 @@ public class Color {
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_YELLOW = "\u001B[33m";
 
-    public static void green(){
+    public static void green() {
         System.out.println(ANSI_GREEN + "GREEN" + ANSI_RESET);
     }
 
-    public static void yellow(){
+    public static void yellow() {
         System.out.println(ANSI_YELLOW + "YELLOW" + ANSI_RESET);
     }
 
-    public static void red(){
+    public static void red() {
         System.out.println(ANSI_RED + "RED" + ANSI_RESET);
     }
 
