@@ -36,7 +36,7 @@ public class Human extends Player {
                 if (coordinates.length == 1 && Coordinate.check(coordinates[0])) {
                     Cell cell = field.getCell(coordinates[0]);
                     cell.setState(CellState.DECK);
-                    playerShips.add(new Ship(kind, ));
+//                    playerShips.add(new Ship(kind, ));
                 } else {
                     System.out.println(INVALID_INPUT);
                 }
@@ -44,8 +44,8 @@ public class Human extends Player {
         }
     }
 
-    private boolean checkAndAddShip(ShipKind kind, String input) {
-
-    }
+//    private boolean checkAndAddShip(ShipKind kind, String input) {
+//
+//    }
 
 }

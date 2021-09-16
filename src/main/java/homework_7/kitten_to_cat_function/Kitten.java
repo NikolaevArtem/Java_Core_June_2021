@@ -13,10 +13,6 @@ public class Kitten {
         this.name = name;
     }
 
-    public Cat transform(KittenToCatFunction function) {
-        return function.grow(this);
-    }
-
     public int getAge() {
         return age;
     }

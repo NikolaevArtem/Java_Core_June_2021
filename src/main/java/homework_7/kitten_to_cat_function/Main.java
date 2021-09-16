@@ -2,13 +2,17 @@ package homework_7.kitten_to_cat_function;
 
 public class Main {
     public static void main(String[] args) {
-        Kitten kitten = new Kitten(1, "Kitty");
-        System.out.println(kitten);
-        Cat cat = kitten
-                .transform((k) -> new Cat(k.getAge() * 5, k.getName().substring(0,3)));
+        KittenToCatFunction ktc = new KittenToCatFunction() {
+            @Override
+            public Cat grow(Kitten kitten) {
+                return new Cat(kitten.getAge() * 5, kitten.getName().substring(0, 3));
+            }
+        };
+
+        Kitten kitten = new Kitten(1, "Kitten");
+        Cat cat = ktc.grow(kitten);
+        Cat anotherCat = ktc.grow(new Kitty(2, "Kotik"));
         System.out.println(cat);
-        Cat strangeCat = new StrangeKitty(2, "Pussy Cat")
-                .transform((s) -> new Cat(s.getAge() * 10, s.getName().substring(6)));
-        System.out.println(strangeCat);
+        System.out.println(anotherCat);
     }
 }
