@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class RandomShipPlacer extends ShipPlacer {
 
-    public RandomShipPlacer(Field field, List<Ship> playerShips) {
-        super(field, playerShips);
+    public RandomShipPlacer(Player player) {
+        super(player);
     }
 
     @Override

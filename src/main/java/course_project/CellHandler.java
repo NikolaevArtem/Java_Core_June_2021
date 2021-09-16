@@ -25,4 +25,5 @@ public class CellHandler {
         Coordinate end = new Coordinate(coordinates[1]);
         return row ? start.row == end.row : start.column == end.column;
     }
+
 }

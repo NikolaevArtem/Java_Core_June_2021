@@ -23,7 +23,7 @@ public class Coordinate {
 
     public static boolean check(String point) {
         String regex = String.format("[A-%s][1-9]\\d?",(char) (SeaBattle.FIELD_SIZE + 65));
-        return point.matches(regex);
+        return point.matches(regex) && Integer.parseInt(point.substring(1)) <= SeaBattle.FIELD_SIZE;
     }
 
     @Override

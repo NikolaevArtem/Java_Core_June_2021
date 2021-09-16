@@ -11,21 +11,23 @@ public abstract class Player {
 
     public abstract Coordinate move();
 
-    public boolean takeAShot(Coordinate shot) {
+    public Ship takeAShot(Coordinate shot) {
         Cell cell = field.getCell(shot);
         Ship target = playerShips.stream().
                 filter(s -> s.containsCell(cell)).
                 findFirst().
                 orElseThrow(() -> new RuntimeException("not a ship"));
-        return target.takeAShot(cell);
+        if (target.takeAShot(cell)) {
+            field.getNeighbourCells(shot)
+                    .stream()
+                    .filter(c -> c.getState().equals(CellState.EMPTY))
+                    .forEach(c -> c.setState(CellState.MISS));
+            }
+        return target;
     }
 
     public boolean isDefeated() {
         return playerShips.stream().allMatch(Ship::isDestroyed);
-    }
-
-    public Field getField() {
-        return field;
     }
 
     public void printField(boolean hideShips) {

@@ -1,18 +1,15 @@
 package course_project;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ManualShipPlacer extends ShipPlacer {
     final static private String INVALID_INPUT = "Invalid format or count of coordinates." +
-            " Try again. Examples: A7 A10 or B1";
+            " A ship must be placed in a line. Try again. Examples: A7 A10 or B1";
     private final Scanner scanner;
 
-    public ManualShipPlacer(Field field, List<Ship> playerShips, Scanner scanner) {
-        super(field, playerShips);
-        this.scanner = scanner;
+    public ManualShipPlacer(Human player) {
+        super(player);
+        this.scanner = player.getScanner();
 
     }
 
@@ -25,6 +22,10 @@ public class ManualShipPlacer extends ShipPlacer {
             String[] coordinates = scanner.nextLine().trim().split("\\s+");
             if (lengthOfShip == 1) {
                 if (coordinates.length == 1 && Coordinate.check(coordinates[0])) {
+                    if (tooClose(coordinates[0])) {
+                        System.out.println("Too close to another ship. Choose another place.");
+                        continue;
+                    }
                     if (placeOneDeckShip(coordinates)) {
                         return;
                     }
@@ -33,7 +34,12 @@ public class ManualShipPlacer extends ShipPlacer {
                 }
             } else {
                 if (cellHandler.isLine(coordinates) &&
-                        cellHandler.cellCount(coordinates) == lengthOfShip) {
+                        cellHandler.cellCount(coordinates) == lengthOfShip - 1) {
+                    boolean tooClose = Arrays.stream(coordinates).anyMatch(this::tooClose);
+                    if (tooClose) {
+                        System.out.println("Too close to another ship. Choose another place.");
+                        continue;
+                    }
                     if (placeSeveralDecksShip(coordinates, kind)) {
                         return;
                     }
@@ -46,12 +52,12 @@ public class ManualShipPlacer extends ShipPlacer {
 
     private List<Cell> lineToCells(String[] coordinates) {
         List<Cell> cells = new ArrayList<>();
-        for (int i = 0; i < cellHandler.cellCount(coordinates); i++) {
+        for (int i = 0; i <= cellHandler.cellCount(coordinates); i++) {
             Coordinate temp = new Coordinate(coordinates[0]);
             if (cellHandler.sameLine(coordinates, true)) {
                 cells.add(field.getCell(temp.row, temp.column + i));
             } else {
-                cells.add(field.getCell(temp.row + 1, temp.column));
+                cells.add(field.getCell(temp.row + i, temp.column));
             }
         }
         return cells;
@@ -82,5 +88,12 @@ public class ManualShipPlacer extends ShipPlacer {
             System.out.println("Chosen cells are unavailable. Please, choose another.");
             return false;
         }
+    }
+
+    private boolean tooClose(String coordinate) {
+        return field
+                .getNeighbourCells(coordinate)
+                .stream()
+                .anyMatch(c -> c.getState().equals(CellState.DECK));
     }
 }

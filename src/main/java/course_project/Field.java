@@ -47,10 +47,15 @@ public class Field {
 
     public List<Cell> getNeighbourCells(int r, int c) {
         Cell topCell = r == 0 ? null : field[r - 1][c];
+        Cell topLeftCell = r == 0 || c == 0 ? null : field[r - 1][c - 1];
+        Cell topRightCell = r == 0 || c == 9 ? null : field[r - 1][c + 1];
         Cell bottomCell = r == 9 ? null : field[r + 1][c];
+        Cell bottomLeftCell = r == 9 || c == 0 ? null : field[r + 1][c - 1];
+        Cell bottomRightCell = r == 9 || c == 9 ? null : field[r + 1][c + 1];
         Cell leftCell = c == 0 ? null : field[r][c - 1];
         Cell rightCell = c == 9 ? null : field[r][c + 1];
-        return Stream.of(topCell, bottomCell, leftCell, rightCell)
+        return Stream.of(topCell, bottomCell, leftCell, rightCell,
+                topLeftCell, topRightCell, bottomLeftCell, bottomRightCell)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
     }

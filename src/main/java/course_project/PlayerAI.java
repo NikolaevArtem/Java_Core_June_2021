@@ -3,7 +3,7 @@ package course_project;
 import java.util.List;
 import java.util.Random;
 
-public class PlayerAI {
+public class PlayerAI extends Player {
 
     private int difficulty;
     private Coordinate previousShot;
@@ -72,5 +72,15 @@ public class PlayerAI {
 
     private Coordinate smartMove(Field foeField) {
         return new Coordinate(0,0);
+    }
+
+    @Override
+    public void placeShips(ShipPlacer shipPlacer) {
+
+    }
+
+    @Override
+    public Coordinate move() {
+        return null;
     }
 }
