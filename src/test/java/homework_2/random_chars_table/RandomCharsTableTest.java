@@ -7,16 +7,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class RandomCharsTableTest extends UnitBase{
+public class RandomCharsTableTest extends UnitBase {
 
-    private void run(){
+    private void run() {
         new RandomCharsTable().run();
         printOut();
         removeFromOutput("Please input your string: ");
     }
 
     @Test
-    void given23odd_whenRun_thenPrintTable(){
+    void given23odd_whenRun_thenPrintTable() {
         setInput("2 3 odd");
 
         run();
@@ -28,7 +28,7 @@ public class RandomCharsTableTest extends UnitBase{
     }
 
     @Test
-    void given23even_whenRun_thenPrintTable(){
+    void given23even_whenRun_thenPrintTable() {
         setInput("3 4 even");
 
         run();
@@ -41,7 +41,7 @@ public class RandomCharsTableTest extends UnitBase{
     }
 
     @Test
-    void givenSmth_whenRun_thenPrintErrorMessage(){
+    void givenSmth_whenRun_thenPrintErrorMessage() {
         setInput("3 4odd even");
 
         run();

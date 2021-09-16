@@ -7,14 +7,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PyramidPrinterTest extends UnitBase {
 
-    private void run(){
+    private void run() {
         new PyramidPrinter().run();
         printOut();
         removeFromOutput("Please input number:");
     }
 
     @Test
-    void given0_whenRun_thenPrintZero(){
+    void given0_whenRun_thenPrintZero() {
         setInput("0");
 
         run();
@@ -24,7 +24,7 @@ public class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void given1_whenRun_thenPrintPyramid(){
+    void given1_whenRun_thenPrintPyramid() {
         setInput("1");
 
         run();
@@ -33,7 +33,7 @@ public class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void given3_whenRun_thenPrintPyramid(){
+    void given3_whenRun_thenPrintPyramid() {
         setInput("3");
 
         run();
@@ -45,7 +45,7 @@ public class PyramidPrinterTest extends UnitBase {
     }
 
     @Test
-    void givenSmth_whenRun_thenPrintErrorMessage(){
+    void givenSmth_whenRun_thenPrintErrorMessage() {
         setInput("dksksk");
 
         run();

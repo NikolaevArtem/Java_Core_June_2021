@@ -8,14 +8,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TrafficLightTest extends UnitBase {
-    private void run(){
+    private void run() {
         new TrafficLight().run();
         printOut();
         removeFromOutput("Input number of seconds: ");
     }
 
     @Test
-    void given0_whenRun_thenPrintColor(){
+    void given0_whenRun_thenPrintColor() {
         setInput("0");
 
         run();
@@ -25,7 +25,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void given57_whenRun_thenPrintColor(){
+    void given57_whenRun_thenPrintColor() {
         setInput("57");
 
         run();
@@ -35,7 +35,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void givenMin_whenRun_thenPrintErrorMessage(){
+    void givenMin_whenRun_thenPrintErrorMessage() {
         setInput("-3");
 
         run();
@@ -45,7 +45,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void givenMax_whenRun_thenPrintErrorMessage(){
+    void givenMax_whenRun_thenPrintErrorMessage() {
         setInput("901000290");
 
         run();
@@ -55,7 +55,7 @@ public class TrafficLightTest extends UnitBase {
     }
 
     @Test
-    void givenSmth_whenRun_thenPrintErrorMessage(){
+    void givenSmth_whenRun_thenPrintErrorMessage() {
         setInput("sdfghj");
 
         run();

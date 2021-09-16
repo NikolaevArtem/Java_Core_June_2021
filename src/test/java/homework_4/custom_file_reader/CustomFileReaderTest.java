@@ -11,7 +11,7 @@ public class CustomFileReaderTest extends UnitBase {
 
     //run1
     @Test
-    void givenFileWithoutCommansAndDots_whenrunRun1_thenPrintCorrectly(){
+    void givenFileWithoutCommansAndDots_whenrunRun1_thenPrintCorrectly() {
         customFileReader.myPath("src/test/java/homework_4/custom_file_reader/withoutCommasAndDots.txt");
 
         customFileReader.run1();
@@ -22,7 +22,7 @@ public class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void givenFileWithCommansAndDots_whenrunRun1_thenPrintCorrectly(){
+    void givenFileWithCommansAndDots_whenrunRun1_thenPrintCorrectly() {
         customFileReader.myPath("src/test/java/homework_4/custom_file_reader/withCommasAndDots.txt");
 
         customFileReader.run1();
@@ -33,7 +33,7 @@ public class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void givenFileOnlyCommansAndDots_whenrunRun1_thenPrintNothing(){
+    void givenFileOnlyCommansAndDots_whenrunRun1_thenPrintNothing() {
         customFileReader.myPath("src/test/java/homework_4/custom_file_reader/onlyCommasAndDots");
 
         customFileReader.run1();
@@ -43,7 +43,7 @@ public class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void givenCleanFile_whenrunRun1_thenPrintNothing(){
+    void givenCleanFile_whenrunRun1_thenPrintNothing() {
         customFileReader.myPath("src/test/java/homework_4/custom_file_reader/cleanFile.txt");
 
         customFileReader.run1();
@@ -54,7 +54,7 @@ public class CustomFileReaderTest extends UnitBase {
 
     //Run2
     @Test
-    void givenFileWithoutCommansAndDots_whenrunRun2_thenPrintCorrectly(){
+    void givenFileWithoutCommansAndDots_whenrunRun2_thenPrintCorrectly() {
         customFileReader.myPath("src/test/java/homework_4/custom_file_reader/withoutCommasAndDots.txt");
 
         customFileReader.run1();
@@ -65,7 +65,7 @@ public class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void givenFileWithCommansAndDots_whenrunRun2_thenPrintCorrectly(){
+    void givenFileWithCommansAndDots_whenrunRun2_thenPrintCorrectly() {
         customFileReader.myPath("src/test/java/homework_4/custom_file_reader/withCommasAndDots.txt");
 
         customFileReader.run1();
@@ -76,7 +76,7 @@ public class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void givenFileOnlyCommansAndDots_whenrunRun2_thenPrintNothing(){
+    void givenFileOnlyCommansAndDots_whenrunRun2_thenPrintNothing() {
         customFileReader.myPath("src/test/java/homework_4/custom_file_reader/onlyCommasAndDots");
 
         customFileReader.run1();
@@ -86,7 +86,7 @@ public class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void givenCleanFile_whenrunRun2_thenPrintNothing(){
+    void givenCleanFile_whenrunRun2_thenPrintNothing() {
         customFileReader.myPath("src/test/java/homework_4/custom_file_reader/cleanFile.txt");
 
         customFileReader.run1();
@@ -97,7 +97,7 @@ public class CustomFileReaderTest extends UnitBase {
 
     //Run3
     @Test
-    void givenFileWithoutCommansAndDots_whenrunRun3_thenPrintCorrectly(){
+    void givenFileWithoutCommansAndDots_whenrunRun3_thenPrintCorrectly() {
         customFileReader.myPath("src/test/java/homework_4/custom_file_reader/withoutCommasAndDots.txt");
 
         customFileReader.run1();
@@ -108,7 +108,7 @@ public class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void givenFileWithCommansAndDots_whenrunRun3_thenPrintCorrectly(){
+    void givenFileWithCommansAndDots_whenrunRun3_thenPrintCorrectly() {
         customFileReader.myPath("src/test/java/homework_4/custom_file_reader/withCommasAndDots.txt");
 
         customFileReader.run1();
@@ -119,7 +119,7 @@ public class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void givenFileOnlyCommansAndDots_whenrunRun3_thenPrintNothing(){
+    void givenFileOnlyCommansAndDots_whenrunRun3_thenPrintNothing() {
         customFileReader.myPath("src/test/java/homework_4/custom_file_reader/onlyCommasAndDots");
 
         customFileReader.run1();
@@ -129,7 +129,7 @@ public class CustomFileReaderTest extends UnitBase {
     }
 
     @Test
-    void givenCleanFile_whenrunRun3_thenPrintNothing(){
+    void givenCleanFile_whenrunRun3_thenPrintNothing() {
         customFileReader.myPath("src/test/java/homework_4/custom_file_reader/cleanFile.txt");
 
         customFileReader.run1();

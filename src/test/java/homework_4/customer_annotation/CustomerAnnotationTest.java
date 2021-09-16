@@ -9,12 +9,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CustomerAnnotationTest extends UnitBase {
 
     @Test
-    void givenNothing_whenRun_thenCreatePlanetWithNameAndAge(){
+    void givenNothing_whenRun_thenCreatePlanetWithNameAndAge() {
         Planet planet = new Planet();
 
         assertEquals("Zuza", planet.getName());
         assertEquals(23, planet.getAge());
     }
-
-
 }

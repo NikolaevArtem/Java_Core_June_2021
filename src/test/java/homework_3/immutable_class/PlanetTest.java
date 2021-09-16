@@ -2,6 +2,7 @@ package homework_3.immutable_class;
 
 import base.UnitBase;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -9,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PlanetTest extends UnitBase {
 
     @Test
-    void givenNoFields_whenRun_thenGetObject(){
+    void givenNoFields_whenRun_thenGetObject() {
         Planet planet = new Planet();
         int age = planet.getAge();
         int speed = planet.getSpeed();
@@ -21,9 +22,9 @@ public class PlanetTest extends UnitBase {
     }
 
     @Test
-    void givenFullFields_whenRun_thenGetObject(){
+    void givenFullFields_whenRun_thenGetObject() {
 
-        Planet planet = new Planet(13,"zuza",74000);
+        Planet planet = new Planet(13, "zuza", 74000);
         String name = planet.getName();
         int age = planet.getAge();
         int speed = planet.getSpeed();
@@ -34,7 +35,7 @@ public class PlanetTest extends UnitBase {
     }
 
     @Test
-    void givenNotFullFields_whenRun_thenGetObject(){
+    void givenNotFullFields_whenRun_thenGetObject() {
         Planet planet = new Planet("oliver");
         String name = planet.getName();
 
@@ -42,7 +43,7 @@ public class PlanetTest extends UnitBase {
     }
 
     @Test
-    void givenNewPlanet_whenRun_thenGetObject(){
+    void givenNewPlanet_whenRun_thenGetObject() {
         Planet planet = new Planet("Rin");
         Planet newPlanet = planet.setSpeed(67000);
         int age = planet.getAge();
