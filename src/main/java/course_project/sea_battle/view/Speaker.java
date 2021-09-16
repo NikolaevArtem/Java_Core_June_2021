@@ -7,7 +7,8 @@ public class Speaker {
 
     final public static Map<String, String> speaker;
 
-    static { speaker = new HashMap<>();
+    static {
+        speaker = new HashMap<>();
         speaker.put("shotHit", "Hit!");
         speaker.put("shotMiss", "Miss!");
         speaker.put("shotRe", "Repeat shot;-)))");

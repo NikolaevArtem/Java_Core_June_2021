@@ -49,11 +49,14 @@ public class Dialog {
     }
 
     public String shotPlayer(ModelPlayer player) {
-        String shot = reader.nextLine();
-        if (shot.matches("(([1-9])|([1][0])) [a-jA-J]")) {
-            return player.shot(shot);
-        } else return "coordinate";
-
+           while (true) {
+               String shot = reader.nextLine();
+               if (shot.matches("(([1-9])|([1][0])) [a-jA-J]")) {
+                   return player.shot(shot);
+               } else {
+                   Speaker.voice("notCorrect");
+               }
+           }
     }
 
     public boolean autoGenerate() {

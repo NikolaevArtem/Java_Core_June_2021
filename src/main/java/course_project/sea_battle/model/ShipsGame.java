@@ -19,7 +19,6 @@ public class ShipsGame {
         inListSizeShip.put(2, 3);
         inListSizeShip.put(3, 2);
         inListSizeShip.put(4, 1);
-
     }
 
     public List<Ships> getAllShips() {

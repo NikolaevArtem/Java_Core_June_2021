@@ -16,9 +16,12 @@ public class Ship implements Ships {
         this.damage = 0;
     }
 
+    @Override
     public int getStartPositionA() {
         return startPositionA;
     }
+
+    @Override
     public int getStartPositionB() {
         return startPositionB;
     }
