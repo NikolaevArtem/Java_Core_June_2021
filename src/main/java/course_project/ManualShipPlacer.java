@@ -1,7 +1,5 @@
 package course_project;
 
-import homework_2.ConsoleSafeReader;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
