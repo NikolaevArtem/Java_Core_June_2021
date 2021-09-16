@@ -20,5 +20,6 @@
 | HW6 | [Map problems generator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ChertovNikita/src/main/java/homework_6/) | Class with subclasses that create collisions and retrieval problems in hashmap |
 | HW6 Tests | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ChertovNikita/src/test/java/homework_6_test/) | Tests for homework 6|
 | HW7 | [Functional Interface](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ChertovNikita/src/main/java/homework_7/) | Functional interface with method to transform Kitten and subclasses to Cat and subclasses |
+| CP | [Course project](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ChertovNikita/src/main/java/course_project/) | Sea battle game |
 
 [Link to my CodingBat](https://codingbat.com/done?user=sotheres@gmail.com&tag=6008519258)
