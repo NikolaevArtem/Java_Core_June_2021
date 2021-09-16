@@ -1,13 +1,14 @@
 package course_project;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Player {
     protected final Field field = new Field();
-    protected List<Ship> playerShips;
+    protected final List<Ship> playerShips = new ArrayList<>();
 
+    public abstract void placeShips(ShipPlacer shipPlacer);
 
-    public abstract void placeShips();
     public abstract Coordinate move();
 
     public boolean takeAShot(Coordinate shot) {

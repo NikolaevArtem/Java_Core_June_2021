@@ -18,7 +18,7 @@ public class RandomCharsTable {
 
     public void run() {
         System.out.println(GREETING);
-        String input = ConsoleSafeReader.read();
+        String input = new ConsoleSafeReader().read();
         String res = isValidInput(input) ? processData() : ERROR;
         System.out.println(res);
     }

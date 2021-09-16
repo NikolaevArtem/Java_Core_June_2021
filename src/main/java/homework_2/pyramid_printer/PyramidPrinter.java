@@ -27,7 +27,7 @@ public class PyramidPrinter {
 
     public void run() {
         System.out.println("How many levels should the pyramid be?");
-        String input = ConsoleSafeReader.read();
+        String input = new ConsoleSafeReader().read();
         String result = processData(input);
         System.out.println(result);
     }
