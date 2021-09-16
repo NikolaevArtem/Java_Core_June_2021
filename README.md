@@ -17,7 +17,7 @@
 | HW6 | [MapProblemsCollisionGenerator](./src/main/java/homework_6/map_problems_generator) | This app creates collisions in HashMap.|
 | HW6 | [MapProblemsMutableGenerator](./src/main/java/homework_6/map_problems_generator) | A mutable class is declared, this object in HashMap we will not be able to get this object by the key. |
 | HW7 | [KittenToCatFunction](./src/main/java/homework_7/) | the KittenToCatFunction functional interface, with the abstract grow () method, accepts Kitten and return only Cat.. |
-| CourseProject |[SeaBattle](./src/main/java/course_project/sea_battle) | the game follows the standard rules of sea battle |
+| CourseProject |[SeaBattle](./src/main/java/course_project/sea_battle) <br/> :wrench:[SeaBattleTest](./src/test/java/course_project/sea_battle)| the game follows the standard rules of sea battle | 
 
 [Link to CodingBat](https://codingbat.com/done?user=bomba_25@mail.ru&tag=8601275236)
 
