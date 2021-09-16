@@ -19,6 +19,7 @@ public class CoordinateTranslator {
         coordinateTranslatorMap.put("j", 9);
     }
     public static int coordinate(String key){
+        if(key == null) return 10;
         return coordinateTranslatorMap.get(key);
     }
 }

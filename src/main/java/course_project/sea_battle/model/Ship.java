@@ -67,4 +67,15 @@ public class Ship implements Ships {
     public void takeDamage() {
         this.damage++;
     }
+
+    @Override
+    public String toString() {
+        return "Ship{" +
+                "orientation=" + orientation +
+                ", startPositionA=" + startPositionA +
+                ", startPositionB=" + startPositionB +
+                ", size=" + size +
+                ", damage=" + damage +
+                '}';
+    }
 }

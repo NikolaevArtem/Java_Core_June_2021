@@ -49,4 +49,12 @@ public class ShipsGame {
     public boolean canAddThisSize(int size) {
         return inListSizeShip.get(size)>0;
     }
+
+    @Override
+    public String toString() {
+        return "ShipsGame{" +
+                "allShips=" + allShips +
+                ", inListSizeShip=" + inListSizeShip +
+                '}';
+    }
 }

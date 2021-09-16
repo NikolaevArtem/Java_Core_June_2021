@@ -1,5 +1,7 @@
 package course_project.sea_battle.model;
 
+import course_project.sea_battle.service.СomputeHelper;
+
 import java.util.*;
 
 public class Field {
@@ -19,21 +21,25 @@ public class Field {
         autoShotsMap = new ArrayList<>();
     }
 
-    public boolean addShip(Ship ship) {
+    public String addShip(Ship ship) {
+        if (!canAddThisSize(ship.getSize())) {
+            return "sizeShipBad";
+        }
+
         int pointA = ship.getStartPositionA();
         int pointB = ship.getStartPositionB();
         int size = ship.getSize();
         boolean orient = ship.getOrientation();
 
-        if(!correct(pointA, pointB, size, orient)) return false;
+        if (!correct(pointA, pointB, size, orient)) return "coordinateFalse";
 
         List<Integer[]> list = new ArrayList<>();
         for (int i = 0; i < ship.getSize(); i++) {
             if (ship.getOrientation()) {
-                if (!chekCanPutShip(pointA + i, pointB)) return false;
+                if (!СomputeHelper.chekCanPutShip(pointA + i, pointB, field)) return "fieldNotEmpty";
                 list.add(new Integer[]{pointA + i, pointB});
             } else {
-                if (!chekCanPutShip(pointA, pointB + i)) return false;
+                if (!СomputeHelper.chekCanPutShip(pointA, pointB + i, field)) return "fieldNotEmpty";
                 list.add(new Integer[]{pointA, pointB + i});
             }
         }
@@ -42,7 +48,7 @@ public class Field {
             int posB = list1[1];
             field[posA][posB] = 5;
         }
-        return ships.addShip(ship);
+        return ships.addShip(ship) ? "correct" : "coordinateFalse";
     }
 
     private boolean correct(int startPointA, int startPointB, int sizeField, boolean orientation) {
@@ -82,8 +88,7 @@ public class Field {
             for (; positionA < ship.getStartPositionA() + ship.getSize(); positionA++) {
                 addMissAroundPoint(positionA, positionB);
             }
-        }
-        else {
+        } else {
             for (; positionB < ship.getStartPositionB() + ship.getSize(); positionB++) {
                 addMissAroundPoint(positionA, positionB);
             }
@@ -139,7 +144,6 @@ public class Field {
         if (posB - 1 >= 0 && posA + 1 < 10 && field[posA + 1][posB - 1] == 0) {
             setPointInField(posA + 1, posB - 1, 3);
         }
-
     }
 
     private void missAroundDeadShipLeft(int posA, int posB) {
@@ -170,15 +174,16 @@ public class Field {
     }
 
     private void setPointInField(int pointA, int pointB, int in) {
-        if(pointA>=0&&pointB>=0&&pointA<10&&pointB<10) {
+        if (pointA >= 0 && pointB >= 0 && pointA < 10 && pointB < 10) {
             field[pointA][pointB] = in;
             autoShotsMap.add(String.valueOf(pointA) + String.valueOf(pointB));
         }
     }
 
-    private boolean checkPointField(int pointA, int pointB, int checked){
+    private boolean checkPointField(int pointA, int pointB, int checked) {
         return field[pointA][pointB] == checked;
     }
+
     private String shotResult(int pointA, int pointB) {
         if (checkPointField(pointA, pointB, 0) || checkPointField(pointA, pointB, 5)) {
             for (Ships ship : ships.getAllShips()) {
@@ -194,57 +199,16 @@ public class Field {
             setPointInField(pointA, pointB, 3);
             return "Miss";
         } else {
-            return "Miss";
+            return "repeatShot";
         }
-
     }
 
-    private boolean chekCanPutShip(int pointA, int pointB) {
-        if (pointA - 1 >= 0 && pointB - 1 >= 0 && pointA + 1 < 10 && pointB + 1 < 10) {
-            for (int i = -1; i < 2; i++) {
-                for (int j = -1; j < 2; j++) {
-                    if (field[pointA + i][pointB + j] != 0) return false;
-                }
-            }
-        } else if (pointA - 1 < 0 && pointB - 1 >= 0 && pointB + 1 < 10) {
-            for (int i = 0; i < 2; i++) {
-                for (int j = -1; j < 2; j++) {
-                    if (field[pointA + i][pointB + j] != 0) return false;
-                }
-            }
-        } else if (pointA - 1 >= 0 && pointB - 1 < 0 && pointA + 1 < 10) {
-            for (int i = -1; i < 2; i++) {
-                for (int j = 0; j < 2; j++) {
-                    if (field[pointA + i][pointB + j] != 0) return false;
-                }
-            }
-        } else if (pointB - 1 >= 0 && pointA + 1 >= 10 && pointB + 1 < 10) {
-            for (int i = -1; i < 1; i++) {
-                for (int j = -1; j < 2; j++) {
-                    if (field[pointA + i][pointB + j] != 0) return false;
-                }
-            }
-        } else if (pointA - 1 >= 0 && pointB + 1 >= 10 && pointA + 1 < 10) {
-            for (int i = -1; i < 2; i++) {
-                for (int j = -1; j < 1; j++) {
-                    if (field[pointA + i][pointB + j] != 0) return false;
-                }
-            }
-        } else if (pointA - 1 < 0 && pointB - 1 < 0) {
-            for (int i = 0; i < 2; i++) {
-                for (int j = 0; j < 2; j++) {
-                    if (field[pointA + i][pointB + j] != 0) return false;
-                }
-            }
-
-        } else if (pointA + 1 >= 10 && pointB + 1 >= 10) {
-            for (int i = -1; i < 1; i++) {
-                for (int j = -1; j < 1; j++) {
-                    if (field[pointA + i][pointB + j] != 0) return false;
-                }
-            }
-        }
-        return true;
+    @Override
+    public String toString() {
+        return "Field{" +
+                "field=" + Arrays.toString(field) +
+                ", ships=" + ships +
+                ", autoShotsMap=" + autoShotsMap +
+                '}';
     }
-
 }

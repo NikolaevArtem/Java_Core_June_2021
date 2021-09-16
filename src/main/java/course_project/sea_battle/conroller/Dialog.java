@@ -15,27 +15,14 @@ public class Dialog {
         this.reader = reader;
     }
 
-    public boolean generateShips(ModelPlayer player) {
+    public void generateShips(ModelPlayer player) {
         PaintFieldPlayer paint = new PaintFieldPlayer(player);
         Speaker.voice("inputInstruction");
-        paint.paintField();
         while (!player.readyToGame()) {
+            paint.paintField();
             String dateShip = reader.nextLine();
-            if (dateShip.matches("[1-2] (([1-9])|([1][0])) [a-jA-J] [1-4]")) {
-                String[] dateShipSplit = dateShip.split(" ");
-                boolean orient = dateShipSplit[0].equals("2");
-                int start = Integer.parseInt(dateShipSplit[1]) - 1;
-                int end = CoordinateTranslator.coordinate(dateShipSplit[2]);
-                int size = Integer.parseInt(dateShipSplit[3]);
-                if (start >= 0 && start <= 9 && end >= 0 && end <= 9 && size >= 1 && size <= 4) {
-                    Speaker.voice(player.addShip(new Ship(orient, start, end, size)));
-                } else System.out.println("Regex bad work)");
-                paint.paintField();
-            } else {
-                Speaker.voice("notCorrect");
-            }
+            tryAddShipInField(dateShip, player);
         }
-        return true;
     }
 
     public String namePlayerGet() {
@@ -75,5 +62,20 @@ public class Dialog {
         }
     }
 
+    private void tryAddShipInField(String dateShip, ModelPlayer player){
+        if (dateShip.matches("[1-2] (([1-9])|([1][0])) [a-jA-J] [1-4]")) {
+
+            String[] dateShipSplit = dateShip.split(" ");
+            boolean orient = dateShipSplit[0].equals("2");
+            int start = Integer.parseInt(dateShipSplit[1]) - 1;
+            int end = CoordinateTranslator.coordinate(dateShipSplit[2]);
+            int size = Integer.parseInt(dateShipSplit[3]);
+
+            String message = player.addShip(new Ship(orient, start, end, size));
+            Speaker.voice(message);
+        } else {
+            Speaker.voice("notCorrect");
+        }
+    }
 
 }

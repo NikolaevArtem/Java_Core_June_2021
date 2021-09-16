@@ -41,8 +41,6 @@ public class SeaBattle extends Thread {
                     } else {
                         whoCanGo = false;
                     }
-
-
                 } else {
                     Thread.sleep(1000);
                     String shot2 = player.autoShot();
