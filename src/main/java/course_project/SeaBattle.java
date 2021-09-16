@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class SeaBattle {
     static final int FIELD_SIZE = 10;
-    private final Player playerOne = new Human();
-    private final Player playerTwo = new Human();
     private final Scanner scanner = new Scanner(System.in);
+    private final Player playerOne = new Human(scanner);
+    private final Player playerTwo = new Human(scanner);
+
 
 
     public void run() {

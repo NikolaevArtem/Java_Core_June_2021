@@ -21,34 +21,6 @@ public class Kitten {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getFavoriteToy() {
-        return favoriteToy;
-    }
-
-    public void setFavoriteToy(String favoriteToy) {
-        this.favoriteToy = favoriteToy;
-    }
-
-    public Cat getMother() {
-        return mother;
-    }
-
-    public void setMother(Cat mother) {
-        this.mother = mother;
-    }
-
-    public Cat getFather() {
-        return father;
-    }
-
-    public void setFather(Cat father) {
-        this.father = father;
-    }
-
     @Override
     public String toString() {
         return String.format("Kitten: name %s age %d", name, age);

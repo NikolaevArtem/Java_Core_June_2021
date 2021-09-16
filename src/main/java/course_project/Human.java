@@ -1,8 +1,12 @@
 package course_project;
 
-import homework_2.ConsoleSafeReader;
+import java.util.Scanner;
 
 public class Human extends Player {
+    private final Scanner scanner;
+    public Human(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     @Override
     public void placeShips(ShipPlacer shipPlacer) {
@@ -24,7 +28,7 @@ public class Human extends Player {
     public Coordinate move() {
         System.out.print("Your turn. Input coordinate: ");
         while (true) {
-            String shot = ConsoleSafeReader.read();
+            String shot = scanner.nextLine();
             if (Coordinate.check(shot)) {
                 return new Coordinate(shot);
             } else {
