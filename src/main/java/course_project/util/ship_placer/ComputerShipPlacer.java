@@ -47,14 +47,12 @@ public class ComputerShipPlacer implements ShipPlacer {
     }
 
     private Coordinate createTopLeftPoint(boolean vertOrientation) {
-        int x;
-        int y;
         Coordinate topLeft;
         do {
-            x = randomGenerator.nextInt(10);
-            y = randomGenerator.nextInt(10);
+            int x = randomGenerator.nextInt(10);
+            int y = randomGenerator.nextInt(10);
             topLeft = new Coordinate(x, y);
-        } while (!isValidForCurrentSizeOfShip(topLeft, vertOrientation, sizeOfShip));
+        } while (isNotValidForCurrentSizeOfShip(topLeft, vertOrientation, sizeOfShip));
 
         return topLeft;
     }

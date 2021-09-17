@@ -43,8 +43,8 @@ public interface ShipPlacer {
     }
 
     // Make sure there is enough room for ship
-    default boolean isValidForCurrentSizeOfShip(Coordinate cell, boolean verticalOrientation, int sizeOfShip) {
-        return ((cell.getX() <= (10 - sizeOfShip)) && verticalOrientation)
-                || ((cell.getY() <= (10 - sizeOfShip)) && !verticalOrientation);
+    default boolean isNotValidForCurrentSizeOfShip(Coordinate cell, boolean verticalOrientation, int sizeOfShip) {
+        return ((cell.getX() > (10 - sizeOfShip)) && verticalOrientation)
+                || ((cell.getY() > (10 - sizeOfShip)) && !verticalOrientation);
     }
 }

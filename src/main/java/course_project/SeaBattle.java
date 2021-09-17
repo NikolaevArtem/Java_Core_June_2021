@@ -3,7 +3,8 @@ package course_project;
 import course_project.components.Coordinate;
 import course_project.components.PlayingField;
 import course_project.util.PlayingFieldPrinter;
-import course_project.util.UserInputReader;
+import course_project.util.user_input_reader.UserInputReader;
+import course_project.util.user_input_reader.UserShotInputReader;
 import course_project.util.ship_placer.ComputerShipPlacer;
 import course_project.util.ship_placer.UserShipPlacer;
 
@@ -23,8 +24,8 @@ public class SeaBattle {
         placePlayersShips();
         placeComputerShips();
         makeMoves();
-        closeInput();
         defineWinner();
+        closeInput();
     }
 
     void placePlayersShips() {
@@ -36,23 +37,21 @@ public class SeaBattle {
     }
 
     private void makeMoves()  {
+        UserInputReader inputReader = new UserShotInputReader(scanner);
         while (!playersField.getPlayersShips().isEmpty() && !enemyField.getPlayersShips().isEmpty()) {
-            Coordinate shotCoordinate;
-            do {
-                System.out.println("Enemy field:");
-                printer.printShotCells(enemyField);
-                shotCoordinate = UserInputReader.getInputForShot(scanner);
-                playersShot(shotCoordinate);
-                delayPrint();
-            } while (isHit);
-
-            do {
-                enemyShot();
-                delayPrint();
-                System.out.println("Your field:");
-                printer.printField(playersField);
-            } while (isHit);
+            playersMove(inputReader);
+            computersMove();
         }
+    }
+
+    private void playersMove(UserInputReader inputReader) {
+        do {
+            System.out.println("Enemy field:");
+            printer.printShotCells(enemyField);
+            Coordinate shotCoordinate = inputReader.getPointFromInput();
+            playersShot(shotCoordinate);
+            delayPrint();
+        } while (isHit && !enemyField.getPlayersShips().isEmpty());
     }
 
     void playersShot(Coordinate point) {
@@ -64,6 +63,17 @@ public class SeaBattle {
             Thread.sleep(700);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
+        }
+    }
+
+    private void computersMove() {
+        if (!enemyField.getPlayersShips().isEmpty()) {
+            do {
+                enemyShot();
+                delayPrint();
+                System.out.println("Your field:");
+                printer.printField(playersField);
+            } while (isHit && !playersField.getPlayersShips().isEmpty());
         }
     }
 

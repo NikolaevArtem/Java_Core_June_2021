@@ -43,11 +43,13 @@ public class PlayingField {
     }
 
     public boolean placeShot(Coordinate cell) {
-        cellsShot[cell.getX()][cell.getY()] = true;
-        if (coordinateToShip.containsKey(cell)) {
-            System.out.println("Hit");
-            shootAtShip(coordinateToShip.get(cell));
-            return true;
+        if (!cellsShot[cell.getX()][cell.getY()]) {
+            cellsShot[cell.getX()][cell.getY()] = true;
+            if (coordinateToShip.containsKey(cell)) {
+                System.out.println("Hit");
+                shootAtShip(coordinateToShip.get(cell));
+                return true;
+            }
         }
         System.out.println("Miss");
         return false;
@@ -75,10 +77,10 @@ public class PlayingField {
                 cellsShot[c.getX() + 1][c.getY()] = true;
             }
             if (c.getY() > 0) {
-                cellsShot[c.getX() ][c.getY() - 1] = true;
+                cellsShot[c.getX()][c.getY() - 1] = true;
             }
             if (c.getY() < 9) {
-                cellsShot[c.getX() ][c.getY() + 1] = true;
+                cellsShot[c.getX()][c.getY() + 1] = true;
             }
         }
     }

@@ -32,7 +32,7 @@ public final class Coordinate {
 
     @Override
     public String toString() {
-        return (char) (y + 65) + " " + (x + 1);
+        return "" + (char) (y + 65) + (x + 1);
     }
 
     public int getX() {
