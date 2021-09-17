@@ -1,4 +1,7 @@
-package course_project;
+package course_project.field_components;
+
+import course_project.SeaBattle;
+import course_project.enums.CellState;
 
 import java.util.List;
 import java.util.Objects;

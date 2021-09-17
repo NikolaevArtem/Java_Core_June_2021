@@ -1,4 +1,6 @@
-package course_project;
+package course_project.field_components;
+
+import course_project.enums.CellState;
 
 public class Cell {
     private CellState state = CellState.EMPTY;

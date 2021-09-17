@@ -1,4 +1,9 @@
-package course_project;
+package course_project.players;
+
+import course_project.enums.CellState;
+import course_project.field_components.Cell;
+import course_project.field_components.Coordinate;
+import course_project.field_components.Field;
 
 import java.util.List;
 import java.util.Random;
@@ -60,7 +65,7 @@ public class PlayerAI extends Player {
         long emptyCells = neighbourCells.stream()
                 .filter(c -> c.getState().equals(CellState.MISS))
                 .count();
-        if (emptyCells + cell.getCoordinate().bordersNear == 4) { //for one deck ships
+        if (emptyCells == 4) { //for one deck ships
             return true;
         }
 
@@ -75,7 +80,7 @@ public class PlayerAI extends Player {
     }
 
     @Override
-    public void placeShips(ShipPlacer shipPlacer) {
+    public void placeShips(String mode) {
 
     }
 

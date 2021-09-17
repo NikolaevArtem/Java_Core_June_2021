@@ -1,4 +1,4 @@
-package course_project;
+package course_project.enums;
 
 public enum ShipKind {
     ONE_DECK_SHIP(4, "One deck ship", 1),

@@ -1,4 +1,8 @@
-package course_project;
+package course_project.ship_placers;
+
+import course_project.enums.CellState;
+import course_project.enums.ShipKind;
+import course_project.field_components.Cell;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +29,11 @@ public class Ship {
         return isDestroyed();
     }
 
-    boolean isDestroyed() {
+    public boolean isDestroyed() {
         return decks == 0;
+    }
+
+    public List<Cell> getCells() {
+        return cells;
     }
 }

@@ -1,8 +1,11 @@
-package course_project;
+package course_project.field_components;
 
 public class CellHandler {
 
     public boolean isLine(String[] coordinates) {
+        if (coordinates.length == 1) {
+            return true;
+        }
         if (coordinates.length != 2 ||
                 !(Coordinate.check(coordinates[0]) && Coordinate.check(coordinates[1]))) {
             return false;
@@ -11,6 +14,9 @@ public class CellHandler {
     }
 
     public int cellCount(String[] coordinates) {
+        if (coordinates.length == 1) {
+            return 0;
+        }
         Coordinate start = new Coordinate(coordinates[0]);
         Coordinate end = new Coordinate(coordinates[1]);
         if (sameLine(coordinates, true)) {
@@ -21,6 +27,9 @@ public class CellHandler {
     }
 
     public boolean sameLine(String[] coordinates, boolean row) {
+        if (coordinates.length == 1) {
+            return true;
+        }
         Coordinate start = new Coordinate(coordinates[0]);
         Coordinate end = new Coordinate(coordinates[1]);
         return row ? start.row == end.row : start.column == end.column;

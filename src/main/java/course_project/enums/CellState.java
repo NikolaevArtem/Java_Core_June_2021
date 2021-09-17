@@ -1,4 +1,4 @@
-package course_project;
+package course_project.enums;
 
 public enum CellState {
     EMPTY ('~'),
@@ -10,10 +10,6 @@ public enum CellState {
 
     CellState(char state) {
         this.state = state;
-    }
-
-    public char getSymbol() {
-        return state;
     }
 
     @Override
