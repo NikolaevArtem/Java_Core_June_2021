@@ -34,8 +34,7 @@ public class PlayingField {
 
     public void placeShip(Ship ship) {
         int size = ship.getSize();
-        List<Coordinate> coordinates = ship.getCoordinates();
-        for (Coordinate cell : coordinates) {
+        for (Coordinate cell : ship.getCoordinates()) {
             fleet[cell.getX()][cell.getY()] = size;
             coordinateToShip.put(cell, ship);
         }

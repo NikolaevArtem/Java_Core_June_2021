@@ -7,7 +7,6 @@ import course_project.util.PlayingFieldPrinter;
 import course_project.util.user_input_reader.UserShipInputReader;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -22,13 +21,9 @@ public class UserShipPlacer implements ShipPlacer {
     }
 
     public void placeShips(PlayingField playingField) {
-        try {
-            new PlayingFieldPrinter().printField(playingField);
-            this.playingField = playingField;
-            placeShipsOfAllSizes();
-        } catch (InputMismatchException e) {
-            throw new RuntimeException("Invalid input format", e);
-        }
+        new PlayingFieldPrinter().printField(playingField);
+        this.playingField = playingField;
+        placeShipsOfAllSizes();
     }
 
     private void placeShipsOfAllSizes() {

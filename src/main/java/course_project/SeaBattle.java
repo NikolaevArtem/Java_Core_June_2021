@@ -36,7 +36,7 @@ public class SeaBattle {
         new ComputerShipPlacer().placeShips(enemyField);
     }
 
-    private void makeMoves()  {
+    void makeMoves()  {
         UserInputReader inputReader = new UserShotInputReader(scanner);
         while (!playersField.getPlayersShips().isEmpty() && !enemyField.getPlayersShips().isEmpty()) {
             playersMove(inputReader);
@@ -98,7 +98,7 @@ public class SeaBattle {
         scanner.close();
     }
 
-    private void defineWinner() {
+    void defineWinner() {
         if (enemyField.getPlayersShips().isEmpty()) {
             System.out.println("Player won!");
         } else {
