@@ -34,14 +34,14 @@ public class UserService {
         return Response.values()[Integer.parseInt(input)];
     }
 
-    public boolean isValidMoveResponse(String input) {
+    private boolean isValidMoveResponse(String input) {
         if (input != null) {
             return input.matches("[0-2]");
         }
         return false;
     }
 
-    public boolean isValidMove(String input) {
+    private boolean isValidMove(String input) {
         if (input != null) {
             return input.matches("[A-J](10|[1-9])");
         }
@@ -78,15 +78,15 @@ public class UserService {
 
     public void printUserWinMessageAndExit() {
         System.out.println("You won! Congratulations!!!");
-        try {
-            inputService.closeBuffer();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        closeBuffer();
     }
 
     public void printComputerWinMessageAndExit() {
         System.out.println("Computer won!");
+        closeBuffer();
+    }
+
+    public void closeBuffer() {
         try {
             inputService.closeBuffer();
         } catch (IOException e) {

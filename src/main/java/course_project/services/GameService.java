@@ -12,7 +12,7 @@ public class GameService {
     public void run() {
         UserService userService = new UserService();
         userService.printWelcomeMessage();
-        GameData data = new GameData();
+        GameData data = new GameData(new ShipLocationGenerator());
         processMoves(userService, data);
     }
 

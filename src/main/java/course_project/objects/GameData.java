@@ -17,13 +17,12 @@ public class GameData {
     private int computerShips = 10;
     private int userShips = 10;
 
-    public GameData() {
-        computerField = new ComputerField();
+    public GameData(ShipLocationGenerator generator) {
+        computerField = generator.generateShips();
         userField = new UserField();
-        new ShipLocationGenerator().generateShips(computerField);
     }
 
-    public Field getComputerField() {
+    public ComputerField getComputerField() {
         return computerField;
     }
 

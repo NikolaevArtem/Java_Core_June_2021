@@ -1,20 +1,23 @@
 package course_project.services;
 
 import course_project.enums.CellStatus;
+import course_project.objects.fields.ComputerField;
 import course_project.objects.fields.Field;
 
 import static java.lang.Math.random;
 
 public class ShipLocationGenerator {
 
-    public void generateShips(Field field) {
+    public ComputerField generateShips() {
+        ComputerField field = new ComputerField();
         placeShips(field, 1, 3);
         placeShips(field, 2, 2);
         placeShips(field, 3, 1);
         placeShips(field, 4, 0);
+        return field;
     }
 
-    private void placeShips(Field field, int amount, int coordDiff) {
+    private void placeShips(ComputerField field, int amount, int coordDiff) {
         for (int i = 0; i < amount; i++) {
             boolean foundPlace = false;
             while (!foundPlace) {
@@ -37,7 +40,7 @@ public class ShipLocationGenerator {
         }
     }
 
-    private boolean isValidPlace(Field field, int x1, int x2, int y1, int y2) {
+    private boolean isValidPlace(ComputerField field, int x1, int x2, int y1, int y2) {
         if (isNotInRange0to9(x1) || isNotInRange0to9(x2) || isNotInRange0to9(y1) || isNotInRange0to9(y2)) {
             return false;
         }
@@ -71,7 +74,7 @@ public class ShipLocationGenerator {
         return true;
     }
 
-    private void fillShip(Field field, int x1, int x2, int y1, int y2) {
+    private void fillShip(ComputerField field, int x1, int x2, int y1, int y2) {
         if (x1 == x2) {
             for (int i = y1; i <= y2; i++) {
                 field.setCellStatus(x1, i, CellStatus.HAS_SHIP);
