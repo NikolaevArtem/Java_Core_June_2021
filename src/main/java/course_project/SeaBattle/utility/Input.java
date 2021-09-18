@@ -1,6 +1,6 @@
-package course_project.SeaBattle.Utility;
+package course_project.SeaBattle.utility;
 
-import course_project.SeaBattle.Models.Square;
+import course_project.SeaBattle.models.Square;
 
 import java.util.Scanner;
 

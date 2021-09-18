@@ -1,4 +1,4 @@
-package course_project.SeaBattle.Models;
+package course_project.SeaBattle.models;
 
 import java.util.List;
 

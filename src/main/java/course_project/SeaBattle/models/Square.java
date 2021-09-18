@@ -1,6 +1,6 @@
-package course_project.SeaBattle.Models;
+package course_project.SeaBattle.models;
 
-import course_project.SeaBattle.Utility.SquareStatus;
+import course_project.SeaBattle.utility.SquareStatus;
 
 public class Square {
     private final int x;

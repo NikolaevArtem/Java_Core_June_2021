@@ -1,9 +1,9 @@
-package course_project.SeaBattle.Services;
+package course_project.SeaBattle.services;
 
-import course_project.SeaBattle.Models.Player;
-import course_project.SeaBattle.Models.Ship;
-import course_project.SeaBattle.View.ConsolePrinter;
-import course_project.SeaBattle.View.MenuScreen;
+import course_project.SeaBattle.models.Player;
+import course_project.SeaBattle.models.Ship;
+import course_project.SeaBattle.view.ConsolePrinter;
+import course_project.SeaBattle.view.MenuScreen;
 
 public class DisplayService {
 

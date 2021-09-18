@@ -1,6 +1,6 @@
-package course_project.SeaBattle.Utility;
+package course_project.SeaBattle.utility;
 
-import course_project.SeaBattle.Services.PlayerService;
+import course_project.SeaBattle.services.PlayerService;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;

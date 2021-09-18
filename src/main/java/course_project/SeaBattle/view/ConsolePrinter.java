@@ -1,9 +1,8 @@
-package course_project.SeaBattle.View;
+package course_project.SeaBattle.view;
 
-import course_project.SeaBattle.Models.Grid;
-import course_project.SeaBattle.Models.Player;
-import course_project.SeaBattle.Models.Ship;
-import course_project.SeaBattle.Models.Square;
+import course_project.SeaBattle.models.Player;
+import course_project.SeaBattle.models.Ship;
+import course_project.SeaBattle.models.Square;
 
 
 public class ConsolePrinter {

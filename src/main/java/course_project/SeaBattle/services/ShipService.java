@@ -1,9 +1,9 @@
-package course_project.SeaBattle.Services;
+package course_project.SeaBattle.services;
 
-import course_project.SeaBattle.Models.Player;
-import course_project.SeaBattle.Models.Ship;
-import course_project.SeaBattle.Models.Square;
-import course_project.SeaBattle.Utility.SquareStatus;
+import course_project.SeaBattle.models.Player;
+import course_project.SeaBattle.models.Ship;
+import course_project.SeaBattle.models.Square;
+import course_project.SeaBattle.utility.SquareStatus;
 
 import java.util.ArrayList;
 import java.util.List;

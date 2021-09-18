@@ -1,4 +1,4 @@
-package course_project.SeaBattle.Utility;
+package course_project.SeaBattle.utility;
 
 public enum SquareStatus {
     HIT,

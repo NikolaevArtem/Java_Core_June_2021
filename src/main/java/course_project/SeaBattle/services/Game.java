@@ -1,7 +1,7 @@
-package course_project.SeaBattle.Services;
+package course_project.SeaBattle.services;
 
-import course_project.SeaBattle.Models.Player;
-import course_project.SeaBattle.Utility.FileOutputScoreUtil;
+import course_project.SeaBattle.models.Player;
+import course_project.SeaBattle.utility.FileOutputScoreUtil;
 
 public class Game extends Thread {
 

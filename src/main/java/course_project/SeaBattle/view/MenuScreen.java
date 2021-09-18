@@ -1,4 +1,4 @@
-package course_project.SeaBattle.View;
+package course_project.SeaBattle.view;
 
 public class MenuScreen {
 
