@@ -20,6 +20,8 @@
 | HW6 | [MapProblemsCollisionGenerator & MapProblemMutableGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_6) | Classes that create problems in HashMap. |
 | HW7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_7) | The functional interface with an abstract method that turns a Kitten to a Cat. |
 | HW7 | [Tests 7](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/test/java/homework_7) | Tests for homework 7. |
+| Course Project | [Sea Battle](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/course_project) | The app tht plays Sea Battle game with user. |
+| Course Project | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/test/java/course_project) | Tests for Sea Battle. |
 
 [Link to CodingBat](https://codingbat.com/done?user=mari.waranko@gmail.com&tag=3702089539)
 
