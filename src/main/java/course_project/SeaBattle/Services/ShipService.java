@@ -1,16 +1,36 @@
 package course_project.SeaBattle.Services;
 
+import course_project.SeaBattle.Models.Player;
 import course_project.SeaBattle.Models.Ship;
 import course_project.SeaBattle.Models.Square;
 import course_project.SeaBattle.Utility.SquareStatus;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ShipService {
+
+    public static void processFire(Player enemy, Square square) {
+        List<Ship> shipList = enemy.getShipList();
+        for (Ship ship : shipList) {
+            if (ship.getShipSquares().contains(square)) {
+                ship.setShipHeal(ship.getShipHeal() - 1);
+                DisplayService.showHit(enemy.getEnemy());
+            }
+            if (ship.getShipHeal() == 0) {
+                showBordersSquareWhenShipSank(ship);
+            }
+        }
+    }
+
+    public static boolean canArrangeShipOnGrid(List<Ship> shipList, Ship ship, Square initialSquare, int direction) {
+
+        if (!isShipInsideTheGrid(ship, initialSquare, direction)) {
+            return true;
+        }
+        return isSupposeSquareIntersect(shipList, ship, initialSquare, direction);
+    }
 
     public static void setShipSquares(Ship ship, int direction) {
 
@@ -24,44 +44,55 @@ public class ShipService {
         for (int i = 0; i < shipSize; i++) {
             if (direction == 1) {
                 shipSquares.add(new Square(initialX, initialY + i, SquareStatus.SHIP));
+                if (i == 0) {
+                    shipBoardSquares.add(new Square(initialX, initialY - 1, SquareStatus.BOARD));
+                    shipBoardSquares.add(new Square(initialX - 1, initialY - 1, SquareStatus.BOARD));
+                    shipBoardSquares.add(new Square(initialX + 1, initialY - 1, SquareStatus.BOARD));
+                }
                 shipBoardSquares.add(new Square(initialX + 1, initialY + i, SquareStatus.BOARD));
                 shipBoardSquares.add(new Square(initialX - 1, initialY + i, SquareStatus.BOARD));
+                if (i == shipSize - 1) {
+                    shipBoardSquares.add(new Square(initialX, initialY + i + 1, SquareStatus.BOARD));
+                    shipBoardSquares.add(new Square(initialX - 1, initialY + i + 1, SquareStatus.BOARD));
+                    shipBoardSquares.add(new Square(initialX + 1, initialY + i + 1, SquareStatus.BOARD));
+                }
             } else {
                 shipSquares.add(new Square(initialX + i, initialY, SquareStatus.SHIP));
+                if (i == 0) {
+                    shipBoardSquares.add(new Square(initialX - 1, initialY, SquareStatus.BOARD));
+                    shipBoardSquares.add(new Square(initialX - 1, initialY - 1, SquareStatus.BOARD));
+                    shipBoardSquares.add(new Square(initialX - 1, initialY + 1, SquareStatus.BOARD));
+                }
                 shipBoardSquares.add(new Square(initialX + i, initialY + 1, SquareStatus.BOARD));
-                shipBoardSquares.add(new Square(initialX + i, initialY - i, SquareStatus.BOARD));
+                shipBoardSquares.add(new Square(initialX + i, initialY - 1, SquareStatus.BOARD));
+                if (i == shipSize - 1) {
+                    shipBoardSquares.add(new Square(initialX + i + 1, initialY, SquareStatus.BOARD));
+                    shipBoardSquares.add(new Square(initialX + i + 1, initialY - 1, SquareStatus.BOARD));
+                    shipBoardSquares.add(new Square(initialX + i + 1, initialY + 1, SquareStatus.BOARD));
+                }
             }
         }
 
+        List<Square> legalBoardSquare = ship.getBoundedSquare()
+                .stream()
+                .filter(ShipService::isLegalSquare)
+                .collect(Collectors.toList());
+        ship.setBoundedSquare(legalBoardSquare);
 
     }
 
-
-    private static boolean isLegalSquare(Square square) {
-        int x = square.getX();
-        int y = square.getY();
-        return (0 <= x && x <= 9) && (0 <= y && y <= 9);
-    }
-
-    public static boolean canArrangeShipOnGrid(List<Ship> shipList, Ship ship, Square initialSquare, int direction) {
-        int shipSize = ship.getShipType().getSize();
-        int initialX = initialSquare.getX();
-        int initialY = initialSquare.getY();
-
-        if (direction == 0) {
-            if (initialX + shipSize - 1 > 9) {
-                return false;
-            }
-        } else {
-            if (initialY + shipSize - 1 > 9) {
-                return false;
-            }
-        }
+    private static boolean isSupposeSquareIntersect(List<Ship> shipList,
+                                                    Ship ship,
+                                                    Square initialSquare,
+                                                    int direction) {
 
         List<Square> tmpShipSquare = new ArrayList<>();
         tmpShipSquare.add(initialSquare);
+        int initialX = initialSquare.getX();
+        int initialY = initialSquare.getY();
+        int shipSize = ship.getShipType().getSize();
 
-        for (int i = 1; i < ship.getShipType().getSize(); i++) {
+        for (int i = 1; i < shipSize; i++) {
             if (direction == 1) {
                 tmpShipSquare.add(new Square(initialX, initialY + i, SquareStatus.SHIP));
             } else {
@@ -73,24 +104,43 @@ public class ShipService {
                 .map(Ship::getShipSquares)
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
-
         List<Square> collect1 = shipList.stream()
                 .map(Ship::getBoundedSquare)
                 .flatMap(List::stream)
-                .filter(square -> isLegalSquare(square))
+                .filter(ShipService::isLegalSquare)
                 .collect(Collectors.toList());
 
         collect.addAll(collect1);
-        Set<Square> collect2 = new HashSet<>(collect);
-
-
 
         for (Square square : tmpShipSquare) {
             if (collect.contains(square)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
+    private static boolean isShipInsideTheGrid(Ship ship, Square initialSquare, int direction) {
+        int initialX = initialSquare.getX();
+        int initialY = initialSquare.getY();
+        int shipSize = ship.getShipType().getSize();
+
+        if (direction == 0) {
+            return initialX + shipSize - 1 <= 9;
+        } else {
+            return initialY + shipSize - 1 <= 9;
+        }
+    }
+
+    private static boolean isLegalSquare(Square square) {
+        int x = square.getX();
+        int y = square.getY();
+        return (0 <= x && x <= 9) && (0 <= y && y <= 9);
+    }
+
+    private static void showBordersSquareWhenShipSank(Ship ship) {
+        for (Square square : ship.getBoundedSquare()) {
+            square.setSquareStatus(SquareStatus.MISSED);
+        }
+    }
 }

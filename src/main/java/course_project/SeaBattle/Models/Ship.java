@@ -7,31 +7,24 @@ import java.util.List;
 
 public class Ship {
 
-    private List<Square> shipSquares;
-    private List<Square> boundedSquare = new ArrayList<>();
-    private ShipType shipType;
+    private final List<Square> shipSquares;
+    private List<Square> boundedSquare;
+    private final ShipType shipType;
     private int shipHeal;
 
     public Ship(List<Square> squares, ShipType shipType) {
         this.shipSquares = squares;
         this.shipType = shipType;
         this.shipHeal = shipType.getSize();
+        this.boundedSquare = new ArrayList<>();
     }
 
     public List<Square> getShipSquares() {
         return shipSquares;
     }
 
-    public void setShipSquares(List<Square> shipSquares) {
-        this.shipSquares = shipSquares;
-    }
-
     public ShipType getShipType() {
         return shipType;
-    }
-
-    public void setShipType(ShipType shipType) {
-        this.shipType = shipType;
     }
 
     public List<Square> getBoundedSquare() {

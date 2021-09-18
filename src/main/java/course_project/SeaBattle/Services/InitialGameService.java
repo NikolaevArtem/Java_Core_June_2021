@@ -3,68 +3,115 @@ package course_project.SeaBattle.Services;
 import course_project.SeaBattle.Models.Player;
 import course_project.SeaBattle.Models.Ship;
 import course_project.SeaBattle.Models.Square;
+import course_project.SeaBattle.Utility.Computer;
+import course_project.SeaBattle.Utility.Input;
 import course_project.SeaBattle.Utility.ShipType;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-import static course_project.SeaBattle.Services.GridService.addShipsToGrid;
-import static course_project.SeaBattle.Services.GridService.createGrid;
-import static course_project.SeaBattle.Services.PlayerService.setPlayers;
-import static course_project.SeaBattle.Services.ShipService.*;
-import static course_project.SeaBattle.Utility.Input.*;
-
 public class InitialGameService {
 
+    private static List<Player> playerList = new ArrayList<>();
 
-    public static void createPlayers(int mod) {
-        List<Player> playerList = new ArrayList<>();
+    public static void createGame() {
+        int mod = Input.getMod();
 
-        for (int i = 0; i < 2; i++) {
-            Player player = new Player();
-            System.out.println("playerName");
-            player.setName(getPlayerName());
-            createGrid(player);
-            playerList.add(player);
-            arrangeShips(player);
-            PlayerService.setRemainingAliveSquares(player);
+        if (mod == 1) {
+            createPlayer();
+            createPlayer();
         }
-        setPlayers(playerList);
-
+        if (mod == 0) {
+            createPlayer();
+            createComputer();
+        }
+        PlayerService.setEnemyPlayers(playerList);
+        PlayerService.setMod(mod);
     }
 
+    private static void createComputer() {
+        Player computer = new Computer(); // v1.0
+        computer.setName("Computer Jerry");
+        computer.setComputer(true);
+        GridService.createGrid(computer);
+        playerList.add(computer);
+        arrangeAutomaticallyShips(computer);
+        PlayerService.setRemainingAliveSquares(computer);
+    }
 
-    private static void arrangeShips(Player player) {
+    private static void createPlayer() {
+        Player player = new Player();
+
+        DisplayService.showEnterNameScreen();
+        player.setName(Input.getPlayerName());
+
+        GridService.createGrid(player);
+        playerList.add(player);
+
+        DisplayService.showChooseShipArrangeModScreen();
+        int automaticallyArrange = Input.getMod();
+        if (automaticallyArrange == 1) {
+            arrangeManuallyShips(player);
+        } else {
+            arrangeAutomaticallyShips(player);
+        }
+        PlayerService.setRemainingAliveSquares(player);
+    }
+
+    private static void arrangeAutomaticallyShips(Player player) {
+
         List<Ship> shipList = createShipListByRule();
         player.setShipList(shipList);
 
-        for (int s = 0; s < shipList.size() ; s++) {
-            DisplayService.prepareDisplay(player);
-            System.out.println("ships " + shipList.get(s).getShipType().toString());
-
-            Square initialSquare = getSquare();
-            int direction = getShipDirection();
-
+        for (int s = 0; s < shipList.size(); s++) {
             Ship ship = shipList.get(s);
             List<Square> shipSquares = ship.getShipSquares();
+            Square initialSquare = Computer.giveSquare();
+            int direction = Computer.giveDirection();
 
-            while (!canArrangeShipOnGrid(shipList, ship, initialSquare, direction)) {
-                System.out.println("dont arrange");
-                initialSquare = getSquare();
-                direction = getShipDirection();
+            while (ShipService.canArrangeShipOnGrid(shipList, ship, initialSquare, direction)) {
+                initialSquare = Computer.giveSquare();
+                direction = Computer.giveDirection();
             }
 
             shipSquares.add(initialSquare);
-            setShipSquares(ship, direction);
-            addShipsToGrid(player.getGrid(), shipList);
-
+            ShipService.setShipSquares(ship, direction);
+            GridService.addShipsToGrid(player.getGrid(), shipList);
         }
-        DisplayService.prepareDisplay(player);
-
     }
 
-    private static List<Ship> createShipListByRule() {
+
+    private static void arrangeManuallyShips(Player player) {
+        List<Ship> shipList = createShipListByRule();
+        player.setShipList(shipList);
+
+        for (int s = 0; s < shipList.size(); s++) {
+
+            Ship ship = shipList.get(s);
+            List<Square> shipSquares = ship.getShipSquares();
+            DisplayService.showPrepareBattleScreen(player);
+
+            DisplayService.showPrepareShipMessage(ship);
+            Square initialSquare = Input.getSquare();
+
+            DisplayService.getShipDirection();
+            int direction = Input.getShipDirection();
+
+            while (ShipService.canArrangeShipOnGrid(shipList, ship, initialSquare, direction)) {
+                DisplayService.errorArrangeShip();
+
+                initialSquare = Input.getSquare();
+                direction = Input.getShipDirection();
+            }
+
+            shipSquares.add(initialSquare);
+            ShipService.setShipSquares(ship, direction);
+            GridService.addShipsToGrid(player.getGrid(), shipList);
+        }
+        DisplayService.showPrepareBattleScreen(player);
+    }
+
+    private static List<Ship> createShipListByRule() { // blank for creating a list of ships according to different rules
         List<Ship> shipList = new ArrayList<>();
 
         shipList.add(new Ship(new ArrayList<>(), ShipType.BATTLESHIP));
@@ -80,7 +127,4 @@ public class InitialGameService {
 
         return shipList;
     }
-
-
-
 }

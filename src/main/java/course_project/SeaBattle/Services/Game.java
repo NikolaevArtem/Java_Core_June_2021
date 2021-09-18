@@ -1,30 +1,26 @@
 package course_project.SeaBattle.Services;
 
 import course_project.SeaBattle.Models.Player;
-
-
-import static course_project.SeaBattle.Utility.Input.getSquare;
+import course_project.SeaBattle.Utility.FileOutputScoreUtil;
 
 public class Game extends Thread {
 
     public void run() {
-        int mod = 0;
 
-        InitialGameService.createPlayers(1);
+        DisplayService.showMainMenuScreen();
+
+        InitialGameService.createGame();
 
         while (PlayerService.isBattleGoing()) {
-
-            DisplayService.display(PlayerService.playerTurn());
-
-            System.out.println(PlayerService.playerTurn().getName() + " shooter");
-
-            PlayerService.shotProcess(PlayerService.playerTurn(), getSquare());
-
-
+            Player currentPlayerTurn = PlayerService.getWhoseTurn();
+            DisplayService.showMainBattleScreen(currentPlayerTurn);
+            PlayerService.fire(currentPlayerTurn);
         }
 
+        DisplayService.showCheersWinnerScreen(PlayerService.getWinner());
 
+        DisplayService.showScore(PlayerService.getScore());
 
+        FileOutputScoreUtil.saveScore();
     }
-
 }

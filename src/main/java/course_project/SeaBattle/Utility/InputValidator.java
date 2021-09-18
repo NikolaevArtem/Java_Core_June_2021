@@ -28,4 +28,11 @@ public class InputValidator {
     public static boolean isLegalDirection(String direction) {
         return direction.length() == 1 && direction.matches("^[0-1]+");
     }
+
+    public static boolean isLegalMode(String mod) {
+        if (mod.matches("\\d+")) {
+            return Integer.parseInt(mod) == 1 || Integer.parseInt(mod) == 0 ;
+        }
+        return false;
+    }
 }

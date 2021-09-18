@@ -9,23 +9,21 @@ public class Input {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static String getPlayerName() {
-        String line = readConsole();
-        return line;
+        return readConsole();
     }
 
     public static Square getSquare() {
         String squareXY = readConsole();
-        int x = -1;
-        int y = -1;
+        int x;
+        int y;
 
         while (!InputValidator.isLegalCoordinate(squareXY)) {
-            System.out.println("A-J 1 - 10");
+            System.out.println("Format: [A-J, 1-10], Example : A1 or J7");
             squareXY = readConsole();
         }
             x = ((int) squareXY.toUpperCase().charAt(0)) - 65;
             y = Integer.parseInt(squareXY.substring(1)) - 1;
 
-        System.out.println("x-" + x + " y-" + y );
         return new Square(x, y, SquareStatus.SHIP);
     }
 
@@ -34,7 +32,7 @@ public class Input {
         int direction;
 
         while (!InputValidator.isLegalDirection(directionString)) {
-            System.out.println("direction 1 - 0");
+            System.out.println("[1 - vertically/ 0 - horizontally]");
             directionString = readConsole();
         }
 
@@ -44,9 +42,17 @@ public class Input {
     }
 
     private static String readConsole() {
-        String line = scanner.nextLine();
-        return line;
+        return scanner.nextLine();
     }
 
 
+    public static int getMod() {
+        int mod;
+        String line = readConsole();
+        while (!InputValidator.isLegalMode(line)) {
+            line = readConsole();
+        }
+        mod = Integer.parseInt(line) ;
+        return mod;
+    }
 }

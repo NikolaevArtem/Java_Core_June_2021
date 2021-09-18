@@ -10,7 +10,6 @@ import java.util.List;
 
 public class GridService {
 
-
     public static void createGrid(Player player) {
         Grid grid = new Grid();
         Square[][] squares = new Square[10][10];
@@ -31,9 +30,18 @@ public class GridService {
                 int y = square.getY();
                 grid.setSquare(x, y, square);
             }
+            for (Square square : ship.getBoundedSquare()) {
+
+                int x = square.getX();
+                int y = square.getY();
+                if (square.getSquareStatus().equals(grid.getSquare(x, y).getSquareStatus())) {
+                    int index = ship.getBoundedSquare().indexOf(square);
+                    ship.getBoundedSquare().set(index, grid.getSquare(x, y));
+                } else
+                    grid.setSquare(x, y, square);
+            }
         }
 
     }
-
 
 }

@@ -3,77 +3,126 @@ package course_project.SeaBattle.Services;
 import course_project.SeaBattle.Models.Player;
 import course_project.SeaBattle.Models.Ship;
 import course_project.SeaBattle.Models.Square;
+import course_project.SeaBattle.Utility.Computer;
+import course_project.SeaBattle.Utility.Input;
 import course_project.SeaBattle.Utility.SquareStatus;
 
 import java.util.List;
 
 public class PlayerService {
 
-    static boolean turn = true;
     static List<Player> playerList;
+    static Player winnerPlayer;
+    static boolean turn = true;
+    static boolean gameOn = true;
+    static int mod = 0;
 
-    public static boolean shotProcess(Player shooterPlayer, Square square) {
+    public static Player getWhoseTurn() {
+        return turn ? playerList.get(0) : playerList.get(1);
+    }
 
+    public static Player getWinner() {
+        return winnerPlayer;
+    }
+
+    public static void fire(Player shooterPlayer) {
+
+        Player enemyPlayer = shooterPlayer.getEnemy();
+        Square square = shooterPlayer.isComputer() ? Computer.giveSquare() : Input.getSquare();
         int x = square.getX();
         int y = square.getY();
-
         Square shotSquare = shooterPlayer.getEnemy().getGrid().getSquare(x, y);
-        SquareStatus shotSquareStatus = shotSquare.getSquareStatus();
 
-        if (shotSquareStatus.equals(SquareStatus.SHIP)) {
-            shotSquare.setSquareStatus(SquareStatus.HIT);
-
-            int remainingAliveSquares = shooterPlayer.getEnemy().getRemainingAliveSquares();
-            remainingAliveSquares -= 1;
-            shooterPlayer.getEnemy().setRemainingAliveSquares(remainingAliveSquares);
-
-            return true;
-        }
-        else if (shotSquareStatus.equals(SquareStatus.OCEAN)){
-            shotSquare.setSquareStatus(SquareStatus.MISSED);
+        if (isHit(shotSquare)) {
+            ShipService.processFire(enemyPlayer, square);
+            decreaseRemainingAliveSquares(enemyPlayer);
+        } else {
             turn = !turn;
-            System.out.println("tern");
-            return false;
+            DisplayService.showMiss(enemyPlayer);
+            delayBetweenBattleScreens(mod);
         }
-        else if (shotSquareStatus.equals(SquareStatus.HIT)){
-            return true;
+
+    }
+
+    private static void delayBetweenBattleScreens(int mod) {
+        if (mod == 1) {
+            try {
+                Thread.sleep(1000);
+                DisplayService.cleanScreen();
+                DisplayService.callPlayerScreen();
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        else {
-            return true;
+        if (mod == 0) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
+    public static boolean isBattleGoing() {
+        for (Player player : playerList) {
+            if (player.getRemainingAliveSquares() == 0) {
+                gameOn = false;
+                winnerPlayer = player;
+            }
+        }
+        return gameOn;
+    }
 
-    public static void setPlayers(List<Player> playerListFromInitialService) {
+    public static void setEnemyPlayers(List<Player> playerListFromInitialService) {
         playerList = playerListFromInitialService;
         Player player1 = playerList.get(0);
         player1.setEnemy(playerList.get(1));
         Player player2 = playerList.get(1);
         player2.setEnemy(playerList.get(0));
-
-    }
-
-    public static Player playerTurn() {
-        if (turn){
-            return playerList.get(0);
-        }
-        else{
-            return playerList.get(1);
-        }
-    }
-
-    public static boolean isBattleGoing() {
-        for (Player player: playerList) {
-            return player.getRemainingAliveSquares() != 0;
-        }
-        return false;
     }
 
     public static void setRemainingAliveSquares(Player player) {
-        for (Ship ship : player.getShipList()){
+
+        for (Ship ship : player.getShipList()) {
             int remainingAliveSquares = player.getRemainingAliveSquares();
-            remainingAliveSquares += ship.getShipType().getSize();
+            remainingAliveSquares += ship.getShipHeal();
             player.setRemainingAliveSquares(remainingAliveSquares);
         }
+    }
+
+    private static boolean isHit(Square shotSquare) {
+
+        SquareStatus shotSquareStatus = shotSquare.getSquareStatus();
+
+        if (shotSquareStatus.equals(SquareStatus.OCEAN) || shotSquareStatus.equals(SquareStatus.BOARD)) {
+            shotSquare.setSquareStatus(SquareStatus.MISSED);
+            return false;
+        } else if (shotSquare.getSquareStatus().equals(SquareStatus.SHIP)) {
+            shotSquare.setSquareStatus(SquareStatus.HIT);
+            return true;
+        } else if (shotSquare.getSquareStatus().equals(SquareStatus.HIT)) {
+            return false;
+        } else {
+            return false;
+        }
+    }
+
+    private static void decreaseRemainingAliveSquares(Player player) {
+
+        int remainingAliveSquares = player.getEnemy().getRemainingAliveSquares();
+        remainingAliveSquares -= 1;
+        player.getEnemy().setRemainingAliveSquares(remainingAliveSquares);
+
+    }
+
+    public static void setMod(int modFromInitialGameService) {
+        mod = modFromInitialGameService;
+    }
+
+    public static int getScore() {
+        return   winnerPlayer.getEnemy().getRemainingAliveSquares()
+                / winnerPlayer.getShipList().size()
+                + 10;
     }
 }

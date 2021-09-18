@@ -7,6 +7,11 @@ public class Square {
     private final int y;
     private SquareStatus squareStatus;
 
+    private static final String ANSI_RED = "\u001b[31m";
+    private static final String ANSI_BLUE = "\u001B[34m";
+    private static final String ANSI_GREEN = "\u001b[32m";
+    private static final String ANSI_RESET = "\u001b[0m";
+
     public Square(int x, int y, SquareStatus squareStatus) {
         this.x = x;
         this.y = y;
@@ -29,21 +34,22 @@ public class Square {
         return squareStatus;
     }
 
-    public char print() {
-        char result = ' ';
+    public String print() {
+        String result = " ";
         switch (squareStatus) {
 
             case HIT:
-                result = 'X';
+                result = ANSI_RED + 'X' + ANSI_RESET;
                 break;
             case SHIP:
-                result = 'W';
+                result = ANSI_GREEN + 'W' + ANSI_RESET;
                 break;
             case OCEAN:
-                result = '.';
+            case BOARD:
+                result = ANSI_BLUE + '.' + ANSI_RESET;
                 break;
             case MISSED:
-                result = 'o';
+                result = ANSI_BLUE + 'o' + ANSI_RESET;
                 break;
         }
         return result;
