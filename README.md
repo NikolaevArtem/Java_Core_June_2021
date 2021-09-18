@@ -17,4 +17,5 @@
 | HW5 | [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DimaTroshkin/src/main/java/homework_5/custom_regex_matcher/)| An app which takes String from terminal and checks whether given String matches hardcoded regex|
 | | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DimaTroshkin/src/main/java/homework_5/power_of_number/)| An app which calculates a^b for two non-negative integers a and b |
 | HW7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DimaTroshkin/src/main/java/homework_7/)| The realisation of @FunctionalInterface KittenToCatFunction with abstract method grow(). From now on we know how does kitten become a cat!|
+| HW7 | [SeaBattle](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DimaTroshkin/src/main/java/course_project/)| The Sea Battle game 1 by 1 (No AI) |
 [Link to markdown guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
