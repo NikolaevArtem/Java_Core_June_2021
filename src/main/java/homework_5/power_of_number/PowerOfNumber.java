@@ -32,6 +32,8 @@ public class PowerOfNumber {
     }
 
     public int raiseNumToPower(int num, int pow) {
+        if (pow == 0) return 1;
+
         if (pow == 1) return num;
 
         if (num == 0) return 0;

@@ -1,4 +1,4 @@
-package homework_3;
+package homework_3.immutable_class;
 
 import java.util.ArrayList;
 import java.util.HashMap;
