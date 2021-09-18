@@ -1,4 +1,4 @@
-package homework_7.catToKittenFunction;
+package homework_7.kittenToCatFunction;
 
 @FunctionalInterface
 public interface KittenToCatFunction{
