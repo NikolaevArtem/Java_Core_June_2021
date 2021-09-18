@@ -9,6 +9,5 @@ public class Main {
         System.out.println(planet1);
         Planet planet2 = planet1.setSpeed(34);
         System.out.println(planet2);
-
     }
 }

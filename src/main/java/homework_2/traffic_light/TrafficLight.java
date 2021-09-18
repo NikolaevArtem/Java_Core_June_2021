@@ -23,7 +23,6 @@ public class TrafficLight {
 
         } else
             System.out.println("Only 1 non-negative integer integer is allowed as passed parameter");
-
     }
 
     public boolean isValid(String time) {

@@ -1,11 +1,12 @@
 package homework_4.custom_annotation;
+
 @CustomAnnotation(name = "Zuza", age = 23)
 public class Planet {
     private final String name;
     private final int age;
     private final int speed;
 
-    public Planet(){
+    public Planet() {
         CustomAnnotation annotation = Planet.class.getAnnotation(CustomAnnotation.class);
         name = annotation.name();
         age = annotation.age();
@@ -13,7 +14,7 @@ public class Planet {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Name = " + name
                 + ", Age = " + age
                 + ", Speed = " + speed;

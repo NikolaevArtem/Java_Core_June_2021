@@ -42,10 +42,9 @@ public class RandomCharsTable {
         if (strategy.equals("odd")) {
             System.out.print("Odd letters - ");
             for (int i = 0; i < n; i++)
-                for (int j = 0; j < m; j++) {
+                for (int j = 0; j < m; j++)
                     if ((int) table[i][j] % 2 == 0)
                         System.out.print(table[i][j] + ", ");
-                }
         } else {
             System.out.print("Even letters - ");
             for (int i = 0; i < n; i++)
