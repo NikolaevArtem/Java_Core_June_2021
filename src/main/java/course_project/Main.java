@@ -41,7 +41,7 @@ public class Main {
         SeaBattle sb = new SeaBattle();
         Iterator<String> iterator = fillingFields.iterator();
 
-        sb.setReader(() -> iterator.next());
+//        sb.setReader(() -> iterator.next());
         sb.run();
     }
 }

@@ -14,8 +14,6 @@ public class SeaBattle {
     private Player playerOne;
     private Player playerTwo;
 
-
-
     public void run() {
         System.out.println("Welcome to SeaBattle!");
         beginning();
@@ -138,7 +136,5 @@ public class SeaBattle {
     private void waitingForPressKey() {
         reader.takeInput();
     }
-
-
 }
 

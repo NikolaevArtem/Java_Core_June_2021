@@ -40,8 +40,7 @@ public class ManualShipPlacer extends ShipPlacer {
         }
     }
 
-    @Override
-    void place(ShipKind kind) {
+    private void place(ShipKind kind) {
         int lengthOfShip = kind.getLength();
         String inputLength = lengthOfShip == 1 ? "one coordinate" : "two coordinates";
         while(true) {
@@ -50,8 +49,11 @@ public class ManualShipPlacer extends ShipPlacer {
                     .map(Coordinate::get)
                     .toArray(Coordinate[]::new);
             boolean validInput = Arrays.stream(coordinates).allMatch(Objects::nonNull);
-            if (validInput && placeAnyDeck(coordinates, kind)) {
-                break;
+//            if (validInput && placeAnyDeck(coordinates, kind)) {
+            if (validInput) {
+                if (placeAnyDeck(coordinates, kind)) {
+                    break;
+                }
             } else {
                 System.out.println("Invalid format or count of coordinates." +
                         " A ship must be placed in a line. " +
@@ -103,7 +105,7 @@ public class ManualShipPlacer extends ShipPlacer {
             playerShips.add(new Ship(kind, cells));
             return true;
         } else {
-            System.out.println("Chosen cells are unavailable. Please, choose another.");
+            System.out.println("Chosen cells are unavailable. Please, choose other.");
             return false;
         }
     }

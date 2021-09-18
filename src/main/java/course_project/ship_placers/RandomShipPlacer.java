@@ -14,8 +14,7 @@ public class RandomShipPlacer extends ShipPlacer {
 
     }
 
-    @Override
-    void place(ShipKind kind) {
+    private void place(ShipKind kind) {
 
     }
 }

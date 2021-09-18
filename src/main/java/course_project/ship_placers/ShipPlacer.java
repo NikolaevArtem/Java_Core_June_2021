@@ -18,5 +18,4 @@ public abstract class ShipPlacer {
     }
 
     public abstract void placeShips();
-    abstract void place(ShipKind kind);
 }
