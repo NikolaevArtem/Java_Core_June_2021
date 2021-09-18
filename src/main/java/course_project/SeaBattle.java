@@ -54,7 +54,7 @@ public class SeaBattle {
         } while (isHit && !enemyField.getPlayersShips().isEmpty());
     }
 
-    void playersShot(Coordinate point) {
+    private void playersShot(Coordinate point) {
         isHit = enemyField.placeShot(point);
     }
 

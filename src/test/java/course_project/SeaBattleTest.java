@@ -2,16 +2,16 @@ package course_project;
 
 import base.UnitBase;
 import course_project.components.Coordinate;
+import course_project.components.PlayingField;
 import course_project.components.Ship;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SeaBattleTest extends UnitBase {
 
@@ -48,7 +48,7 @@ class SeaBattleTest extends UnitBase {
     @Test
     void testMoves() {
         String input = "A10\n" +
-                "A1";
+                       "A1";
         setInput(input);
 
         List<Coordinate> coordinates = new ArrayList<>();
@@ -60,8 +60,8 @@ class SeaBattleTest extends UnitBase {
         Ship ship2 = new Ship(1, coordinates);
 
         SeaBattle seaBattle = new SeaBattle();
-        seaBattle.enemyField.getPlayersShips().add(ship1);
-        seaBattle.playersField.getPlayersShips().add(ship2);
+        addShipToField(coordinates, ship1, seaBattle.enemyField);
+        addShipToField(coordinates, ship2, seaBattle.playersField);
 
         int numOfPlayerShips = seaBattle.playersField.getPlayersShips().size();
         int numOfComputerShips = seaBattle.enemyField.getPlayersShips().size();
@@ -76,6 +76,12 @@ class SeaBattleTest extends UnitBase {
 
         assertEquals(1, numOfPlayerShips);
         assertEquals(0, numOfComputerShips);
+    }
+
+    private void addShipToField(List<Coordinate> coordinates, Ship ship1, PlayingField field) {
+        field.getPlayersShips().add(ship1);
+        Map<Coordinate, Ship> map = field.getCoordinateMapping();
+        map.put(coordinates.get(0), ship1);
     }
 
     @Test

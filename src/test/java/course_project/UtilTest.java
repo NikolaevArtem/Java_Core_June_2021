@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class UtilTest extends UnitBase {
 
     @Test
-    void testPlatingFieldPrinter() {
+    void testPlacingFieldPrinter() {
         PlayingField field = new PlayingField();
         Ship ship1 = new Ship(1, Arrays.asList(new Coordinate(0, 0)));
         Ship ship2 = new Ship(2, Arrays.asList(new Coordinate(0, 2), new Coordinate(0, 3)));
@@ -105,7 +105,7 @@ class UtilTest extends UnitBase {
     @Test
     void testUserShotInputReader() {
         String input = "A11\n" +
-                "A10";
+                       "A10";
         setInput(input);
 
         Coordinate expected = new Coordinate(9, 0);
