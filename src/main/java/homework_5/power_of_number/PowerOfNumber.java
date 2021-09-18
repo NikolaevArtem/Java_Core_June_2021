@@ -6,6 +6,7 @@ public class PowerOfNumber {
 
     public void run() {
         Scanner in = new Scanner(System.in);
+        System.out.println("Input your numbers: ");
         String str = in.nextLine();
 
         String[] line = str.split(" ");
@@ -14,7 +15,7 @@ public class PowerOfNumber {
                 int n = Integer.parseInt(line[0]);
                 int m = Integer.parseInt(line[1]);
 
-                if (n > 0 && m > 0) {
+                if (n >= 0 && m >= 0) {
 
                     if (m == 0)
                         System.out.println(1);
