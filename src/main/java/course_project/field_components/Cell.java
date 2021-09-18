@@ -21,6 +21,10 @@ public class Cell {
         return state;
     }
 
+    public boolean checkState(CellState cellState) {
+        return state.equals(cellState);
+    }
+
     public Coordinate getCoordinate() {
         return coordinate;
     }

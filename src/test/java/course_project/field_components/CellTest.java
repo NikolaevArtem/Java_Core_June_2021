@@ -10,6 +10,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CellTest {
@@ -60,4 +62,18 @@ public class CellTest {
         assertEquals(CellState.HIT, cell.getState());
     }
 
+    @Test
+    void givenCellStates_whenCheckState_thenTrueOrFalse() {
+        final Cell cell = new Cell(0,0);
+        assertTrue(cell.checkState(CellState.EMPTY));
+        assertFalse(cell.checkState(CellState.DECK));
+        assertFalse(cell.checkState(CellState.MISS));
+        assertFalse(cell.checkState(CellState.HIT));
+        cell.setState(CellState.DECK);
+        assertTrue(cell.checkState(CellState.DECK));
+        cell.setState(CellState.MISS);
+        assertTrue(cell.checkState(CellState.MISS));
+        cell.setState(CellState.HIT);
+        assertTrue(cell.checkState(CellState.HIT));
+    }
 }

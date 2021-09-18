@@ -18,4 +18,6 @@ public abstract class ShipPlacer {
     }
 
     public abstract void placeShips();
+
+
 }
