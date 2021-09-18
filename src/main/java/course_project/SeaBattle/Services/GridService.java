@@ -1,4 +1,4 @@
-package course_project.SeaBattle.Controller;
+package course_project.SeaBattle.Services;
 
 import course_project.SeaBattle.Models.Grid;
 import course_project.SeaBattle.Models.Player;
@@ -10,15 +10,8 @@ import java.util.List;
 
 public class GridService {
 
-    public void fillPlayerGrid(List<Player> playerList) {
-        for (Player player: playerList){
-            Grid grid = createGrid();
-            addShipsToGrid(grid, player.getShipList());
-            player.setGrid(grid);
-        }
-    }
 
-    private Grid createGrid() {
+    public static void createGrid(Player player) {
         Grid grid = new Grid();
         Square[][] squares = new Square[10][10];
         for (int y = 0; y < 10; y++) {
@@ -27,11 +20,11 @@ public class GridService {
             }
         }
         grid.setSquares(squares);
+        player.setGrid(grid);
 
-        return grid;
     }
 
-    private void addShipsToGrid(Grid grid, List<Ship> shipList) {
+    public static void addShipsToGrid(Grid grid, List<Ship> shipList) {
         for (Ship ship : shipList) {
             for (Square square : ship.getShipSquares()) {
                 int x = square.getX();

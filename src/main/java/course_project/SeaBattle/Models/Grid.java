@@ -1,23 +1,26 @@
 package course_project.SeaBattle.Models;
 
-public class Grid {
-    Square[][] squares;
+/*
+The grid consists of squares
+ */
 
-    public void setSquares(Square[][] squares) {
-        this.squares = squares;
-    }
+public class Grid {
+
+    Square[][] squares;
 
     public Square[][] getSquares() {
         return squares;
     }
 
-    public Square getSquare(int x, int y) {
-        return squares[x][y];
+    public void setSquares(Square[][] squares) {
+        this.squares = squares;
     }
 
     public void setSquare(int x, int y, Square square) {
         squares[x][y] = square;
     }
 
-
+    public Square getSquare(int x, int y) {
+        return squares[x][y];
+    }
 }

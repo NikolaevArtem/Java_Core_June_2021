@@ -6,8 +6,8 @@ public class Player {
     private String name;
     private Grid grid;
     private List<Ship> shipList;
-    private int remainingShips;
-    Player enemy;
+    private int remainingAliveSquares;
+    private Player enemy;
 
     public String getName() {
         return name;
@@ -42,11 +42,15 @@ public class Player {
         this.enemy = enemy;
     }
 
-    public Player() {
-
+    public int getRemainingAliveSquares() {
+        return remainingAliveSquares;
     }
 
-//    public Grid getBoard() {
+    public void setRemainingAliveSquares(int remainingAliveSquares) {
+        this.remainingAliveSquares = remainingAliveSquares;
+    }
+
+    //    public Grid getBoard() {
 //        return grid;
 //    }
 

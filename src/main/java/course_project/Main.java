@@ -1,12 +1,13 @@
 package course_project;
 
-import course_project.SeaBattle.Controller.Game;
+import course_project.SeaBattle.Services.Game;
 
 public class Main {
 
     public static void main(String[] args) {
+
         Game game = new Game();
-        game.start();
+        game.run();
 
     }
 

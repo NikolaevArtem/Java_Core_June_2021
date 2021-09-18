@@ -18,16 +18,28 @@ public class Input {
         int x = -1;
         int y = -1;
 
-        while (x < 0 && y < 0){
-                x = ((int) squareXY.toUpperCase().charAt(0)) - 65;
-                y = Integer.parseInt(squareXY.substring(1)) - 1;
+        while (!InputValidator.isLegalCoordinate(squareXY)) {
+            System.out.println("A-J 1 - 10");
+            squareXY = readConsole();
         }
+            x = ((int) squareXY.toUpperCase().charAt(0)) - 65;
+            y = Integer.parseInt(squareXY.substring(1)) - 1;
 
+        System.out.println("x-" + x + " y-" + y );
         return new Square(x, y, SquareStatus.SHIP);
     }
 
     public static int getShipDirection() {
-        int direction = Integer.parseInt(readConsole());
+        String directionString = readConsole();
+        int direction;
+
+        while (!InputValidator.isLegalDirection(directionString)) {
+            System.out.println("direction 1 - 0");
+            directionString = readConsole();
+        }
+
+        direction = Integer.parseInt(directionString) ;
+
         return direction;
     }
 
@@ -35,4 +47,6 @@ public class Input {
         String line = scanner.nextLine();
         return line;
     }
+
+
 }

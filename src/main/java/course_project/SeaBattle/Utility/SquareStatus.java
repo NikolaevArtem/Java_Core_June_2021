@@ -4,5 +4,6 @@ public enum SquareStatus {
     HIT,
     MISSED,
     SHIP,
-    OCEAN
+    OCEAN,
+    BOARD
 }

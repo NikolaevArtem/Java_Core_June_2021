@@ -4,11 +4,32 @@ import course_project.SeaBattle.Models.Grid;
 import course_project.SeaBattle.Models.Player;
 import course_project.SeaBattle.Models.Square;
 
-import static java.lang.System.lineSeparator;
 
 public class ConsolePrinter {
 
-    public  void printGrid(Player player) {
+    public void printPrepareGrid(Player player) {
+        Square[][] squares = player.getGrid().getSquares();
+
+        System.out.println("   A B C D E F G H I J");
+
+            for (int y = 0; y < 10; y++) {
+                if (String.valueOf(y + 1).length() >= 2) {
+                    System.out.print(y + 1 + " ");
+                } else {
+                    System.out.print(y + 1 + "  ");
+                }
+
+                for (int x = 0; x < 10; x++) {
+
+                    System.out.print(squares[x][y].print() + " ");
+                }
+                System.out.println();
+            }
+
+
+    }
+
+    public void printBattleGrids(Player player) {
         Square[][] squares = player.getGrid().getSquares();
         Square[][] enemySquares = player.getEnemy().getGrid().getSquares();
 
@@ -23,7 +44,6 @@ public class ConsolePrinter {
 
             for (int x = 0; x < squares[0].length; x++) {
                 System.out.print(squares[x][y].print() + " ");
-                for (int j = 0; j < enemySquares[0].length; j++) ;
             }
 
             System.out.print("         ");
@@ -35,7 +55,7 @@ public class ConsolePrinter {
             }
 
             for (int x = 0; x < enemySquares[0].length; x++) {
-                if (enemySquares[x][y].print() == '\u272D') {
+                if (enemySquares[x][y].print() == 'W') {
                     System.out.print(". ");
                 } else {
                     System.out.print(enemySquares[x][y].print() + " ");
@@ -46,25 +66,4 @@ public class ConsolePrinter {
         }
     }
 
-
-
-    private static void enemyGrid(Square[][] enemySquares) {
-
-        for (int y = 0; y < enemySquares[0].length; y++) {
-            if (String.valueOf(y).length() > 2) {
-                System.out.println("      " + y + 1 + " ");
-            } else {
-                System.out.print("      " + y + 1 + "   ");
-            }
-
-            for (int x = 0; x < enemySquares[0].length; x++) {
-                if (enemySquares[x][y].print() == '\u272D') {
-                    System.out.println(".");
-                }
-                System.out.print(enemySquares[x][y].print() + " ");
-            }
-
-            System.out.println();
-        }
-    }
 }

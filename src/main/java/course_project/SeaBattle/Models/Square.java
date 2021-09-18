@@ -37,7 +37,7 @@ public class Square {
                 result = 'X';
                 break;
             case SHIP:
-                result = '\u272D';
+                result = 'W';
                 break;
             case OCEAN:
                 result = '.';
@@ -48,4 +48,13 @@ public class Square {
         }
         return result;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Square square = (Square) o;
+        return x == square.x && y == square.y;
+    }
+
 }
