@@ -15,5 +15,6 @@
 |     | [Custom Annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_4/custom_annotation ) | Student class uses custom annotation StudentInformation to fill fields in class constructor. |
 | HW5 | [Custom Regex Matcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_5/custom_regex_matcher ) | The app reads input string and checks password strength |
 |     | [Power Of Number](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_5/power_of_number ) | The app reads input arguments(number and power) and prints number raised to the power |
+| HW6 | [Map Problems Generator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_6/map_problems_generator ) | The app shows case with collision in hashmap and case when it is impossible to get object by key from hashmap |
 
 [Link to CodingBat](https://codingbat.com/done?user=gabdrakhimovarr@gmail.com&tag=707251349)
