@@ -1,7 +1,6 @@
 package course_project.sea_battle.service;
 
 import base.UnitBase;
-import course_project.sea_battle.model.Field;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

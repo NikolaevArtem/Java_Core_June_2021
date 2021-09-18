@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Speaker {
 
-    final public static Map<String, String> speaker;
+    final private static Map<String, String> speaker;
 
     static {
         speaker = new HashMap<>();
@@ -19,7 +19,6 @@ public class Speaker {
         speaker.put("error", "ERROR:");
         speaker.put("shot", "Player shot:");
         speaker.put("autoGenerate", "Do you want to automatically arrange the ships?\nPress Y-yes/N-no");
-        speaker.put("coordinate", "Bad coordinate");
         speaker.put("notCorrect", "Not correct data");
         speaker.put("queuePlayer", "You turn, press number, a space and letter:");
         speaker.put("queueII", "Turn Bot!");
