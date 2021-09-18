@@ -27,9 +27,9 @@ public class Human extends Player {
     public Coordinate move() {
         System.out.print("Your turn. Input coordinate: ");
         while (true) {
-            String shot = reader.takeInput();
-            if (Coordinate.check(shot)) {
-                return new Coordinate(shot);
+            Coordinate shot = Coordinate.get(reader.takeInput());
+            if (shot != null) {
+                return shot;
             } else {
                 System.out.println("Invalid input. Try again.");
             }

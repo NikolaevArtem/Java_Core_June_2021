@@ -10,6 +10,7 @@ import course_project.players.Player;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class ManualShipPlacer extends ShipPlacer {
 
@@ -45,8 +46,11 @@ public class ManualShipPlacer extends ShipPlacer {
         String inputLength = lengthOfShip == 1 ? "one coordinate" : "two coordinates";
         while(true) {
             System.out.printf("Input %s for %s: ", inputLength, kind.getType());
-            String[] coordinates = reader.takeInput().trim().split("\\s+");
-            if (placeAnyDeck(coordinates, kind)) {
+            Coordinate[] coordinates = Arrays.stream(reader.takeInput().trim().split("\\s+"))
+                    .map(Coordinate::get)
+                    .toArray(Coordinate[]::new);
+            boolean validInput = Arrays.stream(coordinates).allMatch(Objects::nonNull);
+            if (validInput && placeAnyDeck(coordinates, kind)) {
                 break;
             } else {
                 System.out.println("Invalid format or count of coordinates." +
@@ -56,7 +60,7 @@ public class ManualShipPlacer extends ShipPlacer {
         }
     }
 
-    private boolean placeAnyDeck(String[] coordinates, ShipKind kind) {
+    private boolean placeAnyDeck(Coordinate[] coordinates, ShipKind kind) {
         if (kind.getLength() == 1 && coordinates.length != 1) {
             return false;
         }
@@ -75,10 +79,11 @@ public class ManualShipPlacer extends ShipPlacer {
         return false;
     }
 
-    private List<Cell> lineToCells(String[] coordinates) {
+    private List<Cell> lineToCells(Coordinate[] coordinates) {
+        Arrays.sort(coordinates);
         List<Cell> cells = new ArrayList<>();
         for (int i = 0; i <= cellHandler.cellCount(coordinates); i++) {
-            Coordinate temp = new Coordinate(coordinates[0]);
+            Coordinate temp = coordinates[0];
             if (cellHandler.sameLine(coordinates, true)) {
                 cells.add(field.getCell(temp.row, temp.column + i));
             } else {
@@ -88,15 +93,7 @@ public class ManualShipPlacer extends ShipPlacer {
         return cells;
     }
 
-    private boolean isFit(String[] coordinates, ShipKind kind) {
-        Arrays.sort(coordinates, (o1, o2) -> {
-            if (o1.charAt(0) == o2.charAt(0)) {
-                return Integer.compare(Integer.parseInt(o1.substring(1)),
-                        Integer.parseInt(o2.substring(1)));
-            } else {
-                return o1.compareTo(o2);
-            }
-        });
+    private boolean isFit(Coordinate[] coordinates, ShipKind kind) {
         List<Cell> cells = lineToCells(coordinates);
         boolean free = cells
                 .stream()
@@ -111,7 +108,7 @@ public class ManualShipPlacer extends ShipPlacer {
         }
     }
 
-    private boolean tooClose(String coordinate) {
+    private boolean tooClose(Coordinate coordinate) {
         return field
                 .getNeighbourCells(coordinate)
                 .stream()

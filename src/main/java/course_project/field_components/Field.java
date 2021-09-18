@@ -20,28 +20,12 @@ public class Field {
         }
     }
 
-    public CellState getCellState(Coordinate coordinate) {
-        return getCell(coordinate).getState();
-    }
-
-    public void setCellState(Coordinate point, CellState newState) {
-        getCell(point).setState(newState);
-    }
-
-    public Cell getCell(String coordinate) {
-        return getCell(new Coordinate(coordinate));
-    }
-
     public Cell getCell(Coordinate coordinate) {
         return getCell(coordinate.row,coordinate.column);
     }
 
     public Cell getCell(int r, int c) {
         return field[r][c];
-    }
-
-    public List<Cell> getNeighbourCells(String coordinate) {
-        return getNeighbourCells(new Coordinate(coordinate));
     }
 
     public List<Cell> getNeighbourCells(Coordinate coordinate) {

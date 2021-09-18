@@ -6,8 +6,11 @@ public class Cell {
     private CellState state = CellState.EMPTY;
     private final Coordinate coordinate;
 
-    public Cell(int r, int c) {
-        this.coordinate = new Coordinate(r, c);
+    public Cell(int row, int column) {
+        this.coordinate = Coordinate.get(row, column);
+        if (coordinate == null) {
+            throw new IllegalArgumentException("Illegal Arguments");
+        }
     }
 
     public void setState(CellState state) {

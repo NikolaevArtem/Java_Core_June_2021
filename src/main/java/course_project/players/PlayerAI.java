@@ -57,7 +57,7 @@ public class PlayerAI extends Player {
 
     private Coordinate randomCoordinate() {
         Random random = new Random(System.currentTimeMillis());
-        return new Coordinate(random.nextInt(10), random.nextInt(10));
+        return Coordinate.get(random.nextInt(10), random.nextInt(10));
     }
 
     private boolean isNotDestroyed(Field foeField, Cell cell) {
@@ -76,7 +76,7 @@ public class PlayerAI extends Player {
     }
 
     private Coordinate smartMove(Field foeField) {
-        return new Coordinate(0,0);
+        return null;
     }
 
     @Override

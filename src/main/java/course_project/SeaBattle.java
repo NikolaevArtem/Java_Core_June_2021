@@ -108,7 +108,7 @@ public class SeaBattle {
     }
 
     private boolean checkShot(Player enemy, Coordinate shot) {
-        CellState targetCell = enemy.getField().getCellState(shot);
+        CellState targetCell = enemy.getField().getCell(shot).getState();
         if (targetCell.equals(CellState.DECK)) {
             Ship enemyShip = enemy.takeAShot(shot);
             System.out.print("You hit a ship!\n");
