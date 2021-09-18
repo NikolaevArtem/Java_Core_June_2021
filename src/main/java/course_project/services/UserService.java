@@ -34,14 +34,14 @@ public class UserService {
         return Response.values()[Integer.parseInt(input)];
     }
 
-    private boolean isValidMoveResponse(String input) {
+    public boolean isValidMoveResponse(String input) {
         if (input != null) {
             return input.matches("[0-2]");
         }
         return false;
     }
 
-    private boolean isValidMove(String input) {
+    public boolean isValidMove(String input) {
         if (input != null) {
             return input.matches("[A-J](10|[1-9])");
         }
