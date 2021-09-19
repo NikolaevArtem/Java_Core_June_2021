@@ -1,10 +1,8 @@
-package course_project.battleship_game;
+package course_project.battleship_game.service;
 
 import base.UnitBase;
 import course_project.battleship_game.model.GameMode;
 import course_project.battleship_game.model.Player;
-import course_project.battleship_game.service.GameService;
-import course_project.battleship_game.service.PlayerService;
 import org.junit.jupiter.api.Test;
 
 import static course_project.battleship_game.utils.Constants.DEFAULT_COMPUTER_NAME;

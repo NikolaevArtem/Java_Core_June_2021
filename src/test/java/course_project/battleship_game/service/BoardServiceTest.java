@@ -1,11 +1,10 @@
-package course_project.battleship_game;
+package course_project.battleship_game.service;
 
 import course_project.battleship_game.model.Board;
 import course_project.battleship_game.model.Cell;
 import course_project.battleship_game.model.CellStatus;
 import course_project.battleship_game.model.Ship;
 import course_project.battleship_game.model.ShipType;
-import course_project.battleship_game.service.BoardService;
 import course_project.battleship_game.utils.RandomGenerator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

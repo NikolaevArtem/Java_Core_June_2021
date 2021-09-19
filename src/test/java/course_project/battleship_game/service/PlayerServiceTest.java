@@ -1,8 +1,7 @@
-package course_project.battleship_game;
+package course_project.battleship_game.service;
 
 import course_project.battleship_game.model.CellStatus;
 import course_project.battleship_game.model.Player;
-import course_project.battleship_game.service.PlayerService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
