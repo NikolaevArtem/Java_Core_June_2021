@@ -2,8 +2,6 @@ package course_project.players;
 
 import course_project.field_components.Coordinate;
 import course_project.input_readers.InputReader;
-import course_project.ship_placers.ManualShipPlacer;
-import course_project.ship_placers.RandomShipPlacer;
 
 public class Human extends Player {
 
@@ -11,16 +9,6 @@ public class Human extends Player {
 
     public Human(InputReader reader) {
         this.reader = reader;
-    }
-
-    @Override
-    public void placeShips(String mode) {
-        if ("manually".equals(mode)) {
-            new ManualShipPlacer(this, reader).placeShips();
-        } else if ("random".equals(mode)) {
-            new RandomShipPlacer(this).placeShips();
-        }
-
     }
 
     @Override

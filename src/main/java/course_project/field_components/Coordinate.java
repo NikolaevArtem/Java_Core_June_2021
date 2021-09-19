@@ -41,4 +41,9 @@ public class Coordinate implements Comparable<Coordinate>{
     public int compareTo(Coordinate o) {
         return row == o.row ? Integer.compare(column, o.column) : Integer.compare(row, o.row);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s%d", (char) (column + 65), row + 1);
+    }
 }

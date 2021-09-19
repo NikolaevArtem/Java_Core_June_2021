@@ -1,8 +1,7 @@
-package course_project.ship_placers;
+package course_project.field_components;
 
 import course_project.enums.CellState;
 import course_project.enums.ShipKind;
-import course_project.field_components.Cell;
 
 import java.util.ArrayList;
 import java.util.List;

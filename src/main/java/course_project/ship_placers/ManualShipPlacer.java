@@ -1,15 +1,11 @@
 package course_project.ship_placers;
 
-import course_project.enums.CellState;
 import course_project.enums.ShipKind;
-import course_project.field_components.Cell;
 import course_project.field_components.Coordinate;
 import course_project.input_readers.InputReader;
 import course_project.players.Player;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 public class ManualShipPlacer extends ShipPlacer {
@@ -48,11 +44,12 @@ public class ManualShipPlacer extends ShipPlacer {
             Coordinate[] coordinates = Arrays.stream(reader.takeInput().trim().split("\\s+"))
                     .map(Coordinate::get)
                     .toArray(Coordinate[]::new);
-            boolean validInput = Arrays.stream(coordinates).allMatch(Objects::nonNull);
-//            if (validInput && placeAnyDeck(coordinates, kind)) {
-            if (validInput) {
+            boolean isValidInput = Arrays.stream(coordinates).allMatch(Objects::nonNull);
+            if (isValidInput) {
                 if (placeAnyDeck(coordinates, kind)) {
                     break;
+                } else {
+                    System.out.println("Too close to another ship. Choose another place.");
                 }
             } else {
                 System.out.println("Invalid format or count of coordinates." +
@@ -71,9 +68,7 @@ public class ManualShipPlacer extends ShipPlacer {
         }
         if (cellHandler.isLine(coordinates) &&
                 cellHandler.cellCount(coordinates) == kind.getLength() - 1) {
-            boolean tooClose = Arrays.stream(coordinates).anyMatch(this::tooClose);
-            if (tooClose) {
-                System.out.println("Too close to another ship. Choose another place.");
+            if (tooClose(coordinates)) {
                 return false;
             }
             return isFit(coordinates, kind);
@@ -81,39 +76,5 @@ public class ManualShipPlacer extends ShipPlacer {
         return false;
     }
 
-    private List<Cell> lineToCells(Coordinate[] coordinates) {
-        Arrays.sort(coordinates);
-        List<Cell> cells = new ArrayList<>();
-        for (int i = 0; i <= cellHandler.cellCount(coordinates); i++) {
-            Coordinate temp = coordinates[0];
-            if (cellHandler.sameLine(coordinates, true)) {
-                cells.add(field.getCell(temp.row, temp.column + i));
-            } else {
-                cells.add(field.getCell(temp.row + i, temp.column));
-            }
-        }
-        return cells;
-    }
 
-    private boolean isFit(Coordinate[] coordinates, ShipKind kind) {
-        List<Cell> cells = lineToCells(coordinates);
-        boolean free = cells
-                .stream()
-                .allMatch(c -> c.getState().equals(CellState.EMPTY));
-        if (free) {
-            cells.forEach(c -> c.setState(CellState.DECK));
-            playerShips.add(new Ship(kind, cells));
-            return true;
-        } else {
-            System.out.println("Chosen cells are unavailable. Please, choose other.");
-            return false;
-        }
-    }
-
-    private boolean tooClose(Coordinate coordinate) {
-        return field
-                .getNeighbourCells(coordinate)
-                .stream()
-                .anyMatch(c -> c.getState().equals(CellState.DECK));
-    }
 }

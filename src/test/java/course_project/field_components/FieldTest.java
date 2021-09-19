@@ -42,7 +42,7 @@ public class FieldTest extends UnitBase {
         newField.print(false);
         newField.print(true);
         getOutput();
-        assertEquals("A B C D E F G H I J", getOutputLines()[0]);
+        assertEquals("[32m   A B C D E F G H I J", getOutputLines()[0]);
         assertEquals(" 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[1]);
         assertEquals(" 2 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[2]);
         assertEquals(" 3 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[3]);
@@ -54,7 +54,7 @@ public class FieldTest extends UnitBase {
         assertEquals(" 9 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[9]);
         assertEquals("10 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[10]);
 
-        assertEquals("   A B C D E F G H I J", getOutputLines()[12]);
+        assertEquals("\u001B[31m   A B C D E F G H I J", getOutputLines()[12]);
         assertEquals(" 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[13]);
         assertEquals(" 2 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[14]);
         assertEquals(" 3 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[15]);
@@ -72,7 +72,7 @@ public class FieldTest extends UnitBase {
             field.print(true);
             field.print(false);
             getOutput();
-            assertEquals("A B C D E F G H I J", getOutputLines()[0]);
+            assertEquals("[31m   A B C D E F G H I J", getOutputLines()[0]);
             assertEquals(" 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[1]);
             assertEquals(" 2 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[2]);
             assertEquals(" 3 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[3]);
@@ -84,7 +84,7 @@ public class FieldTest extends UnitBase {
             assertEquals(" 9 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[9]);
             assertEquals("10 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[10]);
 
-            assertEquals("   A B C D E F G H I J", getOutputLines()[12]);
+            assertEquals("\u001B[32m   A B C D E F G H I J", getOutputLines()[12]);
             assertEquals(" 1 O ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[13]);
             assertEquals(" 2 O ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[14]);
             assertEquals(" 3 O ~ ~ ~ ~ ~ ~ ~ ~ ~", getOutputLines()[15]);

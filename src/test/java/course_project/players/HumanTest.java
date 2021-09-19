@@ -6,7 +6,7 @@ import course_project.enums.ShipKind;
 import course_project.field_components.Coordinate;
 import course_project.input_readers.ConsoleInputReader;
 import course_project.input_readers.InputReader;
-import course_project.ship_placers.Ship;
+import course_project.field_components.Ship;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -42,17 +42,17 @@ public class HumanTest extends UnitBase {
         Ship ship = new Ship(ShipKind.TWO_DECK_SHIP,
                 Arrays.asList(human.field.getCell(0, 0), human.field.getCell(0, 1)));
         human.playerShips.add(ship);
-        human.takeAShot(Coordinate.get(0, 0));
+        human.takeAShot(human.getField().getCell(0, 0));
         assertTrue(ship.getCells().stream().anyMatch(cell -> cell.getState().equals(CellState.HIT)));
         assertFalse(ship.isDestroyed());
-        human.takeAShot(Coordinate.get(0, 1));
+        human.takeAShot(human.getField().getCell(0, 1));
         assertFalse(ship.getCells().stream().anyMatch(cell -> cell.getState().equals(CellState.DECK)));
         assertTrue(ship.isDestroyed());
     }
 
     @Test
     void givenPlayer_whenTakeAShotWrongPoint_thenException() {
-        assertThrows(RuntimeException.class, () -> human.takeAShot(Coordinate.get(0, 0)));
+        assertThrows(RuntimeException.class, () -> human.takeAShot(human.getField().getCell(0, 0)));
     }
 
     @ParameterizedTest

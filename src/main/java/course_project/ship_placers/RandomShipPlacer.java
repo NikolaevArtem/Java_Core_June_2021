@@ -1,14 +1,10 @@
 package course_project.ship_placers;
 
 import course_project.SeaBattle;
-import course_project.enums.CellState;
-import course_project.field_components.Cell;
 import course_project.field_components.Coordinate;
 import course_project.players.Player;
 import course_project.enums.ShipKind;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 public class RandomShipPlacer extends ShipPlacer {
@@ -29,34 +25,41 @@ public class RandomShipPlacer extends ShipPlacer {
     }
 
     private void place(ShipKind kind) {
-        if (kind.getLength() == 1) {
-            while(true) {
-                Coordinate point = randomCoordinate();
-                if (isAvailable(point) && !tooClose(point)) {
-                    List<Cell> cells = Collections.singletonList(field.getCell(point));
-                    playerShips.add(new Ship(kind, cells));
-                    break;
-                }
+        while(true) {
+            Coordinate[] coordinates = randomCoordinate(kind);
+            if (!tooClose(coordinates) && isFit(coordinates, kind)) {
+                break;
             }
         }
     }
 
-    private boolean isAvailable(Coordinate point) {
-        return field.getCell(point).checkState(CellState.EMPTY);
-    }
 
-    private Coordinate randomCoordinate() {
+    private Coordinate[] randomCoordinate(ShipKind kind) {
         Random random = new Random(System.nanoTime());
         int row = random.nextInt(SeaBattle.FIELD_SIZE);
         int column = random.nextInt(SeaBattle.FIELD_SIZE);
-        return Coordinate.get(row, column);
+        if (kind.getLength() == 1) {
+            return new Coordinate[] {Coordinate.get(row, column)};
+        } else {
+            Coordinate start = Coordinate.get(row, column);
+            Coordinate end = generateNext(start, kind.getLength() - 1, random.nextBoolean());
+            return new Coordinate[] {start, end};
+        }
     }
 
-    private boolean tooClose(Coordinate coordinate) {
-        return field
-                .getNeighbourCells(coordinate)
-                .stream()
-                .anyMatch(c -> c.getState().equals(CellState.DECK));
+    private Coordinate generateNext(Coordinate previous, int length, boolean sameRow) {
+        if (sameRow) {
+            int column = previous.column;
+            if (column + length >= SeaBattle.FIELD_SIZE) {
+                length = -length;
+            }
+            return Coordinate.get(previous.row, column + length);
+        } else {
+            int row = previous.row;
+            if (row + length >= SeaBattle.FIELD_SIZE) {
+                length = -length;
+            }
+            return Coordinate.get(row + length, previous.column);
+        }
     }
-
 }

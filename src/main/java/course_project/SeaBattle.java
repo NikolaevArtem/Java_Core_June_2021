@@ -1,139 +1,162 @@
 package course_project;
 
 import course_project.enums.CellState;
-import course_project.field_components.Coordinate;
+import course_project.field_components.Cell;
 import course_project.input_readers.ConsoleInputReader;
 import course_project.input_readers.InputReader;
 import course_project.players.Human;
 import course_project.players.Player;
-import course_project.ship_placers.Ship;
+import course_project.players.PlayerAI;
+import course_project.ship_placers.ManualShipPlacer;
+import course_project.ship_placers.RandomShipPlacer;
+import course_project.field_components.Ship;
 
 public class SeaBattle {
     public static final int FIELD_SIZE = 10;
     private InputReader reader = new ConsoleInputReader();
-    private Player playerOne;
-    private Player playerTwo;
+    private Player playerHuman;
+    private Player playerAI;
+    private boolean playerOneTurn = true;
 
     public void run() {
         System.out.println("Welcome to SeaBattle!");
         beginning();
+        whoFirst();
         play();
         ending();
     }
 
     public void setReader(InputReader reader) {
         this.reader = reader;
-//        Human.setReader(reader);
-    }
-
-    private void printMessage(boolean first) {
-        String youTurn = switchPlayer(first);
-        String turnAround = switchPlayer(!first);
-        System.out.printf("%s, turn around. %s it's your turn to fill the field!%n", turnAround, youTurn);
-        System.out.println("Press enter if you are ready.");
-        waitingForPressKey();
     }
 
     private void beginning() {
-        playerOne = new Human(reader);
-        playerTwo = new Human(reader);
-        printMessage(true);
-        fieldsFilling(playerOne);
-        flushScreen();
-        printMessage(false);
-        fieldsFilling(playerTwo);
-        flushScreen();
+        playerHuman = new Human(reader);
+        playerAI = new PlayerAI();
+        fieldsFilling(playerHuman);
+        fieldsFilling(playerAI);
+
 //        setReader(new ConsoleInputReader()); // debugging
     }
 
     private void fieldsFilling(Player player) {
-        if (true) {
-            player.placeShips("manually");
-            return;
-        } else if (player instanceof Human) {
-            System.out.println("Do you want to place ships manually or in a random order? Enter \"manually\" or \"random\"");
+        if (player instanceof Human) {
+            System.out.println("It's time to fill the field! How do you want to place ships?");
+            System.out.println("1. Manually");
+            System.out.println("2. Random");
             while (true) {
                 String mode = reader.takeInput().trim();
-                if ("manually".equals(mode)) {
-                    player.placeShips(mode);
+                if ("1".equals(mode)) {
+                    new ManualShipPlacer(player, reader).placeShips();
                     return;
-                } else if ("random".equals(mode)) {
+                } else if ("2".equals(mode)) {
                     break;
                 } else
-                    System.out.println("Invalid input. Please, enter \"manually\" or \"random\"");
+                    System.out.println("Invalid input. Please, choose 1 or 2");
             }
         }
-        player.placeShips("random");
+        new RandomShipPlacer(player).placeShips();
+    }
+
+    private void whoFirst() {
+        System.out.println("Would you like to start first? Enter yes or no");
+        while (true) {
+            String answer = reader.takeInput();
+            if ("no".equals(answer)) {
+                playerOneTurn = false;
+                break;
+            } else if ("yes".equals(answer)){
+                break;
+            }
+        }
     }
 
     private void play() {
-        boolean playerOneTurn = true;
         while (true) {
-            flushScreen();
-            System.out.println(switchPlayer(playerOneTurn) + " press Enter and make a move");
-            waitingForPressKey();
-            seeAndShot(playerOneTurn);
-            if (playerOne.isDefeated() || playerTwo.isDefeated()) {
+            if (playerOneTurn) {
+                seeAndShot();
+            } else {
+                System.out.println("Enemy's turn to make a move!");
+                while (true) {
+                    if (checkAIShot()) {
+                        break;
+                    }
+                }
+            }
+            waitingPressEnter();
+            if (playerHuman.isDefeated() || playerAI.isDefeated()) {
                 break;
             }
             playerOneTurn = !playerOneTurn;
-            System.out.println("Now press Enter and call " + switchPlayer(playerOneTurn));
-            waitingForPressKey();
         }
     }
 
     private void ending() {
-        String winner = playerOne.isDefeated() ? "Player 2" : "Player 1";
+        String winner = playerHuman.isDefeated() ? "Your PC" : "You";
         System.out.println(winner + " won the game!");
     }
 
-    private void seeAndShot(boolean playerOneTurn) {
-        Player currentPlayer = playerOneTurn ? playerOne : playerTwo;
-        Player enemyPlayer = playerOneTurn ? playerTwo : playerOne;
+    private void seeAndShot() {
         System.out.println("Your field:");
-        currentPlayer.printField(false);
+        playerHuman.printField(false);
         System.out.println("Enemy field:");
-        enemyPlayer.printField(true);
+        playerAI.printField(true);
         while (true) {
-            if(checkShot(enemyPlayer, currentPlayer.move())) {
+            if(checkHumanShot()) {
                 break;
             }
         }
     }
 
-    private String switchPlayer(boolean playerOneTurn) {
-        return playerOneTurn ? "Player 1" : "Player 2";
-    }
-
-    private boolean checkShot(Player enemy, Coordinate shot) {
-        CellState targetCell = enemy.getField().getCell(shot).getState();
-        if (targetCell.equals(CellState.DECK)) {
-            Ship enemyShip = enemy.takeAShot(shot);
-            System.out.print("You hit a ship!\n");
-            enemy.printField(true);
+    private boolean checkAIShot() {
+        Cell target = playerHuman.getField().getCell(playerAI.move());
+        if (target.checkState(CellState.HIT) || target.checkState(CellState.MISS)) {
+            return false;
+        }
+        System.out.print("Enemy's move: " + target.getCoordinate() + " and ");
+        if (target.checkState(CellState.DECK)) {
+            System.out.print("Enemy hit your ship!\n");
+            Ship enemyShip = playerHuman.takeAShot(target);
             if (enemyShip.isDestroyed()) {
                 System.out.println(" And even destroyed it!\n");
                 return true;
             }
-            System.out.println(" Move again.");
+            System.out.println("Your PC moves again.");
             return false;
-        } else if (targetCell.equals(CellState.EMPTY)) {
-            enemy.getField().getCell(shot).setState(CellState.MISS);
-            enemy.printField(true);
-            System.out.println("Miss...");
+        } else {
+            target.setState(CellState.MISS);
+            System.out.println("Miss.");
+            return true;
+        }
+    }
+
+    private boolean checkHumanShot() {
+        Cell target = playerAI.getField().getCell(playerHuman.move());
+        if (target.checkState(CellState.DECK)) {
+            Ship enemyShip = playerAI.takeAShot(target);
+            System.out.print("You hit a ship!\n");
+            if (enemyShip.isDestroyed()) {
+                System.out.println(" And even destroyed it!\n");
+                playerAI.printField(true);
+                return true;
+            }
+            System.out.println(" Move again.");
+            playerAI.printField(true);
+            return false;
+        } else if (target.checkState(CellState.EMPTY)) {
+            target.setState(CellState.MISS);
+            System.out.println("Miss.");
+            playerAI.printField(true);
             return true;
         } else {
-            enemy.printField(true);
-            System.out.println("You moved here before. Change target.");
+                playerAI.printField(true);
+                System.out.println("You moved here before. Change target.");
             return false;
         }
     }
 
-    private void flushScreen() {
-        System.out.println("\033[H\033[2J");
-    }
-
-    private void waitingForPressKey() {
+    private void waitingPressEnter() {
+        System.out.println("Press Enter to continue");
         reader.takeInput();
     }
 }

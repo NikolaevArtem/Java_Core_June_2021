@@ -1,7 +1,7 @@
 package course_project.players;
 
-import course_project.ship_placers.Ship;
 import course_project.enums.CellState;
+import course_project.field_components.Ship;
 import course_project.field_components.Cell;
 import course_project.field_components.Coordinate;
 import course_project.field_components.Field;
@@ -14,12 +14,9 @@ public abstract class Player {
     protected final Field field = new Field();
     protected final List<Ship> playerShips = new ArrayList<>();
 
-    public abstract void placeShips(String mode);
-
     public abstract Coordinate move();
 
-    public Ship takeAShot(Coordinate shot) {
-        Cell cell = field.getCell(shot);
+    public Ship takeAShot(Cell cell) {
         Ship target = playerShips.stream().
                 filter(s -> s.containsCell(cell)).
                 findFirst().

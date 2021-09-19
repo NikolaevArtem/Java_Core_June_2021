@@ -16,9 +16,11 @@ public class CoordinateTest {
     @Test
     void givenNewCoordinate_whenGet_thenMatchToInts() {
         final Coordinate first = Coordinate.get("A1");
+        assert first != null;
         assertEquals(0, first.row);
         assertEquals(0, first.column);
         final Coordinate coordinate = Coordinate.get(6, 7);
+        assert coordinate != null;
         assertEquals(6, coordinate.row);
         assertEquals(7, coordinate.column);
     }
@@ -29,8 +31,12 @@ public class CoordinateTest {
         final Coordinate second = Coordinate.get(5, 5);
         final Coordinate lessThenFirst = Coordinate.get(5, 0);
         final Coordinate lessThenSecond = Coordinate.get(3, 5);
+        assert second != null;
+        assert first != null;
         assertEquals(0, first.compareTo(second));
+        assert lessThenFirst != null;
         assertEquals(1, first.compareTo(lessThenFirst));
+        assert lessThenSecond != null;
         assertEquals(1, second.compareTo(lessThenSecond));
         assertEquals(-1, lessThenSecond.compareTo(second));
         assertEquals(-1, lessThenFirst.compareTo(first));
@@ -108,6 +114,25 @@ public class CoordinateTest {
                 Arguments.of(" "),
                 Arguments.of("!"),
                 Arguments.of("")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("validPairs")
+    void givenInt_whenToString_thenPrintsValidStrings(String str, int row, int column) {
+        Coordinate coordinate = Coordinate.get(row, column);
+        assert coordinate != null;
+        assertEquals(str, coordinate.toString());
+    }
+
+    static Stream<Arguments> validPairs() {
+        return Stream.of(
+                Arguments.of("A1", 0, 0),
+                Arguments.of("B4", 3, 1),
+                Arguments.of("J1", 0, 9),
+                Arguments.of("J10", 9, 9),
+                Arguments.of("H3", 2, 7),
+                Arguments.of("I10", 9, 8)
         );
     }
 }
