@@ -14,6 +14,8 @@
 | HW_4_3 | [Custom annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/homework_4/custom_annotation) | A custom annotation |
 | HW_5_1 | [Power Of Number](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/homework_5/power_of_number) | The app which read number and its power and calculate the result. Recursion should be used here |
 | HW_5_2 | [Custom Regex Matcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/homework_5/custom_regex_matcher) | The app which read string and and check if this string matches with hardcoded regex in the app and get result: true or false |
+| HW_6 | [Map Problems Generator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/homework_6/map_problems_generator) | The app which create collisions in hashmap |
+| HW_7 | [Kitten To Cat Function Interface](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/homework_7/kitten_to_cat_function) | The app which create an interface for turning a kitten into a cat |
  
 [Link to Coding Bat](https://codingbat.com/done?user=lerarodina24@gmail.com&tag=9318549243)
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
