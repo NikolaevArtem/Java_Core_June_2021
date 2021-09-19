@@ -1,6 +1,6 @@
-package course_project.sea_battle.view;
+package course_project.sea_battle.animated;
 
-public class Animate extends Thread {
+public class AnimateStartGame extends Thread {
     @Override
     public void run() {
         System.out.println("*****************************");
