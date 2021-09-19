@@ -17,6 +17,7 @@ public class Constants {
             "1 - place your ships by yourself.\n";
     public static final String CHOOSE_SHIP_DIRECTION_MESSAGE = "Put 0 - for horizontal placement or 1 - for vertical placement\n";
     public static final String GET_CELL_COORDINATE_MESSAGE = "Type coordinate in format <A1> (Letters from A to J, numbers from 1 to 10)\n";
+    public static final String EXCEPTION_MESSAGE = "Something went wrong. Please, restart the program.\n";
     public static final String ERROR_INPUT_MESSAGE = "Wrong input.\n";
     public static final String SAME_COORDINATE_ERROR_MESSAGE = "You have already done this move. Please try again!\n";
     public static final String PLAYER_BOARD_MESSAGE_FORMAT = "\nThis is %s's board\n";
@@ -30,4 +31,5 @@ public class Constants {
     public static final String CREATING_SHIP_MESSAGE_FORMAT = "Creating %s\n";
     public static final String SHIP_CREATED_MESSAGE_FORMAT = "%s successfully created %d %s(s).\n";
     public static final String REMAINING_AMOUNT_OF_TYPE_TO_CREATE = "Remaining amount of %ss is %d\n";
+
 }

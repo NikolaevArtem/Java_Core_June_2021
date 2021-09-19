@@ -17,8 +17,19 @@ public class BoardService {
         this.board = board;
     }
 
-    public long countRemainedShipsForBoard() {
-        return board.getShipList().stream().filter(ship -> !new ShipService(ship).isNotAlive()).count();
+    public boolean isHitCellOnBoard(Cell cell) {
+        Ship shipResult = board.getShipList().stream()
+                .filter(ship ->
+                        ship.getCellsList().stream()
+                                .anyMatch(cell1 -> cell1.equals(cell))).findFirst().orElse(null);
+        boolean hit = false;
+        if (shipResult != null) {
+            hit = new ShipService(shipResult).isHit(cell);
+        }
+        if (!hit) {
+            board.getBoardMatrix()[cell.getY()][cell.getX()].setCellStatus(CellStatus.MISSED);
+        }
+        return hit;
     }
 
     public boolean isCreatingShipSuccessful(Cell start, ShipType type, int direction) {
@@ -107,4 +118,5 @@ public class BoardService {
         int count = (int) board.getShipList().stream().filter(ship -> ship.getType().equals(type)).count();
         return count < type.getAmount();
     }
+
 }

@@ -1,11 +1,12 @@
 package course_project.battleship_game;
 
-import course_project.battleship_game.service.Game;
+import course_project.battleship_game.controller.GameController;
+import course_project.battleship_game.controller.GameControllerImpl;
 
 public class Main {
 
     public static void main(String[] args) {
-        Game game = new Game();
-        game.run();
+        GameController controller = new GameControllerImpl();
+        controller.run();
     }
 }
