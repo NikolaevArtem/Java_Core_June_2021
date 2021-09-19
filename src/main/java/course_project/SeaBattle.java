@@ -8,12 +8,10 @@ import java.util.TreeMap;
 @Data
 public class SeaBattle {
     static final TreeMap<Integer, Integer> numberOfShips = new TreeMap<Integer, Integer>(Collections.reverseOrder()) {{
-        /*put(4, 1);
+        put(4, 1);
         put(3, 2);
         put(2, 3);
-        put(1, 4);*/
-        put(3, 1);
-        put(1, 1);
+        put(1, 4);
     }};
     private static Scanner scanner = new Scanner(System.in);
     private Player player1;
