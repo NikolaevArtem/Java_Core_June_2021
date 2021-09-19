@@ -116,14 +116,14 @@ public class InitialGameService {
 
         shipList.add(new Ship(new ArrayList<>(), ShipType.BATTLESHIP));
         shipList.add(new Ship(new ArrayList<>(), ShipType.CRUISER));
-//        shipList.add(new Ship(new ArrayList<>(), ShipType.CRUISER));
-//        shipList.add(new Ship(new ArrayList<>(), ShipType.DESTROYER));
-//        shipList.add(new Ship(new ArrayList<>(), ShipType.DESTROYER));
-//        shipList.add(new Ship(new ArrayList<>(), ShipType.DESTROYER));
-//        shipList.add(new Ship(new ArrayList<>(), ShipType.BOAT));
-//        shipList.add(new Ship(new ArrayList<>(), ShipType.BOAT));
-//        shipList.add(new Ship(new ArrayList<>(), ShipType.BOAT));
-//        shipList.add(new Ship(new ArrayList<>(), ShipType.BOAT));
+        shipList.add(new Ship(new ArrayList<>(), ShipType.CRUISER));
+        shipList.add(new Ship(new ArrayList<>(), ShipType.DESTROYER));
+        shipList.add(new Ship(new ArrayList<>(), ShipType.DESTROYER));
+        shipList.add(new Ship(new ArrayList<>(), ShipType.DESTROYER));
+        shipList.add(new Ship(new ArrayList<>(), ShipType.BOAT));
+        shipList.add(new Ship(new ArrayList<>(), ShipType.BOAT));
+        shipList.add(new Ship(new ArrayList<>(), ShipType.BOAT));
+        shipList.add(new Ship(new ArrayList<>(), ShipType.BOAT));
 
         return shipList;
     }

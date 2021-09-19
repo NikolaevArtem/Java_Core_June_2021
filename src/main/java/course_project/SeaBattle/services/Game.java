@@ -12,13 +12,12 @@ public class Game extends Thread {
         InitialGameService.createGame();
 
         while (PlayerService.isBattleGoing()) {
-            Player currentPlayerTurn = PlayerService.getWhoseTurn();
-            DisplayService.showMainBattleScreen(currentPlayerTurn);
-            PlayerService.fire(currentPlayerTurn);
+            Player currentTurnPlayer = PlayerService.getWhoseTurn();
+            DisplayService.showMainBattleScreen(currentTurnPlayer);
+            PlayerService.fire(currentTurnPlayer);
         }
 
         DisplayService.showCheersWinnerScreen(PlayerService.getWinner());
-
         DisplayService.showScore(PlayerService.getScore());
 
         FileOutputScoreUtil.saveScore();

@@ -68,7 +68,7 @@ public class PlayerService {
         for (Player player : playerList) {
             if (player.getRemainingAliveSquares() == 0) {
                 gameOn = false;
-                winnerPlayer = player;
+                winnerPlayer = player.getEnemy();
             }
         }
         return gameOn;
@@ -108,11 +108,11 @@ public class PlayerService {
         }
     }
 
-    private static void decreaseRemainingAliveSquares(Player player) {
+    private static void decreaseRemainingAliveSquares(Player enemyPlayer) {
 
-        int remainingAliveSquares = player.getEnemy().getRemainingAliveSquares();
+        int remainingAliveSquares = enemyPlayer.getRemainingAliveSquares();
         remainingAliveSquares -= 1;
-        player.getEnemy().setRemainingAliveSquares(remainingAliveSquares);
+        enemyPlayer.setRemainingAliveSquares(remainingAliveSquares);
 
     }
 
@@ -121,8 +121,7 @@ public class PlayerService {
     }
 
     public static int getScore() {
-        return   winnerPlayer.getEnemy().getRemainingAliveSquares()
-                / winnerPlayer.getShipList().size()
-                + 10;
+        return   winnerPlayer.getRemainingAliveSquares();
+
     }
 }
