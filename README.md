@@ -15,6 +15,7 @@
 | HW5.1 | [Power of number](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/RomanPopov/src/main/java/homework_5/power_of_number) | The app raises first number to the power of the second number. |
 | HW5.2 | [Custom regex matcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/RomanPopov/src/main/java/homework_5/custom_regex_matcher) | The app prints "true" if string consists an XML tag, "false" if not. |
 | HW6 | [Map problems generator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/RomanPopov/src/main/java/homework_6/map_problems_generator) | The app illustrates behavior of class HashMap when methods equals and hashCode aren't properly written and when mutable class used as a key. |
+| HW7 | [Kitten to cat function](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/RomanPopov/src/main/java/homework_7/kitten_to_cat_function) | The app illustrates transformation of class Kitten to class Cat with help of functional interface. |
 | CP | [Sea battle](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/RomanPopov/src/main/java/course_project) | The app "Sea battle" with common rules. To see computer ships should be run with argument "testMode". Have no tests at this moment. |
 | Tests | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/RomanPopov/src/test) | Tests for homeworks|
 
