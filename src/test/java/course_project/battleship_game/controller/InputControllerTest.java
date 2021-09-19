@@ -13,9 +13,8 @@ import static course_project.battleship_game.utils.Constants.GET_PLAYER_NAME_MES
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 public class InputControllerTest extends UnitBase {
-    InputController controller;
+    private InputController controller;
 
     @Override
     protected void setInput(String input) {

@@ -13,4 +13,5 @@ public class Constants {
             "2 - Player vs Player";
     public static final String GET_PLAYER_NAME_MESSAGE = "Enter your name:";
     public static final String DEFAULT_COMPUTER_NAME = "Computer";
+    public static final String PLAYER_BOARD_MESSAGE_FORMAT = "This is %s's board";
 }
