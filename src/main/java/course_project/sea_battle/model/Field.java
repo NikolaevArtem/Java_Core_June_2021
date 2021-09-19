@@ -54,7 +54,7 @@ public class Field {
     private boolean correct(int startPointA, int startPointB, int sizeField, boolean orientation) {
         if (startPointA < 0 || startPointB < 0 || startPointA > 9 || startPointB > 9 || sizeField < 1 || sizeField >= 5)
             return false;
-        if (orientation && field.length < startPointA + sizeField)
+        if (orientation && field.length < startPointA + sizeField )
             return false;
         if (!orientation && field.length < startPointB + sizeField)
             return false;
