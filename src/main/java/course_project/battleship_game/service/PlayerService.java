@@ -1,5 +1,7 @@
 package course_project.battleship_game.service;
 
+import course_project.battleship_game.controller.InputController;
+import course_project.battleship_game.controller.PrintController;
 import course_project.battleship_game.model.Cell;
 import course_project.battleship_game.model.CellStatus;
 import course_project.battleship_game.model.Player;
@@ -8,6 +10,7 @@ import course_project.battleship_game.utils.RandomCellGenerator;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import static course_project.battleship_game.controller.PrintController.printMessage;
 import static course_project.battleship_game.utils.Constants.CREATING_FLEET_MESSAGE_FORMAT;
 import static course_project.battleship_game.utils.Constants.CREATING_SHIP_MESSAGE_FORMAT;
 import static course_project.battleship_game.utils.Constants.DEFAULT_COMPUTER_NAME;
@@ -19,13 +22,11 @@ import static course_project.battleship_game.utils.Constants.PLAYER_MOVE_MESSAGE
 import static course_project.battleship_game.utils.Constants.REMAINING_AMOUNT_OF_TYPE_TO_CREATE;
 import static course_project.battleship_game.utils.Constants.SAME_COORDINATE_ERROR_MESSAGE;
 import static course_project.battleship_game.utils.Constants.SHIP_CREATED_MESSAGE_FORMAT;
-import static course_project.battleship_game.utils.InputUtils.getCell;
-import static course_project.battleship_game.utils.InputUtils.getDirection;
-import static course_project.battleship_game.utils.PrintUtils.printBoardForPlayer;
-import static course_project.battleship_game.utils.PrintUtils.printMessage;
 
 public class PlayerService {
     private final Player player;
+    private final InputController inputController = new InputController();
+    private final PrintController printController = new PrintController();
 
     public PlayerService(Player player) {
         this.player = player;
@@ -37,7 +38,7 @@ public class PlayerService {
             if (player.getName().contains(DEFAULT_COMPUTER_NAME)) {
                 cell = RandomCellGenerator.generateRandomCell();
             } else {
-                cell = getCell();
+                cell = inputController.getCell();
             }
 
             if (!player.getLogOfMoves().contains(cell)) {
@@ -87,8 +88,8 @@ public class PlayerService {
         printMessage(String.format(CREATING_SHIP_MESSAGE_FORMAT, type.toString()));
         int count = 0;
         while (count != type.getAmount()) {
-            Cell start = getCell();
-            int direction = getDirection();
+            Cell start = inputController.getCell();
+            int direction = inputController.getDirection();
             start.setCellStatus(CellStatus.SHIP);
             boolean created = new BoardService(player.getBoard()).isCreatingShipSuccessful(start, type, direction);
             if (created) {
@@ -97,7 +98,7 @@ public class PlayerService {
                     printMessage(String.format(REMAINING_AMOUNT_OF_TYPE_TO_CREATE,
                             type.name().replace("_", " ").toLowerCase(), type.getAmount() - count));
                 }
-                printBoardForPlayer(player, false);
+                printController.printBoardForPlayer(player, false);
             } else {
                 printMessage(ERROR_INPUT_MESSAGE);
             }

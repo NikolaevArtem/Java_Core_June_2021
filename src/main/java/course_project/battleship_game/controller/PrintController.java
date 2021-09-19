@@ -1,4 +1,4 @@
-package course_project.battleship_game.utils;
+package course_project.battleship_game.controller;
 
 import course_project.battleship_game.model.Cell;
 import course_project.battleship_game.model.CellStatus;
@@ -9,20 +9,20 @@ import static course_project.battleship_game.utils.Constants.DEFAULT_COMPUTER_NA
 import static course_project.battleship_game.utils.Constants.PLAYER_BOARD_MESSAGE_FORMAT;
 import static java.lang.System.lineSeparator;
 
-public class PrintUtils {
+public class PrintController {
 
     public static void printMessage(String message) {
         System.out.print(message);
     }
 
-    public static void printBoards(GameMode mode, Player player1, Player player2) {
+    public void printBoards(GameMode mode, Player player1, Player player2) {
         if (mode.equals(GameMode.CVC) || !player1.getName().contains(DEFAULT_COMPUTER_NAME)) {
             printBoardForPlayer(player1, false);
             printBoardForPlayer(player2, true);
         }
     }
 
-    public static void printBoardForPlayer(Player player, boolean isEnemy) {
+    public void printBoardForPlayer(Player player, boolean isEnemy) {
         printMessage(String.format(PLAYER_BOARD_MESSAGE_FORMAT, player.getName()));
         printHeader();
         Cell[][] boardMatrix = player.getBoard().getBoardMatrix();
@@ -35,7 +35,7 @@ public class PrintUtils {
         }
     }
 
-    private static void printCell(boolean isEnemy, Cell cell) {
+    private void printCell(boolean isEnemy, Cell cell) {
         if (isEnemy && cell.getCellStatus().equals(CellStatus.SHIP)) {
             printMessage(CellStatus.EMPTY.getCharacter());
         } else {
@@ -43,7 +43,7 @@ public class PrintUtils {
         }
     }
 
-    private static void printHeader() {
+    private void printHeader() {
         printMessage("   ");
         for (int i = 1; i < 11; i++) {
             printMessage(i + " ");

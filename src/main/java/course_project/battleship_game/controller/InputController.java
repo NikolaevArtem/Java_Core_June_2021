@@ -1,12 +1,14 @@
-package course_project.battleship_game.utils;
+package course_project.battleship_game.controller;
 
 import course_project.battleship_game.model.Cell;
 import course_project.battleship_game.model.GameMode;
+import course_project.battleship_game.utils.CoordinateValidator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import static course_project.battleship_game.controller.PrintController.printMessage;
 import static course_project.battleship_game.utils.Constants.CHOOSE_GAME_MODE_MESSAGE;
 import static course_project.battleship_game.utils.Constants.CHOOSE_MODE_TO_CREATE_FLEET_MESSAGE;
 import static course_project.battleship_game.utils.Constants.CHOOSE_SHIP_DIRECTION_MESSAGE;
@@ -14,18 +16,17 @@ import static course_project.battleship_game.utils.Constants.DEFAULT_PLAYER_NAME
 import static course_project.battleship_game.utils.Constants.ERROR_INPUT_MESSAGE;
 import static course_project.battleship_game.utils.Constants.GET_CELL_COORDINATE_MESSAGE;
 import static course_project.battleship_game.utils.Constants.GET_PLAYER_NAME_MESSAGE;
-import static course_project.battleship_game.utils.PrintUtils.printMessage;
 
-public class InputUtils {
-    private static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
+public class InputController {
+    private final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
 
-    public static String getPlayerName() {
+    public String getPlayerName() {
         printMessage(GET_PLAYER_NAME_MESSAGE);
         String line = readLine();
         return line == null || line.isEmpty() ? DEFAULT_PLAYER_NAME : line;
     }
 
-    public static GameMode getGameMode() {
+    public GameMode getGameMode() {
         printMessage(CHOOSE_GAME_MODE_MESSAGE);
         String mode = readLine();
         while (true) {
@@ -42,17 +43,17 @@ public class InputUtils {
         }
     }
 
-    public static int getModeToCreateFleet() {
+    public int getModeToCreateFleet() {
         printMessage(CHOOSE_MODE_TO_CREATE_FLEET_MESSAGE);
         return getZeroOrOne();
     }
 
-    public static int getDirection() {
+    public int getDirection() {
         printMessage(CHOOSE_SHIP_DIRECTION_MESSAGE);
         return getZeroOrOne();
     }
 
-    public static Cell getCell() {
+    public Cell getCell() {
         printMessage(GET_CELL_COORDINATE_MESSAGE);
         String coordinate = readLine();
         while (!CoordinateValidator.isCoordinate(coordinate)) {
@@ -64,7 +65,7 @@ public class InputUtils {
         return new Cell(x, y);
     }
 
-    private static String readLine() {
+    private String readLine() {
         try {
             return READER.readLine();
         } catch (IOException e) {
@@ -72,7 +73,7 @@ public class InputUtils {
         }
     }
 
-    private static int getZeroOrOne() {
+    private int getZeroOrOne() {
         String mode = readLine();
         while (true) {
             if (mode.equals("0") || mode.equals("1")) {

@@ -2,6 +2,11 @@ package course_project.battleship_game.utils;
 
 public class Constants {
     public static final int BOARD_SIZE = 10;
+    public static final int LOWER_BOUND = 48;
+    public static final int UPPER_BOUND = 58;
+    public static final int CELL_INT_UPPER_BOUND = 11;
+    public static final int CHAR_LOWER_BOUND = 64;
+    public static final int CHAR_UPPER_BOUND = 75;
     public static final String DEFAULT_PLAYER_NAME = "Player";
     public static final String DEFAULT_COMPUTER_NAME = "Computer";
     public static final String WELCOME_MESSAGE = "Welcome to the Battleship game!\n";

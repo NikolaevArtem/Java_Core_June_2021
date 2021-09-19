@@ -1,28 +1,29 @@
 package course_project.battleship_game.service;
 
+import course_project.battleship_game.controller.InputController;
+import course_project.battleship_game.controller.PrintController;
 import course_project.battleship_game.exception.GameException;
 import course_project.battleship_game.model.GameMode;
 import course_project.battleship_game.model.Player;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import static course_project.battleship_game.controller.PrintController.printMessage;
 import static course_project.battleship_game.utils.Constants.DEFAULT_COMPUTER_NAME;
 import static course_project.battleship_game.utils.Constants.PLAYER_TURN_MESSAGE_FORMAT;
 import static course_project.battleship_game.utils.Constants.PLAYER_WINNER_MESSAGE_FORMAT;
 import static course_project.battleship_game.utils.Constants.ROLLING_DICE_MESSAGE;
-import static course_project.battleship_game.utils.InputUtils.getModeToCreateFleet;
-import static course_project.battleship_game.utils.InputUtils.getPlayerName;
-import static course_project.battleship_game.utils.PrintUtils.printBoards;
-import static course_project.battleship_game.utils.PrintUtils.printMessage;
 
 public class GameService {
+    private final InputController inputController = new InputController();
+    private final PrintController printController = new PrintController();
 
     public Player[] createPlayers(GameMode mode) {
         Player[] players = new Player[2];
         players[0] = mode.equals(GameMode.CVC) ? new Player(DEFAULT_COMPUTER_NAME + " Mimi", 0) :
-                new Player(getPlayerName(), getModeToCreateFleet());
+                new Player(inputController.getPlayerName(), inputController.getModeToCreateFleet());
         players[1] = !mode.equals(GameMode.PVP) ? new Player(DEFAULT_COMPUTER_NAME + " Navi", 0) :
-                new Player(getPlayerName(), getModeToCreateFleet());
+                new Player(inputController.getPlayerName(), inputController.getModeToCreateFleet());
         return players;
     }
 
@@ -51,7 +52,7 @@ public class GameService {
         printMessage(String.format(PLAYER_TURN_MESSAGE_FORMAT, player1.getName()));
         while (isMoveSuccessful && !isNoMoreAliveShips(player1, player2)) {
             isMoveSuccessful = new PlayerService(player1).isMoveSuccessful(player2);
-            printBoards(gameMode, player1, player2);
+            printController.printBoards(gameMode, player1, player2);
         }
         return isNoMoreAliveShips(player1, player2);
     }
