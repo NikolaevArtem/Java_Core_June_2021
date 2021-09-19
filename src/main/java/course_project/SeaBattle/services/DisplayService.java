@@ -54,26 +54,20 @@ public class DisplayService {
         menuScreen.printCallPlayer();
     }
 
-    public static void showHit(Player player) {
+    public static void showHitMsg(Player player) {
         if (!player.isComputer()){
             consolePrinter.printHit();
         }
     }
 
-    public static void showMiss(Player player) {
+    public static void showMissMsg(Player player) {
         if (!player.isComputer()){
             consolePrinter.printMiss();
         }
 
     }
 
-    public static void showDestroyed(Ship ship, Player player) {
-        if (!player.isComputer()){
-            consolePrinter.printDestroyedShip(ship);
-        }
-    }
-
-    public static void showScore(int score) {
+    public static void showScoreMsg(int score) {
             consolePrinter.printScore(score);
     }
 }

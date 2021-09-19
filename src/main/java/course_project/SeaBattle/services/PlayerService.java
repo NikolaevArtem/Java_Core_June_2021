@@ -11,11 +11,11 @@ import java.util.List;
 
 public class PlayerService {
 
-    static List<Player> playerList;
-    static Player winnerPlayer;
-    static boolean turn = true;
-    static boolean gameOn = true;
-    static int mod = 0;
+    private static List<Player> playerList;
+    private static Player winnerPlayer;
+    private static boolean turn = true;
+    private static boolean gameOn = true;
+    private static int mod = 0;
 
     public static Player getWhoseTurn() {
         return turn ? playerList.get(0) : playerList.get(1);
@@ -38,7 +38,7 @@ public class PlayerService {
             decreaseRemainingAliveSquares(enemyPlayer);
         } else {
             turn = !turn;
-            DisplayService.showMiss(enemyPlayer);
+            DisplayService.showMissMsg(enemyPlayer);
             delayBetweenBattleScreens(mod);
         }
 
@@ -121,7 +121,7 @@ public class PlayerService {
     }
 
     public static int getScore() {
-        return   winnerPlayer.getRemainingAliveSquares();
+        return   winnerPlayer.getRemainingAliveSquares() + 1;
 
     }
 }

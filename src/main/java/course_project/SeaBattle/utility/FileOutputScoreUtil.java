@@ -2,16 +2,21 @@ package course_project.SeaBattle.utility;
 
 import course_project.SeaBattle.services.PlayerService;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 
 public class FileOutputScoreUtil {
 
     public static void saveScore() {
-        String playerScore = PlayerService.getWinner().getName() + " - "+ PlayerService.getScore();
-        try (PrintWriter out = new PrintWriter("ScoresSeaBattle.txt")) {
-            out.println(playerScore);
-        } catch (FileNotFoundException e) {
+
+        String filePath = "src/main/resources/ScoresSeaBattle.txt";
+        String playerScore = PlayerService.getWinner().getName() + " - " + PlayerService.getScore() + "\n";
+
+        try {
+            FileWriter writer = new FileWriter(filePath, true);
+            BufferedWriter bufferWriter = new BufferedWriter(writer);
+            bufferWriter.write(playerScore);
+            bufferWriter.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

@@ -16,7 +16,7 @@ public class ShipService {
         for (Ship ship : shipList) {
             if (ship.getShipSquares().contains(square)) {
                 ship.setShipHeal(ship.getShipHeal() - 1);
-                DisplayService.showHit(enemy.getEnemy());
+                DisplayService.showHitMsg(enemy.getEnemy());
             }
             if (ship.getShipHeal() == 0) {
                 showBordersSquareWhenShipSank(ship);
@@ -27,7 +27,7 @@ public class ShipService {
     public static boolean canArrangeShipOnGrid(List<Ship> shipList, Ship ship, Square initialSquare, int direction) {
 
         if (!isShipInsideTheGrid(ship, initialSquare, direction)) {
-            return true;
+            return false;
         }
         return isSupposeSquareIntersect(shipList, ship, initialSquare, direction);
     }
@@ -114,10 +114,10 @@ public class ShipService {
 
         for (Square square : tmpShipSquare) {
             if (collect.contains(square)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     private static boolean isShipInsideTheGrid(Ship ship, Square initialSquare, int direction) {

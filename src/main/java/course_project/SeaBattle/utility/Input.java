@@ -2,11 +2,12 @@ package course_project.SeaBattle.utility;
 
 import course_project.SeaBattle.models.Square;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Input {
-
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
     public static String getPlayerName() {
         return readConsole();
@@ -41,18 +42,27 @@ public class Input {
         return direction;
     }
 
-    private static String readConsole() {
-        return scanner.nextLine();
-    }
-
-
     public static int getMod() {
         int mod;
         String line = readConsole();
+        if (line == null) {
+            return 0;
+        }
         while (!InputValidator.isLegalMode(line)) {
             line = readConsole();
         }
         mod = Integer.parseInt(line) ;
         return mod;
+    }
+
+    private static String readConsole() {
+        String line = "";
+
+        try  {
+            line = bufferedReader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return line;
     }
 }

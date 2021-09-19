@@ -118,17 +118,12 @@ public class ConsolePrinter {
         System.out.println(winner.getName() + " won this battle against " + winner.getEnemy().getName());
     }
 
-
     public void printMiss() {
-        System.out.println("\u001b[31m" + " Missed" + "\u001b[0m");
+        System.out.println("\u001b[31m" + "Missed" + "\u001b[0m");
     }
 
     public void printHit() {
         System.out.println("Hit an enemy ship");
-    }
-
-    public void printDestroyedShip(Ship ship) {
-        System.out.println("You destroyed enemy " + ship.getShipType().toString());
     }
 
     public void printScore(int score) {

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class InitialGameService {
 
-    private static List<Player> playerList = new ArrayList<>();
+    private static final List<Player> playerList = new ArrayList<>();
 
     public static void createGame() {
         int mod = Input.getMod();
@@ -69,7 +69,7 @@ public class InitialGameService {
             Square initialSquare = Computer.giveSquare();
             int direction = Computer.giveDirection();
 
-            while (ShipService.canArrangeShipOnGrid(shipList, ship, initialSquare, direction)) {
+            while (!ShipService.canArrangeShipOnGrid(shipList, ship, initialSquare, direction)) {
                 initialSquare = Computer.giveSquare();
                 direction = Computer.giveDirection();
             }
@@ -97,7 +97,7 @@ public class InitialGameService {
             DisplayService.getShipDirection();
             int direction = Input.getShipDirection();
 
-            while (ShipService.canArrangeShipOnGrid(shipList, ship, initialSquare, direction)) {
+            while (!ShipService.canArrangeShipOnGrid(shipList, ship, initialSquare, direction)) {
                 DisplayService.errorArrangeShip();
 
                 initialSquare = Input.getSquare();

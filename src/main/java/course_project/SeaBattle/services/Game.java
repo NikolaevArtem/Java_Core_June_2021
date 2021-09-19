@@ -18,7 +18,7 @@ public class Game extends Thread {
         }
 
         DisplayService.showCheersWinnerScreen(PlayerService.getWinner());
-        DisplayService.showScore(PlayerService.getScore());
+        DisplayService.showScoreMsg(PlayerService.getScore());
 
         FileOutputScoreUtil.saveScore();
     }
