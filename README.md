@@ -19,6 +19,8 @@
 | HW5.Tests | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/test/java/homework_5/) | Tests for homework_5 |
 | HW6 | [MapProblemsGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/main/java/homework_6/map_problems_generator) | Two classes that make problems in working with HashMap  |
 | HW7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/main/java/homework_7/kitten_to_cat_function) | Custom function for transforming a kitten to a cat |
+| CourseProject | [SeaBattle](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/main/java/course_project) | Sea Battle console game. Player vs Week AI. |
+| CourseProjectTests | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriySlavinskiy/src/test/java/course_project) | Tests for the Sea Battle console game. |
 
 [Link to CodingBat done page](https://codingbat.com/done?user=dmitrisedam11@gmail.com&tag=7827998073)
 
