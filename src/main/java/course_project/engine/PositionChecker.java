@@ -25,9 +25,9 @@ public class PositionChecker {
         List<String> lowerRow;
 
         // Checking upper row
-        if (b.getBoard().containsKey(c.Row() - 1)) { // if it exist
-            upperRow = b.getBoard().get(c.Row() - 1);
-            for (int col = c.Col() - 1; col <= c.Col() + horizSize; col++) { // check all cols from current -1 to current + size
+        if (b.getBoard().containsKey(c.row() - 1)) { // if it exist
+            upperRow = b.getBoard().get(c.row() - 1);
+            for (int col = c.col() - 1; col <= c.col() + horizSize; col++) { // check all cols from current -1 to current + size
                 if (col >= 0 && col < 10) { // if mainBoard contains such col
                     if (!upperRow.get(col).equals(" ")) { // cell must be empty
                         return false;
@@ -38,11 +38,11 @@ public class PositionChecker {
 
         // Checking hull rows
         for (int i = 0; i < vertSize; i++) {
-            if (!b.getBoard().containsKey(c.Row() + i)) { // if doesn`t exist  -> not enough vertical space
+            if (!b.getBoard().containsKey(c.row() + i)) { // if doesn`t exist  -> not enough vertical space
                 return false;
             }
-            currentRow = b.getBoard().get(c.Row() + i);
-            for (int col = c.Col() - 1; col <= c.Col() + horizSize; col++) { // check all cols from current -1 to current + horiz size
+            currentRow = b.getBoard().get(c.row() + i);
+            for (int col = c.col() - 1; col <= c.col() + horizSize; col++) { // check all cols from current -1 to current + horiz size
                 if (col >= 0 && col < 10) { // if mainBoard contains such col
                     if (!currentRow.get(col).equals(" ")) { // cell must be empty
                         return false;
@@ -58,9 +58,9 @@ public class PositionChecker {
 
 
         // Checking lower row
-        if (b.getBoard().containsKey(c.Row() + vertSize)) { // if it exist
-            lowerRow = b.getBoard().get(c.Row() + vertSize);
-            for (int col = c.Col() - 1; col <= c.Col() + horizSize; col++) { // check all cols from current -1 to current + size
+        if (b.getBoard().containsKey(c.row() + vertSize)) { // if it exist
+            lowerRow = b.getBoard().get(c.row() + vertSize);
+            for (int col = c.col() - 1; col <= c.col() + horizSize; col++) { // check all cols from current -1 to current + size
                 if (col >= 0 && col < 10) { // if mainBoard contains such col
                     if (!lowerRow.get(col).equals(" ")) { // cell must be empty
                         return false;

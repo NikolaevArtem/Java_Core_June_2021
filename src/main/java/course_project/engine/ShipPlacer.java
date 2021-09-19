@@ -12,7 +12,7 @@ public class ShipPlacer {
 
     public static void placement(Ship ship, Player p) throws IOException {
 
-        Board b = p.MainBoard();
+        Board b = p.mainBoard();
         while (true) {
             BoardPrinter.printMainBoard(p);
             System.out.println("It`s time to place a ship.");
@@ -22,18 +22,18 @@ public class ShipPlacer {
 
             if (PositionChecker.possibleToPlace(b, c, size, "v") && PositionChecker.possibleToPlace(b, c, size, "h")) {
                 if (size == 1) { //scout does not need direction
-                    placeShip(p,c,ship,"h");
+                    placeShip(p, c, ship, "h");
                     break;
                 }
                 mode = Input.getRightMode();
-                placeShip(p,c,ship,mode);
+                placeShip(p, c, ship, mode);
                 break;
 
             } else if (PositionChecker.possibleToPlace(b, c, size, "v")) {
-                placeShip(p,c,ship,"v");
+                placeShip(p, c, ship, "v");
                 break;
             } else if (PositionChecker.possibleToPlace(b, c, size, "h")) {
-                placeShip(p,c,ship,"h");
+                placeShip(p, c, ship, "h");
                 break;
             } else {
                 System.out.println("Impossible to place it here!");
@@ -41,11 +41,11 @@ public class ShipPlacer {
         }
     }
 
-    private static void placeShip(Player p, Coordinate c, Ship ship, String mode ) {
-        Board b = p.MainBoard();
+    public static void placeShip(Player p, Coordinate c, Ship ship, String mode) {
+        Board b = p.mainBoard();
         int size = ship.getSize();
-        int cCol = c.Col(); // current col & row
-        int cRow = c.Row();
+        int cCol = c.col(); // current col & row
+        int cRow = c.row();
         ArrayList<Coordinate> shipCoords = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             if (mode.equalsIgnoreCase("h")) {
@@ -58,7 +58,7 @@ public class ShipPlacer {
             b.changeCell(coordinate, "H");
         }
         ship.setCoords(shipCoords);
-        p.Ships().add(ship);
+        p.ships().add(ship);
         BoardPrinter.printMainBoard(p);
     }
 }

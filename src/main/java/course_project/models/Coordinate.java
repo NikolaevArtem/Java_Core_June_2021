@@ -22,14 +22,6 @@ public class Coordinate {
         this.col = c.col;
     }
 
-    public int Col() {
-        return col;
-    }
-
-    public int Row() {
-        return row;
-    }
-
     @Override
     public String toString() {
         return "" + (char) (col + 97) + row;
@@ -40,12 +32,20 @@ public class Coordinate {
         if (this == o) return true;
         if (!(o instanceof Coordinate)) return false;
         Coordinate that = (Coordinate) o;
-        return Col() == that.Col() && Row() == that.Row();
+        return col() == that.col() && row() == that.row();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Col(), Row());
+        return Objects.hash(col(), row());
+    }
+
+    public int col() {
+        return col;
+    }
+
+    public int row() {
+        return row;
     }
 
     public boolean exists() {

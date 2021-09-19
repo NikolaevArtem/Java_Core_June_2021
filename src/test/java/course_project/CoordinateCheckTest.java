@@ -2,6 +2,7 @@ package course_project;
 
 import course_project.engine.Input;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CoordinateCheckTest {
@@ -77,6 +78,7 @@ public class CoordinateCheckTest {
         String input = "B6";
         assertTrue(Input.checkCoordinate(input));
     }
+
     @Test
     void testRightInput_3() {
         String input = "j10";

@@ -10,7 +10,7 @@ public class Player {
     private Board mainBoard;
     private Board scanBoard;
     private HashSet<Coordinate> checkedCells;
-    private int hp = 20;
+    private int hp = 20; //default hp for whose set of ships
 
     public Player(String name) {
         this.name = name;
@@ -30,36 +30,36 @@ public class Player {
         count++;
     }
 
-
-    public static void setCount(int count) {
-        Player.count = count;
-    }
-
-    public String Name() {
-        return name;
-    }
-
-    public ArrayList<Ship> Ships() {
-        return ships;
-    }
-
-    public Board MainBoard() {
-        return mainBoard;
-    }
-
-    public Board ScanBoard() {
-        return scanBoard;
-    }
-
-    public HashSet<Coordinate> CheckedCells() {
-        return checkedCells;
-    }
-
     public void reduceHp() {
         hp--;
     }
 
-    public int Hp() {
+    public void setHp(int n) {
+        this.hp = n;
+    }
+
+    public int hp() {
         return hp;
     }
+
+    public String name() {
+        return name;
+    }
+
+    public ArrayList<Ship> ships() {
+        return ships;
+    }
+
+    public Board mainBoard() {
+        return mainBoard;
+    }
+
+    public Board scanBoard() {
+        return scanBoard;
+    }
+
+    public HashSet<Coordinate> checkedCells() {
+        return checkedCells;
+    }
+
 }

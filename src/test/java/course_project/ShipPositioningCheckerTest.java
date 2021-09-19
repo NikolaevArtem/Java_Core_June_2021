@@ -1,8 +1,10 @@
 package course_project;
+
 import course_project.models.Board;
 import course_project.models.Coordinate;
 import course_project.engine.PositionChecker;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ShipPositioningCheckerTest {
@@ -18,7 +20,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("a1");
         size = 4;
         mode = "v";
-        assertTrue(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertTrue(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -26,7 +28,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("a1");
         size = 4;
         mode = "h";
-        assertTrue(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertTrue(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -34,7 +36,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("j1");
         size = 4;
         mode = "v";
-        assertTrue(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertTrue(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -42,7 +44,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("a6");
         size = 4;
         mode = "v";
-        assertTrue(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertTrue(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -50,7 +52,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("a6");
         size = 4;
         mode = "h";
-        assertTrue(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertTrue(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -58,7 +60,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("a8");
         size = 4;
         mode = "h";
-        assertTrue(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertTrue(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -66,7 +68,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("a8");
         size = 4;
         mode = "v";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -74,7 +76,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("j1");
         size = 4;
         mode = "h";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -82,7 +84,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("j8");
         size = 4;
         mode = "h";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -91,7 +93,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("d1");
         size = 4;
         mode = "v";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -100,7 +102,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("e1");
         size = 4;
         mode = "v";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -109,7 +111,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("f1");
         size = 4;
         mode = "v";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -118,7 +120,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("d5");
         size = 4;
         mode = "v";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -127,7 +129,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("e5");
         size = 4;
         mode = "v";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -136,7 +138,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("f5");
         size = 4;
         mode = "v";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -145,7 +147,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("d6");
         size = 4;
         mode = "v";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -154,7 +156,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("e6");
         size = 4;
         mode = "v";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -163,7 +165,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("f6");
         size = 4;
         mode = "v";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -172,7 +174,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("a4");
         size = 4;
         mode = "h";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -181,7 +183,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("a5");
         size = 4;
         mode = "h";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -190,7 +192,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("a6");
         size = 4;
         mode = "h";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -199,7 +201,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("f4");
         size = 4;
         mode = "h";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -208,7 +210,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("f5");
         size = 4;
         mode = "h";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -217,7 +219,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("f6");
         size = 4;
         mode = "h";
-        assertFalse(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertFalse(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -226,7 +228,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("c3");
         size = 4;
         mode = "h";
-        assertTrue(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertTrue(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -235,7 +237,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("d7");
         size = 4;
         mode = "h";
-        assertTrue(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertTrue(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -244,7 +246,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("g4");
         size = 4;
         mode = "h";
-        assertTrue(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertTrue(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -253,7 +255,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("c1");
         size = 4;
         mode = "v";
-        assertTrue(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertTrue(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -262,7 +264,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("g1");
         size = 4;
         mode = "v";
-        assertTrue(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertTrue(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
     @Test
@@ -271,7 +273,7 @@ public class ShipPositioningCheckerTest {
         c = new Coordinate("g1");
         size = 4;
         mode = "v";
-        assertTrue(PositionChecker.possibleToPlace(b,c,size,mode));
+        assertTrue(PositionChecker.possibleToPlace(b, c, size, mode));
     }
 
 }

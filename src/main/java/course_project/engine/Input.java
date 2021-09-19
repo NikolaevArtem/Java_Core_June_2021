@@ -42,11 +42,11 @@ public class Input {
             return false;
         }
 
-        if (!s.toLowerCase(Locale.ROOT).substring(0,1).matches("[a-j]")) {
+        if (!s.toLowerCase(Locale.ROOT).substring(0, 1).matches("[a-j]")) {
             return false;
         }
 
-        if (!s.toLowerCase(Locale.ROOT).substring(1,2).matches("[1-9]")) {
+        if (!s.toLowerCase(Locale.ROOT).substring(1, 2).matches("[1-9]")) {
             return false;
         }
 

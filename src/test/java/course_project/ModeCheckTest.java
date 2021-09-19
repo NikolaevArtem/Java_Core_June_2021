@@ -2,6 +2,7 @@ package course_project;
 
 import course_project.engine.Input;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ModeCheckTest {

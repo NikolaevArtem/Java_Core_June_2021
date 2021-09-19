@@ -15,12 +15,13 @@ public class Ship {
         this.coords = new ArrayList<>();
     }
 
-    public String getName() {
+    @Override
+    public String toString() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void reduceHp() {
+        hp--;
     }
 
     public int getHp() {
@@ -31,7 +32,6 @@ public class Ship {
         return size;
     }
 
-
     public ArrayList<Coordinate> getCoords() {
         return coords;
     }
@@ -40,12 +40,5 @@ public class Ship {
         this.coords = coords;
     }
 
-    public void decreaseHp() {
-        hp--;
-    }
 
-    @Override
-    public String toString() {
-        return name;
-    }
 }
