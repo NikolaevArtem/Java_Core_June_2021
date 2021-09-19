@@ -34,14 +34,14 @@ public class Battle {
             for (int i = 0; i < 2; i++) {
                 ShipPlacer.placement(new Ship("Cruiser", 3), currentPlayer);
             }
-//            System.out.println("Now place 3 Destroyers of size 2");
-//            for (int i = 0; i < 3; i++) {
-//                ShipPlacer.placement(new Ship("Destroyer", 2), currentPlayer);
-//            }
-//            System.out.println("And finally place 4 Scout ships of size 1");
-//            for (int i = 0; i < 4; i++) {
-//                ShipPlacer.placement(new Ship("Scout", 1), currentPlayer);
-//            }
+            System.out.println("Now place 3 Destroyers of size 2");
+            for (int i = 0; i < 3; i++) {
+                ShipPlacer.placement(new Ship("Destroyer", 2), currentPlayer);
+            }
+            System.out.println("And finally place 4 Scout ships of size 1");
+            for (int i = 0; i < 4; i++) {
+                ShipPlacer.placement(new Ship("Scout", 1), currentPlayer);
+            }
 
         }
 
