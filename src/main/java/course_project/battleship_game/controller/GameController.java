@@ -11,7 +11,7 @@ import static course_project.battleship_game.utils.Constants.FLEETS_CREATED_MESS
 import static course_project.battleship_game.utils.Constants.WELCOME_MESSAGE;
 
 public class GameController {
-    private GameService service = new GameService();
+    private final GameService service = new GameService();
     private final InputController inputController = new InputController();
 
     public void run() {
