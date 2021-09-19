@@ -1,10 +1,10 @@
-package course_project.SeaBattle.services;
+package course_project.SeaBattle.service;
 
-import course_project.SeaBattle.models.Grid;
-import course_project.SeaBattle.models.Player;
-import course_project.SeaBattle.models.Ship;
-import course_project.SeaBattle.models.Square;
-import course_project.SeaBattle.utility.SquareStatus;
+import course_project.SeaBattle.model.Grid;
+import course_project.SeaBattle.model.Player;
+import course_project.SeaBattle.model.Ship;
+import course_project.SeaBattle.model.Square;
+import course_project.SeaBattle.model.SquareType;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class GridService {
         Square[][] squares = new Square[10][10];
         for (int y = 0; y < 10; y++) {
             for (int x = 0; x < 10; x++) {
-                squares[y][x] = new Square(x, y, SquareStatus.OCEAN);
+                squares[y][x] = new Square(x, y, SquareType.OCEAN);
             }
         }
         grid.setSquares(squares);

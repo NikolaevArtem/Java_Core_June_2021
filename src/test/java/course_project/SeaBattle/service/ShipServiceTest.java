@@ -1,10 +1,10 @@
-package course_project.SeaBattle.services;
+package course_project.SeaBattle.service;
 
-import course_project.SeaBattle.models.Player;
-import course_project.SeaBattle.models.Ship;
-import course_project.SeaBattle.models.Square;
-import course_project.SeaBattle.utility.ShipType;
-import course_project.SeaBattle.utility.SquareStatus;
+import course_project.SeaBattle.model.Player;
+import course_project.SeaBattle.model.Ship;
+import course_project.SeaBattle.model.Square;
+import course_project.SeaBattle.model.ShipType;
+import course_project.SeaBattle.model.SquareType;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -23,16 +23,16 @@ class ShipServiceTest {
 
         GridService.createGrid(player);
 
-        squareShipList.add(new Square(3,3,SquareStatus.SHIP));
-        squareShipList.add(new Square(3,4,SquareStatus.SHIP));
-        squareShipList.add(new Square(3,5,SquareStatus.SHIP));
-        squareShipList.add(new Square(3,6,SquareStatus.SHIP));
+        squareShipList.add(new Square(3,3, SquareType.SHIP));
+        squareShipList.add(new Square(3,4, SquareType.SHIP));
+        squareShipList.add(new Square(3,5, SquareType.SHIP));
+        squareShipList.add(new Square(3,6, SquareType.SHIP));
         Ship ship = new Ship(squareShipList, ShipType.BATTLESHIP);
 
         ships.add(ship);
         player.setShipList(ships);
-        Square fireSquare34 = new Square(3,4,SquareStatus.OCEAN);
-        Square fireSquare35 = new Square(3,5,SquareStatus.OCEAN);
+        Square fireSquare34 = new Square(3,4, SquareType.OCEAN);
+        Square fireSquare35 = new Square(3,5, SquareType.OCEAN);
 
         ShipService.processFire(player, fireSquare34);
         assertEquals(3, player.getShipList().get(0).getShipHeal());
@@ -51,21 +51,21 @@ class ShipServiceTest {
 
         GridService.createGrid(player);
 
-        squareShipList.add(new Square(3,3,SquareStatus.SHIP));
-        squareShipList.add(new Square(3,4,SquareStatus.SHIP));
-        squareShipList.add(new Square(3,5,SquareStatus.SHIP));
-        squareShipList.add(new Square(3,6,SquareStatus.SHIP));
+        squareShipList.add(new Square(3,3, SquareType.SHIP));
+        squareShipList.add(new Square(3,4, SquareType.SHIP));
+        squareShipList.add(new Square(3,5, SquareType.SHIP));
+        squareShipList.add(new Square(3,6, SquareType.SHIP));
         Ship ship = new Ship(squareShipList, ShipType.BATTLESHIP);
 
         ships.add(ship);
         player.setShipList(ships);
 
-        Square fireSquare34 = new Square(4,4,SquareStatus.OCEAN);
+        Square fireSquare34 = new Square(4,4, SquareType.OCEAN);
 
         ShipService.processFire(player, fireSquare34);
         assertEquals(4, player.getShipList().get(0).getShipHeal());
 
-        Square fireSquare35 = new Square(2,5,SquareStatus.OCEAN);
+        Square fireSquare35 = new Square(2,5, SquareType.OCEAN);
         ShipService.processFire(player, fireSquare35);
         assertEquals(4, player.getShipList().get(0).getShipHeal());
     }
@@ -80,16 +80,16 @@ class ShipServiceTest {
         GridService.createGrid(player);
 
         ArrayList<Square> squareShipList = new ArrayList<>();
-        squareShipList.add(new Square(3,3,SquareStatus.SHIP));
-        squareShipList.add(new Square(3,4,SquareStatus.SHIP));
-        squareShipList.add(new Square(3,5,SquareStatus.SHIP));
-        squareShipList.add(new Square(3,6,SquareStatus.SHIP));
+        squareShipList.add(new Square(3,3, SquareType.SHIP));
+        squareShipList.add(new Square(3,4, SquareType.SHIP));
+        squareShipList.add(new Square(3,5, SquareType.SHIP));
+        squareShipList.add(new Square(3,6, SquareType.SHIP));
         Ship ship = new Ship(squareShipList, ShipType.BATTLESHIP);
         ShipService.setShipSquares(ship, 1);
         ships.add(ship);
         player.setShipList(ships);
 
-        Square initialSquare = new Square(6,7,SquareStatus.SHIP);
+        Square initialSquare = new Square(6,7, SquareType.SHIP);
         Ship newShip = new Ship(new ArrayList<>(), ShipType.CRUISER);
 
         assertTrue(ShipService.canArrangeShipOnGrid(ships, newShip, initialSquare, 1));
@@ -106,16 +106,16 @@ class ShipServiceTest {
         GridService.createGrid(player);
 
         ArrayList<Square> squareShipList = new ArrayList<>();
-        squareShipList.add(new Square(3,3,SquareStatus.SHIP));
-        squareShipList.add(new Square(3,4,SquareStatus.SHIP));
-        squareShipList.add(new Square(3,5,SquareStatus.SHIP));
-        squareShipList.add(new Square(3,6,SquareStatus.SHIP));
+        squareShipList.add(new Square(3,3, SquareType.SHIP));
+        squareShipList.add(new Square(3,4, SquareType.SHIP));
+        squareShipList.add(new Square(3,5, SquareType.SHIP));
+        squareShipList.add(new Square(3,6, SquareType.SHIP));
         Ship ship = new Ship(squareShipList, ShipType.BATTLESHIP);
         ShipService.setShipSquares(ship, 1);
         ships.add(ship);
         player.setShipList(ships);
 
-        Square initialSquare = new Square(4,4,SquareStatus.SHIP); // too close
+        Square initialSquare = new Square(4,4, SquareType.SHIP); // too close
         Ship newShip = new Ship(new ArrayList<>(), ShipType.CRUISER);
 
         assertFalse(ShipService.canArrangeShipOnGrid(ships, newShip, initialSquare, 1));
@@ -125,17 +125,17 @@ class ShipServiceTest {
     void givenShip_WhenSetShipSquares_thenHaveBoardSquares() {
 
         ArrayList<Square> squareShipList = new ArrayList<>();
-        Square initialSquare = new Square(3,3,SquareStatus.SHIP);
+        Square initialSquare = new Square(3,3, SquareType.SHIP);
         squareShipList.add(initialSquare);
         Ship ship = new Ship(squareShipList, ShipType.BATTLESHIP);
 
         ShipService.setShipSquares(ship, 1);
 
-        assertTrue(ship.getShipSquares().contains(new Square(3,4, SquareStatus.SHIP)));
-        assertTrue(ship.getShipSquares().contains(new Square(3,6, SquareStatus.SHIP)));
-        assertTrue(ship.getBoundedSquare().contains(new Square(2,2, SquareStatus.BOARD)));
-        assertTrue(ship.getBoundedSquare().contains(new Square(2,7, SquareStatus.BOARD)));
-        assertTrue(ship.getBoundedSquare().contains(new Square(4,2, SquareStatus.BOARD)));
-        assertTrue(ship.getBoundedSquare().contains(new Square(4,7, SquareStatus.BOARD)));
+        assertTrue(ship.getShipSquares().contains(new Square(3,4, SquareType.SHIP)));
+        assertTrue(ship.getShipSquares().contains(new Square(3,6, SquareType.SHIP)));
+        assertTrue(ship.getBoundedSquare().contains(new Square(2,2, SquareType.BOARD)));
+        assertTrue(ship.getBoundedSquare().contains(new Square(2,7, SquareType.BOARD)));
+        assertTrue(ship.getBoundedSquare().contains(new Square(4,2, SquareType.BOARD)));
+        assertTrue(ship.getBoundedSquare().contains(new Square(4,7, SquareType.BOARD)));
     }
 }

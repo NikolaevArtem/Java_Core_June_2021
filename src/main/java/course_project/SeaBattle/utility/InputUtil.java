@@ -1,12 +1,13 @@
 package course_project.SeaBattle.utility;
 
-import course_project.SeaBattle.models.Square;
+import course_project.SeaBattle.model.Square;
+import course_project.SeaBattle.model.SquareType;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Input {
+public class InputUtil {
     private static final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
     public static String getPlayerName() {
@@ -25,7 +26,7 @@ public class Input {
             x = ((int) squareXY.toUpperCase().charAt(0)) - 65;
             y = Integer.parseInt(squareXY.substring(1)) - 1;
 
-        return new Square(x, y, SquareStatus.SHIP);
+        return new Square(x, y, SquareType.SHIP);
     }
 
     public static int getShipDirection() {

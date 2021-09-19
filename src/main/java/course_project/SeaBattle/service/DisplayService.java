@@ -1,7 +1,7 @@
-package course_project.SeaBattle.services;
+package course_project.SeaBattle.service;
 
-import course_project.SeaBattle.models.Player;
-import course_project.SeaBattle.models.Ship;
+import course_project.SeaBattle.model.Player;
+import course_project.SeaBattle.model.Ship;
 import course_project.SeaBattle.view.ConsolePrinter;
 import course_project.SeaBattle.view.MenuScreen;
 
@@ -32,6 +32,7 @@ public class DisplayService {
 
     public static void showCheersWinnerScreen(Player winner) {
         consolePrinter.cheersMessage(winner);
+        consolePrinter.printScore(PlayerService.getScore());
     }
 
     public static void showPrepareShipMessage(Ship ship) {
@@ -67,7 +68,7 @@ public class DisplayService {
 
     }
 
-    public static void showScoreMsg(int score) {
-            consolePrinter.printScore(score);
+    public static void showMsgAlreadyShot() {
+        consolePrinter.printMsgAlreadyShot();
     }
 }

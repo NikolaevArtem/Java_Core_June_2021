@@ -1,11 +1,11 @@
-package course_project.SeaBattle.services;
+package course_project.SeaBattle.service;
 
-import course_project.SeaBattle.models.Player;
-import course_project.SeaBattle.models.Ship;
-import course_project.SeaBattle.models.Square;
+import course_project.SeaBattle.model.Player;
+import course_project.SeaBattle.model.Ship;
+import course_project.SeaBattle.model.Square;
 import course_project.SeaBattle.utility.Computer;
-import course_project.SeaBattle.utility.Input;
-import course_project.SeaBattle.utility.ShipType;
+import course_project.SeaBattle.utility.InputUtil;
+import course_project.SeaBattle.model.ShipType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class InitialGameService {
     private static final List<Player> playerList = new ArrayList<>();
 
     public static void createGame() {
-        int mod = Input.getMod();
+        int mod = InputUtil.getMod();
 
         if (mod == 1) {
             createPlayer();
@@ -43,13 +43,13 @@ public class InitialGameService {
         Player player = new Player();
 
         DisplayService.showEnterNameScreen();
-        player.setName(Input.getPlayerName());
+        player.setName(InputUtil.getPlayerName());
 
         GridService.createGrid(player);
         playerList.add(player);
 
         DisplayService.showChooseShipArrangeModScreen();
-        int automaticallyArrange = Input.getMod();
+        int automaticallyArrange = InputUtil.getMod();
         if (automaticallyArrange == 1) {
             arrangeManuallyShips(player);
         } else {
@@ -92,16 +92,16 @@ public class InitialGameService {
             DisplayService.showPrepareBattleScreen(player);
 
             DisplayService.showPrepareShipMessage(ship);
-            Square initialSquare = Input.getSquare();
+            Square initialSquare = InputUtil.getSquare();
 
             DisplayService.getShipDirection();
-            int direction = Input.getShipDirection();
+            int direction = InputUtil.getShipDirection();
 
             while (!ShipService.canArrangeShipOnGrid(shipList, ship, initialSquare, direction)) {
                 DisplayService.errorArrangeShip();
 
-                initialSquare = Input.getSquare();
-                direction = Input.getShipDirection();
+                initialSquare = InputUtil.getSquare();
+                direction = InputUtil.getShipDirection();
             }
 
             shipSquares.add(initialSquare);

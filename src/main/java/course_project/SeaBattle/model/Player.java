@@ -1,10 +1,7 @@
-package course_project.SeaBattle.models;
+package course_project.SeaBattle.model;
 
 import java.util.List;
 
-/*
-Player contains:
- */
 public class Player {
     private String name;
     private Grid grid;

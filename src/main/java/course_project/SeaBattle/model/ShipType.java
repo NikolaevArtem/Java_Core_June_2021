@@ -1,4 +1,4 @@
-package course_project.SeaBattle.utility;
+package course_project.SeaBattle.model;
 
 public enum ShipType {
     BOAT(1),

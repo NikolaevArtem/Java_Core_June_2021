@@ -1,9 +1,12 @@
-package course_project.SeaBattle.services;
+package course_project.SeaBattle.controller;
 
-import course_project.SeaBattle.models.Player;
+import course_project.SeaBattle.model.Player;
+import course_project.SeaBattle.service.DisplayService;
+import course_project.SeaBattle.service.InitialGameService;
+import course_project.SeaBattle.service.PlayerService;
 import course_project.SeaBattle.utility.FileOutputScoreUtil;
 
-public class Game extends Thread {
+public class GameController extends Thread {
 
     public void run() {
 
@@ -18,7 +21,6 @@ public class Game extends Thread {
         }
 
         DisplayService.showCheersWinnerScreen(PlayerService.getWinner());
-        DisplayService.showScoreMsg(PlayerService.getScore());
 
         FileOutputScoreUtil.saveScore();
     }

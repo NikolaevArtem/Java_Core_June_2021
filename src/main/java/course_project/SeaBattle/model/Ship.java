@@ -1,6 +1,4 @@
-package course_project.SeaBattle.models;
-
-import course_project.SeaBattle.utility.ShipType;
+package course_project.SeaBattle.model;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,8 @@
-package course_project.SeaBattle.services;
+package course_project.SeaBattle.service;
 
 import base.UnitBase;
-import course_project.SeaBattle.models.Player;
-import course_project.SeaBattle.utility.FileOutputScoreUtil;
-import course_project.SeaBattle.utility.SquareStatus;
+import course_project.SeaBattle.model.Player;
+import course_project.SeaBattle.model.SquareType;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
@@ -26,11 +25,11 @@ class PlayerServiceTest extends UnitBase {
 
         setInput("g5");
         PlayerService.fire(player1);
-        assertEquals(SquareStatus.MISSED, player2.getGrid().getSquare(6, 4).getSquareStatus());
-        assertEquals(SquareStatus.OCEAN, player2.getGrid().getSquare(5, 4).getSquareStatus());
-        assertEquals(SquareStatus.OCEAN, player2.getGrid().getSquare(7, 4).getSquareStatus());
-        assertEquals(SquareStatus.OCEAN, player2.getGrid().getSquare(6, 3).getSquareStatus());
-        assertEquals(SquareStatus.OCEAN, player2.getGrid().getSquare(6, 5).getSquareStatus());
+        assertEquals(SquareType.MISSED, player2.getGrid().getSquare(6, 4).getSquareStatus());
+        assertEquals(SquareType.OCEAN, player2.getGrid().getSquare(5, 4).getSquareStatus());
+        assertEquals(SquareType.OCEAN, player2.getGrid().getSquare(7, 4).getSquareStatus());
+        assertEquals(SquareType.OCEAN, player2.getGrid().getSquare(6, 3).getSquareStatus());
+        assertEquals(SquareType.OCEAN, player2.getGrid().getSquare(6, 5).getSquareStatus());
     }
 
     @Test

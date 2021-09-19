@@ -1,11 +1,20 @@
 package course_project.SeaBattle.view;
 
-import course_project.SeaBattle.models.Player;
-import course_project.SeaBattle.models.Ship;
-import course_project.SeaBattle.models.Square;
+import course_project.SeaBattle.model.Player;
+import course_project.SeaBattle.model.Ship;
+import course_project.SeaBattle.model.Square;
+import course_project.SeaBattle.model.SquareType;
+
+import static course_project.SeaBattle.model.SquareType.*;
 
 
 public class ConsolePrinter {
+
+    private static final String ANSI_RED = "\u001b[31m";
+    private static final String ANSI_BLUE = "\u001B[34m";
+    private static final String ANSI_GREEN = "\u001b[32m";
+    private static final String ANSI_RESET = "\u001b[0m";
+
 
     public void printPrepareGrid(Player player) {
         Square[][] squares = player.getGrid().getSquares();
@@ -21,7 +30,7 @@ public class ConsolePrinter {
 
             for (int x = 0; x < 10; x++) {
 
-                System.out.print(squares[x][y].print() + " ");
+                System.out.print(print(squares[x][y]) + " ");
             }
             System.out.println();
         }
@@ -50,7 +59,7 @@ public class ConsolePrinter {
             }
 
             for (int x = 0; x < squares[0].length; x++) {
-                System.out.print(squares[x][y].print() + " ");
+                System.out.print(print(squares[x][y]) + " ");
             }
 
             System.out.print("         ");
@@ -62,10 +71,10 @@ public class ConsolePrinter {
             }
 
             for (int x = 0; x < enemySquares[0].length; x++) {
-                if (enemySquares[x][y].print().contains("W")) {
-                    System.out.print("\u001B[34m" + ". " + "\u001b[0m");
+                if (print(enemySquares[x][y]).contains("W")) {
+                    System.out.print(ANSI_BLUE  + ". " + ANSI_RESET);
                 } else {
-                    System.out.print(enemySquares[x][y].print() + " ");
+                    System.out.print(print(enemySquares[x][y]) + " ");
                 }
             }
             System.out.println();
@@ -76,7 +85,6 @@ public class ConsolePrinter {
 
     public void printShipDirectionRequest() {
         System.out.println("Enter direction.");
-//         [1 - vertically/ 0 - horizontally]
     }
 
     public void printErrorShipArrange() {
@@ -98,7 +106,7 @@ public class ConsolePrinter {
             }
 
             for (int x = 0; x < squares[0].length; x++) {
-                System.out.print(squares[x][y].print() + " ");
+                System.out.print(print(squares[x][y]) + " ");
             }
 
             System.out.print("         ");
@@ -110,7 +118,7 @@ public class ConsolePrinter {
             }
 
             for (int x = 0; x < enemySquares[0].length; x++) {
-                System.out.print(enemySquares[x][y].print() + " ");
+                System.out.print(print(enemySquares[x][y]) + " ");
             }
             System.out.println();
 
@@ -119,7 +127,7 @@ public class ConsolePrinter {
     }
 
     public void printMiss() {
-        System.out.println("\u001b[31m" + "Missed" + "\u001b[0m");
+        System.out.println(ANSI_RED + "Missed" + ANSI_RESET);
     }
 
     public void printHit() {
@@ -128,5 +136,30 @@ public class ConsolePrinter {
 
     public void printScore(int score) {
         System.out.println("Your score - " + score);
+    }
+
+    private String  print(Square square) {
+        String result = " ";
+        switch (square.getSquareStatus()) {
+
+            case HIT:
+                result = ANSI_RED + 'X' + ANSI_RESET;
+                break;
+            case SHIP:
+                result = ANSI_GREEN + 'W' + ANSI_RESET;
+                break;
+            case OCEAN:
+            case BOARD:
+                result = ANSI_BLUE + '.' + ANSI_RESET;
+                break;
+            case MISSED:
+                result = ANSI_BLUE + 'o' + ANSI_RESET;
+                break;
+        }
+        return result;
+    }
+
+    public void printMsgAlreadyShot() {
+        System.out.println("You've already shot this square");
     }
 }

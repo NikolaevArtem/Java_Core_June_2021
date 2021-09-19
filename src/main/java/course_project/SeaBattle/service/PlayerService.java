@@ -1,11 +1,11 @@
-package course_project.SeaBattle.services;
+package course_project.SeaBattle.service;
 
-import course_project.SeaBattle.models.Player;
-import course_project.SeaBattle.models.Ship;
-import course_project.SeaBattle.models.Square;
+import course_project.SeaBattle.model.Player;
+import course_project.SeaBattle.model.Ship;
+import course_project.SeaBattle.model.Square;
 import course_project.SeaBattle.utility.Computer;
-import course_project.SeaBattle.utility.Input;
-import course_project.SeaBattle.utility.SquareStatus;
+import course_project.SeaBattle.utility.InputUtil;
+import course_project.SeaBattle.model.SquareType;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class PlayerService {
 
     private static List<Player> playerList;
     private static Player winnerPlayer;
-    private static boolean turn = true;
+    private static boolean turn = false;
     private static boolean gameOn = true;
     private static int mod = 0;
 
@@ -28,14 +28,13 @@ public class PlayerService {
     public static void fire(Player shooterPlayer) {
 
         Player enemyPlayer = shooterPlayer.getEnemy();
-        Square square = shooterPlayer.isComputer() ? Computer.giveSquare() : Input.getSquare();
+        Square square = shooterPlayer.isComputer() ? Computer.giveSquare() : InputUtil.getSquare();
         int x = square.getX();
         int y = square.getY();
         Square shotSquare = shooterPlayer.getEnemy().getGrid().getSquare(x, y);
 
-        if (isHit(shotSquare)) {
+        if (isHit(enemyPlayer ,shotSquare)) {
             ShipService.processFire(enemyPlayer, square);
-            decreaseRemainingAliveSquares(enemyPlayer);
         } else {
             turn = !turn;
             DisplayService.showMissMsg(enemyPlayer);
@@ -91,18 +90,22 @@ public class PlayerService {
         }
     }
 
-    private static boolean isHit(Square shotSquare) {
+    private static boolean isHit(Player enemyPlayer ,Square shotSquare) {
 
-        SquareStatus shotSquareStatus = shotSquare.getSquareStatus();
+        SquareType shotSquareStatus = shotSquare.getSquareStatus();
 
-        if (shotSquareStatus.equals(SquareStatus.OCEAN) || shotSquareStatus.equals(SquareStatus.BOARD)) {
-            shotSquare.setSquareStatus(SquareStatus.MISSED);
+        if (shotSquareStatus.equals(SquareType.OCEAN) || shotSquareStatus.equals(SquareType.BOARD)) {
+            shotSquare.setSquareStatus(SquareType.MISSED);
             return false;
-        } else if (shotSquare.getSquareStatus().equals(SquareStatus.SHIP)) {
-            shotSquare.setSquareStatus(SquareStatus.HIT);
+        } else if (shotSquare.getSquareStatus().equals(SquareType.SHIP)) {
+            shotSquare.setSquareStatus(SquareType.HIT);
+            decreaseRemainingAliveSquares(enemyPlayer);
             return true;
-        } else if (shotSquare.getSquareStatus().equals(SquareStatus.HIT)) {
+        } else if (shotSquare.getSquareStatus().equals(SquareType.HIT)) {
             return false;
+        } else if (shotSquare.getSquareStatus().equals(SquareType.MISSED)) {
+            DisplayService.showMsgAlreadyShot();
+            return true;
         } else {
             return false;
         }

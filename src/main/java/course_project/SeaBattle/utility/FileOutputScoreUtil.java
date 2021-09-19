@@ -1,6 +1,6 @@
 package course_project.SeaBattle.utility;
 
-import course_project.SeaBattle.services.PlayerService;
+import course_project.SeaBattle.service.PlayerService;
 
 import java.io.*;
 

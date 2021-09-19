@@ -1,4 +1,4 @@
-package course_project.SeaBattle.models;
+package course_project.SeaBattle.model;
 
 /*
 The grid consists of squares

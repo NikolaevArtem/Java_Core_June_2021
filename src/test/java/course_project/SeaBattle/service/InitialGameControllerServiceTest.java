@@ -1,4 +1,4 @@
-package course_project.SeaBattle.services;
+package course_project.SeaBattle.service;
 
 import base.UnitBase;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class InitialGameServiceTest extends UnitBase {
+class InitialGameControllerServiceTest extends UnitBase {
 
 
 

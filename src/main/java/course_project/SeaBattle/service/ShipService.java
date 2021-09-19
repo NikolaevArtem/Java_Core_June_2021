@@ -1,9 +1,9 @@
-package course_project.SeaBattle.services;
+package course_project.SeaBattle.service;
 
-import course_project.SeaBattle.models.Player;
-import course_project.SeaBattle.models.Ship;
-import course_project.SeaBattle.models.Square;
-import course_project.SeaBattle.utility.SquareStatus;
+import course_project.SeaBattle.model.Player;
+import course_project.SeaBattle.model.Ship;
+import course_project.SeaBattle.model.Square;
+import course_project.SeaBattle.model.SquareType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,32 +43,32 @@ public class ShipService {
 
         for (int i = 0; i < shipSize; i++) {
             if (direction == 1) {
-                shipSquares.add(new Square(initialX, initialY + i, SquareStatus.SHIP));
+                shipSquares.add(new Square(initialX, initialY + i, SquareType.SHIP));
                 if (i == 0) {
-                    shipBoardSquares.add(new Square(initialX, initialY - 1, SquareStatus.BOARD));
-                    shipBoardSquares.add(new Square(initialX - 1, initialY - 1, SquareStatus.BOARD));
-                    shipBoardSquares.add(new Square(initialX + 1, initialY - 1, SquareStatus.BOARD));
+                    shipBoardSquares.add(new Square(initialX, initialY - 1, SquareType.BOARD));
+                    shipBoardSquares.add(new Square(initialX - 1, initialY - 1, SquareType.BOARD));
+                    shipBoardSquares.add(new Square(initialX + 1, initialY - 1, SquareType.BOARD));
                 }
-                shipBoardSquares.add(new Square(initialX + 1, initialY + i, SquareStatus.BOARD));
-                shipBoardSquares.add(new Square(initialX - 1, initialY + i, SquareStatus.BOARD));
+                shipBoardSquares.add(new Square(initialX + 1, initialY + i, SquareType.BOARD));
+                shipBoardSquares.add(new Square(initialX - 1, initialY + i, SquareType.BOARD));
                 if (i == shipSize - 1) {
-                    shipBoardSquares.add(new Square(initialX, initialY + i + 1, SquareStatus.BOARD));
-                    shipBoardSquares.add(new Square(initialX - 1, initialY + i + 1, SquareStatus.BOARD));
-                    shipBoardSquares.add(new Square(initialX + 1, initialY + i + 1, SquareStatus.BOARD));
+                    shipBoardSquares.add(new Square(initialX, initialY + i + 1, SquareType.BOARD));
+                    shipBoardSquares.add(new Square(initialX - 1, initialY + i + 1, SquareType.BOARD));
+                    shipBoardSquares.add(new Square(initialX + 1, initialY + i + 1, SquareType.BOARD));
                 }
             } else {
-                shipSquares.add(new Square(initialX + i, initialY, SquareStatus.SHIP));
+                shipSquares.add(new Square(initialX + i, initialY, SquareType.SHIP));
                 if (i == 0) {
-                    shipBoardSquares.add(new Square(initialX - 1, initialY, SquareStatus.BOARD));
-                    shipBoardSquares.add(new Square(initialX - 1, initialY - 1, SquareStatus.BOARD));
-                    shipBoardSquares.add(new Square(initialX - 1, initialY + 1, SquareStatus.BOARD));
+                    shipBoardSquares.add(new Square(initialX - 1, initialY, SquareType.BOARD));
+                    shipBoardSquares.add(new Square(initialX - 1, initialY - 1, SquareType.BOARD));
+                    shipBoardSquares.add(new Square(initialX - 1, initialY + 1, SquareType.BOARD));
                 }
-                shipBoardSquares.add(new Square(initialX + i, initialY + 1, SquareStatus.BOARD));
-                shipBoardSquares.add(new Square(initialX + i, initialY - 1, SquareStatus.BOARD));
+                shipBoardSquares.add(new Square(initialX + i, initialY + 1, SquareType.BOARD));
+                shipBoardSquares.add(new Square(initialX + i, initialY - 1, SquareType.BOARD));
                 if (i == shipSize - 1) {
-                    shipBoardSquares.add(new Square(initialX + i + 1, initialY, SquareStatus.BOARD));
-                    shipBoardSquares.add(new Square(initialX + i + 1, initialY - 1, SquareStatus.BOARD));
-                    shipBoardSquares.add(new Square(initialX + i + 1, initialY + 1, SquareStatus.BOARD));
+                    shipBoardSquares.add(new Square(initialX + i + 1, initialY, SquareType.BOARD));
+                    shipBoardSquares.add(new Square(initialX + i + 1, initialY - 1, SquareType.BOARD));
+                    shipBoardSquares.add(new Square(initialX + i + 1, initialY + 1, SquareType.BOARD));
                 }
             }
         }
@@ -94,9 +94,9 @@ public class ShipService {
 
         for (int i = 1; i < shipSize; i++) {
             if (direction == 1) {
-                tmpShipSquare.add(new Square(initialX, initialY + i, SquareStatus.SHIP));
+                tmpShipSquare.add(new Square(initialX, initialY + i, SquareType.SHIP));
             } else {
-                tmpShipSquare.add(new Square(initialX + i, initialY, SquareStatus.SHIP));
+                tmpShipSquare.add(new Square(initialX + i, initialY, SquareType.SHIP));
             }
         }
 
@@ -140,7 +140,7 @@ public class ShipService {
 
     private static void showBordersSquareWhenShipSank(Ship ship) {
         for (Square square : ship.getBoundedSquare()) {
-            square.setSquareStatus(SquareStatus.MISSED);
+            square.setSquareStatus(SquareType.MISSED);
         }
     }
 }

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class InputValidatorTest {
+class InputUtilValidatorTest {
 
     @Test
     void givenValidCoordinates_whenRun_thenReturnTrue() {

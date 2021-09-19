@@ -1,13 +1,12 @@
 package course_project.SeaBattle.utility;
 
-import course_project.SeaBattle.models.Player;
-import course_project.SeaBattle.services.InitialGameService;
-import course_project.SeaBattle.services.PlayerService;
+import course_project.SeaBattle.model.Player;
+import course_project.SeaBattle.service.PlayerService;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,12 +36,12 @@ class FileOutputScoreUtilTest {
         String line = "";
         try (FileReader fileReader = new FileReader(file)) {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            line = bufferedReader.readLine();
+            line  =  bufferedReader.lines().collect(Collectors.joining());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        assertEquals("Winner2021 - 6", line);
+        assertTrue(line.contains("Winner2021 - 6"));
 
     }
 }
