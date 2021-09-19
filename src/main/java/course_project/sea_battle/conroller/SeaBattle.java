@@ -2,6 +2,7 @@ package course_project.sea_battle.conroller;
 
 import course_project.sea_battle.model.Field;
 import course_project.sea_battle.model.ModelPlayer;
+import course_project.sea_battle.view.Animate;
 import course_project.sea_battle.view.PaintFieldInPlay;
 import course_project.sea_battle.view.Speaker;
 
@@ -12,7 +13,11 @@ public class SeaBattle extends Thread {
     public void run() {
         try (Scanner scanner = new Scanner(System.in)) {
             Dialog dialog = new Dialog(scanner);
+            Thread anim = new Animate();
+            anim.start();
+            anim.join();
             Speaker.voice("dialogName");
+
             String PlayerName = dialog.namePlayerGet();
 
             ModelPlayer player = new ModelPlayer(PlayerName, new Field(10, 10));

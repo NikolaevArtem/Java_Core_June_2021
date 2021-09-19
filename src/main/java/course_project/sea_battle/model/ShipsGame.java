@@ -29,25 +29,28 @@ public class ShipsGame {
         return allShips.size() >= 10;
     }
 
-    public boolean addShip(Ship ship){
-            int key = ship.getSize();
-            int value = inListSizeShip.get(ship.getSize()) - 1;
-            inListSizeShip.put(key, value);
-            return allShips.add(ship);
+    public boolean addShip(Ship ship) {
+        int key = ship.getSize();
+        int value = inListSizeShip.get(ship.getSize()) - 1;
+        inListSizeShip.put(key, value);
+        return allShips.add(ship);
     }
 
     public boolean shipsDead() {
         int dead = 0;
-        for(Ships ship: allShips) {
-            if(ship.isDead()) {
-                dead++;
+        if (allShips.size() == 10) {
+            for (Ships ship : allShips) {
+                if (ship.isDead()) {
+                    dead++;
+                }
             }
+            return dead == allShips.size();
         }
-        return dead==allShips.size();
+        return false;
     }
 
     public boolean canAddThisSize(int size) {
-        return inListSizeShip.get(size)>0;
+        return inListSizeShip.get(size) > 0;
     }
 
     @Override

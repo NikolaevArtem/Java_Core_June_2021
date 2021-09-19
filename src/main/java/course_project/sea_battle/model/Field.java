@@ -74,7 +74,7 @@ public class Field {
     }
 
     public String shot(String shot) {
-        String[] shots = shot.split(" ");
+        String[] shots = shot.toLowerCase(Locale.ROOT).split(" ");
         int pointA = Integer.parseInt(shots[0]) - 1;
         int pointB = CoordinateTranslator.coordinate(shots[1].toLowerCase(Locale.ROOT));
         return shotResult(pointA, pointB);

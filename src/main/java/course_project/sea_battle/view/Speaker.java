@@ -12,7 +12,7 @@ public class Speaker {
         speaker.put("shotHit", "Hit!");
         speaker.put("shotMiss", "Miss!");
         speaker.put("coordinateFalse", "Not correct coordinates! Try again.");
-        speaker.put("dialogName", "Write you Name:");
+        speaker.put("dialogName", "Write you Name, cap:");
         speaker.put("lose1", "LOSE");
         speaker.put("win", "Winner: ");
         speaker.put("correct", "Successfully");

@@ -5,6 +5,8 @@ import course_project.sea_battle.model.ModelPlayer;
 import course_project.sea_battle.model.Ship;
 import course_project.sea_battle.view.PaintFieldPlayer;
 import course_project.sea_battle.view.Speaker;
+
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Dialog {
@@ -68,7 +70,7 @@ public class Dialog {
             String[] dateShipSplit = dateShip.split(" ");
             boolean orient = dateShipSplit[0].equals("2");
             int start = Integer.parseInt(dateShipSplit[1]) - 1;
-            int end = CoordinateTranslator.coordinate(dateShipSplit[2]);
+            int end = CoordinateTranslator.coordinate(dateShipSplit[2].toLowerCase(Locale.ROOT));
             int size = Integer.parseInt(dateShipSplit[3]);
 
             String message = player.addShip(new Ship(orient, start, end, size));

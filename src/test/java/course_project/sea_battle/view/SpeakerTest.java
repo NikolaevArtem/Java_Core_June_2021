@@ -25,7 +25,7 @@ class SpeakerTest extends UnitBase {
     @Test
     void printTestWriteYouName() {
         Speaker.voice("dialogName");
-        assertEquals("Write you Name:", getOutputLines()[0]);
+        assertEquals("Write you Name, cap:", getOutputLines()[0]);
     }
     @Test
     void printTestLose() {
