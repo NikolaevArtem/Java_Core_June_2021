@@ -24,7 +24,7 @@ public class Constants {
     public static final String PLAYER_TURN_MESSAGE_FORMAT = "\nNow it is %s's turn\n";
     public static final String PLAYER_MOVE_MESSAGE_FORMAT = "%s made move on %s.\n";
     public static final String HIT_MESSAGE_FORMAT = "%s has just hit the ship of %s located on %s!\n";
-    public static final String PLAYER_WINNER_MESSAGE_FORMAT = "Congratulations %s! You won the game!";
+    public static final String PLAYER_WINNER_MESSAGE_FORMAT = "\nCongratulations %s! You won the game!\n";
     public static final String MISSED_MESSAGE_FORMAT = "%s missed on %s.\n";
     public static final String CREATING_FLEET_MESSAGE_FORMAT = "\nCreating fleet for %s\n";
     public static final String FLEET_CREATED_MESSAGE_FORMAT = "The fleet for %s has been created!\n";

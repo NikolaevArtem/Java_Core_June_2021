@@ -45,8 +45,8 @@ public class PlayerService {
             } else {
                 if (!player.getName().contains(DEFAULT_COMPUTER_NAME)) {
                     printMessage(SAME_COORDINATE_ERROR_MESSAGE);
-                    cell = null;
                 }
+                cell = null;
             }
         }
         printMessage(String.format(PLAYER_MOVE_MESSAGE_FORMAT, player.getName(), cell.toString()));

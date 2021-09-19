@@ -12,4 +12,5 @@ public class Constants {
             "1 - Computer vs Player\n" +
             "2 - Player vs Player";
     public static final String GET_PLAYER_NAME_MESSAGE = "Enter your name:";
+    public static final String DEFAULT_COMPUTER_NAME = "Computer";
 }

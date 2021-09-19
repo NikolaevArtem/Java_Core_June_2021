@@ -7,6 +7,7 @@ import course_project.battleship_game.service.GameService;
 import course_project.battleship_game.service.PlayerService;
 import org.junit.jupiter.api.Test;
 
+import static course_project.battleship_game.utils.Constants.DEFAULT_COMPUTER_NAME;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -37,10 +38,9 @@ public class GameServiceTest extends UnitBase {
         setInput("test\n0\ntest1\n0");
         Player[] players = service.createPlayers(GameMode.PVP);
         assertEquals(2, players.length);
-        assertFalse(players[0].getName().contains("Computer"));
-        assertFalse(players[1].getName().contains("Computer"));
+        assertFalse(players[0].getName().contains(DEFAULT_COMPUTER_NAME));
+        assertFalse(players[1].getName().contains(DEFAULT_COMPUTER_NAME));
     }
-
 
     @Test
     void testRollingDiceShufflePlayers() {
@@ -52,7 +52,6 @@ public class GameServiceTest extends UnitBase {
         } else {
             assertNotEquals(one, players[0]);
         }
-
     }
 
     @Test
