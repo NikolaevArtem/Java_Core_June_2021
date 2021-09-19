@@ -26,17 +26,11 @@ public class SeaBattle {
         ending();
     }
 
-    public void setReader(InputReader reader) {
-        this.reader = reader;
-    }
-
     private void beginning() {
         playerHuman = new Human(reader);
         playerAI = new PlayerAI();
         fieldsFilling(playerHuman);
         fieldsFilling(playerAI);
-
-//        setReader(new ConsoleInputReader()); // debugging
     }
 
     private void fieldsFilling(Player player) {
