@@ -6,6 +6,7 @@ import course_project.models.Ship;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Exchanger;
 
@@ -14,6 +15,7 @@ public class UserThread implements Runnable {
     private final Exchanger<String> exchanger;
     private final List<Ship> ships;
     private final List<Ship> userShips;
+    private final List<Cell> strikes = new ArrayList<>();
 
     public UserThread(Exchanger<String> exchanger, List<Ship> ships, List<Ship> userShips) {
         this.exchanger = exchanger;
@@ -80,7 +82,10 @@ public class UserThread implements Runnable {
                 int y = Character.getNumericValue(line.charAt(0));
                 char x = line.charAt(1);
 
-                makeStrike(y,x,ships);
+                if (!makeStrike(y,x,ships)) {
+                    System.out.println("You have already striked is this cell.");
+                    continue;
+                }
 
                 if (SeaBattle.testMode) {
                     System.out.println("Computer ships:");
@@ -129,7 +134,7 @@ public class UserThread implements Runnable {
         }
     }
 
-    void makeStrike(int y, char x, List<Ship> ships) {
+    boolean makeStrike(int y, char x, List<Ship> ships) {
 
         String strStrike = "Miss";
 
@@ -137,14 +142,20 @@ public class UserThread implements Runnable {
         tmpUserCell.setDigit(y);
         tmpUserCell.setLetter(x);
 
-        for (Ship ship : ships) {
-            if (ship.getShipCells().contains(tmpUserCell)) {
-                Strike strike = new Strike(ship);
-                strStrike = strike.getStrike(tmpUserCell);
-                break;
+        if (!strikes.contains(tmpUserCell)) {
+            for (Ship ship : ships) {
+                if (ship.getShipCells().contains(tmpUserCell)) {
+                    Strike strike = new Strike(ship);
+                    strStrike = strike.getStrike(tmpUserCell);
+                    break;
+                }
             }
-        }
 
-        System.out.println(strStrike);
+            System.out.println(strStrike);
+            strikes.add(tmpUserCell);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
