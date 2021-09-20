@@ -6,9 +6,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CustomRegexMatcher {
-    final private static String REGEX = "^\\w*@\\w*\\.\\w*";
-    // that regex Matches only email-like strings, starting from the beginning of the line
-    //for example "Allzza4279@gmail.com" or "regex@lul.notmail1", but not " dimatroshkin@mail.ru"
+    final private static String REGEX = "\\w*@\\w*\\.\\w*";
+    // that regex Matches only email-like strings
+    //for example "Allzza4279@gmail.com" or "regex@lul.notmail1", " dimatroshkin@mail.ru"
 
     public static void run() {
         try {
