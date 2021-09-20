@@ -50,7 +50,7 @@ public final class ImmutableClass {
     public ImmutableClass(String className, int yearOfBirth, char[] password) {
         this.className = className;
         this.yearOfBirth = yearOfBirth;
-        this.password = password;
+        this.password = Arrays.copyOf(password, password.length);
     }
 
     public final ImmutableClass getChangedInstance(String className) {
@@ -80,4 +80,5 @@ public final class ImmutableClass {
     final char[] getPassword() {
         return Arrays.copyOf(password, password.length);
     }
+
 }
