@@ -3,10 +3,10 @@ package homework_7;
 public class Kitten {
     private final String breed;
     private final int age;
-    private final int colour;
+    private final String colour;
     private final String favoriteMeal;
 
-    public Kitten(String breed, int age, int colour, String favoriteMeal) {
+    public Kitten(String breed, int age, String colour, String favoriteMeal) {
         this.breed = breed;
         this.age = age;
         this.colour = colour;
@@ -21,7 +21,7 @@ public class Kitten {
         return age;
     }
 
-    public int getColour() {
+    public String getColour() {
         return colour;
     }
 
