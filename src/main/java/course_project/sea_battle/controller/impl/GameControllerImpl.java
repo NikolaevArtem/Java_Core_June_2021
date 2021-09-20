@@ -1,6 +1,7 @@
 package course_project.sea_battle.controller.impl;
 
 import course_project.sea_battle.controller.*;
+import course_project.sea_battle.model.CellStatus;
 import course_project.sea_battle.model.Game;
 import course_project.sea_battle.model.GamePlayer;
 
@@ -23,7 +24,7 @@ public final class GameControllerImpl implements GameController{
         gameSetupsController.setShips(game.getPlayer2().getFieldPlayer());
         ioController.print("Да начнется битва");
 
-        doGame(game, 2000);
+        doGame(game);
         ioController.close();
     }
 
@@ -40,7 +41,7 @@ public final class GameControllerImpl implements GameController{
         game.setPlayer2(playerController.instance(name2));
     }
 
-    private void doGame(Game game, long nanoSec){
+    private void doGame(Game game){
         boolean isPlayer1Move = true;
         boolean isGameOver = false;
 
@@ -57,21 +58,19 @@ public final class GameControllerImpl implements GameController{
                 playerDef = game.getPlayer1();
             }
 
-            ioController.print(playerAtk.getName() + ", Ваш ход!");
+            ioController.dialog(playerAtk.getName() + ", Ваш ход!");
             fieldController.drawFields(playerAtk.getFieldPlayer(), playerAtk.getRadarPlayer());
             String coordinate;
             do coordinate = ioController.dialog("Координаты:");
-            while (!fireController.fire(playerDef.getFieldPlayer(),
+            while (fireController.checkFire(playerAtk.getRadarPlayer(), coordinate));
+            CellStatus cellStatus = fireController.fire(playerDef.getFieldPlayer(),
                     playerAtk.getRadarPlayer(),
-                    coordinate));
+                    coordinate);
             fieldController.drawFields(playerAtk.getFieldPlayer(), playerAtk.getRadarPlayer());
-            isPlayer1Move = !isPlayer1Move;
-            isGameOver = !shipController.isAnyShipAlive(playerDef.getFieldPlayer());
-            try {
-                Thread.sleep(nanoSec);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            if (cellStatus != CellStatus.HIT) {
+                isPlayer1Move = !isPlayer1Move;
             }
+            isGameOver = !shipController.isAnyShipAlive(playerDef.getFieldPlayer());
         }
         ioController.print(playerAtk.getName() + " Выйграл!");
         ioController.print(playerDef.getName() + " Проиграл!");

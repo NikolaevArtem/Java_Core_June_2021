@@ -8,6 +8,8 @@ import java.util.Arrays;
 
 public final class ShipControllerImpl implements ShipController {
     private final ValidateControllerImpl validateController = ValidateControllerImpl.getInstance();
+    private final ParserControllerImpl parserController = ParserControllerImpl.getInstance();
+
     private ShipControllerImpl() {}
 
     @Override
@@ -16,7 +18,11 @@ public final class ShipControllerImpl implements ShipController {
         if (validateController.coordinate(coordinate)) return false;
         if (!validateController.vector(vector)) return false;
 
-        Ship ship = new Ship(size, coordinate, vector);
+        int[] cordXY = parserController.parseCoordinate(coordinate);
+        int x = cordXY[0], y = cordXY[1];
+        boolean isVertical = parserController.isVerticalVector(vector);
+
+        Ship ship = new Ship(size, x, y, isVertical);
 
         if (!isAvailable(field, ship)) return false;
         for (int i = 0; i < ship.getSize(); i++) {
@@ -110,12 +116,12 @@ public final class ShipControllerImpl implements ShipController {
         private final int starX;
         private final int startY;
 
-        public Ship(int size, String coordinate, String vector) {
+        public Ship(int size, int x, int y, boolean isVertical) {
             this.size = size;
 
-            this.starX = coordinate.toLowerCase().charAt(0) - 'a';
-            this.startY = Integer.parseInt(coordinate.toLowerCase().substring(1)) - 1;
-            this.isVertical = vector.equals("v");
+            this.starX = x;
+            this.startY = y;
+            this.isVertical = isVertical;
         }
 
         public int getSize() {
