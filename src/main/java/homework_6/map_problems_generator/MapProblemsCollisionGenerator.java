@@ -1,11 +1,9 @@
 package homework_6.map_problems_generator;
 
-import java.util.HashMap;
-import java.util.Objects;
-
 public class MapProblemsCollisionGenerator {
 
     private int id;
+    private int countCallEquals;
 
     public MapProblemsCollisionGenerator(int id) {
         this.id = id;
@@ -19,8 +17,13 @@ public class MapProblemsCollisionGenerator {
         this.id = id;
     }
 
+    public int getCountCallEquals() {
+        return countCallEquals;
+    }
+
     @Override
     public boolean equals(Object o) {
+        countCallEquals++;
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MapProblemsCollisionGenerator that = (MapProblemsCollisionGenerator) o;
