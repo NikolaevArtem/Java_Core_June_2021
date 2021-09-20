@@ -62,6 +62,7 @@ public class SeaBattle {
             } else if ("yes".equals(answer)){
                 break;
             }
+            System.out.println("yes or no?");
         }
     }
 
@@ -116,6 +117,7 @@ public class SeaBattle {
                 return true;
             }
             System.out.println("Your PC moves again.");
+            waitingPressEnter();
             return false;
         } else {
             target.setState(CellState.MISS);
