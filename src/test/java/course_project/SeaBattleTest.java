@@ -10,10 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SeaBattleTest {
     SeaBattle game = new SeaBattle("\n", " ");
-    /*static final TreeMap<Integer, Integer> numberOfShips = new TreeMap<Integer, Integer>() {{
-        put(2, 1);
-        put(1, 1);
-    }};*/
 
     @Test
     void setPlayerNamesTest() {
