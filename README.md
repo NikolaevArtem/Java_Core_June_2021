@@ -15,5 +15,6 @@
 | HW5 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_5/power_of_number) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_5/power_of_number) | The app that raises a number to a power  |
 |-----| [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_5/custom_regex_matcher) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_5/custom_regex_matcher) | The app that check input string by hardcoded regex and return boolean answer |
 | HW6 | [MapProblemsGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_6/map_problem_generator)|Two classes that allow you to check the work of the collision and create a situation where it is impossible to get the object just put|
+| HW7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_7)|Functional interface that allows you to transform a Kitten into a Cat|
 
 [CodingBat link](https://codingbat.com/done?user=slowly@live.ru&tag=8165639202)
