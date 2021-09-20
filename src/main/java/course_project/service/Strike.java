@@ -9,21 +9,49 @@ package course_project.service;
 import course_project.models.Cell;
 import course_project.models.Ship;
 
-public class Strike {
-    private Ship ship;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Strike(Ship ship) {
-        this.ship = ship;
+public class Strike {
+    private final List<Cell> strikes = new ArrayList<>();
+
+    public List<Cell> getStrikes() {
+        return strikes;
     }
 
-    public String getStrike(Cell strikedCell) {
+    boolean makeStrike(int y, char x, List<Ship> ships) {
+
+        String strStrike = "Miss";
+        Cell tmpUserCell = new Cell();
+        tmpUserCell.setDigit(y);
+        tmpUserCell.setLetter(x);
+
+        if (!strikes.contains(tmpUserCell)) {
+            for (Ship ship : ships) {
+                if (ship.getShipCells().contains(tmpUserCell)) {
+                    strStrike = makeCellStrike(ship, tmpUserCell);
+                    break;
+                }
+            }
+
+            System.out.println(strStrike);
+            strikes.add(tmpUserCell);
+            return true;
+        } else {
+            System.out.println("You have already striked this cell.");
+            return false;
+        }
+    }
+
+    public String makeCellStrike(Ship ship, Cell strikedCell) {
+
         for (Cell cell : ship.getShipCells()) {
             if (cell.equals(strikedCell)) {
                 if (cell.isBeaten()) {
                     return "It was already beaten";
                 }
                 cell.setBeaten(true);
-                if (shipDown()) {
+                if (shipDown(ship)) {
                     return "Ship is sunked!";
                 }
 
@@ -32,8 +60,8 @@ public class Strike {
         }
         return "Miss!";
     }
-    
-    private boolean shipDown() {
+
+    private boolean shipDown(Ship ship) {
         for (Cell cell : ship.getShipCells()) {
             if (cell.isBeaten() == false) {
                 return false;

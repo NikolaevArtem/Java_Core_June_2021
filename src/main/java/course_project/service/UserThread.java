@@ -3,19 +3,22 @@ package course_project.service;
 import course_project.SeaBattle;
 import course_project.models.Cell;
 import course_project.models.Ship;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Exchanger;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class UserThread implements Runnable {
     private final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private final Exchanger<String> exchanger;
     private final List<Ship> ships;
     private final List<Ship> userShips;
-    private final List<Cell> strikes = new ArrayList<>();
+    private final Strike strikes = new Strike();
+    private final Strike userStrikes = new Strike();
 
     public UserThread(Exchanger<String> exchanger, List<Ship> ships, List<Ship> userShips) {
         this.exchanger = exchanger;
@@ -27,6 +30,9 @@ public class UserThread implements Runnable {
         String message = "";
         String strStrike = "";
         boolean finished = false;
+
+        printUserStrikes();
+        printComputerStrikes();
 
         while (true) {
 
@@ -46,17 +52,13 @@ public class UserThread implements Runnable {
                     int y = Character.getNumericValue(message.charAt(0));
                     char x = message.charAt(1);
 
-                    makeStrike(y,x,userShips);
+                    strikes.makeStrike(y, x, userShips);
 
                 } else {
                     System.out.println("Out of field!");
                 }
 
-                System.out.println("User ships:");
-
-                for (Ship ship : userShips) {
-                    System.out.println(ship);
-                }
+                printComputerStrikes();
             }
 
             System.out.println("Enter the cell in format [int+char]: ");
@@ -82,17 +84,11 @@ public class UserThread implements Runnable {
                 int y = Character.getNumericValue(line.charAt(0));
                 char x = line.charAt(1);
 
-                if (!makeStrike(y,x,ships)) {
-                    System.out.println("You have already striked is this cell.");
+                if (!userStrikes.makeStrike(y, x, ships)) {
                     continue;
                 }
 
-                if (SeaBattle.testMode) {
-                    System.out.println("Computer ships:");
-                    for (Ship ship : ships) {
-                        System.out.println(ship);
-                    }
-                }
+                printUserStrikes();
 
             } else {
                 System.out.println("Out of field!");
@@ -134,28 +130,102 @@ public class UserThread implements Runnable {
         }
     }
 
-    boolean makeStrike(int y, char x, List<Ship> ships) {
+    void printUserStrikes() {
+        System.out.println("Computer's field");
 
-        String strStrike = "Miss";
+        System.out.format("%5s"," ");
 
-        Cell tmpUserCell = new Cell();
-        tmpUserCell.setDigit(y);
-        tmpUserCell.setLetter(x);
+        List<Character> hor = IntStream.iterate(0, i -> i + 1)
+                .limit(SeaBattle.FIELD_SIZE)
+                .boxed()
+                .map(e -> (char) (e + 'a'))
+                .collect(Collectors.toList());
 
-        if (!strikes.contains(tmpUserCell)) {
-            for (Ship ship : ships) {
-                if (ship.getShipCells().contains(tmpUserCell)) {
-                    Strike strike = new Strike(ship);
-                    strStrike = strike.getStrike(tmpUserCell);
-                    break;
+        for  (Character character : hor) {
+            System.out.format("%5s", character);
+        }
+
+        System.out.println();
+
+        for (int i = 0; i < SeaBattle.FIELD_SIZE; i++) {
+
+            System.out.format("%5s", i);
+
+            for (int j = 0; j < SeaBattle.FIELD_SIZE; j++) {
+
+                Cell tmpUserCell = new Cell();
+                tmpUserCell.setDigit(i);
+                tmpUserCell.setLetter((char) (j + 'a'));
+                String mark = "-";
+
+                if (userStrikes.getStrikes().contains(tmpUserCell)) {
+                    mark = "X";
                 }
-            }
 
-            System.out.println(strStrike);
-            strikes.add(tmpUserCell);
-            return true;
-        } else {
-            return false;
+                for (Ship ship : ships) {
+                    for (Cell cell : ship.getShipCells()) {
+                        if (cell.equals(tmpUserCell)) {
+                            if (cell.isBeaten()) {
+                                mark = "0";
+                            }
+                        }
+                    }
+                }
+
+                System.out.format("%5s", mark);
+            }
+            System.out.println();
         }
     }
+
+    void printComputerStrikes() {
+        System.out.println("User's field");
+
+        System.out.format("%5s"," ");
+
+        List<Character> hor = IntStream.iterate(0, i -> i + 1)
+                .limit(SeaBattle.FIELD_SIZE)
+                .boxed()
+                .map(e -> (char) (e + 'a'))
+                .collect(Collectors.toList());
+
+        for  (Character character : hor) {
+            System.out.format("%5s", character);
+        }
+
+        System.out.println();
+
+        for (int i = 0; i < SeaBattle.FIELD_SIZE; i++) {
+
+            System.out.format("%5s", i);
+
+            for (int j = 0; j < SeaBattle.FIELD_SIZE; j++) {
+
+                Cell tmpUserCell = new Cell();
+                tmpUserCell.setDigit(i);
+                tmpUserCell.setLetter((char) (j + 'a'));
+                String mark = "-";
+
+                if (strikes.getStrikes().contains(tmpUserCell)) {
+                    mark = "X";
+                }
+
+                for (Ship ship : userShips) {
+                    for (Cell cell : ship.getShipCells()) {
+                        if (cell.equals(tmpUserCell)) {
+                            if (cell.isBeaten()) {
+                                mark = "@";
+                            } else {
+                                mark = "0";
+                            }
+                        }
+                    }
+                }
+
+                System.out.format("%5s", mark);
+            }
+            System.out.println();
+        }
+    }
+
 }
