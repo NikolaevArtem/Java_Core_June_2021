@@ -9,23 +9,69 @@ import java.util.TreeMap;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SeaBattleTest {
-    SeaBattle game = new SeaBattle("\n", " ");
 
     @Test
     void setPlayerNamesTest() {
-        //SeaBattle game = new SeaBattle("\n", " ");
+        Player.numberOfUsers = 0;
+        SeaBattle game = new SeaBattle("\n", " ");
         Assertions.assertEquals("Unknown1", game.getPlayer1().getName());
         Assertions.assertEquals("Unknown2", game.getPlayer2().getName());
     }
 
     @Test
+    void stringToCellTest() {
+        Assertions.assertArrayEquals(new int[]{3, 0}, Field.stringToCell("A4"));
+        Assertions.assertArrayEquals(new int[]{0, 9}, Field.stringToCell("J1"));
+        Assertions.assertNull(Field.stringToCell("A14"));
+        Assertions.assertNull(Field.stringToCell("A-4"));
+        Assertions.assertNull(Field.stringToCell("M4"));
+        Assertions.assertNull(Field.stringToCell("a4"));
+        Assertions.assertNull(Field.stringToCell("4"));
+    }
+
+    @Test
+    void shipRightCreationTest() {
+        SeaBattle game = new SeaBattle("Player1", "Player2");
+        Assertions.assertTrue(game.getPlayer1().getField().createShip(4, new String[]{"A1", "A4"}));
+        Assertions.assertTrue(game.getPlayer1().getField().createShip(1, new String[]{"J10"}));
+    }
+
+    @Test
+    void shipWrongCreationTest() {
+        SeaBattle game = new SeaBattle("Player1", "Player2");
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(4, new String[]{"A1", "A1"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(4, new String[]{"A1", "A-2"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(4, new String[]{"A1", "A1"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(4, new String[]{"A1", "B4"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(4, new String[]{"A1", "A3"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(4, new String[]{"A1", "A4", "A1"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(4, new String[]{"A1", "AA4"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(4, new String[]{"A1", null}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(4, new String[]{null, "A4"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(1, new String[]{null}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(4, new String[]{"A10", "A13"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(4, new String[]{"K1", "K4"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(1, new String[]{"J10 J"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(1, new String[]{"J11"}));
+    }
+
+    @Test
+    void shipWrongCreationTest2() {
+        SeaBattle game = new SeaBattle("Player1", "Player2");
+        Assertions.assertTrue(game.getPlayer1().getField().createShip(4, new String[]{"A1", "A4"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(4, new String[]{"A1", "D1"}));
+    }
+
+    @Test
     void shipIsInAStraightLineTest() {
+        SeaBattle game = new SeaBattle("Player1", "Player2");
         Assertions.assertTrue(Ship.shipIsInAStraightLine(4, new int[]{2, 3}, new int[]{5, 3}));
         Assertions.assertFalse(Ship.shipIsInAStraightLine(4, new int[]{2, 3}, new int[]{5, 2}));
     }
 
     @Test
     void rightShipLengthTest() {
+        SeaBattle game = new SeaBattle("Player1", "Player2");
         Assertions.assertTrue(Ship.rightShipLength(4, new int[]{2, 3}, new int[]{5, 3}));
         Assertions.assertFalse(Ship.rightShipLength(4, new int[]{2, 3}, new int[]{4, 3}));
         Assertions.assertTrue(Ship.rightShipLength(1, new int[]{2, 3}, new int[]{2, 3}));
@@ -34,6 +80,7 @@ class SeaBattleTest {
 
     @Test
     void cellBelongsToShipTest() {
+        SeaBattle game = new SeaBattle("Player1", "Player2");
         Ship ship = new Ship(4, new int[][] {{1, 2}, {1, 3}, {1, 4}, {1, 5}});
         Assertions.assertTrue(ship.cellBelongsToShip(new int[]{1, 3}));
         Assertions.assertFalse(ship.cellBelongsToShip(new int[]{2, 3}));
@@ -41,6 +88,7 @@ class SeaBattleTest {
 
     @Test
     void setShipHitAndSunkTest() {
+        SeaBattle game = new SeaBattle("Player1", "Player2");
         Ship ship = new Ship(2, new int[][] {{1, 2, 0}, {1, 3, 0}});
         assertSame(ship.getShipStatus(), Ship.status.INTACT);
         ship.setCellHit(new int[]{1, 2});

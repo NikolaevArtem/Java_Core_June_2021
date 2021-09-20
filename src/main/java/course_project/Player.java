@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 @Data
 public class Player {
-    private static int numberOfUsers;
+    public static int numberOfUsers;
     private String name;
     private Field field;
     private Scanner scanner;

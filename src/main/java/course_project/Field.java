@@ -40,7 +40,7 @@ public class Field {
 
         try {
             int lineNumber = Integer.parseInt(lineNumberStr);
-            if (lineNumber > 10) {
+            if (lineNumber < 1 || lineNumber > 10) {
                 return null;
             }
             return new int[]{lineNumber - 1, columnNumber - 1};
@@ -61,8 +61,12 @@ public class Field {
         int[] beginningCell;
         int[] endCell;
 
-        if ((shipLength == 1 && shipCoordinates.length != 1)
-                || (shipLength > 1 && shipCoordinates.length != 2)) {
+        if (shipLength == 1 && (shipCoordinates.length != 1 || shipCoordinates[0] == null)) {
+            System.out.println("Error! Wrong length of the ship! Try again.\n");
+            return false;
+        } else if (shipLength > 1 && (shipCoordinates.length != 2
+                || shipCoordinates[0] == null
+                || shipCoordinates[1] == null)) {
             System.out.println("Error! Wrong length of the ship! Try again.\n");
             return false;
         }
