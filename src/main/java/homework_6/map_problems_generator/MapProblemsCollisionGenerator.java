@@ -29,11 +29,23 @@ public class MapProblemsCollisionGenerator {
 
     @Override
     public boolean equals(Object o) {
-        return true;
+        System.out.println("Calling equals() for key: " + o);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MapProblemsCollisionGenerator that = (MapProblemsCollisionGenerator) o;
+        return problemNumber == that.problemNumber && Objects.equals(problemName, that.problemName);
     }
 
     @Override
     public int hashCode() {
         return problemNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "problemNumber=" + problemNumber +
+                ", problemName='" + problemName + '\'' +
+                '}';
     }
 }

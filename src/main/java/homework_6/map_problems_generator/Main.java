@@ -4,17 +4,20 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Illustration of collision:");
         HashMap<MapProblemsCollisionGenerator, String> map = new HashMap<>();
         MapProblemsCollisionGenerator key11 = new MapProblemsCollisionGenerator(1, "firstProblem");
-        MapProblemsCollisionGenerator key12 = new MapProblemsCollisionGenerator(1, "secondProblem");
+        MapProblemsCollisionGenerator key12 = new MapProblemsCollisionGenerator(2, "secondProblem");
         MapProblemsCollisionGenerator key13 = new MapProblemsCollisionGenerator(2, "thirdProblem");
         map.put(key11, "firstValue");
         map.put(key12, "secondValue");
         map.put(key13, "thirdValue");
-        System.out.println("Illustration of collision:");
-        System.out.println("Value of first key is " + map.get(key11) + ", must be firstValue");
-        System.out.println("Value of second key is " + map.get(key12) + ", must be secondValue");
-        System.out.println("Value of third key is " + map.get(key13) + ", must be thirdValue");
+        String v1 = map.get(key11);
+        System.out.println("Value of first key is " + v1);
+        String v2 = map.get(key12);
+        System.out.println("Value of second key is " + v2);
+        String v3 = map.get(key13);
+        System.out.println("Value of third key is " + v3);
 
         HashMap<MapProblemsMutableGenerator, String> mutableMap = new HashMap<>();
         MapProblemsMutableGenerator key21 = new MapProblemsMutableGenerator(1, "firstProblem");
