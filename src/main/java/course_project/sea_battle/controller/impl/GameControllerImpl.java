@@ -24,6 +24,7 @@ public final class GameControllerImpl implements GameController{
         ioController.print("Да начнется битва");
 
         doGame(game, 2000);
+        ioController.close();
     }
 
     private void addPlayers(Game game) {

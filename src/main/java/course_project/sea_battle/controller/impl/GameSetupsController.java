@@ -5,10 +5,10 @@ import course_project.sea_battle.controller.ShipController;
 import course_project.sea_battle.model.Field;
 
 public final class GameSetupsController {
-    private final int[] DECK_4 = {4, 0};
-    private final int[] DECK_3 = {3, 0};
-    private final int[] DECK_2 = {2, 0};
-    private final int[] DECK_1 = {1, 2};
+    private final int[] DECK_4 = {4, 1};
+    private final int[] DECK_3 = {3, 2};
+    private final int[] DECK_2 = {2, 3};
+    private final int[] DECK_1 = {1, 4};
 
     private final ShipController shipController = ShipControllerImpl.getInstance();
     private final IOControllerImpl ioController = IOControllerImpl.getInstance();
