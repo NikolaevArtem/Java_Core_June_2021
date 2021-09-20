@@ -4,10 +4,10 @@ public class Cat {
 
     private final String breed;
     private final int age;
-    private final int colour;
+    private final String colour;
     private final int weight;
 
-    public Cat(String breed, int age, int colour, int weight) {
+    public Cat(String breed, int age, String colour, int weight) {
         this.breed = breed;
         this.age = age;
         this.colour = colour;
@@ -22,7 +22,7 @@ public class Cat {
         return age;
     }
 
-    public int getColour() {
+    public String getColour() {
         return colour;
     }
 
