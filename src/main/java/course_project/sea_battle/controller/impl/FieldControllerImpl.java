@@ -38,13 +38,12 @@ public final class FieldControllerImpl implements FieldController {
 
     @Override
     public void drawFields(Field... fields) {
-        Optional<String[]> reduce = Arrays.stream(fields)
+        Arrays.stream(fields)
                 .map(this::prepareForPrint)
                 .reduce((arr1, arr2) -> {
                     Arrays.setAll(arr1, i -> arr1[i] + "\t" + arr2[i]);
                     return arr1;
-                });
-        reduce.ifPresent(x -> Arrays.stream(x).forEach(ioController::print));
+                }).ifPresent(x -> Arrays.stream(x).forEach(ioController::print));
     }
 
     private String[] prepareForPrint(Field field) {

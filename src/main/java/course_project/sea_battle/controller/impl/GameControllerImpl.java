@@ -62,7 +62,7 @@ public final class GameControllerImpl implements GameController{
             fieldController.drawFields(playerAtk.getFieldPlayer(), playerAtk.getRadarPlayer());
             String coordinate;
             do coordinate = ioController.dialog("Координаты:");
-            while (fireController.checkFire(playerAtk.getRadarPlayer(), coordinate));
+            while (!fireController.checkFire(playerAtk.getRadarPlayer(), coordinate));
             CellStatus cellStatus = fireController.fire(playerDef.getFieldPlayer(),
                     playerAtk.getRadarPlayer(),
                     coordinate);
