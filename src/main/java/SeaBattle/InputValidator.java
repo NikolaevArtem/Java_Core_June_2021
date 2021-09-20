@@ -9,7 +9,7 @@ public interface InputValidator {
         } else if(col == -1) {
             System.out.println("Invalid input, please repeat input ");
             return true;
-        } else if(board[row][col] == 'x') {
+        } else if(board[row][col] == 'x' || board[row][col] == 'X') {
             System.out.println("Already bombed, please repeat input ");
             return true;
         } else if(board[row][col] == '0') {

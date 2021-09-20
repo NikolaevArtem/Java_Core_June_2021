@@ -17,12 +17,11 @@ public class StartGame {
         char[][] board = test.createBoardWithShips();
 
         while(true) {
-
             PrintArray.printBoard(board);
+
             Scanner in = new Scanner(System.in);
             try {
                 String playerChoice = in.next();
-                System.out.println(playerChoice);
 
                 int col = LETTERS.indexOf(playerChoice.toUpperCase().charAt(0));
                 int row = Integer.parseInt(playerChoice.substring(1)) - 1;
