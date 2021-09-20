@@ -17,6 +17,21 @@ public class PlayerService {
     private static boolean gameOn = true;
     private static int mod = 0;
 
+    public static void fire(Player shooterPlayer) {
+
+        Player enemyPlayer = shooterPlayer.getEnemy();
+        Square square = shooterPlayer.isComputer() ? Computer.giveSquare() : InputUtil.getSquare();
+        Square shotSquare = shooterPlayer.getEnemy().getGrid().getSquare(square.getX(), square.getY());
+
+        if (isHit(enemyPlayer, shotSquare)) {
+            ShipService.processFire(enemyPlayer, square);
+        } else {
+            turn = !turn;
+            DisplayService.showMissMsg(enemyPlayer);
+            delayBetweenBattleScreens(mod);
+        }
+    }
+
     public static Player getWhoseTurn() {
         return turn ? playerList.get(0) : playerList.get(1);
     }
@@ -25,22 +40,23 @@ public class PlayerService {
         return winnerPlayer;
     }
 
-    public static void fire(Player shooterPlayer) {
+    public static void setMod(int modFromInitialGameService) {
+        mod = modFromInitialGameService;
+    }
 
-        Player enemyPlayer = shooterPlayer.getEnemy();
-        Square square = shooterPlayer.isComputer() ? Computer.giveSquare() : InputUtil.getSquare();
-        int x = square.getX();
-        int y = square.getY();
-        Square shotSquare = shooterPlayer.getEnemy().getGrid().getSquare(x, y);
+    public static int getScore() {
+        return winnerPlayer.getRemainingAliveSquares() + 1;
 
-        if (isHit(enemyPlayer ,shotSquare)) {
-            ShipService.processFire(enemyPlayer, square);
-        } else {
-            turn = !turn;
-            DisplayService.showMissMsg(enemyPlayer);
-            delayBetweenBattleScreens(mod);
+    }
+
+    public static boolean isBattleGoing() {
+        for (Player player : playerList) {
+            if (player.getRemainingAliveSquares() == 0) {
+                gameOn = false;
+                winnerPlayer = player.getEnemy();
+            }
         }
-
+        return gameOn;
     }
 
     private static void delayBetweenBattleScreens(int mod) {
@@ -63,16 +79,6 @@ public class PlayerService {
         }
     }
 
-    public static boolean isBattleGoing() {
-        for (Player player : playerList) {
-            if (player.getRemainingAliveSquares() == 0) {
-                gameOn = false;
-                winnerPlayer = player.getEnemy();
-            }
-        }
-        return gameOn;
-    }
-
     public static void setEnemyPlayers(List<Player> playerListFromInitialService) {
         playerList = playerListFromInitialService;
         Player player1 = playerList.get(0);
@@ -81,16 +87,7 @@ public class PlayerService {
         player2.setEnemy(playerList.get(0));
     }
 
-    public static void setRemainingAliveSquares(Player player) {
-
-        for (Ship ship : player.getShipList()) {
-            int remainingAliveSquares = player.getRemainingAliveSquares();
-            remainingAliveSquares += ship.getShipHeal();
-            player.setRemainingAliveSquares(remainingAliveSquares);
-        }
-    }
-
-    private static boolean isHit(Player enemyPlayer ,Square shotSquare) {
+    private static boolean isHit(Player enemyPlayer, Square shotSquare) {
 
         SquareType shotSquareStatus = shotSquare.getSquareStatus();
 
@@ -111,20 +108,19 @@ public class PlayerService {
         }
     }
 
+    public static void setRemainingAliveSquares(Player player) {
+
+        for (Ship ship : player.getShipList()) {
+            int remainingAliveSquares = player.getRemainingAliveSquares();
+            remainingAliveSquares += ship.getShipHeal();
+            player.setRemainingAliveSquares(remainingAliveSquares);
+        }
+    }
+
     private static void decreaseRemainingAliveSquares(Player enemyPlayer) {
 
         int remainingAliveSquares = enemyPlayer.getRemainingAliveSquares();
-        remainingAliveSquares -= 1;
-        enemyPlayer.setRemainingAliveSquares(remainingAliveSquares);
 
-    }
-
-    public static void setMod(int modFromInitialGameService) {
-        mod = modFromInitialGameService;
-    }
-
-    public static int getScore() {
-        return   winnerPlayer.getRemainingAliveSquares() + 1;
-
+        enemyPlayer.setRemainingAliveSquares(--remainingAliveSquares);
     }
 }

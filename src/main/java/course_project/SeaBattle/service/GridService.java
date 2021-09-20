@@ -20,7 +20,6 @@ public class GridService {
         }
         grid.setSquares(squares);
         player.setGrid(grid);
-
     }
 
     public static void addShipsToGrid(Grid grid, List<Ship> shipList) {
@@ -31,7 +30,6 @@ public class GridService {
                 grid.setSquare(x, y, square);
             }
             for (Square square : ship.getBoundedSquare()) {
-
                 int x = square.getX();
                 int y = square.getY();
                 if (square.getSquareStatus().equals(grid.getSquare(x, y).getSquareStatus())) {
@@ -41,7 +39,5 @@ public class GridService {
                     grid.setSquare(x, y, square);
             }
         }
-
     }
-
 }

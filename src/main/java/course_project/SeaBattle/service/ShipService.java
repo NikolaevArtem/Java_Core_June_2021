@@ -77,8 +77,8 @@ public class ShipService {
                 .stream()
                 .filter(ShipService::isLegalSquare)
                 .collect(Collectors.toList());
-        ship.setBoundedSquare(legalBoardSquare);
 
+        ship.setBoundedSquare(legalBoardSquare);
     }
 
     private static boolean isSupposeSquareIntersect(List<Ship> shipList,

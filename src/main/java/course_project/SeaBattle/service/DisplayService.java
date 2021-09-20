@@ -3,72 +3,70 @@ package course_project.SeaBattle.service;
 import course_project.SeaBattle.model.Player;
 import course_project.SeaBattle.model.Ship;
 import course_project.SeaBattle.view.ConsolePrinter;
-import course_project.SeaBattle.view.MenuScreen;
+import course_project.SeaBattle.view.Printer;
 
 public class DisplayService {
 
-    static ConsolePrinter consolePrinter = new ConsolePrinter();
-    static MenuScreen menuScreen = new MenuScreen();
+    static Printer printer = new ConsolePrinter();
 
     public static void showMainMenuScreen() {
-        menuScreen.printMainMenu();
+        printer.printMainMenu();
     }
 
     public static void showChooseShipArrangeModScreen() {
-        menuScreen.printShipArrangeMod();
+        printer.printShipArrangeMod();
     }
 
     public static void showEnterNameScreen() {
-        menuScreen.printEnterName();
+        printer.printEnterName();
     }
 
     public static void showMainBattleScreen(Player shooterPlayer) {
-        consolePrinter.printBattleGrids(shooterPlayer);
+        printer.printBattleGrids(shooterPlayer);
     }
 
     public static void showPrepareBattleScreen(Player preparePlayer) {
-        consolePrinter.printPrepareGrid(preparePlayer);
+        printer.printPrepareGrid(preparePlayer);
     }
 
     public static void showCheersWinnerScreen(Player winner) {
-        consolePrinter.cheersMessage(winner);
-        consolePrinter.printScore(PlayerService.getScore());
+        printer.cheersMessage(winner);
+        printer.printScore(PlayerService.getScore());
     }
 
     public static void showPrepareShipMessage(Ship ship) {
-        consolePrinter.printPrepareShipMessage(ship);
+        printer.printPrepareShipMessage(ship);
     }
 
     public static void getShipDirection() {
-        consolePrinter.printShipDirectionRequest();
+        printer.printShipDirectionRequest();
     }
 
     public static void errorArrangeShip() {
-        consolePrinter.printErrorShipArrange();
+        printer.printErrorShipArrange();
     }
 
     public static void cleanScreen() {
-        menuScreen.printClearScreen();
+        printer.printClearScreen();
     }
 
     public static void callPlayerScreen() {
-        menuScreen.printCallPlayer();
+        printer.printCallPlayer();
     }
 
     public static void showHitMsg(Player player) {
         if (!player.isComputer()){
-            consolePrinter.printHit();
+            printer.printHit();
         }
     }
 
     public static void showMissMsg(Player player) {
         if (!player.isComputer()){
-            consolePrinter.printMiss();
+            printer.printMiss();
         }
-
     }
 
     public static void showMsgAlreadyShot() {
-        consolePrinter.printMsgAlreadyShot();
+        printer.printMsgAlreadyShot();
     }
 }
