@@ -23,6 +23,10 @@ class SeaBattleTest {
     void stringToCellTest() {
         Assertions.assertArrayEquals(new int[]{3, 0}, Field.stringToCell("A4"));
         Assertions.assertArrayEquals(new int[]{0, 9}, Field.stringToCell("J1"));
+    }
+
+    @Test
+    void wrongCaseStringToCellTest() {
         Assertions.assertNull(Field.stringToCell("A14"));
         Assertions.assertNull(Field.stringToCell("A-4"));
         Assertions.assertNull(Field.stringToCell("M4"));
@@ -34,6 +38,7 @@ class SeaBattleTest {
     void shipRightCreationTest() {
         SeaBattle game = new SeaBattle("Player1", "Player2");
         Assertions.assertTrue(game.getPlayer1().getField().createShip(4, new String[]{"A1", "A4"}));
+        Assertions.assertTrue(game.getPlayer1().getField().createShip(3, new String[]{"I7", "I5"}));
         Assertions.assertTrue(game.getPlayer1().getField().createShip(1, new String[]{"J10"}));
     }
 
@@ -108,7 +113,6 @@ class SeaBattleTest {
         SeaBattle game = new SeaBattle("Player1", "Player2");
         Field field = game.getPlayer1().getField();
         field.createShip(3, new String[]{"A1", "A3"});
-        field.createShip(1, new String[]{"J8"});
 
         Assertions.assertEquals("miss", field.shotResult(new int[]{9, 7}));
         Assertions.assertEquals("repeat", field.shotResult(new int[]{9, 7}));
@@ -116,13 +120,42 @@ class SeaBattleTest {
         Assertions.assertEquals("hit", field.shotResult(new int[]{1, 0}));
         Assertions.assertEquals("sunk", field.shotResult(new int[]{2, 0}));
         Assertions.assertEquals("repeat", field.shotResult(new int[]{2, 0}));
+    }
+
+    @Test
+    void shotResultTest2() {
+        SeaBattle game = new SeaBattle("Player1", "Player2");
+        Field field = game.getPlayer1().getField();
+        field.createShip(1, new String[]{"J8"});
+
         Assertions.assertEquals("sunk", field.shotResult(new int[]{7, 9}));
     }
 
-    /*
+    @Test
+    void shipStatusTest() {
+        SeaBattle game = new SeaBattle("Player1", "Player2");
+        Field field = game.getPlayer1().getField();
+        field.createShip(3, new String[]{"A1", "A3"});
 
+        Assertions.assertSame(field.getListOfShips().get(0).getShipStatus(), Ship.status.INTACT);
+        field.shotResult(new int[]{0, 0});
+        Assertions.assertSame(field.getListOfShips().get(0).getShipStatus(), Ship.status.HIT);
+        field.shotResult(new int[]{1, 0});
+        Assertions.assertSame(field.getListOfShips().get(0).getShipStatus(), Ship.status.HIT);
+        field.shotResult(new int[]{2, 0});
+        Assertions.assertSame(field.getListOfShips().get(0).getShipStatus(), Ship.status.SUNK);
+    }
 
-    */
+    @Test
+    void shipStatusTest2() {
+        SeaBattle game = new SeaBattle("Player1", "Player2");
+        Field field = game.getPlayer1().getField();
+        field.createShip(1, new String[]{"J8"});
+
+        Assertions.assertSame(field.getListOfShips().get(0).getShipStatus(), Ship.status.INTACT);
+        field.shotResult(new int[]{7, 9});
+        Assertions.assertSame(field.getListOfShips().get(0).getShipStatus(), Ship.status.SUNK);
+    }
 
     @Test
     void setShipHitAndSunkTest() {
