@@ -48,7 +48,7 @@ public class ConsolePrinter implements Printer {
         }
         Square[][] squares = player.getGrid().getSquares();
         Square[][] enemySquares = player.getEnemy().getGrid().getSquares();
-        System.out.println("   Yours greed                  " + player.getEnemy().getName() + "'s greed");
+        System.out.println("   Yours grid                   " + player.getEnemy().getName() + "'s grid");
         System.out.println("   A B C D E F G H I J             A B C D E F G H I J");
 
         for (int y = 0; y < squares[0].length; y++) {
