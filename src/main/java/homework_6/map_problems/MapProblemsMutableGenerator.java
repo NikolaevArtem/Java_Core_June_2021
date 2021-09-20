@@ -19,8 +19,7 @@ public class MapProblemsMutableGenerator extends MapProblemsGenerator {
 
     @Override
     public int hashCode() {
-        return new Random().nextInt(10);
-//        return new Random().nextInt();
+        return Integer.hashCode(clazzAge) + clazzName.hashCode();
     }
 
     @Override
