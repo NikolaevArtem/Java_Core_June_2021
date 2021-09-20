@@ -1,6 +1,6 @@
-package course_project.sea_battle.model.boards;
+package course_project.sea_battle.boards;
 
-abstract class Board {
+public abstract class Board {
 
     protected int[][] board;
 

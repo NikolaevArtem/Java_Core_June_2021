@@ -29,17 +29,15 @@ public class BoardPrinter {
                             System.out.printf("  %s", WAVE);
                             break;
                         case 1:
-                            System.out.printf("  %s", "1");
+                            System.out.printf("  %s", "W");
+                            break;
+                        case 2:
+                            System.out.printf("  %s", MISS);
                             break;
                         case 3:
                             System.out.printf("  %s", HIT);
                             break;
-                        case 2:
-                        case 4:
-                            System.out.printf("  %s", MISS);
-                            break;
                         default:
-                            System.out.printf("  %s", "?");
                     }
                 } else if (j < 12) {
                     System.out.print("\t");
@@ -50,15 +48,13 @@ public class BoardPrinter {
                         case 0:
                             System.out.printf("  %s", WAVE);
                             break;
+                        case 2:
+                            System.out.printf("  %s", MISS);
+                            break;
                         case 3:
                             System.out.printf("  %s", HIT);
                             break;
-                        case 2:
-                        case 4:
-                            System.out.printf("  %s", MISS);
-                            break;
                         default:
-                            System.out.printf("  %s", "?");
                     }
                 }
             }

@@ -1,4 +1,4 @@
-package course_project.sea_battle.model.boards;
+package course_project.sea_battle.boards;
 
 import course_project.sea_battle.model.Point;
 import course_project.sea_battle.model.Ship;

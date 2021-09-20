@@ -4,6 +4,7 @@ import course_project.sea_battle.model.Player;
 import course_project.sea_battle.model.Point;
 import course_project.sea_battle.model.Ship;
 import course_project.sea_battle.model.Shot;
+import course_project.sea_battle.boards.Board;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -12,6 +13,7 @@ import static course_project.sea_battle.view.BigSpace.bigSpace;
 import static course_project.sea_battle.view.BoardPrinter.showBoards;
 
 public class Engine {
+    private final Scanner scanner;
     private int x;
     private int y;
     private boolean isGameOver = false;
@@ -23,43 +25,47 @@ public class Engine {
     private static final String CHECKED = "Cell is checked. Make another shot!";
     private static final String KILLALL = ", you destroyed all enemy ships. Congratulations!";
 
-    public void checkPlayerShot(Scanner scanner, Player player1, Player player2) {
+    public Engine(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public void checkAndValidatePlayerShot(Player player1, Player player2) {
         showBoards(player1);
         System.out.println(player1.getName() + MAKESHOT);
 
-        OUTER:
-        while (true) {
+        while (!isGameOver) {
             String input = scanner.nextLine();
 
             if (!isValidInput(input)) continue;
             if (isShooted(player2)) continue;
             if (!checkCell(player2)) continue;
 
-            putOnMyBoard(player1);
-            putOnEnemyBoard(player2);
+            putOnMyBoard(player1.getMyShots());
+            putOnEnemyBoard(player2.getMyBoard());
 
-            switch (shot) {
-                case KILLED:
-                    fillCellsAroundDestroyedShip(currentShip, player1, player2);
-                    showBoards(player1);
-                    if (isGameOver) {
-                        System.out.println(player1.getName() + KILLALL);
-                        bigSpace();
-                        return;
-                    } else {
-                        System.out.println(player1.getName() + MAKESHOT);
-                    }
-                    break;
-                case HIT:
-                    showBoards(player1);
-                    System.out.println(player1.getName() + MAKESHOT);
-                    break;
-                case MISS:
-                    showBoards(player1);
-                    bigSpace();
-                    break OUTER;
-            }
+            if (!isGameContinue(player1, player2, shot)) break;
         }
+    }
+
+    public boolean isGameContinue(Player me, Player enemy, Shot shot) {
+        if (shot == Shot.KILLED) {
+            fillCellsAroundDestroyedShip(currentShip, me, enemy);
+            showBoards(me);
+            if (isGameOver) {
+                System.out.println(me.getName() + KILLALL);
+                bigSpace();
+            } else {
+                System.out.println(me.getName() + MAKESHOT);
+            }
+        } else if (shot == Shot.HIT) {
+            showBoards(me);
+            System.out.println(me.getName() + MAKESHOT);
+        } else if (shot == Shot.MISS) {
+            showBoards(me);
+            bigSpace();
+            return false;
+        }
+        return true;
     }
 
     public boolean isValidInput(String input) {
@@ -74,7 +80,7 @@ public class Engine {
     }
 
     public boolean isShooted(Player enemy) {
-        if (enemy.getMyBoard().getBoard()[x][y] == 3 || enemy.getMyBoard().getBoard()[x][y] == 4) {
+        if (enemy.getMyBoard().getBoard()[x][y] == 3 || enemy.getMyBoard().getBoard()[x][y] == 2) {
             System.out.println(CHECKED);
             return true;
         }
@@ -99,7 +105,6 @@ public class Engine {
                 if (ship.getLives() == 0) {
                     System.err.println("KILLED!");
                     shot = Shot.KILLED;
-                    ship.setAlive(false);
                     System.out.println(enemy.getName() + " has " + enemy.countShips() + " ship(s) left.");
                     currentShip = ship;
                     if (enemy.countShips() == 0) {
@@ -114,24 +119,24 @@ public class Engine {
         }
     }
 
-    public void putOnMyBoard(Player player) {
-        int[][] tempBoard = player.getMyShots().getBoard();
+    public void putOnMyBoard(Board board) {
+        int[][] tempBoard = board.getBoard();
         if (shot == Shot.MISS) {
             tempBoard[x][y] = 2;
         } else {
             tempBoard[x][y] = 3;
         }
-        player.getMyShots().setBoard(tempBoard);
+        board.setBoard(tempBoard);
     }
 
-    public void putOnEnemyBoard(Player player) {
-        int[][] tempBoard = player.getMyBoard().getBoard();
+    public void putOnEnemyBoard(Board board) {
+        int[][] tempBoard = board.getBoard();
         if (shot == Shot.MISS) {
             tempBoard[x][y] = 2;
         } else {
             tempBoard[x][y] = 3;
         }
-        player.getMyBoard().setBoard(tempBoard);
+        board.setBoard(tempBoard);
     }
 
     public void fillCellsAroundDestroyedShip(Ship ship, Player me, Player enemy) {
@@ -178,8 +183,8 @@ public class Engine {
                 .collect(Collectors.toSet());
 
         for (Point point : filteredPointsAround) {
-            myShots[point.getX()][point.getY()] = 4;
-            enemyMainBoard[point.getX()][point.getY()] = 4;
+            myShots[point.getX()][point.getY()] = 2;
+            enemyMainBoard[point.getX()][point.getY()] = 2;
         }
 
         me.getMyShots().setBoard(myShots);

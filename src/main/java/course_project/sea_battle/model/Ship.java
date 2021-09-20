@@ -22,7 +22,7 @@ public class Ship {
     }
 
     public boolean isAlive() {
-        return isAlive;
+        return lives > 0;
     }
 
     public void setAlive(boolean alive) {
@@ -31,13 +31,6 @@ public class Ship {
 
     public List<Point> getCoordinates() {
         return coordinates;
-    }
-
-    @Override
-    public String toString() {
-        return "Ship{" +
-                "coordinates=" + coordinates +
-                '}';
     }
 
 }

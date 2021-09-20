@@ -1,6 +1,6 @@
 package course_project.sea_battle.service;
 
-import course_project.sea_battle.model.boards.MyBoard;
+import course_project.sea_battle.boards.MyBoard;
 import course_project.sea_battle.model.Point;
 
 import java.util.ArrayList;

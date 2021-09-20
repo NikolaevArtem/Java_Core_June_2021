@@ -1,7 +1,7 @@
 package course_project.sea_battle.model;
 
-import course_project.sea_battle.model.boards.MyBoard;
-import course_project.sea_battle.model.boards.MyShots;
+import course_project.sea_battle.boards.MyBoard;
+import course_project.sea_battle.boards.MyShots;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +15,8 @@ public class Player {
     public Player(MyBoard myBoard, MyShots enemyBoard) {
         this.myBoard = myBoard;
         this.myShots = enemyBoard;
+        myBoard.setBasicGrids();
+        myShots.setBasicGrids();
     }
 
     public String getName() {
