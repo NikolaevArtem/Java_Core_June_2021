@@ -1,10 +1,12 @@
 package course_project.sea_battle.controller.impl;
 
 import course_project.sea_battle.controller.FieldController;
+import course_project.sea_battle.controller.IOController;
 import course_project.sea_battle.model.CellStatus;
 import course_project.sea_battle.model.Field;
 
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 public final class FieldControllerImpl implements FieldController {
@@ -13,6 +15,8 @@ public final class FieldControllerImpl implements FieldController {
     private static final String SPLIT_TOP_LINE = "╔══╬══════════╣";
     private static final String SPLIT_BOT_LINE = "╚══╩══════════╝";
     private static final String SPLIT_COL_LINE = "║";
+
+    private final IOController ioController = IOControllerImpl.getInstance();
 
     private FieldControllerImpl() {}
 
@@ -34,12 +38,13 @@ public final class FieldControllerImpl implements FieldController {
 
     @Override
     public void drawFields(Field... fields) {
-        Arrays.stream(fields)
+        Optional<String[]> reduce = Arrays.stream(fields)
                 .map(this::prepareForPrint)
                 .reduce((arr1, arr2) -> {
                     Arrays.setAll(arr1, i -> arr1[i] + "\t" + arr2[i]);
                     return arr1;
-                }).ifPresent(x -> Arrays.stream(x).forEach(System.out::println));
+                });
+        reduce.ifPresent(x -> Arrays.stream(x).forEach(ioController::print));
     }
 
     private String[] prepareForPrint(Field field) {
