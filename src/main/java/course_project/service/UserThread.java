@@ -44,21 +44,7 @@ public class UserThread implements Runnable {
                     int y = Character.getNumericValue(message.charAt(0));
                     char x = message.charAt(1);
 
-                    Cell tmpCompCell = new Cell();
-                    tmpCompCell.setDigit(y);
-                    tmpCompCell.setLetter(x);
-
-                    strStrike = "Miss";
-
-                    for (Ship ship : userShips) {
-                        if (ship.getShipCells().contains(tmpCompCell)) {
-                            Strike strike = new Strike(ship);
-                            strStrike = strike.getStrike(tmpCompCell);
-                            break;
-                        }
-                    }
-
-                    System.out.println(strStrike);
+                    makeStrike(y,x,userShips);
 
                 } else {
                     System.out.println("Out of field!");
@@ -94,21 +80,7 @@ public class UserThread implements Runnable {
                 int y = Character.getNumericValue(line.charAt(0));
                 char x = line.charAt(1);
 
-                Cell tmpUserCell = new Cell();
-                tmpUserCell.setDigit(y);
-                tmpUserCell.setLetter(x);
-
-                strStrike = "Miss";
-
-                for (Ship ship : ships) {
-                    if (ship.getShipCells().contains(tmpUserCell)) {
-                        Strike strike = new Strike(ship);
-                        strStrike = strike.getStrike(tmpUserCell);
-                        break;
-                    }
-                }
-
-                System.out.println(strStrike);
+                makeStrike(y,x,ships);
 
                 if (SeaBattle.testMode) {
                     System.out.println("Computer ships:");
@@ -155,5 +127,24 @@ public class UserThread implements Runnable {
                 }
             }
         }
+    }
+
+    void makeStrike(int y, char x, List<Ship> ships) {
+
+        String strStrike = "Miss";
+
+        Cell tmpUserCell = new Cell();
+        tmpUserCell.setDigit(y);
+        tmpUserCell.setLetter(x);
+
+        for (Ship ship : ships) {
+            if (ship.getShipCells().contains(tmpUserCell)) {
+                Strike strike = new Strike(ship);
+                strStrike = strike.getStrike(tmpUserCell);
+                break;
+            }
+        }
+
+        System.out.println(strStrike);
     }
 }
