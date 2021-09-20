@@ -36,24 +36,6 @@ public class CustomFileReader {
         }
     }
 
-    public void run(String methodName) {
-
-        try {
-            Method m = this.getClass().getMethod(methodName);
-            if (m.isAnnotationPresent(CustomAnnotation.class)) {
-                CustomAnnotation ca = m.getAnnotation(CustomAnnotation.class);
-                String fullPath = ca.path() + fileName;
-                try {
-                    m.invoke(this, fullPath);
-                } catch (Exception e) {
-                    System.out.println("Exception: " + e.getMessage());
-                }
-            }
-        } catch (NoSuchMethodException e) {
-            System.out.println("Error:" + e.getMessage());
-        }
-    }
-
     @CustomAnnotation(path = "/custom_file_reader/")
     public void run1(String path) {
 
