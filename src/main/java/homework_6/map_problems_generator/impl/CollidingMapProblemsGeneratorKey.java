@@ -14,4 +14,9 @@ public class CollidingMapProblemsGeneratorKey<T> extends AbstractMapProblemsGene
     public int hashCode() {
         return 31;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
 }
