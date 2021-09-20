@@ -37,4 +37,8 @@ public class Player {
         return myShots;
     }
 
+    public long countShips() {
+        return getMyShips().stream().filter(e -> e.isAlive()).count();
+    }
+
 }

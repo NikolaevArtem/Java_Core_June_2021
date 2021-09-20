@@ -100,9 +100,9 @@ public class Engine {
                     System.err.println("KILLED!");
                     shot = Shot.KILLED;
                     ship.setAlive(false);
-                    System.out.println("Player " + enemy.getName() + " has " + countShips(enemy) + " ship(s) left.");
+                    System.out.println(enemy.getName() + " has " + enemy.countShips() + " ship(s) left.");
                     currentShip = ship;
-                    if (countShips(enemy) == 0) {
+                    if (enemy.countShips() == 0) {
                         isGameOver = true;
                     }
                 } else {
@@ -112,10 +112,6 @@ public class Engine {
                 break;
             }
         }
-    }
-
-    public long countShips(Player player) {
-        return player.getMyShips().stream().filter(e -> e.isAlive()).count();
     }
 
     public void putOnMyBoard(Player player) {

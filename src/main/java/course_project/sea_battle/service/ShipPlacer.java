@@ -5,7 +5,6 @@ import course_project.sea_battle.model.Point;
 import course_project.sea_battle.model.Ship;
 import course_project.sea_battle.model.boards.MyBoard;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 

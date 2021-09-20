@@ -29,8 +29,6 @@ public class Ship {
         this.isAlive = alive;
     }
 
-    public int getSize() { return coordinates.size(); }
-
     public List<Point> getCoordinates() {
         return coordinates;
     }
@@ -41,4 +39,5 @@ public class Ship {
                 "coordinates=" + coordinates +
                 '}';
     }
+
 }
