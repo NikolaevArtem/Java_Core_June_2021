@@ -33,7 +33,7 @@ public final class FireControllerImpl implements FireController {
     @Override
     public boolean checkFire(Field field, String coordinate) {
         if (field == null) return false;
-        if (validateController.coordinate(coordinate)) return false;
+        if (!validateController.coordinate(coordinate)) return false;
         int[] cordXY = parserController.parseCoordinate(coordinate);
 
         return field.getCell(cordXY[0], cordXY[1]) != CellStatus.HIT

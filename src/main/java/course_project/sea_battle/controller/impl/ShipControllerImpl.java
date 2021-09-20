@@ -15,7 +15,7 @@ public final class ShipControllerImpl implements ShipController {
     @Override
     public boolean placeShip(Field field, String coordinate, String vector, int size) {
         if (field == null) return false;
-        if (validateController.coordinate(coordinate)) return false;
+        if (!validateController.coordinate(coordinate)) return false;
         if (!validateController.vector(vector)) return false;
 
         int[] cordXY = parserController.parseCoordinate(coordinate);

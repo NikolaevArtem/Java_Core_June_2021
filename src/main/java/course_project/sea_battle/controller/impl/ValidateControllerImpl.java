@@ -4,7 +4,7 @@ public final class ValidateControllerImpl {
     private ValidateControllerImpl() {}
 
     public boolean coordinate(String str) {
-        return !str.toLowerCase().matches("[a-i]([1-9]|10)");
+        return str.toLowerCase().matches("[a-i]([1-9]|10)");
     }
 
     public boolean vector(String str) {
