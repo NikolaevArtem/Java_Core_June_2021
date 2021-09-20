@@ -41,12 +41,10 @@ public class PowerOfNumber {
     }
 
     public static int power(int a, int b) {
-        int result = 1;
         if (b == 0){
-            return result;
+            return 1;
         }
-        result = a * power(a, b - 1);
-        return result;
+        return a * power(a, b - 1);
     }
 
 }
