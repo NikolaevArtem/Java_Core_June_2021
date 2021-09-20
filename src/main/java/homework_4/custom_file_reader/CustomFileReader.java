@@ -4,14 +4,23 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class CustomFileReader {
     private static final String FILE_PATH = "src/main/resources/custom_file_reader/file.txt";
 
     public static void run1() throws IOException {
-        String content = Files.readString(Path.of(FILE_PATH));
-        printWithoutDotAndComma(content);
+        StringBuilder content = new StringBuilder();
+        FileInputStream fileInputStream = new FileInputStream(FILE_PATH);
+        int i;
+        while ((i = fileInputStream.read()) != -1) {
+            content.append((char) i);
+        } ;
+        printWithoutDotAndComma(content.toString());
     }
 
 
@@ -25,12 +34,8 @@ public class CustomFileReader {
     }
 
     public static void run3() throws IOException {
-        FileReader fileReader = new FileReader(FILE_PATH, StandardCharsets.UTF_8);
-        int i;
-        while ((i = fileReader.read()) != -1) {
-            printWithoutDotAndComma((char) i);
-        }
-        fileReader.close();
+        String content = Files.lines(Paths.get(FILE_PATH), StandardCharsets.UTF_8).reduce((s, s2) -> s + "\n" + s2).orElse("");
+        printWithoutDotAndComma(content);
     }
 
     public static void printWithoutDotAndComma(String s) {

@@ -10,7 +10,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
         CustomFileReader.run1();
-        CustomFileReader.run2();
+//        CustomFileReader.run2();
         CustomFileReader.run3();
 
     }
