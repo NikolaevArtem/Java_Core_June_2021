@@ -114,7 +114,6 @@ public class SeaBattle {
             Ship enemyShip = playerHuman.takeAShot(target);
             if (enemyShip.isDestroyed()) {
                 System.out.println(" And even destroyed it!\n");
-                return true;
             }
             System.out.println("Your PC moves again.");
             waitingPressEnter();
@@ -134,7 +133,6 @@ public class SeaBattle {
             if (enemyShip.isDestroyed()) {
                 System.out.println(" And even destroyed it!\n");
                 playerAI.printField(true);
-                return true;
             }
             System.out.println(" Move again.");
             playerAI.printField(true);
