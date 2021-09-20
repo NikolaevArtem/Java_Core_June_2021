@@ -24,6 +24,10 @@ public class Ship {
     }
 
     public static boolean rightShipLength(int shipLength, int[] beginningCell, int[] endCell) {
+        if (shipLength == 1) {
+            return Math.abs(beginningCell[0] - endCell[0]) + 1 == shipLength &&
+                    Math.abs(beginningCell[1] - endCell[1]) + 1 == shipLength;
+        }
         return Math.abs(beginningCell[0] - endCell[0]) + 1 == shipLength ||
                 Math.abs(beginningCell[1] - endCell[1]) + 1 == shipLength;
     }
