@@ -22,13 +22,13 @@ public final class ImmutableClassTerminator {
     public ImmutableClassTerminator(int departureYear, String model, Date timeTravelDate) {
         this.departureYear = departureYear;
         this.model = model;
-        this.timeTravelDate = timeTravelDate;
+        this.timeTravelDate = new Date(timeTravelDate.getTime());
     }
 
     public ImmutableClassTerminator(int departureYear, Date timeTravelDate) {
         this.departureYear = departureYear;
         this.model = "T100";
-        this.timeTravelDate = timeTravelDate;
+        this.timeTravelDate = new Date(timeTravelDate.getTime());
     }
 
     public ImmutableClassTerminator(int departureYear, String model) {
@@ -51,5 +51,14 @@ public final class ImmutableClassTerminator {
 
     public ImmutableClassTerminator changeTimeTravelDate(Date newTimeTravelDate) {
         return new ImmutableClassTerminator(departureYear, model, newTimeTravelDate);
+    }
+
+    @Override
+    public String toString() {
+        return "ImmutableClassTerminator{" +
+                "departureYear=" + departureYear +
+                ", model='" + model + '\'' +
+                ", timeTravelDate=" + timeTravelDate +
+                '}';
     }
 }
