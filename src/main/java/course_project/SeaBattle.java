@@ -13,7 +13,7 @@ import course_project.field_components.Ship;
 
 public class SeaBattle {
     public static final int FIELD_SIZE = 10;
-    private InputReader reader = new ConsoleInputReader();
+    private final InputReader reader = new ConsoleInputReader();
     private Player playerHuman;
     private Player playerAI;
     private boolean playerOneTurn = true;
