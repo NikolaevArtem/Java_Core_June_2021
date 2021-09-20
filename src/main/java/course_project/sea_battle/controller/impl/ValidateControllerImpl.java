@@ -4,10 +4,12 @@ public final class ValidateControllerImpl {
     private ValidateControllerImpl() {}
 
     public boolean coordinate(String str) {
+        if (str == null) return false;
         return str.toLowerCase().matches("[a-i]([1-9]|10)");
     }
 
     public boolean vector(String str) {
+        if (str == null) return false;
         return str.toLowerCase().matches("[vg]");
     }
 

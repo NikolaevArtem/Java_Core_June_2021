@@ -11,22 +11,22 @@ public final class FireControllerImpl implements FireController {
     private FireControllerImpl() {}
 
     @Override
-    public CellStatus fire(Field targetField, Field enemyField, String coordinate) {
-        if (enemyField == null) throw new RuntimeException("Поле не может быть null");
+    public CellStatus fire(Field opponentField, Field radar, String coordinate) {
+        if (radar == null || opponentField == null) throw new RuntimeException("Поле не может быть null");
 
         int[] cordXY = parserController.parseCoordinate(coordinate);
         int x = cordXY[0], y = cordXY[1];
 
-        CellStatus cellBefore = targetField.getCell(x, y);
+        CellStatus cellBefore = opponentField.getCell(x, y);
         CellStatus cellAfter;
-        if (cellBefore == CellStatus.SHIP) {
+        if (cellBefore == CellStatus.SHIP || cellBefore == CellStatus.HIT) {
             cellAfter = CellStatus.HIT;
         }
         else {
             cellAfter = CellStatus.SHOT;
         }
-        targetField.setCell(x, y, cellAfter);
-        enemyField.setCell(x, y, cellAfter);
+        opponentField.setCell(x, y, cellAfter);
+        radar.setCell(x, y, cellAfter);
         return cellAfter;
     }
 
