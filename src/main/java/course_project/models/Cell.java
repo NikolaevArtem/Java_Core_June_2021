@@ -43,8 +43,6 @@ public class Cell {
         this.beaten = beaten;
     }
 
-    //смущает хэшкод
-
     @Override
     public int hashCode() {
         return 1;
