@@ -3,6 +3,7 @@ package course_project;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.TreeMap;
 
@@ -56,10 +57,12 @@ class SeaBattleTest {
     }
 
     @Test
-    void shipWrongCreationTest2() {
+    void shipTouchingCreationTest() {
         SeaBattle game = new SeaBattle("Player1", "Player2");
         Assertions.assertTrue(game.getPlayer1().getField().createShip(4, new String[]{"A1", "A4"}));
         Assertions.assertFalse(game.getPlayer1().getField().createShip(4, new String[]{"A1", "D1"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(1, new String[]{"A2"}));
+        Assertions.assertFalse(game.getPlayer1().getField().createShip(1, new String[]{"B2"}));
     }
 
     @Test
@@ -87,8 +90,42 @@ class SeaBattleTest {
     }
 
     @Test
-    void setShipHitAndSunkTest() {
+    void allShipsSunkTest() {
         SeaBattle game = new SeaBattle("Player1", "Player2");
+        Field field = game.getPlayer1().getField();
+        field.createShip(4, new String[]{"A1", "A4"});
+        field.createShip(1, new String[]{"J8"});
+
+        Assertions.assertFalse(game.getPlayer1().allShipsSunk());
+        for (Ship ship : game.getPlayer1().getField().getListOfShips()) {
+            ship.setShipStatus(Ship.status.SUNK);
+        }
+        Assertions.assertTrue(game.getPlayer1().allShipsSunk());
+    }
+
+    @Test
+    void shotResultTest() {
+        SeaBattle game = new SeaBattle("Player1", "Player2");
+        Field field = game.getPlayer1().getField();
+        field.createShip(3, new String[]{"A1", "A3"});
+        field.createShip(1, new String[]{"J8"});
+
+        Assertions.assertEquals("miss", field.shotResult(new int[]{9, 7}));
+        Assertions.assertEquals("repeat", field.shotResult(new int[]{9, 7}));
+        Assertions.assertEquals("hit", field.shotResult(new int[]{0, 0}));
+        Assertions.assertEquals("hit", field.shotResult(new int[]{1, 0}));
+        Assertions.assertEquals("sunk", field.shotResult(new int[]{2, 0}));
+        Assertions.assertEquals("repeat", field.shotResult(new int[]{2, 0}));
+        Assertions.assertEquals("sunk", field.shotResult(new int[]{7, 9}));
+    }
+
+    /*
+
+
+    */
+
+    @Test
+    void setShipHitAndSunkTest() {
         Ship ship = new Ship(2, new int[][] {{1, 2, 0}, {1, 3, 0}});
         assertSame(ship.getShipStatus(), Ship.status.INTACT);
         ship.setCellHit(new int[]{1, 2});
