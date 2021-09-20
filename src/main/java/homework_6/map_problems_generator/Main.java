@@ -23,9 +23,10 @@ public class Main {
 
         System.out.println("Testing MutableMapProblemsGeneratorKey:");
         Map<MapProblemsGenerator<String>, Integer> map = new HashMap<>();
-        MapProblemsGenerator<String> myObject = new MutableMapProblemsGeneratorKey<>();
+        MutableMapProblemsGeneratorKey<String> myObject = new MutableMapProblemsGeneratorKey<>(1);
         System.out.println("myObject = " + myObject);
         map.put(myObject, 1);
+        myObject.setId(2);
         System.out.println("map.containsKey(myObject) = " + map.containsKey(myObject));
         System.out.println("map.size() = " + map.size());
         System.out.println("Map keys:");
