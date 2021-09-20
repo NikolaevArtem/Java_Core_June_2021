@@ -33,10 +33,7 @@ public class Main {
 
         map.put(val1, "Murzik");
         map.put(val2, "Sharik");
-
-        System.out.println("map = " + map);
-        System.out.println("map.get(val1) = " + map.get(val1));
-        System.out.println("map.get(val2) = " + map.get(val2));
+        //now we have only 1 bucket
     }
 
 
