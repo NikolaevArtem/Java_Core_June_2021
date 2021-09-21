@@ -1,9 +1,24 @@
 # Java Core June 2021
 
-## *Nikolaev Artem*
+## *Emelianchik Svetlana*
 
 | Number | Solution  | Short description
 | --- | --- | --- |
-| HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/master/src/main/java/homework_1) | The app that reads input arguments and prints them, until "error" argument |
+| HW1 | [ConsolePrinter](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_1) | The app that reads input arguments and prints them, until "error" argument |
+| HW2 | [TrafficLight](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_2/traffic_light) | The app that reads the input time of the day in seconds or in format hh:mm:ss and checks the traffic light to cross the road.|
+| HW2 | [PyramidPrinter](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_2/pyramid_printer) | The app that reads the input number and prints the pyramid of symbol "x" with such a base. |
+| HW2 | [RandomCharsTable](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_2/random_chars_table) | The app that reads two numbers and a string and prints a table with random chars from A to Z and also shows the even or odd chars that was in a table depending on a strategy that was chosen. |
+| HW3 | [TrafficLightTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_2/traffic_light) | Add unit tests for Traffic Light app |
+| HW3 | [PyramidPrinterTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_2/pyramid_printer) | Add unit tests for Print Pyramid app|
+| HW3 | [RandomCharsTableTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_2/random_chars_table) | Add unit tests for Random Chars Table app |
+| HW3 | [ImmutableClass](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_3) <br />[ImmutableClassTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_3)  | Add Immutable class |
+| HW4 | [CustomFileReader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_4/custom_file_reader) [CustomFileReaderTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_4/custom_file_reader)  | The app that reads data from the file and prints it to the console without dots and commas |
+| HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_4/singleton) <br />[SingletonTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_4/singleton)  | The class that can have only one instance |
+| HW4 | [CustomAnnotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_4/custom_annotation) <br />[CustomAnnotationTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_4/custom_annotation) | The annotation Author is used to get a default value when creating an instance of Book |
+| HW5 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_5/math_power) [PowerOfNumberTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_5/math_power) | PowerOfNumber App with method pow implemented via recursion |
+| HW5 | [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_5/custom_regex_matcher) [CustomRegexMatcherTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/homework_5/custom_regex_matcher) | The App checks whether the arguments match the hardcoded regex |
+| HW6 | [MapProblemsGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_6/map_problems_generator)  | 1)CollidingMapProblemsGeneratorKey is the class that always creates collisions in the HashMap. <br /> 2)MutableMapProblemsGeneratorKey is the class with HashCode method that returns random value. |
+| HW7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/homework_7) | Custom Functional Interface KittenToCatFunction with abstract method grow(). |
+| Course Project | [BattleShipGame](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/main/java/course_project/battleship_game) <br /> [UnitTests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SvetlanaEmelianchik/src/test/java/course_project/battleship_game)| BattleShip game with three modes (CVC, PVC, PVP).
 
-[Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+[Link to CodingBat profile](https://codingbat.com/done?user=sveta881@mail.ru&tag=8234249112)
