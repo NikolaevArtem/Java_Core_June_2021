@@ -14,6 +14,15 @@ public class MapProblemsMutableGenerator {
         this.age = age;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -24,6 +33,6 @@ public class MapProblemsMutableGenerator {
 
     @Override
     public int hashCode() {
-        return (int) (Math.random() * age - name.length());
+        return Objects.hash(name, flag, age);
     }
 }
