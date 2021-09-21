@@ -1,5 +1,7 @@
 package homework_6.map_problems_generator;
 
+import java.util.Objects;
+
 public class MapProblemsMutableGenerator {
 
     private  int weight;
@@ -18,7 +20,7 @@ public class MapProblemsMutableGenerator {
 
     @Override
     public int hashCode() {
-        return (int)(Math.random() * 50 + 1);
+        return Objects.hashCode(weight);
     }
 
     @Override
