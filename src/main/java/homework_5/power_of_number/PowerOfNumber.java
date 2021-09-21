@@ -33,10 +33,11 @@ public class PowerOfNumber extends BaseClazz {
     }
 
     private BigInteger pow(BigInteger a, BigInteger b) {
-        if (b.compareTo(BigInteger.valueOf(0)) == 0) return BigInteger.valueOf(1);
-        b = b.subtract(BigInteger.valueOf(1));
-        a = a.multiply(pow(a, b));
-        return a;
+        if (b.compareTo(BigInteger.valueOf(0)) == 0) {
+            return BigInteger.valueOf(1);
+        }
+        BigInteger newB = b.subtract(BigInteger.valueOf(1));
+        return a.multiply(pow(a, newB));
     }
 
     @Override
