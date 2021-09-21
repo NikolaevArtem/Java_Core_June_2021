@@ -11,8 +11,12 @@ public class SimpleClassWithNameField {
         try {
             constructor = this.getClass().getConstructor(String.class);
             CustomAnnotation annotation = constructor.getAnnotation(CustomAnnotation.class);
-            if (annotation != null) this.name = annotation.value();
-            if (!name.isEmpty()) this.name = name;
+            if (annotation != null) {
+                this.name = annotation.value();
+            }
+            if (!name.isEmpty()) {
+                this.name = name;
+            }
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }

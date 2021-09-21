@@ -38,15 +38,15 @@ public class CustomFileReader {
     }
 
     public static void run1() throws IOException {
-        Scanner scanner = new Scanner(getFileURL().openStream()).useDelimiter("\n");;
-        scanner.forEachRemaining(FUNCTION);
-        scanner.close();
+        try(Scanner scanner = new Scanner(getFileURL().openStream()).useDelimiter("\n")) {
+            scanner.forEachRemaining(FUNCTION);
+        }
     }
 
     public static void run2() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(getFileURL().openStream()));
-        bufferedReader.lines().forEach(FUNCTION);
-        bufferedReader.close();
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(getFileURL().openStream()))) {
+            bufferedReader.lines().forEach(FUNCTION);
+        }
     }
     //The resource URL is not working in the JAR
     public static void run3() throws IOException {
