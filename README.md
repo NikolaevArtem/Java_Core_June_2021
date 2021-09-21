@@ -16,6 +16,7 @@
 | HW_5_2 | [Custom Regex Matcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/homework_5/custom_regex_matcher) | The app which read string and and check if this string matches with hardcoded regex in the app and get result: true or false |
 | HW_6 | [Map Problems Generator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/homework_6/map_problems_generator) | The app which create collisions in hashmap |
 | HW_7 | [Kitten To Cat Function Interface](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/homework_7/kitten_to_cat_function) | The app which create an interface for turning a kitten into a cat |
+| Course project | [Sea Battle](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/Lera_Rodina/src/main/java/course_project) | A console Sea Battle Game (Player vs Computer version only)|
  
 [Link to Coding Bat](https://codingbat.com/done?user=lerarodina24@gmail.com&tag=9318549243)
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
