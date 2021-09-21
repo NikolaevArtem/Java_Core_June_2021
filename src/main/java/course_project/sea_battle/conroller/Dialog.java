@@ -50,7 +50,7 @@ public class Dialog {
 
     public boolean autoGenerate() {
         while (true) {
-            String choice = reader.nextLine();
+            String choice = reader.nextLine().toLowerCase(Locale.ROOT);
             if (choice.matches("y|n")) {
                 if (choice.equals("y")) {
                     return true;
