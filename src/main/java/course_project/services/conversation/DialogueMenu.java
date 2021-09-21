@@ -3,7 +3,7 @@ package course_project.services.conversation;
 import course_project.gamestuff.field.Field;
 import course_project.gamestuff.player.Player;
 import course_project.gamestuff.ships.Ship;
-import course_project.services.logic.GameLogic;
+import course_project.services.logic.Game;
 import homework_4.custom_file_reader.CustomFileReader;
 
 import java.util.Scanner;
@@ -14,10 +14,7 @@ import static course_project.gamestuff.field.Field.FIELD_SIZE;
 import static course_project.gamestuff.field.Field.LOWERCASE_A;
 
 /**
- * Ultimate class for communication over the app;
- * it's using functional style, just because it's no reason to use extra memory for storing object,
- * and no even reason to create object of such type except it'd implement command pattern -
- * but it's completely different way to communicate over app.
+ * Ultimate class for communication with user over the app;
  */
 public class DialogueMenu {
 
@@ -46,7 +43,7 @@ public class DialogueMenu {
 
     public static void printMainMenu() {
         System.out.print(
-                "[1] Start game Human vs Computer\n" +
+                        "[1] Start game Human vs Computer\n" +
                         "[2] Start game Human vs Human\n" +
                         "[3] Start game Computer vs Computer\n" +
                         "[4] Print rules\n" +
@@ -72,13 +69,12 @@ public class DialogueMenu {
                 break;
             default:
                 System.out.println(INCORRECT_INPUT_MESSAGE);
-                printMainMenu(); // recursion, wow!
+                printMainMenu();
         }
     }
 
     private static void printRules() {
-        new CustomFileReader("./src/main/resources/sea_battle/", "rules.txt")
-                .run2();
+        new CustomFileReader("./src/main/resources/sea_battle/", "rules.txt").run2();
     }
 
     private static void startComputerVSComputer() {
@@ -86,22 +82,30 @@ public class DialogueMenu {
         enemy = new Player("CPU1", true);
         addShipsAuto(player);
         addShipsAuto(enemy);
-        new GameLogic(player, enemy).run();
+        new Game(player, enemy).start();
     }
 
-    @SuppressWarnings("java:S2142") // like senior developer! yah?
+
     private static void startHumanVSHuman() {
         player = new Player(getInputName(), false);
         enemy = new Player(getInputName(), false);
         printPlayerMenu(player);
-        try {
-            printInviteOpponentMessage(enemy);
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        waitForSeconds(2);
+        printEmptyLines();
+        printInvitePlayerMessage(enemy);
+        waitForSeconds(1);
         printPlayerMenu(enemy);
-        new GameLogic(player, enemy).run();
+        waitForSeconds(1);
+        new Game(player, enemy).start();
+    }
+
+    @SuppressWarnings("java:S2142")
+    public static void waitForSeconds(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000L);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
     }
 
     private static void startHumanVSComputer() {
@@ -109,7 +113,7 @@ public class DialogueMenu {
         enemy = new Player("Mozilla", true);
         printPlayerMenu(player);
         addShipsAuto(enemy);
-        new GameLogic(player, enemy).run();
+        new Game(player, enemy).start();
     }
 
     private static String getInputName() {
@@ -120,13 +124,13 @@ public class DialogueMenu {
                 return name;
             } else {
                 System.out.println("Ha-ha, it's impossible to have such name!\n" +
-                        "It should consists of at least 2 latin symbols and no numbers and spaces, ok?");
+                        "It should consists of at least 2 latin symbols(only), ok?");
             }
         }
     }
 
-    public static void printInviteOpponentMessage(Player opponent) {
-        System.out.println(opponent.getName() + "'s turn!");
+    public static void printInvitePlayerMessage(Player player) {
+        System.out.println(player.getName() + "'s turn!");
     }
 
     private static void printPlayerMenu(Player currentPlayer) {
@@ -147,7 +151,7 @@ public class DialogueMenu {
                 break;
             default:
                 System.out.println(INCORRECT_INPUT_MESSAGE);
-                printPlayerMenu(currentPlayer); // recursion again, ok!?
+                printPlayerMenu(currentPlayer);
         }
     }
 
@@ -162,6 +166,10 @@ public class DialogueMenu {
                 System.out.println(INCORRECT_INPUT_MESSAGE);
             }
         }
+    }
+
+    public static void printPlayerMotionHelp() {
+        System.out.println("Input position you want to attack in format: 'a1' or 'b9'");
     }
 
     public static void printPlayerShipPlacingHelp() {
@@ -228,6 +236,14 @@ public class DialogueMenu {
         System.out.println(currentPlayer.getName() + " WON THE GAME !!!" +
                 "\n" + opponent.getName() + " lose.");
         terminate();
+    }
+
+    public static void printEmptyLines() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < FIELD_SIZE * 2; i++) {
+            stringBuilder.append("\n");
+        }
+        System.out.println(stringBuilder);
     }
 
     private static void terminate() {

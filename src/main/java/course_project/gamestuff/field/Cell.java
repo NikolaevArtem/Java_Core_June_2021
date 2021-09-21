@@ -7,7 +7,7 @@ public class Cell {
     private final int x;
     private final int y;
     private Ship ref;
-    private boolean hit;
+    private boolean hit; // stores state of cell: if motion to this cell was made
 
     public Cell(int x, int y) {
         this.x = x;

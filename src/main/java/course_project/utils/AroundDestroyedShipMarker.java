@@ -69,6 +69,18 @@ public final class AroundDestroyedShipMarker {
         }
     }
 
+    private static void markAboveAsHitCell(Battlefield battlefield, Cell currentCell) {
+        if (currentCell.getX() != 0) {
+            battlefield.getCellByPosition(currentCell.getX() - 1, currentCell.getY()).setHit(true);
+        }
+    }
+
+    private static void markBelowAsHitCell(Battlefield battlefield, Cell currentCell) {
+        if (currentCell.getX() != Field.FIELD_SIZE - 1) {
+            battlefield.getCellByPosition(currentCell.getX() + 1, currentCell.getY()).setHit(true);
+        }
+    }
+
     private static void markRightAsHitCell(Battlefield battlefield, Cell currentCell) {
         if (currentCell.getY() != Field.FIELD_SIZE - 1) {
             battlefield.getCellByPosition(currentCell.getX(), currentCell.getY() + 1).setHit(true);
@@ -93,27 +105,15 @@ public final class AroundDestroyedShipMarker {
         }
     }
 
-    private static void markDiagonalLeftAboveAsHitCell(Battlefield battlefield, Cell currentCell) {
-        if (currentCell.getX() != 0 && currentCell.getY() != 0) {
-            battlefield.getCellByPosition(currentCell.getX() - 1, currentCell.getY() - 1).setHit(true);
-        }
-    }
-
     private static void markDiagonalLeftBelowAsHitCell(Battlefield battlefield, Cell currentCell) {
         if (currentCell.getX() != Field.FIELD_SIZE - 1 && currentCell.getY() != 0) {
             battlefield.getCellByPosition(currentCell.getX() + 1, currentCell.getY() - 1).setHit(true);
         }
     }
 
-    private static void markAboveAsHitCell(Battlefield battlefield, Cell currentCell) {
-        if (currentCell.getX() != 0) {
-            battlefield.getCellByPosition(currentCell.getX() - 1, currentCell.getY()).setHit(true);
-        }
-    }
-
-    private static void markBelowAsHitCell(Battlefield battlefield, Cell currentCell) {
-        if (currentCell.getX() != Field.FIELD_SIZE - 1) {
-            battlefield.getCellByPosition(currentCell.getX() + 1, currentCell.getY()).setHit(true);
+    private static void markDiagonalLeftAboveAsHitCell(Battlefield battlefield, Cell currentCell) {
+        if (currentCell.getX() != 0 && currentCell.getY() != 0) {
+            battlefield.getCellByPosition(currentCell.getX() - 1, currentCell.getY() - 1).setHit(true);
         }
     }
 

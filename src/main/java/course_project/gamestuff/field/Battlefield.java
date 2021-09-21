@@ -14,8 +14,6 @@ import static course_project.utils.ShipOnBattlefieldPlacer.*;
 
 /**
  * Battlefield is Field for the Player(owner) of this object.
- * It stores all ships available for adding,
- * and then for removing on destroy to find out who is winner in the game.
  */
 public class Battlefield extends Field {
 
