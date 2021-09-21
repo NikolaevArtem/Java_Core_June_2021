@@ -28,7 +28,7 @@ public class DialogueMenu {
     private static final Scanner scanner = new Scanner(System.in);
 
     static {
-        FIRST_SYMBOL_POSITION_REGEX = "^[" + Field.LOWERCASE_A + "-" + (char) (LOWERCASE_A + FIELD_SIZE) + "]$";
+        FIRST_SYMBOL_POSITION_REGEX = "^[" + Field.LOWERCASE_A + "-" + (char) (LOWERCASE_A + FIELD_SIZE - 1) + "]$";
     }
 
     private static Player player;
