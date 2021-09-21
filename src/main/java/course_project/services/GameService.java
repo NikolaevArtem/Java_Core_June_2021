@@ -11,6 +11,13 @@ import java.util.*;
 
 public final class GameService {
 
+    private static final String SHIP_SANK = "Вражеский корабль потоплен!";
+    private static final String SHIP_DAMAGED = "Вражеский корабль подбит";
+    private static final String MISS = "Промах. В следующий раз повезет";
+    private static final String INVALID_IN = "Неверные координаты цели, попробуйте еще раз!";
+    private static final String ANSI_RESET = "\033[0m";
+    private static final String ANSI_RED = "\u001B[31m";
+
     private static Random rand;
 
     static {
@@ -25,15 +32,14 @@ public final class GameService {
         throw new IllegalStateException("Utility class");
     }
 
-    public static boolean playersHit(Player aim, Player attacker) {
+    public static String playersHit(Player aim, Player attacker) {
         String coordinates = getNewCoordinates(attacker.getName());
         SinglePartShip partShip = new SinglePartShip(coordinates.charAt(0) - 64, new Integer(coordinates.substring(1)));
         attacker.getHitsMap().get(aim.containsShip(partShip)).add(partShip);
         if (aim.containsShip(partShip)) {
-            PlayerController.destroyPartShip(aim, partShip);
-            return true;
+            return PlayerController.destroyPartShip(aim, partShip) ? SHIP_SANK : SHIP_DAMAGED;
         }
-        return false;
+        return MISS;
     }
 
     public static boolean isVerticalNeighbor(Player gamer, SinglePartShip partShip) {
@@ -75,6 +81,7 @@ public final class GameService {
         System.out.printf(name + ": введите координаты цели([A-J][1-10]): ");
         String coordinates = Game.scanner.nextLine().trim().toUpperCase(Locale.ROOT);
         while (!isValidCoordinatesForShot(coordinates)) {
+            System.out.println(ANSI_RED + INVALID_IN + ANSI_RESET);
             System.out.printf(name + ": введите координаты цели([A-J][1-10]): ");
             coordinates = Game.scanner.nextLine().trim().toUpperCase(Locale.ROOT);
         }
@@ -85,6 +92,7 @@ public final class GameService {
         System.out.printf("Введите координаты и положение %1$s-ого %2$s-палубного корабля([A-J][1-10] [v|h]): ", numberOfShip, numberOfShipDeck);
         String coordinates = Game.scanner.nextLine().trim().toUpperCase(Locale.ROOT);
         while (!isValidCoordinatesForShip(coordinates)) {
+            System.out.println(ANSI_RED + INVALID_IN + ANSI_RESET);
             System.out.printf("Введите координаты и положение %1$s-ого %2$s-палубного корабля([A-J][1-10] [v|h]): ", numberOfShip, numberOfShipDeck);
             coordinates = Game.scanner.nextLine().trim().toUpperCase(Locale.ROOT);
         }

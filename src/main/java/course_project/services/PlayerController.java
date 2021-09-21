@@ -18,15 +18,19 @@ public final class PlayerController {
         throw new IllegalStateException("Utility class");
     }
 
-    public static void destroyPartShip(Player player, SinglePartShip partShip) {
+    public static boolean destroyPartShip(Player player, SinglePartShip partShip) {
         Map<String, List<Ship>> ships = player.getShips();
         Collection<List<Ship>> values = ships.values();
 
-        values
-                .forEach(shipList -> shipList
-                        .forEach(elem -> elem
-                                .getList()
-                                .removeIf(next -> next.equals(partShip))));
+        for (List<Ship> next : values) {
+            for (Ship next1 : next) {
+                if (next1.getList().contains(partShip)) {
+                    next1.getList().remove(partShip);
+                    return next1.getList().size() == 0;
+                }
+            }
+        }
+        return false;
     }
 
     public static void initShipLists(Player gamer, TypeShip typeShip, int countOfDeck) {

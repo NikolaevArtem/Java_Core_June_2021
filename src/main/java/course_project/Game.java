@@ -16,6 +16,8 @@ import static course_project.services.GameService.*;
 
 public class Game extends BaseClazz {
 
+    private static String MISS = "Промах. В следующий раз повезет";
+
     private final Player player = new Player("player");
     private final Player computer = new Player("computer");
 
@@ -42,18 +44,20 @@ public class Game extends BaseClazz {
         Player attacker = player;
         while (!(player.isEmptyShips() || computer.isEmptyShips())) {
             FieldPrinter.printFiled(convert.apply(attacker), attacker.getHitsMap());
-            if (playersHit(aim, attacker)) {
-                System.out.println("Вражеский корабль подбит");
+            String result = playersHit(aim, attacker);
+            if (!result.equals(MISS)) {
+                System.out.println(result);
             } else {
                 aim = (aim == computer ? player : computer);
                 attacker = (attacker == computer ? player : computer);
                 clearConsole();
-                System.out.println("Промах. В следующий раз повезет");
+                System.out.println(result);
                 try {
-                    Thread.sleep(4000);
+                    Thread.sleep(1500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                clearConsole();
             }
         }
         System.out.println("Победил " + attacker.getName());
