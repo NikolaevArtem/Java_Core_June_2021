@@ -16,6 +16,7 @@
 |     | [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_5/custom_regex_matcher) | The app that reads the number from the console and checks it for validity |
 | HW6 | [MapProblemsGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_6/map_problems_generator) |  |
 | HW7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_7) | Custom functional interface that transform Kitten to Cat |
+| CP | [Battleship](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/GamzatAsadulaev/src/main/java/homework_7/course_project_battleship) | Course project "Battleship" |
 
 [Link to markdown guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
