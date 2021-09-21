@@ -8,7 +8,8 @@ import course_project.sea_battle.model.GamePlayer;
 public final class GameControllerImpl implements GameController{
     private final PlayerController playerController = PlayerControllerImpl.getInstance();
     private final IOController ioController = IOControllerImpl.getInstance();
-    private final GameSetupsController gameSetupsController = GameSetupsController.getInstance();
+    private final FieldFillController manualFieldFillService = ManualFieldFillController.getInstance();
+    private final FieldFillController randomFieldFillController = RandomFieldFillController.getInstance();
     private final FieldController fieldController = FieldControllerImpl.getInstance();
     private final FireController fireController = FireControllerImpl.getInstance();
     private final ShipController shipController = ShipControllerImpl.getInstance();
@@ -18,11 +19,11 @@ public final class GameControllerImpl implements GameController{
     public void start() {
         Game game = new Game();
         addPlayers(game);
-        ioController.print(game.getPlayer1().getName() + ", установите корабли!");
-        gameSetupsController.setShips(game.getPlayer1().getFieldPlayer());
-        ioController.print(game.getPlayer2().getName() + ", ваша очередь установить корабли!");
-        gameSetupsController.setShips(game.getPlayer2().getFieldPlayer());
-        ioController.print("Да начнется битва");
+        ioController.dialog(game.getPlayer1().getName() + ", установите корабли!");
+        randomFieldFillController.setShips(game.getPlayer1().getFieldPlayer());
+        ioController.dialog(game.getPlayer2().getName() + ", ваша очередь установить корабли!");
+        randomFieldFillController.setShips(game.getPlayer2().getFieldPlayer());
+        ioController.dialog("Да начнется битва");
 
         doGame(game);
         ioController.close();

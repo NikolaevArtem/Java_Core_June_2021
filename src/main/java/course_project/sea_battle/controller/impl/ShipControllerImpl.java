@@ -14,7 +14,6 @@ public final class ShipControllerImpl implements ShipController {
 
     @Override
     public boolean placeShip(Field field, String coordinate, String vector, int size) {
-        if (field == null) return false;
         if (!validateController.coordinate(coordinate)) return false;
         if (!validateController.vector(vector)) return false;
 
@@ -22,6 +21,14 @@ public final class ShipControllerImpl implements ShipController {
         int x = cordXY[0], y = cordXY[1];
         boolean isVertical = parserController.isVerticalVector(vector);
 
+        return placeShipByCoordinate(field, x, y, isVertical, size);
+    }
+
+    @Override
+    public boolean placeShipByCoordinate(Field field, int x, int y, boolean isVertical, int size) {
+        if (field == null) return false;
+        if (0 > x || x > 9) return false;
+        if (0 > y || y > 9) return false;
         Ship ship = new Ship(size, x, y, isVertical);
 
         if (!isAvailable(field, ship)) return false;
