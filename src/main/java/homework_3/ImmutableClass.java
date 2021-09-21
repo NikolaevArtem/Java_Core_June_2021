@@ -21,6 +21,7 @@ public final class ImmutableClass {
     }
 
     public ImmutableClass(String aString, int anInt, List<String> aList) {
+        //STRING - неизменяемый класс, глубокая копия не нужна, Так как STRING изменить нельзя.
         List<String> tempList = new ArrayList<>(aList);
         this.aString = aString;
         this.anInt = anInt;
@@ -36,6 +37,7 @@ public final class ImmutableClass {
     }
 
     public List<String> getaList() {
+        //return new ArrayList(aList) - тоже будет прекрасно работать!
         return Collections.unmodifiableList(aList);
     }
 
