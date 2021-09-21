@@ -59,7 +59,7 @@ public final class ImmutableWorker {
             tasks.addAll(this.tasks);
         }
         if (age == null) {
-            age = this.age;
+            age = new Age(this.age);
         }
         return new ImmutableWorker(name, department, id, tasks, age);
     }
