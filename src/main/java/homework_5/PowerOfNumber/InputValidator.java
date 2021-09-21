@@ -6,25 +6,17 @@ import java.io.InputStreamReader;
 
 public class InputValidator {
 
-    PowerOfNumber powerOfNumber;
 
-    public void run(PowerOfNumber powerOfNumber) {
-        System.out.println("Enter the base and exponent. [a b]");
-        this.powerOfNumber = powerOfNumber;
-        input();
-    }
-
-    private void validate(String[] parameters) {
+    private boolean validate(String[] parameters) {
 
         if (parameters.length > 2) {
             errorMsg();
         }
-
         try {
             int a = Integer.parseInt(parameters[0]);
             int b = Integer.parseInt(parameters[1]);
             if (a >= 0 && b>= 0){
-                powerOfNumber.input(a, b);
+                return true;
             }
             else {
                 errorMsg();
@@ -35,18 +27,24 @@ public class InputValidator {
             errorMsg();
         }
 
+        return false;
+
     }
 
-    private void input() {
+    public int[] input() {
+        System.out.println("Enter the base and exponent. [a b]");
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             String[] parameters = bufferedReader.readLine().split(" ");
-            validate(parameters);
+            if (validate(parameters)) {
+                return new int [] {Integer.parseInt(parameters[0]), Integer.parseInt(parameters[1])};
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
         catch (NullPointerException e) {
             errorMsg();
         }
+        return new int[0];
     }
 
     private void errorMsg(){
