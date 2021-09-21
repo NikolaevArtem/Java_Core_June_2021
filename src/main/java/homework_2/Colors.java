@@ -2,6 +2,8 @@ package homework_2;
 
 public final class Colors {
 
+    private Colors() {}
+
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\033[1;91m";
     public static final String ANSI_GREEN = "\033[1;92m";
