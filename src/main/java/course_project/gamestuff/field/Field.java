@@ -6,7 +6,7 @@ import static homework_2.Colors.*;
 
 public abstract class Field {
 
-    public static final int FIELD_SIZE = 12;
+    public static final int FIELD_SIZE = 10;
     public static final int LOWERCASE_A = 'a';
     private static final String WATER = BLUE_BG + " " + ANSI_RESET;
     private static final String DESTROYED = ANSI_RED + "†" + ANSI_RESET;

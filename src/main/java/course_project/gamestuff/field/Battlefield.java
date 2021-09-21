@@ -103,7 +103,7 @@ public class Battlefield extends Field {
         if (ship.getSize() == 1) {
             fillAroundSmallShip(currentPlayer, ship);
         } else {
-            if (ship.isVertical()) {
+            if (ship.isHorizontal()) {
                 fillAroundHorizontalShip(currentPlayer, ship);
             } else {
                 fillAroundVerticalShip(currentPlayer, ship);

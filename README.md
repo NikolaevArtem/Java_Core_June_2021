@@ -16,6 +16,7 @@ HW5.1 | [Power Of Number](./src/main/java/homework_5/power_of_number/) <br/> [Te
 HW5.2 | [Custom Regex Matcher](./src/main/java/homework_5/custom_regex_matcher/) <br/> [Tests](./src/test/java/homework_5/custom_regex_matcher/CustomRegexMatcherTest.java) | App reads input from keyboard and print true or false for the input matching to the hardcoded regex format. |
 HW6 | [MapProblemsGenerator](./src/main/java/homework_6/map_problems_collision_generator/) | App which has: <br/> 1) Class creating 100% HashMap collisions <br/> 2) Mutable class with overridden HashCode/Equals. When put MutableClass object into HashMap as key - can't retrieve it (equals works correctly) |
 HW7 | [Kitten to Cat](./src/main/java/homework_7/kitten_to_cat/) <br/> [Tests](./src/test/java/homework_7/kitten_to_cat/KittenToCatTest.java) | App using Functional Interface KittenToCatFunction with abstract method grow(). Realization in Main class through lambda function |
+Course project | [Sea Battle](./src/main/java/course_project/) | Sea Battle console game |
 
 <br>
 

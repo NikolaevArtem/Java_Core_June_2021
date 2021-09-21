@@ -8,7 +8,7 @@ public abstract class Ship {
     private final String name;
     private int hitCount;
     private Cell startCell;
-    private boolean direction = true; // true - vertical, false - horizontal
+    private boolean direction = true; // true - horizontal, false - vertical
 
     protected Ship(int size, String shipName) {
         this.size = size;
@@ -17,7 +17,7 @@ public abstract class Ship {
         this.startCell = null;
     }
 
-    public boolean isVertical() {
+    public boolean isHorizontal() {
         return this.direction;
     }
 
