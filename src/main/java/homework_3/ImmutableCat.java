@@ -35,11 +35,34 @@ public final class ImmutableCat {
         yearOfBirth = 2020;
     }
 
-    public ImmutableCat setNewName(String name){
-        return new ImmutableCat(name);
+    public String getName() {
+        return name;
     }
 
-    public ImmutableCat setNewData(String name, int yearOfBirth, ArrayList<String> favouriteFood){
-        return new ImmutableCat(name, yearOfBirth, favouriteFood);
+    public ImmutableCat setName(String name) {
+        return new ImmutableCat(name, this.yearOfBirth, this.favouriteFood);
     }
+
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public ImmutableCat setYearOfBirth(int yearOfBirth) {
+        return new ImmutableCat(this.name, yearOfBirth, this.favouriteFood);
+    }
+
+    public ArrayList<String> getFavouriteFood() {
+        return new ArrayList<>(favouriteFood);
+    }
+
+    public ImmutableCat setFavouriteFood(ArrayList<String> favouriteFood) {
+        return new ImmutableCat(this.name, this.yearOfBirth, favouriteFood);
+    }
+
+    public ImmutableCat addFavouriteFoodItem(String favouriteFoodItem) {
+        ArrayList<String> copyFF = new ArrayList<>(favouriteFood);
+        copyFF.add(favouriteFoodItem);
+        return new ImmutableCat(this.name, this.yearOfBirth, copyFF);
+    }
+
 }
