@@ -12,13 +12,13 @@ public class Main {
 
         Map<MapProblemsMutableGenerator, String> map = new HashMap<>();
         map.put(obj1, "EN");
-        map.put(obj2, "NL");
+        map.put(obj2, "RU");
 
         System.out.println("value obj 1 - " + map.get(obj1));
         System.out.println("value obj 2 - " + map.get(obj2));
 
-        obj1.setName("Jorge Jr");
-        System.out.println(map.values());
+        obj1.setAge(26);
+        System.out.println("Values - " + map.values());
         System.out.println();
 
         System.out.println("value obj 1 - " + map.get(obj1));
