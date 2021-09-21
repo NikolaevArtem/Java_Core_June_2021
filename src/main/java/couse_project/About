@@ -1,0 +1,30 @@
+
+Course project SEA BATTLE
+
+---------------------------------------
+
+Here you can try to play Sea Battle game!
+
+
+I developed a version of a game "Player vs Computer"
+
+Just to make a game a bit faster - all ships automatically are created randomly before starting this game.
+And you might not spend time for creating it by yourself.
+
+There are:
+ 4-deck ships - 1
+ 3-deck ships - 2
+ 2-deck ships - 3
+ 1-deck ships - 4
+
+ (Just because I ve remembered these rules since my childhood:))
+
+ After starting a game you see your seaMap (with blue color) and you should make your first move!
+
+ If your/computer's ship is found, cell will have a yellow color.
+ If a ship is destroyed fully, a color is red.
+ If you/computer makes a mistake - you wil see just a white "star".
+
+ I decided to make a console interface of game in Russian as our traditional game:)
+
+ Hope this game will be convenient for you!
