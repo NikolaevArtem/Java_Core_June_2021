@@ -54,23 +54,19 @@ public final class ImmutableClass {
     }
 
     public final ImmutableClass getChangedInstance(String className) {
-        return new ImmutableClass(className);
+        return new ImmutableClass(className, this.yearOfBirth, Arrays.copyOf(password, password.length));
     }
 
     public final ImmutableClass getChangedInstance(int yearOfBirth) {
-        return new ImmutableClass(yearOfBirth);
+        return new ImmutableClass(String.valueOf(className), yearOfBirth, Arrays.copyOf(password, password.length));
     }
 
     public final ImmutableClass getChangedInstance(String className, int yearOfBirth) {
-        return new ImmutableClass(className, yearOfBirth);
-    }
-
-    public final ImmutableClass getChangedInstance(String className, int yearOfBirth, char[] password) {
-        return new ImmutableClass(className, yearOfBirth, password);
+        return new ImmutableClass(className, yearOfBirth, Arrays.copyOf(password, password.length));
     }
 
     final String getClassName() {
-        return className;
+        return String.valueOf(className);
     }
 
     final int getYearOfBirth() {
@@ -79,6 +75,28 @@ public final class ImmutableClass {
 
     final char[] getPassword() {
         return Arrays.copyOf(password, password.length);
+    }
+
+    @Override
+    public String toString() {
+        return "ImmutableClass{" +
+                "yearOfBirth=" + yearOfBirth +
+                ", className='" + className + '\'' +
+                ", password=" + Arrays.toString(password) +
+                '}';
+    }
+
+    public static void main(String[] args) {
+        ImmutableClass im = new ImmutableClass("class", 1996, new char[] {'a','b','c','1'});
+        ImmutableClass im1 = im.getChangedInstance(1998);
+        System.out.println(im);
+        System.out.println(im1);
+        char[] pass = im1.getPassword();
+        pass[0] = '1';
+        String name = im1.getClassName();
+        name = "changedName";
+        System.out.println(im);
+        System.out.println(im1);
     }
 
 }
