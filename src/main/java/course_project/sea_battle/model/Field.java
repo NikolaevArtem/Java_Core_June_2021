@@ -1,6 +1,6 @@
 package course_project.sea_battle.model;
 
-import course_project.sea_battle.service.СomputeHelper;
+import course_project.sea_battle.service.ComputeHelper;
 
 import java.util.*;
 
@@ -36,10 +36,10 @@ public class Field {
         List<Integer[]> list = new ArrayList<>();
         for (int i = 0; i < ship.getSize(); i++) {
             if (ship.getOrientation()) {
-                if (!СomputeHelper.chekCanPutShip(pointA + i, pointB, field)) return "fieldNotEmpty";
+                if (!ComputeHelper.chekCanPutShip(pointA + i, pointB, field)) return "fieldNotEmpty";
                 list.add(new Integer[]{pointA + i, pointB});
             } else {
-                if (!СomputeHelper.chekCanPutShip(pointA, pointB + i, field)) return "fieldNotEmpty";
+                if (!ComputeHelper.chekCanPutShip(pointA, pointB + i, field)) return "fieldNotEmpty";
                 list.add(new Integer[]{pointA, pointB + i});
             }
         }

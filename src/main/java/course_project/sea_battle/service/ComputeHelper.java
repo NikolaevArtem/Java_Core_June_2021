@@ -2,7 +2,7 @@ package course_project.sea_battle.service;
 
 import course_project.sea_battle.model.Field;
 
-public class СomputeHelper {
+public class ComputeHelper {
 
     public static boolean chekCanPutShip(int pointA, int pointB, int[][] field) {
         if (pointA - 1 >= 0 && pointB - 1 >= 0 && pointA + 1 < 10 && pointB + 1 < 10) {
