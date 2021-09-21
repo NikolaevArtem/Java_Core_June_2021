@@ -25,7 +25,7 @@ class RandomFieldFillControllerTest {
         randomFieldFillController = null;
     }
     @Test
-    void setShips() {
+    void setShip() {
         randomFieldFillController = RandomFieldFillController.getInstance()
                 .setGameSetupHolder(()-> {
                     TreeMap<Integer, Integer> map = new TreeMap<>(Comparator.reverseOrder());
@@ -42,5 +42,26 @@ class RandomFieldFillControllerTest {
                 .filter(x -> x.equals(CellStatus.SHIP))
                 .count();
         assertEquals(5, count);
+    }
+
+    @Test
+    void setShips2() {
+        randomFieldFillController = RandomFieldFillController.getInstance()
+                .setGameSetupHolder(()-> {
+                    TreeMap<Integer, Integer> map = new TreeMap<>(Comparator.reverseOrder());
+                    map.put(5, 2);
+                    return map;
+                });
+
+        Field instance = fieldController.instance();
+        assertFalse(shipController.isAnyShipAlive(instance));
+        randomFieldFillController.setShips(instance);
+        assertTrue(shipController.isAnyShipAlive(instance));
+
+        long count = Arrays.stream(instance.getCells())
+                .flatMap(Arrays::stream)
+                .filter(x -> x.equals(CellStatus.SHIP))
+                .count();
+        assertEquals(10, count);
     }
 }
