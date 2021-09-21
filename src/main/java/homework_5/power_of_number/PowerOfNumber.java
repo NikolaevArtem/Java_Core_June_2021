@@ -16,16 +16,16 @@ public class PowerOfNumber {
                 System.out.println("Only 2 non-negative integers are allowed");
                 return;
             }
-            System.out.println(recursia(a, b));
+            System.out.println(recursion(a, b));
         } catch (NullPointerException | IOException | NumberFormatException e) {
             System.out.println("Only 2 non-negative integers are allowed");
         }
     }
 
-    private long recursia(int a, int b) {
-        if (a == 0) return 0;
-        if (a == 1 || b == 0) return 1;
-        if (b == 1) return a;
-        return a * recursia(a, b - 1);
+    private long recursion(int number, int power) {
+        if (number == 0) return 0;
+        if (number == 1 || power == 0) return 1;
+        if (power == 1) return number;
+        return number * recursion(number, power - 1);
     }
 }

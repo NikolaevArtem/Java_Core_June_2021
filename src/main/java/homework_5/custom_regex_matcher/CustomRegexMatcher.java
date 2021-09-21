@@ -20,7 +20,9 @@ public class CustomRegexMatcher {
     }
 
     private boolean regex(String readLine) {
-        if (readLine.length() < 3) return false;
+        if (readLine.length() < 3) {
+            return false;
+        }
         return readLine.matches("(\\w+)@((mail)|(gmail)|(google)|(other)).([a-z]+)");
     }
 
