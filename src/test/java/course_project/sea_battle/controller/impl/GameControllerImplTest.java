@@ -46,20 +46,19 @@ class GameControllerImplTest {
             return map;
         });
     }
+
     @Test
     void TestWinner() {
         Game game = gameController.start();
-        assertEquals(firstPlayerName, game.getPlayer1().getName());
-        assertEquals(secondPlayerName, game.getPlayer2().getName());
-        assertEquals(secondPlayerName, game.getPlayerWin().getName());
-    }
-    @Test
-    void TestWinnerFieldAndRadar() {
-        Game game = gameController.start();
+
         GamePlayer playerWin = game.getPlayerWin();
 
         Field fieldPlayer = playerWin.getFieldPlayer();
         Field radarPlayer = playerWin.getRadarPlayer();
+
+        assertEquals(firstPlayerName, game.getPlayer1().getName());
+        assertEquals(secondPlayerName, game.getPlayer2().getName());
+        assertEquals(secondPlayerName, game.getPlayerWin().getName());
 
         assertTrue(ShipControllerImpl.getInstance().isAnyShipAlive(fieldPlayer));
 
