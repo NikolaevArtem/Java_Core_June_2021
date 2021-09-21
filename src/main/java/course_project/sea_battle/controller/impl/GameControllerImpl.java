@@ -16,7 +16,7 @@ public final class GameControllerImpl implements GameController{
 
     private GameControllerImpl() {}
 
-    public void start() {
+    public Game start() {
         Game game = new Game();
         addPlayers(game);
         setShips(game.getPlayer1());
@@ -28,6 +28,7 @@ public final class GameControllerImpl implements GameController{
 
         doGame(game);
         ioController.close();
+        return game;
     }
 
     private void addPlayers(Game game) {
@@ -87,6 +88,7 @@ public final class GameControllerImpl implements GameController{
         ioController.print(playerDef.getName() + " Проиграл!");
         fieldController.drawFields(playerAtk.getFieldPlayer(), playerAtk.getRadarPlayer(),
                 playerDef.getFieldPlayer(), playerDef.getRadarPlayer());
+        game.setPlayerWin(playerAtk);
     }
 
     private boolean turnResult(GamePlayer playerAtk, GamePlayer playerDef) {

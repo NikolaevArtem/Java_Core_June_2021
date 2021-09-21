@@ -5,6 +5,8 @@ public class Game {
     private GamePlayer player1;
     private GamePlayer player2;
 
+    private GamePlayer playerWin = null;
+
     public GamePlayer getPlayer1() {
         return player1;
     }
@@ -21,4 +23,11 @@ public class Game {
         this.player2 = player2;
     }
 
+    public GamePlayer getPlayerWin() {
+        return playerWin;
+    }
+
+    public void setPlayerWin(GamePlayer playerWin) {
+        this.playerWin = playerWin;
+    }
 }

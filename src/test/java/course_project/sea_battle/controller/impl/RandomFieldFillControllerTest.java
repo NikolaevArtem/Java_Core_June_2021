@@ -62,6 +62,6 @@ class RandomFieldFillControllerTest {
                 .flatMap(Arrays::stream)
                 .filter(x -> x.equals(CellStatus.SHIP))
                 .count();
-        assertEquals(10, count);
+        assertEquals(5 * 2, count);
     }
 }

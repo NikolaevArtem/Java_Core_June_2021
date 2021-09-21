@@ -5,7 +5,8 @@ import course_project.sea_battle.controller.IOController;
 import java.util.Scanner;
 
 public final class IOControllerImpl implements IOController {
-    private final Scanner scanner = new Scanner(System.in).useDelimiter("\n");
+    //только для тестов. Я не знаю как сделать иначе, теперь сканер не финален и это ужасно.
+    private Scanner scanner = new Scanner(System.in).useDelimiter("\n");
 
     @Override
     public String dialog(String msg) {
@@ -26,6 +27,11 @@ public final class IOControllerImpl implements IOController {
     @Override
     public void close() {
         scanner.close();
+    }
+
+    //только для тестов. Я не знаю как сделать иначе
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
     }
 
     private IOControllerImpl() {}
