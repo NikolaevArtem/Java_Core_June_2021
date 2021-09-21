@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CoordinateTranslator {
-    private static Map<String, Integer> coordinateTranslatorMap;
+    private static final Map<String, Integer> coordinateTranslatorMap;
     static {
         coordinateTranslatorMap = new HashMap<>();
         coordinateTranslatorMap.put("a", 0);
