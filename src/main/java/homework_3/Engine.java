@@ -1,6 +1,7 @@
 package homework_3;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /*
@@ -51,10 +52,20 @@ public final class Engine {
     }
 
     public List<String> getSpec() {
-        return spec;
+        return new ArrayList<>(spec) ;
     }
 
     public Engine getNewEngine(String model, int power) {
         return new Engine(model, this.isOk, power, this.spec);
+    }
+
+    @Override
+    public String toString() {
+        return "Engine{" +
+                "model='" + model + '\'' +
+                ", isOk=" + isOk +
+                ", power=" + power +
+                ", spec=" + spec +
+                '}';
     }
 }

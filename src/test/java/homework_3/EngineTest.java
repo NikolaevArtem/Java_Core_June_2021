@@ -11,6 +11,22 @@ import static org.junit.jupiter.api.Assertions.*;
 class EngineTest extends UnitBase {
 
     @Test
+    void GetObject_whenChangeField_thenGetSameObject() {
+        Engine engine = new Engine();
+        String model = engine.getModel();
+        boolean isOk = engine.isOk();
+        int power = engine.getPower();
+        List<String> spec = engine.getSpec();
+        spec.add("air culler");
+        assertEquals( "Default", model);
+        assertFalse(isOk);
+        assertEquals(10, power);
+        assertTrue(engine.getSpec().isEmpty());
+
+    }
+
+
+    @Test
     void givenNoData_whenNewEngine_thenGetObject() {
         Engine engine = new Engine();
         String model = engine.getModel();

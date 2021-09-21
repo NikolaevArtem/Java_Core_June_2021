@@ -13,7 +13,7 @@ public class PlayerService {
 
     private static List<Player> playerList;
     private static Player winnerPlayer;
-    private static boolean turn = false;
+    private static boolean turn = true;
     private static boolean gameOn = true;
     private static int mod = 0;
 
