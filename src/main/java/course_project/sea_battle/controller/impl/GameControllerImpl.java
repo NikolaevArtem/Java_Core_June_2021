@@ -19,11 +19,12 @@ public final class GameControllerImpl implements GameController{
     public void start() {
         Game game = new Game();
         addPlayers(game);
-        ioController.dialog(game.getPlayer1().getName() + ", установите корабли!");
-        randomFieldFillController.setShips(game.getPlayer1().getFieldPlayer());
-        ioController.dialog(game.getPlayer2().getName() + ", ваша очередь установить корабли!");
-        randomFieldFillController.setShips(game.getPlayer2().getFieldPlayer());
+        setShips(game.getPlayer1());
+        ioController.dialog("Позовите Следующего");
+        ioController.clr();
+        setShips(game.getPlayer2());
         ioController.dialog("Да начнется битва");
+        ioController.clr();
 
         doGame(game);
         ioController.close();
@@ -40,6 +41,21 @@ public final class GameControllerImpl implements GameController{
             name2 = ioController.dialog("Введите имя второго игрока:");
         } while (name2.isEmpty());
         game.setPlayer2(playerController.instance(name2));
+    }
+
+    private void setShips(GamePlayer player) {
+        ioController.print(player.getName() + ", установите корабли!");
+        boolean nextStep = false;
+        while (!nextStep) {
+            String answerP1 = ioController.dialog("Заполнить рандомно?(y/n):");
+            if (answerP1.trim().toLowerCase().matches("y")) {
+                randomFieldFillController.setShips(player.getFieldPlayer());
+                nextStep = true;
+            } else if (answerP1.trim().toLowerCase().matches("n")) {
+                manualFieldFillService.setShips(player.getFieldPlayer());
+                nextStep = true;
+            }
+        }
     }
 
     private void doGame(Game game){
@@ -59,16 +75,8 @@ public final class GameControllerImpl implements GameController{
                 playerDef = game.getPlayer1();
             }
 
-            ioController.dialog(playerAtk.getName() + ", Ваш ход!");
-            fieldController.drawFields(playerAtk.getFieldPlayer(), playerAtk.getRadarPlayer());
-            String coordinate;
-            do coordinate = ioController.dialog("Координаты:");
-            while (!fireController.checkFire(playerAtk.getRadarPlayer(), coordinate));
-            CellStatus cellStatus = fireController.fire(playerDef.getFieldPlayer(),
-                    playerAtk.getRadarPlayer(),
-                    coordinate);
-            fieldController.drawFields(playerAtk.getFieldPlayer(), playerAtk.getRadarPlayer());
-            if (cellStatus != CellStatus.HIT) {
+            ioController.clr();
+            if (!turnResult(playerAtk, playerDef)) {
                 isPlayer1Move = !isPlayer1Move;
             }
             isGameOver = !shipController.isAnyShipAlive(playerDef.getFieldPlayer());
@@ -77,6 +85,26 @@ public final class GameControllerImpl implements GameController{
         ioController.print(playerDef.getName() + " Проиграл!");
         fieldController.drawFields(playerAtk.getFieldPlayer(), playerAtk.getRadarPlayer(),
                 playerDef.getFieldPlayer(), playerDef.getRadarPlayer());
+    }
+
+    private boolean turnResult(GamePlayer playerAtk, GamePlayer playerDef) {
+        ioController.dialog(playerAtk.getName() + ", Ваш ход!");
+        fieldController.drawFields(playerAtk.getFieldPlayer(), playerAtk.getRadarPlayer());
+        String coordinate;
+        do coordinate = ioController.dialog("Координаты:");
+        while (!fireController.checkFire(playerAtk.getRadarPlayer(), coordinate));
+        CellStatus cellStatus = fireController.fire(playerDef.getFieldPlayer(),
+                playerAtk.getRadarPlayer(),
+                coordinate);
+        fieldController.drawFields(playerAtk.getFieldPlayer(), playerAtk.getRadarPlayer());
+        if (cellStatus != CellStatus.HIT) {
+            ioController.dialog("Мимо!");
+            ioController.clr();
+            return false;
+        } else {
+            ioController.dialog("Попали!");
+            return true;
+        }
     }
 
     public static GameControllerImpl getInstance() {
