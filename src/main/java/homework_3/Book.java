@@ -1,14 +1,12 @@
 package homework_3;
 
-import java.util.*;
-
 public final class Book {
 
     private final String title;
     private final int year;
     private final String[] authors;
 
-    public Book(String name, int age,String... authors) {
+    public Book(String name, int age, String... authors) {
         this.title = name;
         this.year = age;
         this.authors = authors;
@@ -40,8 +38,10 @@ public final class Book {
         return this.year;
     }
 
-    public List<String> getAuthors() {
-        return Arrays.asList(authors);
+    public String[] getAuthors() {
+        String[] copyAuthors = new String[this.authors.length];
+        System.arraycopy(this.authors, 0, copyAuthors, 0, this.authors.length);
+        return copyAuthors;
     }
 
     public Book changeTitle(String title) {
