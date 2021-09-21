@@ -1,6 +1,7 @@
 package homework_3;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 /*
 The class must be declared as final
@@ -16,9 +17,7 @@ public final class ImmutableClass {
     private final List<String> aList;
 
     public ImmutableClass(List<String> aList) {
-        this.aString = "default";
-        this.anInt = 0;
-        this.aList = aList;
+        this("default", 0, new ArrayList<>(aList));
     }
 
     public ImmutableClass(String aString, int anInt, List<String> aList) {
@@ -28,7 +27,7 @@ public final class ImmutableClass {
         this.aList = tempList;
     }
 
-    public String getaString() {
+    public String getString() {
         return aString;
     }
 
@@ -37,10 +36,10 @@ public final class ImmutableClass {
     }
 
     public List<String> getaList() {
-        return new ArrayList<>(aList);
+        return Collections.unmodifiableList(aList);
     }
 
     public ImmutableClass getNew(List<String> aList) {
-        return new ImmutableClass(aString, anInt, aList);
+        return new ImmutableClass(aList);
     }
 }
