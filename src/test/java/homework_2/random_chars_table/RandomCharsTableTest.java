@@ -47,6 +47,5 @@ public class RandomCharsTableTest extends UnitBase {
         run();
 
         assertEquals("Passed parameters should match the format [positive integer] [positive integer] [even|odd]", getOutputLines()[0]);
-
     }
 }
