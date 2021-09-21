@@ -19,6 +19,16 @@ public enum TypeShip {
         return type;
     }
 
+    public static TypeShip getType(int n) {
+        switch (n) {
+            case 1: return TypeShip.SINGLE_DECK;
+            case 2: return TypeShip.DOUBLE_DECK;
+            case 3: return TypeShip.THREE_DECK;
+            case 4: return TypeShip.FOUR_DECK;
+        }
+        return null;
+    }
+
     public int getCount() {
         return count;
     }

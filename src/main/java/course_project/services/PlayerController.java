@@ -7,8 +7,7 @@ import course_project.ship.abstracts.SinglePartShip;
 
 import java.util.*;
 
-import static course_project.services.GameService.isHeaderNeighbor;
-import static course_project.services.GameService.isNeighbor;
+import static course_project.services.GameService.*;
 
 public final class PlayerController {
 
@@ -47,9 +46,13 @@ public final class PlayerController {
             if (i == 0 && isHeaderNeighbor(gamer, partShip)) {
                 return false;
             }
-            if (gamer.containsShip(partShip) ||
-                    ((location.equals("V") ? partShip.getY() : partShip.getX()) > 10 && i + 1 < countOfDeck) ||
-                    isNeighbor(gamer, partShip)) {
+            if (gamer.containsShip(partShip)) {
+                return false;
+            }
+            if ((partShip.getX() > 10 || partShip.getY() > 10)) {
+                return false;
+            }
+            if (location.equals("V") ? isVerticalNeighbor(gamer, partShip) : isHorizontalNeighbor(gamer, partShip)) {
                 return false;
             }
             tempList.add(partShip);

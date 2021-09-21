@@ -2,13 +2,12 @@ package course_project;
 
 import base.BaseClazz;
 import course_project.services.FieldPrinter;
+import course_project.services.GameService;
 import course_project.services.PlayerController;
 import course_project.ship.abstracts.SinglePartShip;
 import course_project.ship.models.Player;
 import course_project.ship.abstracts.TypeShip;
 
-import java.awt.*;
-import java.awt.event.InputEvent;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Stream;
@@ -33,8 +32,8 @@ public class Game extends BaseClazz {
 
     @Override
     public void run() {
-        initPlayer(computer);
-        initPlayer(player);
+        player.getShips().putAll(GameService.getNewPlayerWithRandomShips(player.getName()).getShips());
+        computer.getShips().putAll(GameService.getNewPlayerWithRandomShips(computer.getName()).getShips());
         startGame();
     }
 
@@ -51,7 +50,7 @@ public class Game extends BaseClazz {
                 clearConsole();
                 System.out.println("Промах. В следующий раз повезет");
                 try {
-                    Thread.sleep(10000);
+                    Thread.sleep(4000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -61,7 +60,6 @@ public class Game extends BaseClazz {
     }
 
     private void initPlayer(Player gamer) {
-
         FieldPrinter.printFieldForInit(convert.apply(gamer));
         PlayerController.initShipLists(gamer, TypeShip.SINGLE_DECK, 4);
         FieldPrinter.printFieldForInit(convert.apply(gamer));
@@ -86,7 +84,7 @@ public class Game extends BaseClazz {
     }
 
     private void clearConsole() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             System.out.println();
         }
     }
