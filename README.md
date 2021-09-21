@@ -14,8 +14,9 @@
 |HW4 | [singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_4/singleton) | The singleton app  |
 |HW5 | [customRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_5/customRegexMatcher) | The  app  |
 |HW5 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_5/PowerOfNumber) | The  app  |
-|HW5 | [MapProblemsCollisionGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_6/MapProblemsCollisionGenerator) | The  app  |
-|HW5 | [MapProblemsMutableGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_6/MapProblemsMutableGenerator) | The  app  |
+|HW6 | [MapProblemsCollisionGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_6/MapProblemsCollisionGenerator) | The  app  |
+|HW6 | [MapProblemsMutableGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_6/MapProblemsMutableGenerator) | The  app  |
+|HW7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/AntonSegodnik/src/main/java/homework_7) | The  app  |
 
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) | 
 [Link to CodingBat](https://codingbat.com/done?user=segodnik@gmail.com&tag=8130222420)  
