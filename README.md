@@ -2,8 +2,9 @@
 
 ## *Prokofev Ilia*
 
-| Index | Solution  | Short description
+| Index | Solution  | Short description|
 | :---: | --- | --- |
+|**Course Project**|[Sea Battle course project](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/course_project)|Console version of the classic Sea Battle game with graphical representation|
 | HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_1) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_1/char_count) | The app that reads input arguments and prints them, until "error" argument |
 |-----| [Traffic Light](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_2/traffic_light) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_2/traffic_light) | The app that reads console and calculate current traffic light's color |
 | HW2 | [Pyramid Printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_2/pyramid_printer) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_2/pyramid_printer) | The app that reads console and prints a pyramid based on this  |
