@@ -16,7 +16,5 @@ public class ImmutableWorkerTest {
         ImmutableWorker worker = new ImmutableWorker("Jones", "Marketing", 874, testList, age);
         ImmutableWorker anotherWorker = worker.updateWorker("null", "Sales", 0, null, null);
         assertNotSame(worker, anotherWorker);
-        assertNotSame(worker.getAge(), anotherWorker.getAge());
-        assertNotSame(worker.getTasks(), anotherWorker.getTasks());
     }
 }

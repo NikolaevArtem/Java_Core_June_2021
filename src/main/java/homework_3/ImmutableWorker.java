@@ -1,7 +1,6 @@
 package homework_3;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -45,42 +44,22 @@ public final class ImmutableWorker {
         this.age = new Age(age.getDay(), age.getMonth(), age.getYear());
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public List<String> getTasks() {
-        return tasks;
-    }
-
-    public Age getAge() {
-        return age;
-    }
-
     public ImmutableWorker updateWorker(String name, String department, int id, List<String> tasks, Age age) {
         if (name == null) {
-            name = this.getName();
+            name = this.name;
         }
         if (department == null) {
-            department = this.getDepartment();
+            department = this.department;
         }
         if (id == 0) {
-            id = this.getId();
+            id = this.id;
         }
         if (tasks == null) {
             tasks = new ArrayList<>();
-            Collections.copy(tasks, this.tasks);
+            tasks.addAll(this.tasks);
         }
         if (age == null) {
-            age = this.getAge();
+            age = this.age;
         }
         return new ImmutableWorker(name, department, id, tasks, age);
     }
@@ -90,16 +69,16 @@ public final class ImmutableWorker {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ImmutableWorker that = (ImmutableWorker) o;
-        return getId() == that.getId() &&
-                getName().equals(that.getName()) &&
-                Objects.equals(getDepartment(), that.getDepartment()) &&
-                Objects.equals(getTasks(), that.getTasks()) &&
-                Objects.equals(getAge(), that.getAge());
+        return id == that.id &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(department, that.department) &&
+                Objects.equals(tasks, that.tasks) &&
+                Objects.equals(age, that.age);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getDepartment(), getId(), getTasks(), getAge());
+        return Objects.hash(name, department, id, tasks, age);
     }
 
     @Override

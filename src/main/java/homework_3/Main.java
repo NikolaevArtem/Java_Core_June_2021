@@ -10,17 +10,16 @@ public class Main {
         Age age = new Age(13, 5, 1980);
         ImmutableWorker worker = new ImmutableWorker("Jones", "Marketing", 874, testList, age);
         testList.add("task2");
-        System.out.println("worker tasks list size: " + worker.getTasks().size());
         System.out.println("testList size: " + testList.size());
-        //age.setDay(5);
-        //System.out.println("updated Age = " + age.getDay());
-        //System.out.println("age day of the worker = " + worker.getAge().getDay());
-        //worker.getAge().setDay(5);
-        System.out.println("age day of the worker = " + worker.getAge().getDay());
-        System.out.println(worker.getName());
-        worker = worker.updateWorker("Jackson", "Sales", 897, testList, age);
         System.out.println(worker);
-        worker = worker.updateWorker(null, "Account", 0, null, null);
-        System.out.println(worker);
+        System.out.println(worker.hashCode());
+        ImmutableWorker worker1 = worker.updateWorker("Jackson", "Sales", 897, testList, age);
+        System.out.println(worker1);
+        System.out.println(worker1.hashCode());
+        ImmutableWorker worker2 = worker.updateWorker(null, "Account", 0, null, null);
+        System.out.println(worker2);
+        System.out.println(worker2.hashCode());
+        System.out.println(worker == worker1);
+        System.out.println(worker1 == worker2);
     }
 }
