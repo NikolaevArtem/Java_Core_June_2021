@@ -12,18 +12,11 @@ public class Age {
     }
 
     public Age(Age age) {
-        this(age.getDay(), age.getMonth(), age.getYear());
+        this(age.day, age.month, age.year);
     }
 
-    public int getDay() {
-        return day;
-    }
-
-    public int getMonth() {
-        return month;
-    }
-
-    public int getYear() {
-        return year;
+    @Override
+    public String toString() {
+        return day + "." + month + "." + year;
     }
 }

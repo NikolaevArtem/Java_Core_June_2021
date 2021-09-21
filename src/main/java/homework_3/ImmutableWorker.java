@@ -25,7 +25,7 @@ public final class ImmutableWorker {
         this.department = department;
         this.id = id;
         this.tasks = new ArrayList<>(tasks);
-        this.age = new Age(age.getDay(), age.getMonth(), age.getYear());
+        this.age = new Age(age);
     }
 
     public ImmutableWorker(String name, String department, int id, Age age) {
@@ -33,7 +33,7 @@ public final class ImmutableWorker {
         this.department = department;
         this.id = id;
         this.tasks = new ArrayList<>();
-        this.age = new Age(age.getDay(), age.getMonth(), age.getYear());
+        this.age = new Age(age);
     }
 
     public ImmutableWorker(String name, int id, Age age) {
@@ -41,7 +41,7 @@ public final class ImmutableWorker {
         this.department = "No department";
         this.id = id;
         this.tasks = new ArrayList<>();
-        this.age = new Age(age.getDay(), age.getMonth(), age.getYear());
+        this.age = new Age(age);
     }
 
     public ImmutableWorker updateWorker(String name, String department, int id, List<String> tasks, Age age) {
@@ -88,7 +88,7 @@ public final class ImmutableWorker {
                 ", department='" + department + '\'' +
                 ", id=" + id +
                 ", tasks_size=" + tasks.size() +
-                ", age=" + age.getDay() + "." + age.getMonth() + "." + age.getYear() +
+                ", age=" + age.toString() +
                 '}';
     }
 }
