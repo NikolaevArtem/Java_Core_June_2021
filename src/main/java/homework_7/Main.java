@@ -9,13 +9,9 @@ public class Main {
 
         KittenToCatFunction<Cat, Kitten> transform = newKitten -> new Cat(newKitten.getBreed(), new Random().nextInt(12) + 1, newKitten.getColour(), 3);
 
-        Cat cat = transformToCat(transform, kitten);
+        Cat cat = transform.grow(kitten);
         System.out.println();
         System.out.println(cat);
-    }
-
-    private static Cat transformToCat(KittenToCatFunction<Cat, Kitten> transformation, Kitten kitten) {
-        return transformation.grow(kitten);
     }
 
 }
