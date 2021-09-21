@@ -11,7 +11,8 @@ import java.util.Random;
 
 public final class RandomFieldFillController implements FieldFillController {
     private final ShipController shipController = ShipControllerImpl.getInstance();
-    private final GameSetupHolder gameSetupHolder = GameSetupHolderImpl.getInstance();
+    // я нарушаю свою идею тут, но так проще тестить
+    private GameSetupHolder gameSetupHolder = GameSetupHolderImpl.getInstance();
     private final FieldController fieldController = FieldControllerImpl.getInstance();
 
     private RandomFieldFillController() {}
@@ -31,6 +32,12 @@ public final class RandomFieldFillController implements FieldFillController {
             }
         }
         fieldController.drawFields(field);
+    }
+
+    @Override
+    public FieldFillController setGameSetupHolder(GameSetupHolder gameSetupHolder) {
+        this.gameSetupHolder = gameSetupHolder;
+        return this;
     }
 
     public static RandomFieldFillController getInstance() {

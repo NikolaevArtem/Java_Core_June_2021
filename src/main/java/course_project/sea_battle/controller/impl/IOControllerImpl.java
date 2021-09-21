@@ -15,7 +15,7 @@ public final class IOControllerImpl implements IOController {
 
     @Override
     public void clr() {
-        print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
     @Override

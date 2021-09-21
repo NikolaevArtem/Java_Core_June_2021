@@ -54,6 +54,8 @@ public final class GameControllerImpl implements GameController{
             } else if (answerP1.trim().toLowerCase().matches("n")) {
                 manualFieldFillService.setShips(player.getFieldPlayer());
                 nextStep = true;
+            } else {
+                ioController.print("Попробуйте еще раз");
             }
         }
     }

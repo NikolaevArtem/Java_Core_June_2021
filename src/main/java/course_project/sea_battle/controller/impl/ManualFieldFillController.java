@@ -12,7 +12,8 @@ public final class ManualFieldFillController implements FieldFillController {
     private final ShipController shipController = ShipControllerImpl.getInstance();
     private final IOControllerImpl ioController = IOControllerImpl.getInstance();
     private final FieldController fieldController = FieldControllerImpl.getInstance();
-    private final GameSetupHolder gameSetupHolder = GameSetupHolderImpl.getInstance();
+    // я нарушаю свою идею тут, но так проще тестить
+    private GameSetupHolder gameSetupHolder = GameSetupHolderImpl.getInstance();
 
     private ManualFieldFillController() {
     }
@@ -36,6 +37,11 @@ public final class ManualFieldFillController implements FieldFillController {
             } while (!shipController.placeShip(field, coordinate, vector, entry.getKey()));
             fieldController.drawFields(field);
         }
+    }
+
+    public FieldFillController setGameSetupHolder(GameSetupHolder gameSetupHolder) {
+        this.gameSetupHolder = gameSetupHolder;
+        return this;
     }
 
     public static ManualFieldFillController getInstance() {
