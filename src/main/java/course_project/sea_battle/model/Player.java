@@ -19,6 +19,10 @@ public class Player {
         myShots.setBasicGrids();
     }
 
+    public long countShips() {
+        return getMyShips().stream().filter(Ship::isAlive).count();
+    }
+
     public String getName() {
         return name;
     }
@@ -37,10 +41,6 @@ public class Player {
 
     public MyShots getMyShots() {
         return myShots;
-    }
-
-    public long countShips() {
-        return getMyShips().stream().filter(e -> e.isAlive()).count();
     }
 
 }

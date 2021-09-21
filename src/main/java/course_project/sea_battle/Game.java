@@ -3,55 +3,77 @@ package course_project.sea_battle;
 import course_project.sea_battle.boards.MyBoard;
 import course_project.sea_battle.boards.MyShots;
 import course_project.sea_battle.model.Player;
-import course_project.sea_battle.service.Engine;
+import course_project.sea_battle.model.Ship;
+import course_project.sea_battle.service.inputs.InputShipReader;
+import course_project.sea_battle.service.NameSetter;
+import course_project.sea_battle.service.inputs.InputShooterReader;
 import course_project.sea_battle.service.ShipPlacer;
 
 import java.util.Scanner;
 
-import static course_project.sea_battle.service.NameSetter.setNames;
-
-public class Game extends Thread{
-    private final Scanner scanner = new Scanner(System.in);
-    private final Player player1;
-    private final Player player2;
+public class Game extends Thread {
     private static final String TIE = "Game over. It's a TIE!";
     private static final String GAMEOVER = "Game over. The winner is: ";
+
+    private final Scanner scanner = new Scanner(System.in);
+    private final InputShipReader inputShipReader = new InputShipReader(scanner);
+
+    private Player player1;
+    private Player player2;
 
     public Game() {
         this.player1 = new Player(new MyBoard(), new MyShots());
         this.player2 = new Player(new MyBoard(), new MyShots());
     }
 
+    @Override
     public void run() {
-        setNames(player1, player2);
+        setUpNames();
         setUpShips();
         startGame();
+        defineWinner();
+    }
+
+    public void setUpNames() {
+        new NameSetter(inputShipReader).setNames(player1, player2);
     }
 
     public void setUpShips() {
-        new ShipPlacer(scanner).placeShip(player1);
-        new ShipPlacer(scanner).placeShip(player2);
+        new ShipPlacer(inputShipReader).placeShip(player1);
+        new ShipPlacer(inputShipReader).placeShip(player2);
     }
 
     public void startGame() {
-        while (!countShipsPlayers(player1, player2)) {
-            new Engine(scanner).checkAndValidatePlayerShot(player1, player2);
-            new Engine(scanner).checkAndValidatePlayerShot(player2, player1);
+        while (bothPlayersHaveShips(player1, player2)) {
+            new InputShooterReader(scanner).checkAndValidatePlayerShot(player1, player2);
+            new InputShooterReader(scanner).checkAndValidatePlayerShot(player2, player1);
         }
     }
 
-    public boolean countShipsPlayers(Player player1, Player player2) {
-        long p1ships = player1.getMyShips().stream().filter(e -> e.isAlive()).count();
-        long p2ships = player2.getMyShips().stream().filter(e -> e.isAlive()).count();
+    public boolean bothPlayersHaveShips(Player player1, Player player2) {
+        return countShips(player1) > 0 && countShips(player2) > 0;
+    }
 
-        if (p1ships == 0 && p2ships == 0) {
-            System.err.println(TIE);
-        } else if (p1ships == 0) {
-            System.err.println(GAMEOVER + player2.getName() + "!");
-        } else if (p2ships == 0) {
-            System.err.println(GAMEOVER + player1.getName() + "!");
+    public long countShips(Player player) {
+        return player.getMyShips().stream().filter(Ship::isAlive).count();
+    }
+
+    public void defineWinner() {
+        if (countShips(player1) == 0 && countShips(player2) == 0) {
+            System.out.println(TIE);
+        } else if (countShips(player1) == 0) {
+            System.out.println(GAMEOVER + player2.getName() + "!");
+        } else if (countShips(player2) == 0) {
+            System.out.println(GAMEOVER + player1.getName() + "!");
         }
-        return p1ships < 1 || p2ships < 1;
+    }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
     }
 
 }

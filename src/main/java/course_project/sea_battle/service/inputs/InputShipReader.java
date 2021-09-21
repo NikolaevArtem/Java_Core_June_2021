@@ -1,4 +1,4 @@
-package course_project.sea_battle.service;
+package course_project.sea_battle.service.inputs;
 
 import course_project.sea_battle.boards.MyBoard;
 import course_project.sea_battle.model.Point;
@@ -8,10 +8,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 
-public class InputReader {
-    private final Scanner scanner;
+public class InputShipReader extends InputReader{
     private int x;
     private int y;
+
     private String position;
     private List<Point> coordinates;
 
@@ -19,15 +19,16 @@ public class InputReader {
     private static final String OUTOFBOARD = "Impossible to place ship here because it is out of board!";
     private static final String SHIPSCROSS = "Impossible to place ship here because ship crosses with another one!";
 
-    public InputReader(Scanner scanner) {
+    public InputShipReader(Scanner scanner) {
         this.scanner = scanner;
     }
 
     public void getAndValidateInput(int shipSize, MyBoard board) {
         while (true) {
-            String input = scanner.nextLine();
+            String input = readLine();
+
             if (!isValidInput(input)) continue;
-            Point topLeftPoint = getTopLeftPoint();
+            Point topLeftPoint = new Point(x, y);
             if (!isShipWithinBoard(shipSize)) continue;
             coordinates = findCoordinates(shipSize, topLeftPoint);
             if (shipsDoNotCross(board, shipSize)) break;
@@ -47,11 +48,7 @@ public class InputReader {
         }
     }
 
-    public Point getTopLeftPoint() {
-        return new Point(x, y);
-    }
-
-    private boolean isShipWithinBoard(int shipSize) {
+    public boolean isShipWithinBoard(int shipSize) {
         Point rightBottomPoint = position.equalsIgnoreCase("v")
                 ? new Point(x + shipSize, y)
                 : new Point(x, y + shipSize);
@@ -126,6 +123,18 @@ public class InputReader {
 
     public List<Point> getValidCoordinates() {
         return coordinates;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
 }

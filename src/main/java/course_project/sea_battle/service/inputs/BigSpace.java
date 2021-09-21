@@ -1,17 +1,19 @@
-package course_project.sea_battle.view;
+package course_project.sea_battle.service.inputs;
 
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-public class BigSpace {
+public class BigSpace extends InputReader {
+
     private static final String FINISH = "Press ENTER to finish your move";
 
-    private BigSpace() {
+    public BigSpace(Scanner scanner) {
+        this.scanner = scanner;
     }
 
-    public static void bigSpace() {
+    public void printBigSpace() {
         System.out.println(FINISH);
-        String str = new Scanner(System.in).nextLine();
+        readLine();
 
         Stream.generate(() -> ".")
                 .limit(5)

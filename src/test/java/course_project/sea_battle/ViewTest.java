@@ -7,18 +7,17 @@ import course_project.sea_battle.model.Player;
 import course_project.sea_battle.model.Point;
 import course_project.sea_battle.model.Ship;
 import course_project.sea_battle.model.Shot;
-import course_project.sea_battle.service.Engine;
-import course_project.sea_battle.service.ShipPlacer;
+import course_project.sea_battle.service.inputs.BigSpace;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static course_project.sea_battle.service.inputs.InputShooterReader.putOnBoard;
 import static course_project.sea_battle.view.BoardPrinter.showBoards;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ViewTest extends UnitBase {
+class ViewTest extends UnitBase {
 
     private static final String CYAN = "\u001B[36m";
     private static final String RESET = "\u001B[0m";
@@ -29,83 +28,134 @@ public class ViewTest extends UnitBase {
     private static final String HIT = RED + "X" + RESET;
     private static final String WAVE = CYAN + "~" + RESET;
 
-    private Shot shot;
+    MyBoard myBoard;
+    MyShots myShots;
+    Player player1;
 
     @Test
-    void testBoardPrinterMyBoard() {
-        MyBoard myBoard = new MyBoard();
-        MyShots myShots = new MyShots();
-        Player player1 = new Player(myBoard, myShots);
+    void testBigSpacePrinter() {
+        String input = "\n";
+        setInput(input);
 
-        Ship ship1 = new Ship(Arrays.asList(new Point(0, 1)));
+        new BigSpace(new Scanner(System.in)).printBigSpace();
+        String expected = "Press ENTER to finish your move\n" +
+                ".\n" +
+                ".\n" +
+                ".\n" +
+                ".\n" +
+                ".";
+        assertEquals(expected, getOutput().replaceAll("\r", ""));
+    }
+
+    @Test
+    void testBoardPrinterEmptyBoard() {
+        createPlayers();
+        player1.setName("Tom");
+
+        showBoards(player1);
+        String expected = "MY BOARD (Tom) vs ENEMY BOARD\n" + "\n" +
+                "\t A  B  C  D  E  F  G  H  I  J \t\t\t A  B  C  D  E  F  G  H  I  J \n" +
+                "  1  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  1  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  2  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  2  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  3  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  3  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  4  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  4  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  5  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  5  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  6  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  6  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  7  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  7  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  8  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  8  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  9  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  9  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                " 10  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t 10  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~";
+
+        assertEquals(expected, getOutput().replace(WAVE, "~").replaceAll("\r", ""));
+    }
+
+    @Test
+    void testBoardPrinterShipPlacer() {
+        createPlayers();
+
+        Ship ship1 = new Ship(Arrays.asList(new Point(0, 1), new Point(1, 1)));
         myBoard.placeShip(ship1);
 
         showBoards(player1);
-        String expected1 =
-                "  1  ~  W  ~  ~  ~  ~  ~  ~  ~  ~\t\t  1  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n";
-        String expected2 =
-                "  2  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  2  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n";                ;
-        assertEquals(expected1.trim(), getOutputLines()[3].replace(WAVE,"~").trim());
-        assertEquals(expected2.trim(), getOutputLines()[4].replace(WAVE,"~").trim());
+        String expected = "MY BOARD (null) vs ENEMY BOARD\n" + "\n" +
+                "\t A  B  C  D  E  F  G  H  I  J \t\t\t A  B  C  D  E  F  G  H  I  J \n" +
+                "  1  ~  W  ~  ~  ~  ~  ~  ~  ~  ~\t\t  1  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  2  ~  W  ~  ~  ~  ~  ~  ~  ~  ~\t\t  2  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  3  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  3  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  4  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  4  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  5  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  5  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  6  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  6  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  7  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  7  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  8  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  8  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  9  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  9  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                " 10  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t 10  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~";
 
-
+        assertEquals(expected, getOutput().replace(WAVE, "~").replaceAll("\r", ""));
     }
 
     @Test
-    void testBoardPrinterMyShotsIfMissed() {
+    void testBoardPrinterMyShots() {
+        createPlayers();
 
-        MyBoard myBoard2 = new MyBoard();
-        MyShots myShots2 = new MyShots();
-        Player player2 = new Player(myBoard2, myShots2);
+        putOnBoard(myShots, new Point(0,0), Shot.MISS);
+        putOnBoard(myShots, new Point(1,1), Shot.HIT);
+        putOnBoard(myShots, new Point(2,2), Shot.KILLED);
 
-        shot = Shot.KILLED;
-        new Engine(new Scanner("b1")).putOnEnemyBoard(player2.getMyBoard());
-        showBoards(player2);
-        String expected2 =
-                "  1  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  1  0  ~  ~  ~  ~  ~  ~  ~  ~  ~\n";
-        assertEquals(expected2.trim(), getOutputLines()[3]
+        showBoards(player1);
+        String expected = "MY BOARD (null) vs ENEMY BOARD\n" + "\n" +
+                "\t A  B  C  D  E  F  G  H  I  J \t\t\t A  B  C  D  E  F  G  H  I  J \n" +
+                "  1  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  1  0  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  2  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  2  ~  X  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  3  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  3  ~  ~  X  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  4  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  4  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  5  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  5  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  6  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  6  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  7  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  7  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  8  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  8  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  9  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  9  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                " 10  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t 10  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~";
+
+        assertEquals(expected, getOutput()
                 .replace(WAVE, "~")
                 .replace(MISS, "0")
-                .replace(HIT, "X").trim());
+                .replace(HIT, "X")
+                .replaceAll("\r", ""));
+
     }
 
     @Test
-    void testUserShipPlacer() {
+    void testBoardPrinterEnemyShots() {
+        createPlayers();
 
-        MyBoard myBoard = new MyBoard();
-        MyShots myShots = new MyShots();
-        Player player = new Player(myBoard, myShots);
+        putOnBoard(myBoard, new Point(0,1), Shot.MISS);
+        putOnBoard(myBoard, new Point(0,2), Shot.HIT);
+        putOnBoard(myBoard, new Point(0,3), Shot.KILLED);
 
-//        Ship ship = new Ship(Arrays.asList(new Point(0, 1)));
-//        myBoard.placeShip(ship);
+        showBoards(player1);
+        String expected = "MY BOARD (null) vs ENEMY BOARD\n" + "\n" +
+                "\t A  B  C  D  E  F  G  H  I  J \t\t\t A  B  C  D  E  F  G  H  I  J \n" +
+                "  1  ~  0  X  X  ~  ~  ~  ~  ~  ~\t\t  1  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  2  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  2  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  3  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  3  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  4  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  4  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  5  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  5  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  6  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  6  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  7  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  7  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  8  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  8  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                "  9  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t  9  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\n" +
+                " 10  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~\t\t 10  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~";
 
-        String input = "H1 hor\n" +
-                "A1 h\n";
-        setInput(input);
-
-//        PlayingField field = new PlayingField();
-        ShipPlacer placer = new ShipPlacer(new Scanner(input));
-
-        placer.placeShip(player);
-//        myBoard.placeShip();
-
-        int actualSize = player.getMyShips().size();
-
-        assertEquals(10, actualSize);
+        assertEquals(expected, getOutput()
+                .replace(WAVE, "~")
+                .replace(MISS, "0")
+                .replace(HIT, "X")
+                .replaceAll("\r", ""));
     }
 
+    private void createPlayers() {
+        myBoard = new MyBoard();
+        myShots = new MyShots();
+        player1 = new Player(myBoard, myShots);
+    }
 
-//    @Test
-//    void testUserShotInputReader() {
-//        String input = "A11\n" +
-//                "A10";
-//        setInput(input);
-//
-//        Coordinate expected = new Coordinate(9, 0);
-//
-//        UserShotInputReader reader = new UserShotInputReader(new Scanner(System.in));
-//        Coordinate pointFromReader = reader.getPointFromInput();
-//
-//        assertEquals(expected, pointFromReader);
-//    }
 }
