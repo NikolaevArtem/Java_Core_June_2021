@@ -2,6 +2,7 @@ package course_project.SeaBattle.service;
 
 import course_project.SeaBattle.model.Player;
 import course_project.SeaBattle.model.Ship;
+import course_project.SeaBattle.model.Square;
 import course_project.SeaBattle.view.ConsolePrinter;
 import course_project.SeaBattle.view.Printer;
 
@@ -54,19 +55,21 @@ public class DisplayService {
         printer.printCallPlayer();
     }
 
-    public static void showHitMsg(Player player) {
-        if (!player.isComputer()){
-            printer.printHit();
-        }
+    public static void showHitMsg(Player player, Square square) {
+        printer.printHit(player, square);
+    }
+
+    public static void showDestroyMsg(Player enemy, Ship ship){
+        printer.printDestroyMsg(enemy, ship);
     }
 
     public static void showMissMsg(Player player) {
-        if (!player.isComputer()){
-            printer.printMiss();
-        }
+        printer.printMiss(player);
     }
 
-    public static void showMsgAlreadyShot() {
-        printer.printMsgAlreadyShot();
+    public static void showMsgAlreadyShot(Player player) {
+        if (player.isComputer()){
+            printer.printMsgAlreadyShot();
+        }
     }
 }

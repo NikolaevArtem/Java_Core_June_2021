@@ -13,13 +13,22 @@ public class ShipService {
 
     public static void processFire(Player enemy, Square square) {
         List<Ship> shipList = enemy.getShipList();
+        int healShipBeforeFire = -1;
         for (Ship ship : shipList) {
             if (ship.getShipSquares().contains(square)) {
-                ship.setShipHeal(ship.getShipHeal() - 1);
-                DisplayService.showHitMsg(enemy.getEnemy());
+                int i = ship.getShipSquares().indexOf(square);
+                healShipBeforeFire = ship.getShipHeal();
+                ship.setShipHeal(healShipBeforeFire - 1);
+                if (!ship.getShipSquares().get(i).getSquareStatus().equals(SquareType.HIT)) {
+                    DisplayService.showHitMsg(enemy.getEnemy(), square);
+                }
             }
             if (ship.getShipHeal() == 0) {
                 showBordersSquareWhenShipSank(ship);
+            }
+            if (healShipBeforeFire == 1 && ship.getShipHeal() == 0) {
+                ship.setShipHeal(-1);
+                DisplayService.showDestroyMsg(enemy, ship);
             }
         }
     }

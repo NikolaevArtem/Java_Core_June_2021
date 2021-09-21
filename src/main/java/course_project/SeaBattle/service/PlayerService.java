@@ -26,8 +26,8 @@ public class PlayerService {
         if (isHit(enemyPlayer, shotSquare)) {
             ShipService.processFire(enemyPlayer, square);
         } else {
+            DisplayService.showMissMsg(shooterPlayer);
             turn = !turn;
-            DisplayService.showMissMsg(enemyPlayer);
             delayBetweenBattleScreens(mod);
         }
     }
@@ -99,9 +99,10 @@ public class PlayerService {
             decreaseRemainingAliveSquares(enemyPlayer);
             return true;
         } else if (shotSquare.getSquareStatus().equals(SquareType.HIT)) {
-            return false;
+            DisplayService.showMsgAlreadyShot(enemyPlayer);
+            return true;
         } else if (shotSquare.getSquareStatus().equals(SquareType.MISSED)) {
-            DisplayService.showMsgAlreadyShot();
+            DisplayService.showMsgAlreadyShot(enemyPlayer);
             return true;
         } else {
             return false;

@@ -2,6 +2,7 @@ package course_project.SeaBattle.view;
 
 import course_project.SeaBattle.model.Player;
 import course_project.SeaBattle.model.Ship;
+import course_project.SeaBattle.model.Square;
 
 public interface Printer {
 
@@ -15,9 +16,9 @@ public interface Printer {
 
     void printBattleGrids(Player player);
 
-    void printMiss();
+    void printMiss(Player player);
 
-    void printHit();
+    void printHit(Player player, Square square);
 
     void printMsgAlreadyShot();
 
@@ -34,4 +35,6 @@ public interface Printer {
     void printClearScreen();
 
     void printCallPlayer();
+
+    void printDestroyMsg(Player enemy, Ship ship);
 }

@@ -130,13 +130,23 @@ public class ConsolePrinter implements Printer {
     }
 
     @Override
-    public void printMiss() {
-        System.out.println(ANSI_RED + "Missed" + ANSI_RESET);
+    public void printMiss(Player player) {
+        System.out.println(player.getName() + " " + ANSI_RED + "missed" + ANSI_RESET);
     }
 
     @Override
-    public void printHit() {
-        System.out.println("Hit an enemy ship");
+    public void printDestroyMsg(Player enemy, Ship ship) {
+        char x = (char) (ship.getShipSquares().get(1).getX() + 65);
+        int y = ship.getShipSquares().get(1).getY() + 1;
+        System.out.println(enemy.getEnemy().getName() + " destroyed " + enemy.getName()
+                + "'s " + ship.getShipType() + " [" + x + y + "]" );
+    }
+
+    @Override
+    public void printHit(Player player, Square square) {
+        char x = (char) (square.getX() + 65);
+        int y = square.getY() + 1;
+        System.out.println(player.getName() + " hit " + player.getEnemy().getName() + "'s ship [" + x + y + "]");
     }
 
     @Override
