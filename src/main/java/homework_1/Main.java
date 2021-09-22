@@ -2,8 +2,18 @@ package homework_1;
 
 public class Main {
 
-  public static void main(String[] args) {
-    System.out.println("Hello homework!");
-  }
+    private static final String RED = "\u001b[31m";
+    private static final String RESET = "\u001b[0m";
+
+    public static void main(String[] args) {
+        for (String arg : args) {
+            if (arg.equalsIgnoreCase("ошибка") || arg.equalsIgnoreCase("error")) {
+                System.out.println(RED + "Alarm!" + RESET);
+                break;
+            }
+
+            System.out.println(arg + ": " + arg.length() + " letters");
+        }
+    }
 
 }

@@ -1,0 +1,258 @@
+package course_project.services.conversation;
+
+import course_project.gamestuff.field.Field;
+import course_project.gamestuff.player.Player;
+import course_project.gamestuff.ships.Ship;
+import course_project.services.logic.Game;
+import homework_4.custom_file_reader.CustomFileReader;
+
+import java.io.PrintStream;
+import java.util.Scanner;
+
+import static course_project.gamestuff.field.Battlefield.addShipsAuto;
+import static course_project.gamestuff.field.Battlefield.addShipsManually;
+import static course_project.gamestuff.field.Field.FIELD_SIZE;
+import static course_project.gamestuff.field.Field.LOWERCASE_A;
+
+/**
+ * Ultimate class for communication with user over the app;
+ */
+@SuppressWarnings("java:S106") // remove showing System.out warning
+public class DialogueMenu {
+
+    private static final String INCORRECT_INPUT_MESSAGE = "Please, input correct variant";
+    private static final String FILLED_FIELD_MESSAGE = "Done! Battlefield is filled ;)";
+    private static final String WELCOME_MESSAGE = "Welcome to Sea Battle Console v0.1!";
+    private static final String QUIT = "quit";
+    private static final String FIRST_SYMBOL_POSITION_REGEX;
+    private static final String DIRECTION_REGEX = "^[v|h]$";
+    private static final String NAME_REGEX = "^[a-zA-Z]{2,}$";
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final PrintStream out = System.out;
+
+    static {
+        FIRST_SYMBOL_POSITION_REGEX = "^[" + Field.LOWERCASE_A + "-" + (char) (LOWERCASE_A + FIELD_SIZE - 1) + "]$";
+    }
+
+    private static Player player;
+    private static Player enemy;
+
+    private DialogueMenu() {
+    }
+
+    public static void printGreetings() {
+        out.println(WELCOME_MESSAGE);
+    }
+
+    public static void printMainMenu() {
+        out.print(
+                        "[1] Start game Human vs Computer\n" +
+                        "[2] Start game Human vs Human\n" +
+                        "[3] Start game Computer vs Computer\n" +
+                        "[4] Print rules\n" +
+                        "[5] Quit the game\n"
+        );
+        String input = getInput();
+        switch (input) {
+            case "1":
+                startHumanVSComputer();
+                break;
+            case "2":
+                startHumanVSHuman();
+                break;
+            case "3":
+                startComputerVSComputer();
+                break;
+            case "4":
+                printRules();
+                printMainMenu();
+                break;
+            case "5":
+                terminate();
+                break;
+            default:
+                out.println(INCORRECT_INPUT_MESSAGE);
+                printMainMenu();
+        }
+    }
+
+    private static void printRules() {
+        new CustomFileReader("./src/main/resources/sea_battle/", "rules.txt").run2();
+    }
+
+    private static void startComputerVSComputer() {
+        player = new Player("CPU0", true);
+        enemy = new Player("CPU1", true);
+        addShipsAuto(player);
+        addShipsAuto(enemy);
+        new Game(player, enemy).start();
+    }
+
+
+    private static void startHumanVSHuman() {
+        player = new Player(getInputName(), false);
+        enemy = new Player(getInputName(), false);
+        printPlayerMenu(player);
+        waitForSeconds(2);
+        printEmptyLines();
+        printInvitePlayerMessage(enemy);
+        waitForSeconds(1);
+        printPlayerMenu(enemy);
+        waitForSeconds(1);
+        new Game(player, enemy).start();
+    }
+
+    @SuppressWarnings("java:S2142")
+    public static void waitForSeconds(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000L);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private static void startHumanVSComputer() {
+        player = new Player(getInputName(), false);
+        enemy = new Player("Mozilla", true);
+        printPlayerMenu(player);
+        addShipsAuto(enemy);
+        new Game(player, enemy).start();
+    }
+
+    private static String getInputName() {
+        out.println("My name is SeaBattle, and yours?");
+        while (true) {
+            String name = scanner.nextLine().trim();
+            if (name.matches(NAME_REGEX)) {
+                return name;
+            } else {
+                out.println("Ha-ha, it's impossible to have such name!\n" +
+                        "It should consists of at least 2 latin symbols(only), ok?");
+            }
+        }
+    }
+
+    public static void printInvitePlayerMessage(Player player) {
+        out.println(player.getName() + "'s turn!");
+    }
+
+    private static void printPlayerMenu(Player currentPlayer) {
+        out.print("Menu for " + currentPlayer.getName() + ":" + "\n" +
+                "[1] Add ships on the field manually\n" +
+                "[2] Auto adding ships\n");
+        String input = getInput();
+        switch (input) {
+            case "1":
+                addShipsManually(currentPlayer);
+                currentPlayer.getField().printField();
+                out.println(FILLED_FIELD_MESSAGE + "\n");
+                break;
+            case "2":
+                addShipsAuto(currentPlayer);
+                currentPlayer.getField().printField();
+                out.println(FILLED_FIELD_MESSAGE + "\n");
+                break;
+            default:
+                out.println(INCORRECT_INPUT_MESSAGE);
+                printPlayerMenu(currentPlayer);
+        }
+    }
+
+    public static String getPlayerMotionInput() {
+        while (true) {
+            String input = getInput();
+            if (QUIT.equals(input)) {
+                terminate();
+            } else if (isPositionValid(input)) {
+                return input;
+            } else {
+                out.println(INCORRECT_INPUT_MESSAGE);
+            }
+        }
+    }
+
+    public static void printPlayerMotionHelp() {
+        out.println("Input position you want to attack in format: 'a1' or 'b9'\n" +
+                "you can input 'quit' to exit the app anytime you want");
+    }
+
+    public static void printPlayerShipPlacingHelp() {
+        out.println("To place ship just input position from" + "'a1' to " +
+                ((char) (LOWERCASE_A + FIELD_SIZE - 1)) + FIELD_SIZE +
+                "(horizontal direction is default)" +
+                "\nIf you want to set ship vertically type e.g. 'a1 v' or horizontal 'b2 h'" +
+                "\nInput 'quit' to exit the game.");
+    }
+
+    public static String getShipPlacingInput() {
+        while (true) {
+            String input = getInput();
+            if (QUIT.equals(input)) {
+                terminate();
+            } else {
+                String[] strings = input.split(" ");
+                if ((strings.length == 1 && isPositionValid(input)) ||
+                        (strings.length == 2 && isPositionValid(strings[0]) && strings[1].matches(DIRECTION_REGEX))) {
+                    return input;
+                } else {
+                    out.println(INCORRECT_INPUT_MESSAGE);
+                }
+            }
+        }
+    }
+
+    private static boolean isPositionValid(String str) {
+        return String.valueOf(str.charAt(0)).matches(FIRST_SYMBOL_POSITION_REGEX) &&
+                str.substring(1).matches("\\d+") &&
+                Integer.parseInt(str.substring(1)) >= 1 &&
+                Integer.parseInt(str.substring(1)) <= FIELD_SIZE;
+    }
+
+    public static void printSetPositionMessage(String name, int size) {
+        out.print("Set position for " + name + " size of " + size + ": ");
+    }
+
+    private static String getInput() {
+        return scanner.nextLine().trim().toLowerCase();
+    }
+
+    public static void printShipDestroyedMessage(String opponentsName, Ship ship) {
+        out.println("Nice! " + opponentsName + "'s " + ship.getName() + " is destroyed!");
+    }
+
+    public static void printShipHitMessage(String currentPlayerName, String opponentsName) {
+        out.println(currentPlayerName + " hit " + opponentsName + "'s ship!");
+    }
+
+    public static void printMiss() {
+        out.println("MISS!");
+    }
+
+    public static void printShipsLeftMessage(int countOfShipsLeft) {
+        out.println(countOfShipsLeft + " ships left");
+    }
+
+    public static void printSamePositionMessage() {
+        out.println("You've already hit at this position! Try another one: ");
+    }
+
+    public static void printCongratulationsAndQuit(Player currentPlayer, Player opponent) {
+        out.println(currentPlayer.getName() + " WON THE GAME !!!" +
+                "\n" + opponent.getName() + " lose.");
+        terminate();
+    }
+
+    public static void printEmptyLines() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < FIELD_SIZE * 2; i++) {
+            stringBuilder.append("\n");
+        }
+        out.println(stringBuilder);
+    }
+
+    private static void terminate() {
+        scanner.close();
+        Runtime.getRuntime().exit(0); // James Gosling approved!
+    }
+
+}
