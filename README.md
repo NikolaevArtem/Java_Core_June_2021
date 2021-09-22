@@ -15,11 +15,13 @@
 | HW 5.1 | [Power of Number](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/TatianaDzenzura/src/main/java/homework_5/power_of_number) | Power function implementation with recursion |
 | HW 5.2 | [Custom Regex Matcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/TatianaDzenzura/src/main/java/homework_5/custom_regex_matcher) | Custom regex matcher to check passport data of Russian Federation citizen |
 | HW 6 | [MapProblemsGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/TatianaDzenzura/src/main/java/homework_6) | Map problems generators |
+| HW 7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/TatianaDzenzura/src/main/java/homework_7) | KittenToCat Functional Interface |
 | |  | |
 | Tests HM 1 | [Tests for HM 1 Console Printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/TatianaDzenzura/src/test/java/homework_1) | JUnit tests for console printer from homework 1 |
 | Tests HW 2 | [Tests for HM 2 Traffic Light, Pyramid Printer and Random Chars Table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/TatianaDzenzura/src/test/java/homework_2) | JUnit tests for apps from homework 2 |
 | Tests HW 4 | [Tests for HM 4 Custom File Reader, Singleton and Custom Annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/TatianaDzenzura/src/test/java/homework_4) | JUnit tests for apps from homework 4 |
 | Tests HW 5 | [Tests for HM 5 Power of Number, Custom Regex Matcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/TatianaDzenzura/src/test/java/homework_5) | JUnit tests for app from homework 5 |
+| Tests HW 7 | [Tests for HM 7 KittenToCat](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/TatianaDzenzura/src/test/java/homework_7) | JUnit tests for app from homework 7 |
 
 [Link to markdown guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
