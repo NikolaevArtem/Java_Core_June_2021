@@ -12,7 +12,7 @@ public class SingletonTest {
 
         Assertions.assertEquals(singleGameHero.getName(), singleGameHero2.getName());
         Assertions.assertEquals(singleGameHero.getAge(), singleGameHero2.getAge());
-        Assertions.assertEquals(singleGameHero.hashCode(), singleGameHero2.hashCode());
+        Assertions.assertSame(singleGameHero, singleGameHero2);
     }
 
     @Test
@@ -27,6 +27,6 @@ public class SingletonTest {
 
         Assertions.assertEquals(singleGameHero.getName(), singleGameHero2.getName());
         Assertions.assertEquals(singleGameHero.getAge(), singleGameHero2.getAge());
-        Assertions.assertEquals(singleGameHero.hashCode(), singleGameHero2.hashCode());
+        Assertions.assertSame(singleGameHero, singleGameHero2);
     }
 }
