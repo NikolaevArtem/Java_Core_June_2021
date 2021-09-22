@@ -136,8 +136,8 @@ public class ConsolePrinter implements Printer {
 
     @Override
     public void printDestroyMsg(Player enemy, Ship ship) {
-        char x = (char) (ship.getShipSquares().get(1).getX() + 65);
-        int y = ship.getShipSquares().get(1).getY() + 1;
+        char x = (char) (ship.getShipSquares().get(0).getX() + 65);
+        int y = ship.getShipSquares().get(0).getY() + 1;
         System.out.println(enemy.getEnemy().getName() + " destroyed " + enemy.getName()
                 + "'s " + ship.getShipType() + " [" + x + y + "]" );
     }

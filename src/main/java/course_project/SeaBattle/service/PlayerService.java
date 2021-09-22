@@ -100,7 +100,7 @@ public class PlayerService {
             return true;
         } else if (shotSquare.getSquareStatus().equals(SquareType.HIT)) {
             DisplayService.showMsgAlreadyShot(enemyPlayer);
-            return true;
+            return false;
         } else if (shotSquare.getSquareStatus().equals(SquareType.MISSED)) {
             DisplayService.showMsgAlreadyShot(enemyPlayer);
             return true;

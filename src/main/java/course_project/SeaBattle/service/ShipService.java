@@ -17,11 +17,9 @@ public class ShipService {
         for (Ship ship : shipList) {
             if (ship.getShipSquares().contains(square)) {
                 int i = ship.getShipSquares().indexOf(square);
-                healShipBeforeFire = ship.getShipHeal();
-                ship.setShipHeal(healShipBeforeFire - 1);
-                if (!ship.getShipSquares().get(i).getSquareStatus().equals(SquareType.HIT)) {
                     DisplayService.showHitMsg(enemy.getEnemy(), square);
-                }
+                    healShipBeforeFire = ship.getShipHeal();
+                    ship.setShipHeal(healShipBeforeFire - 1);
             }
             if (ship.getShipHeal() == 0) {
                 showBordersSquareWhenShipSank(ship);
@@ -81,6 +79,8 @@ public class ShipService {
                 }
             }
         }
+
+        shipSquares.remove(0);
 
         List<Square> legalBoardSquare = ship.getBoundedSquare()
                 .stream()
