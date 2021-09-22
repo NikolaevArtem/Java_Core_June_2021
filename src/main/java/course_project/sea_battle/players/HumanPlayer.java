@@ -26,6 +26,7 @@ public class HumanPlayer extends Player {
         for (int i = 0; i < Playground.getShipAmount(); i++) {
             ships[i] = new Ship(ShipType.values()[i], playground);
             System.out.println("Let's set " + ships[i].getShipType().name() + " (" + ships[i].getShipType().getLength() + " cells):");
+            System.out.println("e.g. A-1");
             new Helper().setShip(ships[i]);
             System.out.println("Ship " + ships[i].getShipType().name() + " set successfully!");
             System.out.println(playground.toStringMine());

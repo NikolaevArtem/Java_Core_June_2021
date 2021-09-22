@@ -8,7 +8,7 @@ import java.io.*;
 public class InputConsoleReader extends InputReader {
     private BufferedReader br;
 
-    public InputConsoleReader() throws FileNotFoundException {
+    public InputConsoleReader() {
         super("Can't parse input. Please, follow the format: [char A-J]-[integer 1-10]");
 
         // temporary reading user ships set from file (for quick debugging and testing)

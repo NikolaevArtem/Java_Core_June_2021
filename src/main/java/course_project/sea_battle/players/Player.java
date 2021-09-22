@@ -52,7 +52,7 @@ public abstract class Player {
         void setShip(Ship ship) throws IOException, WrongInputException {
             for (int i = 0; i < ship.getShipType().getLength(); i++) {
                 CellData data = inputReader.readShotData();
-                //TODO: check if the cells are together
+
                 PlaygroundCell currentCell = getPlayground().getCell(data);
                 currentCell.setStatus(CellStatus.OCCUPIED);
                 currentCell.setShip(ship);

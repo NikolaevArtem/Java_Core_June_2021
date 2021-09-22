@@ -18,13 +18,17 @@ public class Game {
 
     public Game() throws FileNotFoundException {
         this.inputConsoleReader = new InputConsoleReader();
-        this.inputFileReader = new InputFileReader();
+        try {
+            this.inputFileReader = new InputFileReader();
+        } catch (FileNotFoundException e) {
+            throw new FileNotFoundException("Input files might be damaged. Please look at resources folder");
+        }
 
         this.player = new HumanPlayer(inputConsoleReader);
         this.computer = new ComputerPlayer(inputFileReader);
     }
 
-    public void play() {
+    public void play() throws InterruptedException, IOException, WrongInputException {
         System.out.println("Hi there, ready to play?");
         Player winner;
 
@@ -38,18 +42,15 @@ public class Game {
             gameplay.printCongratsToWinner(winner);
 
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (WrongInputException e) {
-            System.out.println(e.getMessage());
+            throw new IOException("Please check input files in resources folder", e);
         } catch (InterruptedException e) {
-            //TODO: exception handling (everywhere)
-            e.printStackTrace();
+            throw new InterruptedException("Couldn't simulate computer player thinking, it got interrupted");
         } finally {
             try {
                 inputConsoleReader.close();
                 inputFileReader.close();
             } catch (IOException e) {
-                System.out.println("IO Exception");
+                throw new IOException("Couldn't manage to close resources", e);
             }
         }
     }
