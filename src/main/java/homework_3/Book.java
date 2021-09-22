@@ -15,9 +15,9 @@ public final class Book {
     public Book(String name, String... authors) {
         this.title = name;
         this.year = 0;
-        String[] arrayCopy = new String[authors.length];
-        System.arraycopy(authors, 0, arrayCopy, 0, authors.length);
-        this.authors = arrayCopy;
+        String[] copyAuthors = new String[authors.length];
+        System.arraycopy(authors, 0, copyAuthors, 0, authors.length);
+        this.authors = copyAuthors;
     }
 
     public Book(String name, int age) {
