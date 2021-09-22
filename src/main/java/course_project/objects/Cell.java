@@ -2,8 +2,7 @@ package course_project.objects;
 
 import course_project.enums.CellStatus;
 
-import static course_project.enums.CellStatus.FREE;
-import static course_project.enums.CellStatus.HAS_SHIP;
+import static course_project.enums.CellStatus.*;
 
 public class Cell {
 
@@ -25,12 +24,12 @@ public class Cell {
 
     @Override
     public String toString() {
-        if (status == FREE) {
-            return " ";
+        if (status == VISITED) {
+            if(gotShip) {
+                return "X";
+            }
+            return "e";
         }
-        if (status == HAS_SHIP) {
-            return "X";
-        }
-        return ".";
+        return "-";
     }
 }

@@ -38,6 +38,7 @@ public class GameService {
     private void processUserMoves(UserService userService, GameData gameData) {
         Response response;
         do {
+            gameData.getComputerField().printField();
             response = gameData.getResponseFromComputer(userService.getMove());
             userService.printComputerResponse(response);
             if (response == Response.KILLED) {
@@ -69,7 +70,6 @@ public class GameService {
     private void finishGame(GameData data, UserService userService) {
         if (data.isUserFleetEmpty()) {
             System.out.println(COMPUTER_WIN_MESSAGE);
-            data.getComputerField().printField();
         }
         if (data.isComputerFleetEmpty()) {
             System.out.println(USER_WIN_MESSAGE);

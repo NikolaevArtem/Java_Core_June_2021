@@ -8,10 +8,10 @@ import java.io.IOException;
 public class UserService {
 
     private final String MOVE_MESSAGE = "Make your move (e. g. D4): ";
-    private final String RESPONSE_MESSAGE = "   Enter 0, you have no ship on this cell,\n" +
-            "   Enter 1, if part of your ship is on this cell,\n" +
-            "   Enter 2, if there is last/only not killed part os your ship.\n" +
-            "   Enter a response (a digit from 0 to 2):";
+    private final String RESPONSE_MESSAGE = "\tEnter 0, you have no ship on this cell,\n" +
+            "\tEnter 1, if part of your ship is on this cell,\n" +
+            "\tEnter 2, if there is last/only not killed part os your ship.\n" +
+            "\tEnter a response (a digit from 0 to 2):";
     private final String VISITED_ALREADY_MESSAGE = "You have checked this cell already! Try to make a move again.";
     private final String WRONG_MOVE_FORMAT_MESSAGE = "Wrong input format. Try again:";
     private final InputService inputService;

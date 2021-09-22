@@ -70,4 +70,16 @@ public class ComputerField extends Field {
                 || (y + 1 < table[0].length && table[x][y + 1].getStatus() == CellStatus.HAS_SHIP);
     }
 
+    public void printField() {
+        System.out.println("Computer's field:");
+        System.out.println("  1  2  3  4  5  6  7  8  9 10");
+        for (int i = 0; i < 10; i++) {
+            System.out.print((char) (i + 65));
+            System.out.println(Arrays.toString(table[i]));
+        }
+        System.out.println("\tX - computer's ship you've destroyed.");
+        System.out.println("\te - empty cell you've checked.");
+        System.out.println("\t- - a cell you've not checked.");
+    }
+
 }
