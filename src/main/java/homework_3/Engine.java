@@ -1,7 +1,6 @@
 package homework_3;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /*
@@ -56,7 +55,7 @@ public final class Engine {
     }
 
     public Engine getNewEngine(String model, int power) {
-        return new Engine(model, this.isOk, power, this.spec);
+        return new Engine(model, this.isOk, power, this.getSpec());
     }
 
     @Override
