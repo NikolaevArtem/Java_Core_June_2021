@@ -58,7 +58,7 @@ public final class ImmutableClass {
     }
 
     public final ImmutableClass getChangedInstance(int yearOfBirth) {
-        return new ImmutableClass(String.valueOf(className), yearOfBirth, Arrays.copyOf(password, password.length));
+        return new ImmutableClass(className, yearOfBirth, Arrays.copyOf(password, password.length));
     }
 
     public final ImmutableClass getChangedInstance(String className, int yearOfBirth) {
@@ -66,7 +66,7 @@ public final class ImmutableClass {
     }
 
     final String getClassName() {
-        return String.valueOf(className);
+        return className;
     }
 
     final int getYearOfBirth() {
@@ -88,15 +88,20 @@ public final class ImmutableClass {
 
     public static void main(String[] args) {
         ImmutableClass im = new ImmutableClass("class", 1996, new char[] {'a','b','c','1'});
-        ImmutableClass im1 = im.getChangedInstance(1998);
+        ImmutableClass im1 = im.getChangedInstance(2007);
         System.out.println(im);
         System.out.println(im1);
-        char[] pass = im1.getPassword();
+        char[] pass = im.getPassword();
+        char[] pass1 = im1.getPassword();
+
         pass[0] = '1';
-        String name = im1.getClassName();
-        name = "changedName";
+        pass1[3] = '!';
         System.out.println(im);
         System.out.println(im1);
+        ImmutableClass im3 = im.getChangedInstance("changedName");
+        System.out.println(im);
+        System.out.println(im1);
+        System.out.println(im3);
     }
 
 }
