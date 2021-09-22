@@ -13,7 +13,7 @@ public class CollisionClass {
 
     @Override
     public int hashCode() {
-        return dateOfBirth.get(Calendar.YEAR);
+        return 1;
     }
 
     @Override
