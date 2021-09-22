@@ -10,6 +10,9 @@
 | HW3 | [ImmutableClass](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/DrozdovNikita/src/main/java/homework_3/MyImmutableClass.java) |  |
 | HW4 | [CustomFileReader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DrozdovNikita/src/main/java/homework_4/custom_file_reader) <br> [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DrozdovNikita/src/main/java/homework_4/singleton) <br> [CustomAnnotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DrozdovNikita/src/main/java/homework_4/custom_annotation) | The app has 6 implementation file reader: Apache, BufferedReader, FileInputStream, Guava, Scanner and NIO <br> The app-singleton <br> The app use custom annotations to create xml structure for your object: XmlSerializable and XmlElement |
 | HW5 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DrozdovNikita/src/main/java/homework_5/power_of_number) <br> [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DrozdovNikita/src/main/java/homework_5/custom_regex_matcher) | The app that reads two input integers and prints a to the power of b <br> The app that reads input phone number and prints its validity |
+| HW6 | [MapProblemsGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DrozdovNikita/src/main/java/homework_6) | The app that generate map problems
+| HW7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DrozdovNikita/src/main/java/homework_7) | The app that implementation KittenToCatFunction functional interface
+| CP | [SeaBattle](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DrozdovNikita/src/main/java/course_project) | Sea Battle
 |  |  |  |
 | TEST | [Test dir](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DrozdovNikita/src/test/java)
 
