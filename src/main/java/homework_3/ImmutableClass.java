@@ -34,9 +34,10 @@ public final class ImmutableClass {
     }
 
     public ImmutableClass(List<Number> allData, int age, double weight) {
-        this.allDataList = new LinkedList<>(allData);
         this.age = age;
         this.weight = weight;
+        this.allDataList = new LinkedList<>(allData);
+        initAllDataList();
     }
 
     private void initAllDataList() {
@@ -48,7 +49,7 @@ public final class ImmutableClass {
         return new LinkedList<>(this.allDataList);
     }
 
-    public ImmutableClass getAllDataListChangeable(List<Number> changes) {
+    public ImmutableClass getNewObjectWithChanges(List<Number> changes) {
         List<Number> list = getAllDataList();
         list.addAll(changes);
         return new ImmutableClass(list, this.age, this.weight);
@@ -60,10 +61,6 @@ public final class ImmutableClass {
 
     public double getWeight() {
         return weight;
-    }
-
-    public final Object newObjectMethod() {
-        return new ImmutableClass();
     }
 
 }

@@ -12,7 +12,7 @@ public class Main {
         changes.add(1);
         changes.add(12.);
         changes.add(13);
-        ImmutableClass obj2 = obj.getAllDataListChangeable(changes);
+        ImmutableClass obj2 = obj.getNewObjectWithChanges(changes);
         obj2.getAllDataList().forEach(System.out::println);
     }
 
