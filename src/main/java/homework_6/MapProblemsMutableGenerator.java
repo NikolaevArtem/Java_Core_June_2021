@@ -5,40 +5,23 @@ import java.util.Random;
 
 public class MapProblemsMutableGenerator {
     private int id;
-    private String name;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MapProblemsMutableGenerator that = (MapProblemsMutableGenerator) o;
-        return id == that.id && Objects.equals(name, that.name);
+        return id == that.id;
     }
 
     @Override
     public int hashCode() {
-        Random random = new Random();
-        return random.nextInt(Integer.MAX_VALUE);
+        return Objects.hash(id);
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
+
+    public MapProblemsMutableGenerator(int id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public MapProblemsMutableGenerator(int id, String name) {
-        this.id = id;
-        this.name = name;
     }
 }

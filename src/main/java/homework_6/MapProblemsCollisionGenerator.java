@@ -2,8 +2,8 @@ package homework_6;
 
 
 public class MapProblemsCollisionGenerator {
-    private int id;
-    private String name;
+    private final int id;
+    private final String name;
 
     @Override
     public boolean equals(Object o) {
@@ -18,20 +18,9 @@ public class MapProblemsCollisionGenerator {
         return 1;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public MapProblemsCollisionGenerator(int id, String name) {
