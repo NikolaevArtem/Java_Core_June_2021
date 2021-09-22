@@ -36,12 +36,12 @@ public final class ImmutableClass {
         return anInt;
     }
 
-    public List<String> getaList() {
-        //return new ArrayList(aList) - тоже будет прекрасно работать!
-        return Collections.unmodifiableList(aList);
+    public List<String> getAList() {
+        //return Collections.unmodifiableList(aList) - тоже будет прекрасно работать!
+        return new ArrayList<>(aList);
     }
 
     public ImmutableClass getNew(List<String> aList) {
-        return new ImmutableClass(aList);
+        return new ImmutableClass(getString(), getAnInt(), aList);
     }
 }
