@@ -36,11 +36,11 @@ public final class ImmutableClass {
         return number;
     }
 
-    public List<Integer> getNumbers() {
+    public ArrayList<Integer> getNumbers() {
         return new ArrayList<>(numbers);
     }
 
     public ImmutableClass getWithModifiedNumber(int number) {
-        return new ImmutableClass(number);
+        return new ImmutableClass(number, getNumbers());
     }
 }
