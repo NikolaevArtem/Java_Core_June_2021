@@ -1,34 +1,34 @@
 package homework_3;
 
 /**
-A Strategy for Defining Immutable Objects (from the official Oracle documentation)
-
-1. Don't provide "setter" methods — methods that modify fields or objects referred to by fields.
-
-2. Make all fields final and private.
-
-3. Don't allow subclasses to override methods. The simplest way to do this is to declare the class as final.
-A more sophisticated approach is to make the constructor private and construct instances in factory methods.
-
-4. If the instance fields include references to mutable objects, don't allow those objects to be changed:
- - Don't provide methods that modify the mutable objects.
- - Don't share references to the mutable objects.
-    Never store references to external, mutable objects passed to the constructor;
-    if necessary, create copies, and store references to the copies.
-    Similarly, create copies of your internal mutable objects when necessary to avoid returning the originals in your methods.
+ * A Strategy for Defining Immutable Objects (from the official Oracle documentation)
+ * <p>
+ * 1. Don't provide "setter" methods — methods that modify fields or objects referred to by fields.
+ * <p>
+ * 2. Make all fields final and private.
+ * <p>
+ * 3. Don't allow subclasses to override methods. The simplest way to do this is to declare the class as final.
+ * A more sophisticated approach is to make the constructor private and construct instances in factory methods.
+ * <p>
+ * 4. If the instance fields include references to mutable objects, don't allow those objects to be changed:
+ * - Don't provide methods that modify the mutable objects.
+ * - Don't share references to the mutable objects.
+ * Never store references to external, mutable objects passed to the constructor;
+ * if necessary, create copies, and store references to the copies.
+ * Similarly, create copies of your internal mutable objects when necessary to avoid returning the originals in your methods.
  */
 
 final public class ImmutableClass {
 
     // Values must be between 0 and 255 (RGB)
-    final private int red;
-    final private int green;
-    final private int blue;
+    final private Integer red;
+    final private Integer green;
+    final private Integer blue;
     final private String name;
 
-    private void check(int red,
-                       int green,
-                       int blue) {
+    private void check(Integer red,
+                       Integer green,
+                       Integer blue) {
         if (red < 0 || red > 255
                 || green < 0 || green > 255
                 || blue < 0 || blue > 255) {
@@ -36,15 +36,15 @@ final public class ImmutableClass {
         }
     }
 
-    public ImmutableClass(int red,
-                          int green,
-                          int blue,
+    public ImmutableClass(Integer red,
+                          Integer green,
+                          Integer blue,
                           String name) {
         check(red, green, blue);
-        this.red = red;
-        this.green = green;
-        this.blue = blue;
-        this.name = name;
+        this.red = new Integer(red);
+        this.green = new Integer(green);
+        this.blue = new Integer(blue);
+        this.name = new String(name);
     }
 
     public ImmutableClass() {
@@ -54,13 +54,20 @@ final public class ImmutableClass {
         this.name = "black";
     }
 
+    public Integer getRed() {
+        return new Integer(red);
+    }
 
-    public int getRGB() {
-        return ((red << 16) | (green << 8) | blue);
+    public Integer getGreen() {
+        return new Integer(green);
+    }
+
+    public Integer getBlue() {
+        return new Integer(blue);
     }
 
     public String getName() {
-        return name;
+        return new String(name);
     }
 
     public ImmutableClass invert() {
@@ -69,5 +76,14 @@ final public class ImmutableClass {
                 255 - green,
                 255 - blue,
                 "Inverse of " + name);
+    }
+
+    public ImmutableClass getInstance() {
+        return new ImmutableClass(
+                getRed(),
+                getGreen(),
+                getBlue(),
+                getName()
+        );
     }
 }
