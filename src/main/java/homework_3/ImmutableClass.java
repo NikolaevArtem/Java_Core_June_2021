@@ -11,19 +11,51 @@ public final class ImmutableClass {
 
     private final String string;
     private final int intVal;
+    private final StringBuilder stringBuilder;
 
-    private ImmutableClass(String string, int intVal) {
+    private ImmutableClass(String string, int intVal, StringBuilder stringBuilder) {
         this.string = string;
         this.intVal = intVal;
+        this.stringBuilder = new StringBuilder(stringBuilder);
     }
 
     private ImmutableClass() {
         this.string = "defaultVal";
         this.intVal = 0;
+        this.stringBuilder = new StringBuilder("defaultValue");
     }
 
+    @Override
+    public String toString() {
+        return "ImmutableClass{" +
+                "string='" + string + '\'' +
+                ", intVal=" + intVal +
+                ", stringBuilder=" + stringBuilder +
+                '}';
+    }
+
+    public String getString() {
+        return string;
+    }
+
+    public StringBuilder getStringBuilder() {
+        return stringBuilder;
+    }
     private ImmutableClass createNewObj() {
         return new ImmutableClass();
     }
 
+    public static void main(String[] args) {
+        StringBuilder secondName = new StringBuilder("SecondName");
+        ImmutableClass item = new ImmutableClass("Name", 12, secondName);
+
+        System.out.println("Just created item: " + item);
+        System.out.println(item.getStringBuilder());
+
+        System.out.println("");
+
+        secondName.append("NEW");
+        System.out.println("Item after changes: " + item);
+        System.out.println( "from object = " + item.getStringBuilder() + "; from variable = " + secondName);
+    }
 }
