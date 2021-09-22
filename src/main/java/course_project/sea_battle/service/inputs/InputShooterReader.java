@@ -47,7 +47,7 @@ public class InputShooterReader extends InputReader {
             } else {
                 defineShot();
             }
-            if (isShooted(player2)) continue;
+            if (isShooted(player1, player2)) continue;
 
             if (player1.isComputer()) {
                 System.out.println(COMPUTERMOVE);
@@ -78,9 +78,11 @@ public class InputShooterReader extends InputReader {
         }
     }
 
-    public boolean isShooted(Player enemy) {
+    public boolean isShooted(Player me, Player enemy) {
         if (enemy.getMyBoard().getBoard()[x][y] == 3 || enemy.getMyBoard().getBoard()[x][y] == 2) {
-            System.out.println(CHECKED);
+            if (!me.isComputer()) {
+                System.out.println(CHECKED);
+            }
             return true;
         }
         return false;
