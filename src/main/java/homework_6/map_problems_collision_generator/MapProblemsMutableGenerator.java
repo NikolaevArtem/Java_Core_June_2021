@@ -1,7 +1,6 @@
 package homework_6.map_problems_collision_generator;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class MapProblemsMutableGenerator {
 
@@ -21,7 +20,7 @@ public class MapProblemsMutableGenerator {
 
     @Override
     public int hashCode() {
-        return new Random().nextInt(Integer.MAX_VALUE - 1);
+        return Objects.hashCode(val);
     }
 
     @Override

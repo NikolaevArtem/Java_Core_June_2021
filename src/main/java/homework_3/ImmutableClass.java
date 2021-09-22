@@ -10,30 +10,48 @@ Immutable class
     No setters (To not have the option to change the value of the instance variable)
  */
 
+import java.util.LinkedList;
+import java.util.List;
+
 public final class ImmutableClass {
 
-    private final String name; // reference type
+    private final List<Number> allDataList; // mutable type
     private final int age; // primitive type
     private final double weight; // primitive type
 
     public ImmutableClass() {
-        this.name = "Unknown";
         this.age = 0;
         this.weight = 0.0;
+        this.allDataList = new LinkedList<>();
+        initAllDataList();
     }
 
-    public ImmutableClass(String str, int age, double weight) {
-        this.name = str;
+    public ImmutableClass(int age, double weight) {
+        this.age = age;
+        this.weight = weight;
+        this.allDataList = new LinkedList<>();
+        initAllDataList();
+    }
+
+    public ImmutableClass(List<Number> allData, int age, double weight) {
+        this.allDataList = new LinkedList<>(allData);
         this.age = age;
         this.weight = weight;
     }
 
-    public ImmutableClass(String str) {
-        this(str, 1, 1.0);
+    private void initAllDataList() {
+        this.allDataList.add(age);
+        this.allDataList.add(weight);
     }
 
-    public String getName() {
-        return name;
+    public List<Number> getAllDataList() {
+        return new LinkedList<>(this.allDataList);
+    }
+
+    public ImmutableClass getAllDataListChangeable(List<Number> changes) {
+        List<Number> list = getAllDataList();
+        list.addAll(changes);
+        return new ImmutableClass(list, this.age, this.weight);
     }
 
     public int getAge() {
@@ -45,7 +63,7 @@ public final class ImmutableClass {
     }
 
     public final Object newObjectMethod() {
-        return new ImmutableClass(name, age, weight);
+        return new ImmutableClass();
     }
 
 }

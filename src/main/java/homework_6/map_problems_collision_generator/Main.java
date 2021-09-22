@@ -11,8 +11,9 @@ public class Main {
 
         MapProblemsMutableGenerator mapProblemsMutableGenerator = new MapProblemsMutableGenerator();
         mapProblemsMutableGenerator.setVal("ложим!");
-
         unluckyMap.put(mapProblemsMutableGenerator, mapProblemsMutableGenerator.getVal());
+        mapProblemsMutableGenerator.setVal("кладем!");
+
         System.out.println("не можИм! " + unluckyMap.get(mapProblemsMutableGenerator));
     }
 
