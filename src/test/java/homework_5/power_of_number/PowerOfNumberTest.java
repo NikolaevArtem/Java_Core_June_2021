@@ -73,7 +73,7 @@ class PowerOfNumberTest extends UnitBase {
 
     @Test
     void givenNumberAndNegative_whenRun_thenError() {
-        setInput("4 -2");
+        setInput("5 -2");
         powerOfNumber.run();
         removeFromOutput("Enter 2 positive integer numbers: ");
         assertEquals("Only 2 non-negative integers are allowed", getOutputLines()[0]);
@@ -97,7 +97,7 @@ class PowerOfNumberTest extends UnitBase {
 
     @Test
     void givenLessParams_whenRun_thenError() {
-        setInput("5");
+        setInput("1");
         powerOfNumber.run();
         removeFromOutput("Enter 2 positive integer numbers: ");
         assertEquals("Only 2 non-negative integers are allowed", getOutputLines()[0]);
@@ -105,7 +105,7 @@ class PowerOfNumberTest extends UnitBase {
 
     @Test
     void giveMoreParams_whenRun_thenError() {
-        setInput("5 4 5");
+        setInput("1 2 3");
         powerOfNumber.run();
         removeFromOutput("Enter 2 positive integer numbers: ");
         assertEquals("Only 2 non-negative integers are allowed", getOutputLines()[0]);
