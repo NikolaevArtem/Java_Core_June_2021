@@ -1,9 +1,9 @@
 package homework_6;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class MapProblemsMutableGenerator {
+
     private int id;
 
     @Override

@@ -2,6 +2,7 @@ package homework_6;
 
 
 public class MapProblemsCollisionGenerator {
+
     private final int id;
     private final String name;
 

@@ -32,7 +32,7 @@ public class Kitten {
                 '}';
     }
 
-    public Cat changeKittenToCat(KittenToCat<Cat, Kitten> kittenToCat) {
+    public Cat changeKittenToCat(KittenToCat kittenToCat) {
         return kittenToCat.trasfom(this);
     }
 }

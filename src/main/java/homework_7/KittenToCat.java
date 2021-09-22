@@ -1,5 +1,5 @@
 package homework_7;
 @FunctionalInterface
-public interface KittenToCat<C extends Cat, K extends Kitten> {
+public interface KittenToCat {
     Cat trasfom(Kitten kitten);
 }
