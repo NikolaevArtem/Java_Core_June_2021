@@ -4,14 +4,10 @@ import java.util.Objects;
 
 public class MapProblemsMutableGenerator {
 
-    private  int weight;
+    private int weight;
 
     public MapProblemsMutableGenerator(int weight) {
         this.weight = weight;
-    }
-
-    public int getWeight() {
-        return weight;
     }
 
     public void setWeight(int weight) {
@@ -19,15 +15,15 @@ public class MapProblemsMutableGenerator {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(weight);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MapProblemsMutableGenerator that = (MapProblemsMutableGenerator) o;
+        return weight == that.weight;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        MapProblemsMutableGenerator newObj = (MapProblemsMutableGenerator) obj;
-        return weight == newObj.weight;
+    public int hashCode() {
+        return Objects.hash(weight);
     }
 }

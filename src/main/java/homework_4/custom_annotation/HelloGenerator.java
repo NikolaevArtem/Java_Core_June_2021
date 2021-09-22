@@ -11,22 +11,6 @@ public class HelloGenerator {
         HelloGenerator helloGenerator1 = new HelloGenerator(null, 5);
         System.out.println(helloGenerator);
         System.out.println(helloGenerator1);
-        seriesUp(3);
-    }
-
-    public static int[] seriesUp(int n) {
-        int[] res = new int[n * (n + 1) / 2];
-        int index = 0;
-
-        for (int i = 1; i <= n; i++) {
-            for (int j = 0; j < i; j++) {
-                res[index + j] = j + 1;
-            }
-            index += i;
-        }
-
-        System.out.println(Arrays.toString(res));
-        return res;
     }
 
     @CustomAnnotation
