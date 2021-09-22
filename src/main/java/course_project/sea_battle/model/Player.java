@@ -7,9 +7,9 @@ import java.util.List;
 
 public class Player {
     private String name;
-    private boolean isComputer;
     private MyBoard myBoard;
     private MyBoard myShots;
+    private boolean isComputer;
     private final List<Ship> myShips = new ArrayList<>();
 
     public Player(MyBoard myBoard, MyBoard enemyBoard) {
