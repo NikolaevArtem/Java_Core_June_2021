@@ -8,7 +8,7 @@ public class Board {
 
     public static final int FIELD_SIZE = 10;
     private static final String SHIP = ANSI_GREEN + "■" + ANSI_RESET;
-    private static final String WATER = BACKGROUND_CYAN + " " + ANSI_RESET;
+    private static final String WATER = "~";
     private static final String MISS = ANSI_MAGENTA + "▓" + ANSI_RESET;
     private static final String HIT = ANSI_YELLOW + "×" + ANSI_RESET;
     private static final String DESTROY = ANSI_RED + "*" + ANSI_RESET;
