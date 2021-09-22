@@ -26,8 +26,7 @@ class GameTest extends UnitBase {
     @Test
     void testNameSetter() {
         String input = "Tom\n" +
-                "Vera\n" +
-                "\n";
+                "Vera\n";
         setInput(input);
 
         Game game = new Game();
@@ -42,7 +41,8 @@ class GameTest extends UnitBase {
 
     @Test
     void testValidCoordsShipPlacing() {
-        String input = "a1 h\n" +
+        String input = "1\n" +
+                "a1 h\n" +
                 "a3 h\n" +
                 "a5 h\n" +
                 "a7 h\n" +
@@ -53,6 +53,7 @@ class GameTest extends UnitBase {
                 "f7 h\n" +
                 "f9 h\n" +
                 "\n" +
+                "1\n" +
                 "a1 h\n" +
                 "a3 h\n" +
                 "a5 h\n" +
@@ -78,7 +79,8 @@ class GameTest extends UnitBase {
 
     @Test
     void testOnlyValidCoordsShipPlacing() {
-        String input = "a1 h\n" +
+        String input = "1\n" +
+                "a1 h\n" +
                 "a2 h\n" +
                 "a\n" +
                 "a6v\n" +
@@ -93,6 +95,7 @@ class GameTest extends UnitBase {
                 "f7 h\n" +
                 "f9 h\n" +
                 "\n" +
+                "1\n" +
                 "a1 h\n" +
                 "a3 h\n" +
                 "a5 h\n" +
@@ -103,6 +106,24 @@ class GameTest extends UnitBase {
                 "f5 h\n" +
                 "f7 h\n" +
                 "f9 h\n" +
+                "\n";
+        setInput(input);
+
+        Game game = new Game();
+        game.setUpShips();
+
+        long numOfShips1 = game.getPlayer1().countShips();
+        long numOfShips2 = game.getPlayer2().countShips();
+
+        assertEquals(10, numOfShips1);
+        assertEquals(10, numOfShips2);
+    }
+
+    @Test
+    void testComputerShipPlacing() {
+        String input = "2\n" +
+                "\n" +
+                "2\n" +
                 "\n";
         setInput(input);
 
@@ -131,8 +152,8 @@ class GameTest extends UnitBase {
         inputShipReader.setY(0);
         inputShipReader.setPosition("v");
 
-        assertTrue(inputShipReader.isShipWithinBoard(3));
-        assertFalse(inputShipReader.isShipWithinBoard(4));
+        assertTrue(inputShipReader.isShipWithinBoard(3, 1));
+        assertFalse(inputShipReader.isShipWithinBoard(4, 1));
         assertEquals(OUTOFBOARD, getOutput());
     }
 
@@ -167,7 +188,7 @@ class GameTest extends UnitBase {
         assertEquals(1, numOfPlayer1AllShips);
         assertEquals(1, numOfPlayer2AllShips);
 
-        game.startGame();
+        game.play();
 
         long numOfPlayer1AliveShips = game.getPlayer1().getMyShips().stream()
                 .filter(Ship::isAlive)

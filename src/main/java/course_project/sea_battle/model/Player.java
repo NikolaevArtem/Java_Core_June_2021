@@ -1,7 +1,6 @@
 package course_project.sea_battle.model;
 
 import course_project.sea_battle.boards.MyBoard;
-import course_project.sea_battle.boards.MyShots;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +8,10 @@ import java.util.List;
 public class Player {
     private String name;
     private MyBoard myBoard;
-    private MyShots myShots;
+    private MyBoard myShots;
     private final List<Ship> myShips = new ArrayList<>();
 
-    public Player(MyBoard myBoard, MyShots enemyBoard) {
+    public Player(MyBoard myBoard, MyBoard enemyBoard) {
         this.myBoard = myBoard;
         this.myShots = enemyBoard;
         myBoard.setBasicGrids();
@@ -39,7 +38,7 @@ public class Player {
         return myBoard;
     }
 
-    public MyShots getMyShots() {
+    public MyBoard getMyShots() {
         return myShots;
     }
 

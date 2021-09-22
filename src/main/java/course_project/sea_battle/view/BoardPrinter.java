@@ -13,10 +13,7 @@ public class BoardPrinter {
     private static final String HIT = RED + "X" + RESET;
     private static final String WAVE = CYAN + "~" + RESET;
 
-    private BoardPrinter() {
-    }
-
-    public static void showBoards(Player player) {
+    public static synchronized void showBoards(Player player) {
         int[][] myField = player.getMyBoard().getBoard();
         int[][] enemyField = player.getMyShots().getBoard();
         showHeader(player);

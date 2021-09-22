@@ -2,16 +2,13 @@ package course_project.sea_battle;
 
 import base.UnitBase;
 import course_project.sea_battle.boards.MyBoard;
-import course_project.sea_battle.boards.MyShots;
 import course_project.sea_battle.model.Player;
 import course_project.sea_battle.model.Point;
 import course_project.sea_battle.model.Ship;
 import course_project.sea_battle.model.Shot;
-import course_project.sea_battle.service.inputs.BigSpace;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 import static course_project.sea_battle.service.inputs.InputShooterReader.putOnBoard;
 import static course_project.sea_battle.view.BoardPrinter.showBoards;
@@ -29,23 +26,8 @@ class ViewTest extends UnitBase {
     private static final String WAVE = CYAN + "~" + RESET;
 
     MyBoard myBoard;
-    MyShots myShots;
+    MyBoard myShots;
     Player player1;
-
-    @Test
-    void testBigSpacePrinter() {
-        String input = "\n";
-        setInput(input);
-
-        new BigSpace(new Scanner(System.in)).printBigSpace();
-        String expected = "Press ENTER to finish your move\n" +
-                ".\n" +
-                ".\n" +
-                ".\n" +
-                ".\n" +
-                ".";
-        assertEquals(expected, getOutput().replaceAll("\r", ""));
-    }
 
     @Test
     void testBoardPrinterEmptyBoard() {
@@ -97,9 +79,9 @@ class ViewTest extends UnitBase {
     void testBoardPrinterMyShots() {
         createPlayers();
 
-        putOnBoard(myShots, new Point(0,0), Shot.MISS);
-        putOnBoard(myShots, new Point(1,1), Shot.HIT);
-        putOnBoard(myShots, new Point(2,2), Shot.KILLED);
+        putOnBoard(myShots, new Point(0, 0), Shot.MISS);
+        putOnBoard(myShots, new Point(1, 1), Shot.HIT);
+        putOnBoard(myShots, new Point(2, 2), Shot.KILLED);
 
         showBoards(player1);
         String expected = "MY BOARD (null) vs ENEMY BOARD\n" + "\n" +
@@ -127,9 +109,9 @@ class ViewTest extends UnitBase {
     void testBoardPrinterEnemyShots() {
         createPlayers();
 
-        putOnBoard(myBoard, new Point(0,1), Shot.MISS);
-        putOnBoard(myBoard, new Point(0,2), Shot.HIT);
-        putOnBoard(myBoard, new Point(0,3), Shot.KILLED);
+        putOnBoard(myBoard, new Point(0, 1), Shot.MISS);
+        putOnBoard(myBoard, new Point(0, 2), Shot.HIT);
+        putOnBoard(myBoard, new Point(0, 3), Shot.KILLED);
 
         showBoards(player1);
         String expected = "MY BOARD (null) vs ENEMY BOARD\n" + "\n" +
@@ -154,7 +136,7 @@ class ViewTest extends UnitBase {
 
     private void createPlayers() {
         myBoard = new MyBoard();
-        myShots = new MyShots();
+        myShots = new MyBoard();
         player1 = new Player(myBoard, myShots);
     }
 

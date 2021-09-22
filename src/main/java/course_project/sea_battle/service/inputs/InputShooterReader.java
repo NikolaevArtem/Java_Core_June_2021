@@ -1,9 +1,16 @@
 package course_project.sea_battle.service.inputs;
 
 import course_project.sea_battle.boards.Board;
-import course_project.sea_battle.model.*;
+import course_project.sea_battle.model.Player;
+import course_project.sea_battle.model.Point;
+import course_project.sea_battle.model.Ship;
+import course_project.sea_battle.model.Shot;
+import lombok.SneakyThrows;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static course_project.sea_battle.view.BoardPrinter.showBoards;
@@ -13,16 +20,15 @@ public class InputShooterReader extends InputReader {
     private int y;
     private Shot shot;
     private Ship currentShip;
-    private final BigSpace bigSpace;
 
     private static final String MAKESHOT = ", make your shot in format: [A6] or [b1]";
     private static final String INPUTERROR = "Input should be like this: [A7] or [b2]. Try again!";
     private static final String CHECKED = "Cell is checked. Make another shot!";
     private static final String KILLALL = ", you destroyed all enemy ships. Congratulations!";
+    private static final String NEXTMOVE = "Press ENTER to finish your move";
 
     public InputShooterReader(Scanner scanner) {
         this.scanner = scanner;
-        this.bigSpace = new BigSpace(scanner);
     }
 
     public void checkAndValidatePlayerShot(Player player1, Player player2) {
@@ -142,30 +148,40 @@ public class InputShooterReader extends InputReader {
         }
     }
 
+    @SneakyThrows
     public boolean isGameContinue(Player me, Player enemy, Shot shot) {
         if (shot == Shot.KILLED) {
             System.err.println("KILLED!");
             System.out.println(enemy.getName() + " has " + enemy.countShips() + " ship(s) left.");
             fillCellsAroundDestroyedShip(currentShip, me, enemy);
+            Thread.sleep(100);
             showBoards(me);
             if (enemy.countShips() == 0) {
                 System.out.println(me.getName() + KILLALL);
-                bigSpace.printBigSpace();
+                printBigSpace();
                 return false;
             } else {
                 System.out.println(me.getName() + MAKESHOT);
             }
         } else if (shot == Shot.HIT) {
             System.err.println("HIT!");
+            Thread.sleep(100);
             showBoards(me);
             System.out.println(me.getName() + MAKESHOT);
         } else if (shot == Shot.MISS) {
             System.err.println("MISS!");
+            Thread.sleep(100);
             showBoards(me);
-            bigSpace.printBigSpace();
+            printBigSpace();
             return false;
         }
         return true;
+    }
+
+    public void printBigSpace() {
+        System.out.println(NEXTMOVE);
+        readLine();
+        System.out.println("\n\n\n\n\n\n\n\n\n\n");
     }
 
 }

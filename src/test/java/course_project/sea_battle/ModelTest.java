@@ -1,7 +1,6 @@
 package course_project.sea_battle;
 
 import course_project.sea_battle.boards.MyBoard;
-import course_project.sea_battle.boards.MyShots;
 import course_project.sea_battle.model.Player;
 import course_project.sea_battle.model.Point;
 import course_project.sea_battle.model.Ship;
@@ -49,7 +48,7 @@ class ModelTest {
         int[][] myBoardTest = new int[10][10];
 
         MyBoard myBoard = new MyBoard();
-        MyShots myShots = new MyShots();
+        MyBoard myShots = new MyBoard();
 
         Player player = new Player(myBoard, myShots);
         assertEquals(0, player.getMyShips().size());

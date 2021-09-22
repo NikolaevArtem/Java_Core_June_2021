@@ -3,12 +3,9 @@ package course_project.sea_battle.service.inputs;
 import course_project.sea_battle.boards.MyBoard;
 import course_project.sea_battle.model.Point;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class InputShipReader extends InputReader{
+public class InputShipReader extends InputReader {
     private int x;
     private int y;
 
@@ -23,16 +20,27 @@ public class InputShipReader extends InputReader{
         this.scanner = scanner;
     }
 
-    public void getAndValidateInput(int shipSize, MyBoard board) {
+    public void getAndValidateInput(int shipSize, MyBoard board, int gameMode) {
         while (true) {
-            String input = readLine();
+            if (gameMode == 1) {
+                String input = readLine();
+                if (!isValidInput(input)) continue;
+            } else if (gameMode == 2) {
+                getAutomaticCoordinates();
+            }
 
-            if (!isValidInput(input)) continue;
             Point topLeftPoint = new Point(x, y);
-            if (!isShipWithinBoard(shipSize)) continue;
+            if (!isShipWithinBoard(shipSize, gameMode)) continue;
             coordinates = findCoordinates(shipSize, topLeftPoint);
-            if (shipsDoNotCross(board, shipSize)) break;
+            if (shipsDoNotCross(board, shipSize, gameMode)) break;
         }
+    }
+
+    public void getAutomaticCoordinates() {
+        Random random = new Random();
+        x = random.nextInt(10);
+        y = random.nextInt(10);
+        position = random.nextInt(2) == 0 ? "v" : "h";
     }
 
     public boolean isValidInput(String input) {
@@ -48,12 +56,12 @@ public class InputShipReader extends InputReader{
         }
     }
 
-    public boolean isShipWithinBoard(int shipSize) {
+    public boolean isShipWithinBoard(int shipSize, int gameMode) {
         Point rightBottomPoint = position.equalsIgnoreCase("v")
                 ? new Point(x + shipSize, y)
                 : new Point(x, y + shipSize);
         if (rightBottomPoint.getX() > 10 || rightBottomPoint.getY() > 10) {
-            System.out.println(OUTOFBOARD);
+            if (gameMode == 1) System.out.println(OUTOFBOARD);
             return false;
         }
         return true;
@@ -76,7 +84,7 @@ public class InputShipReader extends InputReader{
         return coordinates;
     }
 
-    public boolean shipsDoNotCross(MyBoard board, int shipSize) {
+    public boolean shipsDoNotCross(MyBoard board, int shipSize, int gameMode) {
         HashSet<Point> allCoordinates = new HashSet<>();
         for (int i = 0; i < shipSize; i++) {
             allCoordinates.add(new Point(x, y));
@@ -115,7 +123,7 @@ public class InputShipReader extends InputReader{
                 .distinct()
                 .count();
         if (count > 1) {
-            System.out.println(SHIPSCROSS);
+            if (gameMode == 1) System.out.println(SHIPSCROSS);
             return false;
         }
         return true;

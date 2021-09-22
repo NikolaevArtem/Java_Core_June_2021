@@ -2,6 +2,7 @@ package course_project.sea_battle.service;
 
 import course_project.sea_battle.model.Player;
 import course_project.sea_battle.service.inputs.InputShipReader;
+import lombok.SneakyThrows;
 
 public class NameSetter {
     private final InputShipReader inputShipReader;
@@ -10,8 +11,8 @@ public class NameSetter {
         this.inputShipReader = inputShipReader;
     }
 
+    @SneakyThrows
     public void setNames(Player player1, Player player2) {
-
         System.out.println("Player 1, please, input your name:");
         String player1Name = inputShipReader.readLine();
         player1.setName(player1Name);
@@ -22,8 +23,6 @@ public class NameSetter {
         player2.setName(player2Name);
         System.out.println("Hello, " + player2Name + "!");
 
-        System.out.println("Press ENTER to start the game");
-        inputShipReader.readLine();
     }
 
 }

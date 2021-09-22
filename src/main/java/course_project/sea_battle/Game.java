@@ -1,7 +1,6 @@
 package course_project.sea_battle;
 
 import course_project.sea_battle.boards.MyBoard;
-import course_project.sea_battle.boards.MyShots;
 import course_project.sea_battle.model.Player;
 import course_project.sea_battle.model.Ship;
 import course_project.sea_battle.service.inputs.InputShipReader;
@@ -22,15 +21,15 @@ public class Game extends Thread {
     private Player player2;
 
     public Game() {
-        this.player1 = new Player(new MyBoard(), new MyShots());
-        this.player2 = new Player(new MyBoard(), new MyShots());
+        this.player1 = new Player(new MyBoard(), new MyBoard());
+        this.player2 = new Player(new MyBoard(), new MyBoard());
     }
 
     @Override
     public void run() {
         setUpNames();
         setUpShips();
-        startGame();
+        play();
         defineWinner();
     }
 
@@ -43,7 +42,7 @@ public class Game extends Thread {
         new ShipPlacer(inputShipReader).placeShip(player2);
     }
 
-    public void startGame() {
+    public void play() {
         while (bothPlayersHaveShips(player1, player2)) {
             new InputShooterReader(scanner).checkAndValidatePlayerShot(player1, player2);
             new InputShooterReader(scanner).checkAndValidatePlayerShot(player2, player1);
