@@ -19,7 +19,9 @@
 | HW4 - 3 | [Custom Annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_4/custom_annotation) | Custom annotation. |
 | HW4 - 3 Test| [Custom Annotation Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/test/java/homework_4/custom_annotation) | Custom Annotation Test. |
 | HW5 - 1| [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_5/custom_regex_matcher) | CustomRegexMatcher. |
+| HW5 - 1 Test| [CustomRegexMatcherTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/test/java/homework_5/custom_regex_matcher) | CustomRegexMatcherTest. |
 | HW5 - 2| [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_5/power_of_number) | PowerOfNumber. |
+| HW5 - 2| [PowerOfNumberTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/test/java/homework_5/power_of_number) | PowerOfNumber. |
 | HW6| [MapProblemsGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/KhlebnikovEvgeniy/src/main/java/homework_6/map_problems_generator) | MapProblemsGenerator. |
 | HW7| [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_7) | KittenToCatFunction. |
 
