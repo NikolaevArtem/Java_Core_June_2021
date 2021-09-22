@@ -19,6 +19,7 @@
 |     | [Power Of Number](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_5/power_of_number ) | The app reads input arguments(number and power) and prints number raised to the power |
 |     | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/test/java/homework_5_tests ) | Tests to homework_5 |
 | HW6 | [Map Problems Generator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_6/map_problems_generator ) | The app shows case with collision in hashmap and case when it is impossible to get object by key from hashmap |
+| HW7 | [Kitten To Cat Function](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/homework_7 ) | KittenToCatFunction interface, whose abstract grow() method can only accept Kitten and inheritors and return only Cat and inheritors |
 | Course Project | [Sea Battle](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/main/java/course_project ) | Sea Battle Game |
 |     | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/ReginaGabdrakhimova/src/test/java/course_project_test ) | Course project tests |
 
