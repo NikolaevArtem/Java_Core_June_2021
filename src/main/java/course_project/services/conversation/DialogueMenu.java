@@ -6,6 +6,7 @@ import course_project.gamestuff.ships.Ship;
 import course_project.services.logic.Game;
 import homework_4.custom_file_reader.CustomFileReader;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 import static course_project.gamestuff.field.Battlefield.addShipsAuto;
@@ -16,6 +17,7 @@ import static course_project.gamestuff.field.Field.LOWERCASE_A;
 /**
  * Ultimate class for communication with user over the app;
  */
+@SuppressWarnings("java:S106") // remove showing System.out warning
 public class DialogueMenu {
 
     private static final String INCORRECT_INPUT_MESSAGE = "Please, input correct variant";
@@ -26,6 +28,7 @@ public class DialogueMenu {
     private static final String DIRECTION_REGEX = "^[v|h]$";
     private static final String NAME_REGEX = "^[a-zA-Z]{2,}$";
     private static final Scanner scanner = new Scanner(System.in);
+    private static final PrintStream out = System.out;
 
     static {
         FIRST_SYMBOL_POSITION_REGEX = "^[" + Field.LOWERCASE_A + "-" + (char) (LOWERCASE_A + FIELD_SIZE - 1) + "]$";
@@ -38,11 +41,11 @@ public class DialogueMenu {
     }
 
     public static void printGreetings() {
-        System.out.println(WELCOME_MESSAGE);
+        out.println(WELCOME_MESSAGE);
     }
 
     public static void printMainMenu() {
-        System.out.print(
+        out.print(
                         "[1] Start game Human vs Computer\n" +
                         "[2] Start game Human vs Human\n" +
                         "[3] Start game Computer vs Computer\n" +
@@ -68,7 +71,7 @@ public class DialogueMenu {
                 terminate();
                 break;
             default:
-                System.out.println(INCORRECT_INPUT_MESSAGE);
+                out.println(INCORRECT_INPUT_MESSAGE);
                 printMainMenu();
         }
     }
@@ -117,24 +120,24 @@ public class DialogueMenu {
     }
 
     private static String getInputName() {
-        System.out.println("My name is SeaBattle, and yours?");
+        out.println("My name is SeaBattle, and yours?");
         while (true) {
             String name = scanner.nextLine().trim();
             if (name.matches(NAME_REGEX)) {
                 return name;
             } else {
-                System.out.println("Ha-ha, it's impossible to have such name!\n" +
+                out.println("Ha-ha, it's impossible to have such name!\n" +
                         "It should consists of at least 2 latin symbols(only), ok?");
             }
         }
     }
 
     public static void printInvitePlayerMessage(Player player) {
-        System.out.println(player.getName() + "'s turn!");
+        out.println(player.getName() + "'s turn!");
     }
 
     private static void printPlayerMenu(Player currentPlayer) {
-        System.out.print("Menu for " + currentPlayer.getName() + ":" + "\n" +
+        out.print("Menu for " + currentPlayer.getName() + ":" + "\n" +
                 "[1] Add ships on the field manually\n" +
                 "[2] Auto adding ships\n");
         String input = getInput();
@@ -142,15 +145,15 @@ public class DialogueMenu {
             case "1":
                 addShipsManually(currentPlayer);
                 currentPlayer.getField().printField();
-                System.out.println(FILLED_FIELD_MESSAGE + "\n");
+                out.println(FILLED_FIELD_MESSAGE + "\n");
                 break;
             case "2":
                 addShipsAuto(currentPlayer);
                 currentPlayer.getField().printField();
-                System.out.println(FILLED_FIELD_MESSAGE + "\n");
+                out.println(FILLED_FIELD_MESSAGE + "\n");
                 break;
             default:
-                System.out.println(INCORRECT_INPUT_MESSAGE);
+                out.println(INCORRECT_INPUT_MESSAGE);
                 printPlayerMenu(currentPlayer);
         }
     }
@@ -163,17 +166,18 @@ public class DialogueMenu {
             } else if (isPositionValid(input)) {
                 return input;
             } else {
-                System.out.println(INCORRECT_INPUT_MESSAGE);
+                out.println(INCORRECT_INPUT_MESSAGE);
             }
         }
     }
 
     public static void printPlayerMotionHelp() {
-        System.out.println("Input position you want to attack in format: 'a1' or 'b9'");
+        out.println("Input position you want to attack in format: 'a1' or 'b9'\n" +
+                "you can input 'quit' to exit the app anytime you want");
     }
 
     public static void printPlayerShipPlacingHelp() {
-        System.out.println("To place ship just input position from" + "'a1' to " +
+        out.println("To place ship just input position from" + "'a1' to " +
                 ((char) (LOWERCASE_A + FIELD_SIZE - 1)) + FIELD_SIZE +
                 "(horizontal direction is default)" +
                 "\nIf you want to set ship vertically type e.g. 'a1 v' or horizontal 'b2 h'" +
@@ -191,7 +195,7 @@ public class DialogueMenu {
                         (strings.length == 2 && isPositionValid(strings[0]) && strings[1].matches(DIRECTION_REGEX))) {
                     return input;
                 } else {
-                    System.out.println(INCORRECT_INPUT_MESSAGE);
+                    out.println(INCORRECT_INPUT_MESSAGE);
                 }
             }
         }
@@ -205,7 +209,7 @@ public class DialogueMenu {
     }
 
     public static void printSetPositionMessage(String name, int size) {
-        System.out.print("Set position for " + name + " size of " + size + ": ");
+        out.print("Set position for " + name + " size of " + size + ": ");
     }
 
     private static String getInput() {
@@ -213,27 +217,27 @@ public class DialogueMenu {
     }
 
     public static void printShipDestroyedMessage(String opponentsName, Ship ship) {
-        System.out.println("Nice! " + opponentsName + "'s " + ship.getName() + " is destroyed!");
+        out.println("Nice! " + opponentsName + "'s " + ship.getName() + " is destroyed!");
     }
 
     public static void printShipHitMessage(String currentPlayerName, String opponentsName) {
-        System.out.println(currentPlayerName + " hit " + opponentsName + "'s ship!");
+        out.println(currentPlayerName + " hit " + opponentsName + "'s ship!");
     }
 
     public static void printMiss() {
-        System.out.println("MISS!");
+        out.println("MISS!");
     }
 
     public static void printShipsLeftMessage(int countOfShipsLeft) {
-        System.out.println(countOfShipsLeft + " ships left");
+        out.println(countOfShipsLeft + " ships left");
     }
 
     public static void printSamePositionMessage() {
-        System.out.println("You've already hit at this position! Try another one: ");
+        out.println("You've already hit at this position! Try another one: ");
     }
 
     public static void printCongratulationsAndQuit(Player currentPlayer, Player opponent) {
-        System.out.println(currentPlayer.getName() + " WON THE GAME !!!" +
+        out.println(currentPlayer.getName() + " WON THE GAME !!!" +
                 "\n" + opponent.getName() + " lose.");
         terminate();
     }
@@ -243,7 +247,7 @@ public class DialogueMenu {
         for (int i = 0; i < FIELD_SIZE * 2; i++) {
             stringBuilder.append("\n");
         }
-        System.out.println(stringBuilder);
+        out.println(stringBuilder);
     }
 
     private static void terminate() {

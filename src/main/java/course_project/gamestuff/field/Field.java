@@ -69,7 +69,7 @@ public abstract class Field {
         bothFields
                 .append("\t")
                 .append(TOP_LINE)
-                .append("\t\t\t    ")
+                .append("\t\t\t\t")
                 .append(TOP_LINE)
                 .append("\n");
         for (int i = 0; i < FIELD_SIZE; i++) {
