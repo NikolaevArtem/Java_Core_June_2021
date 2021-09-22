@@ -1,7 +1,5 @@
 package homework_6.map_problems_generator;
 
-import java.util.Objects;
-
 public class MapProblemsGenerator {
 
     private StringBuilder value;
