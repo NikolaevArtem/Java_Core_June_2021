@@ -1,6 +1,6 @@
 package homework_7.kittenToCatFunction;
 
 @FunctionalInterface
-public interface KittenToCatFunction<C extends Cat, K extends Kitten>{
+public interface KittenToCatFunction {
     Cat grow(Kitten k);
 }

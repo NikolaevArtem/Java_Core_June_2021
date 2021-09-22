@@ -1,6 +1,6 @@
 package homework_7.kittenToCatFunction;
 
-public class Cat {
+public abstract class Cat {
     private int age;
     private String name;
     private Kitten kitten;

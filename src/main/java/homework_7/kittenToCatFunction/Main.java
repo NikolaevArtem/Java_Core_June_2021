@@ -4,13 +4,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Kitten smallCat = new Kitten(1, "Push");
-        KittenToCatFunction function = x -> new Cat(x.getAge() + 2, x.getName(), smallCat);
-        Cat bigCat = function.grow(smallCat);
+        Kitten kitten = new EgyptKitten(1, "Push");
 
-        System.out.println("bigCat.getClass() = " + bigCat.getClass());
-        System.out.println("bigCat.getAge() = " + bigCat.getAge());
-        System.out.println("bigCat.getName() = " + bigCat.getName());
+        KittenToCatFunction function = x -> {
+            if (x instanceof EgyptKitten) {
+                return new EgyptCat(x.getAge() + 3, x.getName(), x);
+            } else {
+                return new SomeCat(x.getAge() + 3, x.getName(), x);
+            }
+        };
+
+        Cat cat = function.grow(kitten);
+
+        System.out.println("bigCat.getClass() = " + cat.getClass());
+        System.out.println("bigCat.getAge() = " + cat.getAge());
+        System.out.println("bigCat.getName() = " + cat.getName());
     }
 
 }
