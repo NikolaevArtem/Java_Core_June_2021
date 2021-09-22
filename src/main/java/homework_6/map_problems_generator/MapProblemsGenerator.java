@@ -1,15 +1,17 @@
 package homework_6.map_problems_generator;
 
-import java.util.Random;
+import java.util.Objects;
 
 public class MapProblemsGenerator {
 
-    private int id;
-    private String name;
+    private StringBuilder value;
 
-    public MapProblemsGenerator(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public MapProblemsGenerator(StringBuilder value) {
+        this.value = value;
+    }
+
+    public StringBuilder getValue() {
+        return value;
     }
 
     @Override
@@ -17,12 +19,11 @@ public class MapProblemsGenerator {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MapProblemsGenerator that = (MapProblemsGenerator) o;
-        return id == that.id && name.equals(that.name);
+        return value.equals(that.value);
     }
 
     @Override
     public int hashCode() {
-        Random rnd = new Random();
-        return rnd.nextInt(2021);
+        return value.toString().hashCode();
     }
 }

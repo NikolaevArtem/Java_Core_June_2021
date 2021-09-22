@@ -5,23 +5,24 @@ import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
         HashMap<MapProblemsGenerator, String> mpg = new HashMap<>();
-        MapProblemsGenerator one = new MapProblemsGenerator(1, "one");
-        MapProblemsGenerator anotherOne = new MapProblemsGenerator(1, "one");
-        MapProblemsGenerator two = new MapProblemsGenerator(2, "two");
-        MapProblemsGenerator three = new MapProblemsGenerator(3, "three");
-        MapProblemsGenerator four = new MapProblemsGenerator(4, "four");
+        MapProblemsGenerator one = new MapProblemsGenerator(new StringBuilder("one"));
+        MapProblemsGenerator anotherOne = new MapProblemsGenerator(new StringBuilder("one"));
+        MapProblemsGenerator two = new MapProblemsGenerator(new StringBuilder("two"));
 
         mpg.put(one, "first");
         mpg.put(two, "second");
-        mpg.put(three, "third");
-        mpg.put(four, "fourth");
-
+        System.out.println("Examples for the MapProblemsGenerator:\n");
         System.out.println("equals works correctly: one.equals(anotherOne) gives " + one.equals(anotherOne));
         System.out.println("Attempts to get values give:");
         System.out.println(mpg.get(one));
         System.out.println(mpg.get(two));
-        System.out.println(mpg.get(three));
-        System.out.println(mpg.get(four));
+        System.out.println("Attempts to get values after changing keys give:");
+
+        one.getValue().append("asd");
+        two.getValue().append("asd");
+
+        System.out.println(mpg.get(one));
+        System.out.println(mpg.get(two));
 
         HashMap<MapProblemsCollisionGenerator, String> mpcg = new HashMap<>();
         MapProblemsCollisionGenerator firstKey = new MapProblemsCollisionGenerator(1);
@@ -30,6 +31,8 @@ public class Main {
 
         mpcg.put(firstKey, "first");
         mpcg.put(secondKey, "second");
+        System.out.println("\nExamples for the MapProblemsCollisionGenerator:\n");
+
         System.out.println("After 2 calls put() method");
         System.out.println("Collisions occurred for the firstKey " + firstKey.getCountCallEquals() + " times");
         System.out.println("Collisions occurred for the secondKey " + secondKey.getCountCallEquals() + " times");
