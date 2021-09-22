@@ -25,7 +25,8 @@ class GameTest extends UnitBase {
 
     @Test
     void testNameSetter() {
-        String input = "Tom\n" +
+        String input = "1\n" +
+                "Tom\n" +
                 "Vera\n";
         setInput(input);
 

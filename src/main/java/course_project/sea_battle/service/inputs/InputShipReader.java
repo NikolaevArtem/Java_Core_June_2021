@@ -8,6 +8,7 @@ import java.util.*;
 public class InputShipReader extends InputReader {
     private int x;
     private int y;
+    private Random random = new Random();
 
     private String position;
     private List<Point> coordinates;
@@ -37,7 +38,6 @@ public class InputShipReader extends InputReader {
     }
 
     public void getAutomaticCoordinates() {
-        Random random = new Random();
         x = random.nextInt(10);
         y = random.nextInt(10);
         position = random.nextInt(2) == 0 ? "v" : "h";

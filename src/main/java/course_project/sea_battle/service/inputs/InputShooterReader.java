@@ -7,10 +7,7 @@ import course_project.sea_battle.model.Ship;
 import course_project.sea_battle.model.Shot;
 import lombok.SneakyThrows;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static course_project.sea_battle.view.BoardPrinter.showBoards;
@@ -20,33 +17,54 @@ public class InputShooterReader extends InputReader {
     private int y;
     private Shot shot;
     private Ship currentShip;
+    private Random random = new Random();
 
     private static final String MAKESHOT = ", make your shot in format: [A6] or [b1]";
     private static final String INPUTERROR = "Input should be like this: [A7] or [b2]. Try again!";
     private static final String CHECKED = "Cell is checked. Make another shot!";
     private static final String KILLALL = ", you destroyed all enemy ships. Congratulations!";
     private static final String NEXTMOVE = "Press ENTER to finish your move";
+    private static final String COMPUTERMOVE = "Computer is thinking...";
 
     public InputShooterReader(Scanner scanner) {
         this.scanner = scanner;
     }
 
+    @SneakyThrows
     public void checkAndValidatePlayerShot(Player player1, Player player2) {
-        showBoards(player1);
-        System.out.println(player1.getName() + MAKESHOT);
+        if (!player1.isComputer()) {
+            if (!player2.isComputer()) {
+                showBoards(player1);
+            }
+            System.out.println(player1.getName() + MAKESHOT);
+        }
 
         while (true) {
-            String input = readLine();
 
-            if (!isValidInput(input)) continue;
+            if (!player1.isComputer()) {
+                String input = readLine();
+                if (!isValidInput(input)) continue;
+            } else {
+                defineShot();
+            }
             if (isShooted(player2)) continue;
-            getShotResult(player2);
 
+            if (player1.isComputer()) {
+                System.out.println(COMPUTERMOVE);
+                Thread.sleep(2000);
+            }
+
+            getShotResult(player2);
             putOnBoard(player1.getMyShots(), new Point(x, y), shot);
             putOnBoard(player2.getMyBoard(), new Point(x, y), shot);
 
             if (!isGameContinue(player1, player2, shot)) break;
         }
+    }
+
+    public void defineShot() {
+        x = random.nextInt(10);
+        y = random.nextInt(10);
     }
 
     public boolean isValidInput(String input) {
@@ -99,7 +117,6 @@ public class InputShooterReader extends InputReader {
         }
         board.setBoard(tempBoard);
     }
-
 
     public void fillCellsAroundDestroyedShip(Ship ship, Player me, Player enemy) {
 
@@ -154,34 +171,51 @@ public class InputShooterReader extends InputReader {
             System.err.println("KILLED!");
             System.out.println(enemy.getName() + " has " + enemy.countShips() + " ship(s) left.");
             fillCellsAroundDestroyedShip(currentShip, me, enemy);
-            Thread.sleep(100);
-            showBoards(me);
+            Thread.sleep(500);
+            if (!me.isComputer()) {
+                showBoards(me);
+            } else {
+                showBoards(enemy);
+            }
             if (enemy.countShips() == 0) {
                 System.out.println(me.getName() + KILLALL);
-                printBigSpace();
+                printBigSpace(!me.isComputer() && !enemy.isComputer());
                 return false;
             } else {
-                System.out.println(me.getName() + MAKESHOT);
+                if (!me.isComputer()) {
+                    System.out.println(me.getName() + MAKESHOT);
+                }
             }
         } else if (shot == Shot.HIT) {
             System.err.println("HIT!");
-            Thread.sleep(100);
-            showBoards(me);
-            System.out.println(me.getName() + MAKESHOT);
+            Thread.sleep(500);
+            if (!me.isComputer()) {
+                showBoards(me);
+                System.out.println(me.getName() + MAKESHOT);
+            } else {
+                showBoards(enemy);
+            }
+
         } else if (shot == Shot.MISS) {
             System.err.println("MISS!");
-            Thread.sleep(100);
-            showBoards(me);
-            printBigSpace();
+            Thread.sleep(500);
+            if (!me.isComputer()) {
+                showBoards(me);
+            } else {
+                showBoards(enemy);
+            }
+            printBigSpace(!me.isComputer() && !enemy.isComputer());
             return false;
         }
         return true;
     }
 
-    public void printBigSpace() {
-        System.out.println(NEXTMOVE);
-        readLine();
-        System.out.println("\n\n\n\n\n\n\n\n\n\n");
+    public void printBigSpace(boolean hasSence) {
+        if (hasSence) {
+            System.out.println(NEXTMOVE);
+            readLine();
+            System.out.println("\n\n\n\n\n\n\n\n\n\n");
+        }
     }
 
 }

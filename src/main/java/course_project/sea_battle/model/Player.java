@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Player {
     private String name;
+    private boolean isComputer;
     private MyBoard myBoard;
     private MyBoard myShots;
     private final List<Ship> myShips = new ArrayList<>();
@@ -42,4 +43,11 @@ public class Player {
         return myShots;
     }
 
+    public boolean isComputer() {
+        return isComputer;
+    }
+
+    public void setComputer(boolean computer) {
+        isComputer = computer;
+    }
 }

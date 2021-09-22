@@ -4,7 +4,7 @@ import course_project.sea_battle.boards.MyBoard;
 import course_project.sea_battle.model.Player;
 import course_project.sea_battle.model.Ship;
 import course_project.sea_battle.service.inputs.InputShipReader;
-import course_project.sea_battle.service.NameSetter;
+import course_project.sea_battle.service.GameModeAndNameSetter;
 import course_project.sea_battle.service.inputs.InputShooterReader;
 import course_project.sea_battle.service.ShipPlacer;
 
@@ -34,12 +34,12 @@ public class Game extends Thread {
     }
 
     public void setUpNames() {
-        new NameSetter(inputShipReader).setNames(player1, player2);
+        new GameModeAndNameSetter(inputShipReader).setNames(player1, player2);
     }
 
     public void setUpShips() {
-        new ShipPlacer(inputShipReader).placeShip(player1);
-        new ShipPlacer(inputShipReader).placeShip(player2);
+        new ShipPlacer(inputShipReader).placeShip(player1, player2);
+        new ShipPlacer(inputShipReader).placeShip(player2, player1);
     }
 
     public void play() {
