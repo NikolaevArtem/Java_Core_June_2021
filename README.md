@@ -19,6 +19,7 @@
 | HW5 | [Tests for HW_5](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SergeyVolchenkov/src/test/java/homework_5) | Tests for homework 5|
 | HW6 | [Map Problems Collision Generator](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_6/map_problems_generator/MapProblemsCollisionGenerator.java) | Class that 100% creates collisions in HashMap |
 | HW6 | [Map Problems Mutable Generator](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_6/map_problems_generator/MapProblemsMutableGenerator.java) | A mutable class with an overridden hashCode/Equals. Make a case when we put this object is in the HashMap as a key, and then we can't get it (equals should work correctly) |
+| CP | [Course Project](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/course_project/) | A simple SeaBattle console game |
 
 
 
