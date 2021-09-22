@@ -12,7 +12,7 @@ public class Game {
     Scanner scanner = new Scanner(System.in);
     Random rand = new Random();
 
-    private static boolean checkWin(int playerShip, int computerShip) {
+    public static boolean checkWin(int playerShip, int computerShip) {
         if (playerShip == 0) {
             System.out.println("Computer win -_-");
             return false;
