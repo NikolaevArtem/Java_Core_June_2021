@@ -1,6 +1,6 @@
 package homework_6.map_problems_generator;
 
-import java.util.Random;
+import java.util.Objects;
 
 public class MapProblemsMutableGenerator {
     private int value;
@@ -27,6 +27,6 @@ public class MapProblemsMutableGenerator {
 
     @Override
     public int hashCode() {
-        return new Random().nextInt(123456789);
+        return Objects.hash(value);
     }
 }
