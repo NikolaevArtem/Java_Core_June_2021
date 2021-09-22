@@ -1,9 +1,21 @@
 # Java Core June 2021
 
-## *Nikolaev Artem*
+## *Prokofev Ilia*
 
-| Number | Solution  | Short description
-| --- | --- | --- |
-| HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/master/src/main/java/homework_1) | The app that reads input arguments and prints them, until "error" argument |
+| Index | Solution  | Short description|
+| :---: | --- | --- |
+|**Course Project**|[Sea Battle](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/course_project)|Console version of the classic Sea Battle game with graphical representation|
+| HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_1) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_1/char_count) | The app that reads input arguments and prints them, until "error" argument |
+|-----| [Traffic Light](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_2/traffic_light) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_2/traffic_light) | The app that reads console and calculate current traffic light's color |
+| HW2 | [Pyramid Printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_2/pyramid_printer) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_2/pyramid_printer) | The app that reads console and prints a pyramid based on this  |
+|-----| [Random Chars Table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_2/random_chars_table) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_2/random_chars_table) | The app that reads console for length, width and strategy and prints table based on this|
+| HW3 | [Immutable Class](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_3) | The class that give opportunity for create Immutable object|
+|-----| [Custom Annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_4/custom_annotation) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_4/custom_annotation) | A form of syntactic metadata that can be added to Java source code|
+| HW4 | [Custom File Reader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_4/custom_file_reader) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_4/custom_file_reader) | The app that provides 3 ways to read and edit a file|
+|-----| [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_4/singleton) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_4/singleton) | Creational design pattern, which ensures that only one object of its kind exists |
+| HW5 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_5/power_of_number) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_5/power_of_number) | The app that raises a number to a power  |
+|-----| [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_5/custom_regex_matcher) <br> [Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/test/java/homework_5/custom_regex_matcher) | The app that check input string by hardcoded regex and return boolean answer |
+| HW6 | [MapProblemsGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_6/map_problems_generator)|Two classes that allow you to check the work of the collision and create a situation where it is impossible to get the object just put|
+| HW7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/IliaProkofev/src/main/java/homework_7)|Functional interface that allows you to transform a Kitten into a Cat|
 
-[Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+[CodingBat link](https://codingbat.com/done?user=slowly@live.ru&tag=8165639202)
