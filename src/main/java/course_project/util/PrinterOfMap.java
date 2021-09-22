@@ -33,7 +33,7 @@ public class PrinterOfMap {
 
     private void print(GameField map, HashMap<Integer, String> mapSymbols) {
         StringBuilder result = new StringBuilder();
-        result.append("   А Б В Г Д Е Ж З И К\n");
+        result.append("   A B C D E F G H I J\n");
         for (int i = 0; i < map.size()[0]; i++) {
             if (i > 8) {
                 result.append(i + 1)

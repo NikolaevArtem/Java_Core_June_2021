@@ -12,16 +12,16 @@ public class Bot {
     }
 
     private final HashMap<Integer, String> commandsMap = new HashMap<Integer, String>() {{
-        put(0, "А");
-        put(1, "Б");
-        put(2, "В");
-        put(3, "Г");
-        put(4, "Д");
-        put(5, "Е");
-        put(6, "Ж");
-        put(7, "З");
-        put(8, "И");
-        put(9, "К");
+        put(0, "A");
+        put(1, "B");
+        put(2, "C");
+        put(3, "D");
+        put(4, "E");
+        put(5, "F");
+        put(6, "G");
+        put(7, "H");
+        put(8, "I");
+        put(9, "J");
     }};
 
     public boolean shoot() {

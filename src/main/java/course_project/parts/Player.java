@@ -9,16 +9,16 @@ public class Player {
     private GameField myField;
     private GameField enemyField;
     private final HashMap<String, Integer> commandsMap = new HashMap<String, Integer>() {{
-        put("А", 0);
-        put("Б", 1);
-        put("В", 2);
-        put("Г", 3);
-        put("Д", 4);
-        put("Е", 5);
-        put("Ж", 6);
-        put("З", 7);
-        put("И", 8);
-        put("К", 9);
+        put("A", 0);
+        put("B", 1);
+        put("C", 2);
+        put("D", 3);
+        put("E", 4);
+        put("F", 5);
+        put("G", 6);
+        put("H", 7);
+        put("I", 8);
+        put("J", 9);
     }};
 
     public Player(String name, GameField myField, GameField enemyField) {
@@ -31,7 +31,7 @@ public class Player {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите клетку:");
         String command = in.nextLine();
-        if (Pattern.matches("([А-Ка-к])\\d{1,2}", command)) {
+        if (Pattern.matches("([A-Ja-j])\\d{1,2}", command)) {
             int x = commandsMap.get((Character.toString(command.toUpperCase().charAt(0))));
             int y = Integer.parseInt(command.substring(1)) - 1;
             if (y >= 0 && y < 10) {
