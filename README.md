@@ -1,9 +1,27 @@
 # Java Core June 2021
 
-## *Nikolaev Artem*
+## *Volchenkov Sergey*
 
 | Number | Solution  | Short description
 | --- | --- | --- |
-| HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/master/src/main/java/homework_1) | The app that reads input arguments and prints them, until "error" argument |
+| HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SergeyVolchenkov/src/main/java/homework_1/Main.java) | The app that reads input arguments and prints them, until "error" argument |
+| HW2 | [Traffic Light](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SergeyVolchenkov/src/main/java/homework_2/traffic_light/TrafficLight.java) | The app reads number of seconds since the beginning of the day from the command line and prints the colour of traffic light |
+| HW2 | [Pyramid Printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SergeyVolchenkov/src/main/java/homework_2/pyramid_printer/PyramidPrinter.java) | The app reads a number from the command line, and prints a pyramid of " x " according to the entered positive integer. After the first print, it shuts down.|
+| HW2 | [Random Chars Table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SergeyVolchenkov/src/main/java/homework_2/random_chars_table/RandomCharsTable.java) | The app reads 2 numbers and a string - the length and width of a table/two-dimensional array, and a strategy (even or odd) and prints a table filled with randomly generated letters from A to Z. Prints all even or odd letters in the table in one line, separated by commas, depending on the selected strategy |
+| HW3 | [Immutable Class](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_3/immutable_class/ImmutableClass.java) | Simple example of Immutable Class |
+| HW3 | [Tests for HW_2](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SergeyVolchenkov/src/test/java/homework_2) | Tests for homework 2 |
+| HW4 | [Custom File Reader](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_4/custom_file_reader/CustomFileReader.java) | My custom file reader |
+| HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_4/singleton/Singleton.java)| Simple example of singleton |
+| HW4 | [Custom Annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_4/custom_annotation/MyCustomAnnotation.java)| Simple exampel of Custom Annotation |
+| HW4 | [Tests for HW_4](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SergeyVolchenkov/src/test/java/homework_4)| Tests for homework 4|
+| HW5 | [Power Of Number](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_5/power_of_number/PowerOfNumber.java)| Recursively raises a number to a given power |
+| HW5 | [Custom Regex Matcher](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_5/custom_regex_matcher/CustomRegexMatcher.java) | Application accepts a string from the command line, checks for compliance with the hardcoded regex inside the application, and prints to the command line "true" if there was a match, and "false" if not. |
+| HW5 | [Tests for HW_5](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/SergeyVolchenkov/src/test/java/homework_5) | Tests for homework 5|
+| HW6 | [Map Problems Collision Generator](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_6/map_problems_generator/MapProblemsCollisionGenerator.java) | Class that 100% creates collisions in HashMap |
+| HW6 | [Map Problems Mutable Generator](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_6/map_problems_generator/MapProblemsMutableGenerator.java) | A mutable class with an overridden hashCode/Equals. Make a case when we put this object is in the HashMap as a key, and then we can't get it (equals should work correctly) |
+| HW7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/homework_7/) | KittenToCatFunction |
+| CP | [Course Project](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/SergeyVolchenkov/src/main/java/course_project/) | A simple SeaBattle console game |
 
-[Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+
+[My CodingBat results](https://codingbat.com/done?user=volchenkovolk@mail.ru&tag=5710011570)
