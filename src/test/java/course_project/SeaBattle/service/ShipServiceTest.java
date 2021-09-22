@@ -17,7 +17,11 @@ class ShipServiceTest {
     void givenPlayerAndFireShipSquare_WheProcessFire_thenReduceShipHeal() {
 
         Player player = new Player();
-        player.setEnemy(new Player());
+        player.setName("p1");
+        Player player2 = new Player();
+        player2.setName("p2");
+        player.setEnemy(player2);
+        player2.setEnemy(player);
         ArrayList <Ship> ships = new ArrayList<>();
         ArrayList<Square> squareShipList = new ArrayList<>();
 
