@@ -1,32 +1,43 @@
 package homework_5.custom_regex_matcher;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-import static java.lang.System.lineSeparator;
 
-public class CustomRegexMatcher {
+public class CustomRegexMatcher implements Runnable {
 
-    private static final String CUSTOM_REGEX_FOR_URL = "\\b(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+    @Override
+    public void run() {
+        System.out.println("Enter an URL address");
+        checkURL();
+    }
 
-    public void run(String[] args) {
+    public static String CustomRegexForURL;
 
-        if (args.length < 1) {
+    static {
+        CustomRegexForURL = "\\b(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+    }
 
-            printMessage("No match");
+    private void checkURL() {
 
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
+            String string = bufferedReader.readLine();
+            if (checkURLMatch(string)) {
+                System.out.println("URL is valid");
+            } else {
+                System.out.println("URL is not valid");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        for (String s : args) {
-            printMessage(isMatch(s) + lineSeparator());
-        }
-
     }
 
-    private boolean isMatch(String string) {
-        return Pattern.matches(CUSTOM_REGEX_FOR_URL, string);
+    private boolean checkURLMatch(String string) {
+        return Pattern.matches(CustomRegexForURL, string);
     }
 
-    private void printMessage(String message) {
-        System.out.print(message);
-    }
 
 }
