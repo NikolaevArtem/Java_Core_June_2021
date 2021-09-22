@@ -39,5 +39,4 @@ public class CustomRegexMatcher implements Runnable {
         return Pattern.matches(CustomRegexForURL, string);
     }
 
-
 }
