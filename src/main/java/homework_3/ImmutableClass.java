@@ -1,5 +1,8 @@
 package homework_3;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * A Strategy for Defining Immutable Objects (from the official Oracle documentation)
  * <p>
@@ -21,10 +24,8 @@ package homework_3;
 final public class ImmutableClass {
 
     // Values must be between 0 and 255 (RGB)
-    final private Integer red;
-    final private Integer green;
-    final private Integer blue;
-    final private String name;
+    final private ArrayList<Integer> dataColor;
+    final private StringBuilder name;
 
     private void check(Integer red,
                        Integer green,
@@ -36,54 +37,31 @@ final public class ImmutableClass {
         }
     }
 
-    public ImmutableClass(Integer red,
-                          Integer green,
-                          Integer blue,
-                          String name) {
-        check(red, green, blue);
-        this.red = new Integer(red);
-        this.green = new Integer(green);
-        this.blue = new Integer(blue);
-        this.name = new String(name);
+    public ImmutableClass(ArrayList<Integer> dataColor,
+                          StringBuilder name) {
+        check(dataColor.get(0), dataColor.get(1), dataColor.get(2));
+        this.dataColor = new ArrayList<>(dataColor);
+        this.name = new StringBuilder(name);
     }
 
-    public ImmutableClass() {
-        this.red = 0;
-        this.green = 0;
-        this.blue = 0;
-        this.name = "black";
+
+    public ArrayList<Integer> getColorData()
+    {
+        return new ArrayList<>(dataColor);
     }
 
-    public Integer getRed() {
-        return new Integer(red);
-    }
-
-    public Integer getGreen() {
-        return new Integer(green);
-    }
-
-    public Integer getBlue() {
-        return new Integer(blue);
-    }
-
-    public String getName() {
-        return new String(name);
+    public StringBuilder getName() {
+        return new StringBuilder(name);
     }
 
     public ImmutableClass invert() {
-        return new ImmutableClass(
-                255 - red,
-                255 - green,
-                255 - blue,
-                "Inverse of " + name);
+        return new ImmutableClass(new ArrayList<>(Arrays.asList(255 - dataColor.get(0),
+                                                                255 - dataColor.get(1),
+                                                                255 - dataColor.get(2))
+                                                  ), new StringBuilder("Inverse of " + name));
     }
 
     public ImmutableClass getInstance() {
-        return new ImmutableClass(
-                getRed(),
-                getGreen(),
-                getBlue(),
-                getName()
-        );
+        return new ImmutableClass(getColorData(), getName());
     }
 }
