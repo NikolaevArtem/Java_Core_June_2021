@@ -54,15 +54,15 @@ public final class ImmutableClass {
     }
 
     public final ImmutableClass getChangedInstance(String className) {
-        return new ImmutableClass(className, this.yearOfBirth, Arrays.copyOf(password, password.length));
+        return new ImmutableClass(className, getYearOfBirth(),getPassword());
     }
 
     public final ImmutableClass getChangedInstance(int yearOfBirth) {
-        return new ImmutableClass(className, yearOfBirth, Arrays.copyOf(password, password.length));
+        return new ImmutableClass(getClassName(), yearOfBirth, getPassword());
     }
 
     public final ImmutableClass getChangedInstance(String className, int yearOfBirth) {
-        return new ImmutableClass(className, yearOfBirth, Arrays.copyOf(password, password.length));
+        return new ImmutableClass(className, yearOfBirth, getPassword());
     }
 
     final String getClassName() {
