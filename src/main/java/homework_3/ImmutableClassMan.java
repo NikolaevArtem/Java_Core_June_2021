@@ -13,50 +13,54 @@ package homework_3;
 6. A parameterized constructor should initialize all the fields performing a deep copy (So that data members can’t be modified with object reference).
  */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class ImmutableClassMan {
 
     private final int age;
     private final String name;
-    private final Integer iq;
+    private final ArrayList<String> job;
 
-    public ImmutableClassMan(int age, String name, Integer iq) {
+    public int getAge() {
+        return age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<String> getJob() {
+        if (job != null){
+            return new ArrayList<>(job);
+        }
+        return new ArrayList<>();
+    }
+
+    public ImmutableClassMan(int age, String name, List<String> job) {
         this.age = age;
         this.name = name;
-        this.iq = new Integer(iq);
+        this.job = new ArrayList<>(job);
     }
 
     public ImmutableClassMan(int age, String name) {
         this.age = age;
         this.name = name;
-        this.iq = new Integer(null);
+        this.job = null;
     }
 
-    public ImmutableClassMan(int age) {
-        this.age = age;
-        this.name = "";
-        this.iq = null;
+    public ImmutableClassMan addNewJob (String job){
+        List<String> newList = getJob();
+        newList.add(job);
+        return new ImmutableClassMan(age, name, newList);
     }
 
-    public ImmutableClassMan() {
-        this.age = 6;
-        this.name = "Ivan";
-        this.iq = new Integer(128);
-    }
-
-
-    public int getAge() {
-        return this.age;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public Integer getIq() {
-        return this.iq;
-    }
-
-    public ImmutableClassMan returnModifyMan(Integer iq) {
-        return new ImmutableClassMan(age, name, iq);
+    @Override
+    public String toString() {
+        return "ImmutableClassMan{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                ", job=" + job +
+                '}';
     }
 }

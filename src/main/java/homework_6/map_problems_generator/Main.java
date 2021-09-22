@@ -5,11 +5,11 @@ import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
 
-        HashMap<MapProblemsMutableGenerator, Integer> hash = new HashMap();
+        HashMap<MapProblemsMutableGenerator, Integer> map = new HashMap();
         MapProblemsMutableGenerator mapProblemsMutableGenerator = new MapProblemsMutableGenerator(50);
-        hash.put(mapProblemsMutableGenerator, 1);
-        System.out.println(hash.get(mapProblemsMutableGenerator));
+        map.put(mapProblemsMutableGenerator, 1);
+        System.out.println(map.get(mapProblemsMutableGenerator));
         mapProblemsMutableGenerator.setWeight(25);
-        System.out.println(hash.get(mapProblemsMutableGenerator));
+        System.out.println(map.get(mapProblemsMutableGenerator));
     }                                                                                                                                 
 }
