@@ -1,0 +1,18 @@
+GENERAL
+2 gameController modes are available: Player vs Player and Player vs Computer (very easy).
+Each player has 10 ships: 1*4deck, 2*3, 3*2, 4*1.
+
+SHIP PLACEMENT
+You can choose how to place ships: manually or automatically.
+It's not allowed to place ships close to each other (diagonal cells count as well).
+You put a ship by pointing its topLeft point and with position ("v" - vertical, "h" - horizontal).
+    So your input should be like this: [A7 V] or [b1 h].
+
+RULES
+Shot format: [A7] or [b1].
+You cannot shoot out of board or cells that you have shot before.
+When you destroy a ship all cells around are filled automatically and you cannot shoot them anymore (cause there are no ships).
+Each player has same count of moves.
+Game over when one of player (or both) don't have "alive" ships.
+
+
