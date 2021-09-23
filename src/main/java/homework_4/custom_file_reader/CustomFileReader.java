@@ -124,7 +124,7 @@ public class CustomFileReader {
         return str2.replaceAll(",", "");
     }
 
-    public void print(String str) {
+    private void print(String str) {
         System.out.println(str);
     }
 }

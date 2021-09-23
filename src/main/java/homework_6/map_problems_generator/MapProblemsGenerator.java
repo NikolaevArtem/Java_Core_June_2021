@@ -26,6 +26,9 @@ public class MapProblemsGenerator {
         mutableMap.put(daniilHarmsDateOfBirth, "Daniil Harms");
         mutableMap.forEach((key, value) -> System.out.println("hashcode " + key.hashCode() + ": " + key.toString() + ", " + value));
 
+        aynRandDateOfBirth.setDateOfBirth(new GregorianCalendar(1905, 1,3));
+        gretaGarboDateOfBirth.setDateOfBirth(new GregorianCalendar(1905, 8,19));
+        daniilHarmsDateOfBirth.setDateOfBirth(new GregorianCalendar(1905, 11,29));
         System.out.println("Each time new hashcode of the same element -> each time new bucket for element searching:");
         System.out.println("Ayn Rand searching: " + mutableMap.get(aynRandDateOfBirth));
         System.out.println("Greta Garbo searching: " + mutableMap.get(gretaGarboDateOfBirth));

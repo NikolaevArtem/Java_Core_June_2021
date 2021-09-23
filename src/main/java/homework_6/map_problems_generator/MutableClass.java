@@ -15,8 +15,7 @@ public class MutableClass {
 
     @Override
     public int hashCode() {
-        Random random = new Random();
-        return random.nextInt();
+        return dateOfBirth == null ? 0 : dateOfBirth.hashCode();
     }
 
     @Override
