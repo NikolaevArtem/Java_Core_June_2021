@@ -14,10 +14,11 @@ public class Game {
                 "Shoot and hit enemy ships. If you shoot successfully, you can shoot again, and the enemy misses a turn. \n" +
                         "The game continues until one of the players (you or computer) shoot all the enemy ships. \n");
 
-        Player human = new Player();
+        Player human = new Player();    //oshibka tut
         Player comp = new Player();
 
         human.printField(comp);
+        comp.printField(human);
 
         battle(human, comp);
     }
@@ -71,6 +72,8 @@ public class Game {
             x = new Random().nextInt(9)+1;
             y = new Random().nextInt(9)+1;
 
+            // Moment was provided when random coordinate of computer shot could fall into filled cell.
+            // The cycle will continue until computer enters empty cell.
             if (additionalFieldForComp.cells[x][y] == GameField.CellStatus.FREE) {
                 additionalFieldForComp.cells[x][y] = GameField.CellStatus.FILLED;
                 shot = true;

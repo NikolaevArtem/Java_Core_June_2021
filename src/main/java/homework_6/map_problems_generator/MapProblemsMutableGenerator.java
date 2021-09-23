@@ -35,6 +35,6 @@ public class MapProblemsMutableGenerator {
 
     @Override
     public int hashCode() {
-        return new Random().nextInt(121);
+        return value != null ? value.hashCode() : 0;
     }
 }

@@ -62,14 +62,14 @@ public final class MyImmutableBag {
     }
 
     public MyImmutableBag changeCash(int newCash) {
-        return new MyImmutableBag(newCash, documents, pills);
+        return new MyImmutableBag(newCash, getDocuments(), getPills());
     }
 
     public MyImmutableBag changeDocuments(ArrayList<String> newDocuments) {
-        return new MyImmutableBag(cash, newDocuments, pills);
+        return new MyImmutableBag(cash, new ArrayList<>(newDocuments), getPills());
     }
 
     public MyImmutableBag changePills(Map<String, String> newPills) {
-        return new MyImmutableBag(cash, documents, newPills);
+        return new MyImmutableBag(cash, getDocuments(), new HashMap<>(newPills));
     }
 }

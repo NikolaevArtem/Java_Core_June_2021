@@ -29,7 +29,7 @@ public class Player {
         printWithUnderline(letters);
         System.out.print("         ");
         printWithUnderline(letters);
-        System.out.println("");
+        System.out.println();
 
         for (int i = 1; i < 11; i++) {
             StringBuilder s = new StringBuilder();

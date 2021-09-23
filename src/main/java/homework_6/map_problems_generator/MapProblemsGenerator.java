@@ -22,15 +22,14 @@ public class MapProblemsGenerator {
         HashMap<MapProblemsMutableGenerator, Integer> mapMutable = new HashMap<>();
 
         MapProblemsMutableGenerator thirdObject = new MapProblemsMutableGenerator("Third Object");
-        MapProblemsMutableGenerator fourthObject = new MapProblemsMutableGenerator("Fourth Object");
 
         mapMutable.put(thirdObject, 3);
-        mapMutable.put(fourthObject, 4);
 
-        System.out.println("\nMutable class in map: ");
-        mapMutable.entrySet().forEach(System.out::println);
+        System.out.println("\nMutable key problem in map: ");
         System.out.println("Trying to get object: " + mapMutable.get(thirdObject));
-        System.out.println("Trying to get another object: " + mapMutable.get(fourthObject));
+
+        thirdObject.setValue("Modified third object");
+        System.out.println("Trying to get modified object: " + mapMutable.get(thirdObject));
 
     }
 }
