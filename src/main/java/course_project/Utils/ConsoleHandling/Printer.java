@@ -17,7 +17,7 @@ public class Printer {
     }
 
     public void printHeader() {
-        String HEADER = " A  B  C  D  E  F  G  H  I  J ";
+        String HEADER = "    A  B  C  D  E  F  G  H  I  J ";
 
         System.out.println(HEADER);
     }
@@ -108,7 +108,12 @@ public class Printer {
         int rowNumber = 1;
         for (int[] row : toPrint
         ) {
-            System.out.print( rowNumber);
+            if (rowNumber < 10) {
+                System.out.print(rowNumber + "  ");
+            }
+            else {
+                System.out.print(rowNumber + " ");
+            }
             for (int i : row
             ) {
                 if (i == 0) {
