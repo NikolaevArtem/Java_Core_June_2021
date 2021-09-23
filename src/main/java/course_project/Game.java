@@ -32,7 +32,7 @@ public class Game {
             boolean compShotOnTarget = true;
 
             while (humanShotOnTarget) {
-                System.out.println("\nEnter the coordinate of the opponent's field (for example A1):");
+                System.out.println("Enter the coordinate of the opponent's field (for example A1):");
                 int[] input = readInput(sc);
                 int x = input[0];
                 int y = input[1];
@@ -40,6 +40,7 @@ public class Game {
                 humanShotOnTarget = changeCellStatus(x, y, comp);
                 if (humanShotOnTarget) {
                     human.printField(comp);
+                    System.out.println("You were lucky! Shoot again, computer skips.");
                 }
 
                 if (checkFinishOfGame(comp.getNumHitCells(), human.getNumHitCells())) {
@@ -47,6 +48,8 @@ public class Game {
                     return;
                 }
             }
+
+            comp.setNumOfLastShots(0);
 
             while (compShotOnTarget) {
                 int[] enemyMove = enemyMove();
@@ -54,6 +57,10 @@ public class Game {
                 int enemyY = enemyMove[1];
 
                 compShotOnTarget = changeCellStatus(enemyX, enemyY, human);
+
+                if (compShotOnTarget)
+                    comp.setNumOfLastShots(comp.getNumOfLastShots()+1);
+
                 if (checkFinishOfGame(comp.getNumHitCells(), human.getNumHitCells())) {
                     isFinish = true;
                     return;
@@ -61,6 +68,9 @@ public class Game {
             }
 
             human.printField(comp);
+
+            if (comp.getNumOfLastShots() > 0)
+                System.out.println("\nComputer hit well, it fired " + comp.getNumOfLastShots() + " additional shots, you missed a move.");
         }
     }
 

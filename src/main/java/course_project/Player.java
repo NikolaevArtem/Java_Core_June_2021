@@ -4,14 +4,24 @@ public class Player {
 
     private GameField field;
     private int numHitCells;
+    private int numOfLastShots;
 
     public Player() {
         this.field = new GameField(true);
         this.numHitCells = 0;
+        this.numOfLastShots = 0;
     }
 
     public GameField getField() {
         return field;
+    }
+
+    public int getNumOfLastShots() {
+        return numOfLastShots;
+    }
+
+    public void setNumOfLastShots(int numOfLastShots) {
+        this.numOfLastShots = numOfLastShots;
     }
 
     public int getNumHitCells() {
@@ -73,6 +83,7 @@ public class Player {
             }
 
         }
+        System.out.println();
     }
 
     private String humanSymbolToPrint(GameField.CellStatus cellStatus) {
