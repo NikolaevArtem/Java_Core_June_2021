@@ -3,7 +3,7 @@ package homework_3.library;
 import lombok.Data;
 
 @Data
-public class Author {
+public class Author implements Cloneable {
     private String name;
     private String country;
     private String century;
@@ -22,6 +22,11 @@ public class Author {
         this.name = name;
         this.country = country;
         this.century = century;
+    }
+
+    @Override
+    protected Author clone() {
+        return new Author(this.name, this.country, this.century);
     }
 
     @Override

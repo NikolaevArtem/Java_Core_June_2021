@@ -27,7 +27,8 @@ public final class LibraryCard {
     private final Calendar yearOfPublishing;
     private final int numberOfPages;
 
-    public static LibraryCard initializeNewLibraryCard (Author author, String title, GregorianCalendar yearOfPublishing, int numberOfPages, String sectionStr)
+    public static LibraryCard initializeNewLibraryCard (Author author, String title,
+                                                        GregorianCalendar yearOfPublishing, int numberOfPages, String sectionStr)
                                                         throws IllegalArgumentException {
         if (author == null
                 || title == null
@@ -89,18 +90,18 @@ public final class LibraryCard {
     }
 
     public LibraryCard setTitle(String title) {
-        return new LibraryCard(this.author, title, this.yearOfPublishing, this.numberOfPages, this.section);
+        return new LibraryCard(this.author.clone(), title, this.yearOfPublishing, this.numberOfPages, this.section);
     }
 
     public LibraryCard setYearOfPublishing(GregorianCalendar yearOfPublishing) {
-        return new LibraryCard(this.author, this.title, yearOfPublishing, this.numberOfPages, this.section);
+        return new LibraryCard(this.author.clone(), this.title, yearOfPublishing, this.numberOfPages, this.section);
     }
 
     public LibraryCard setNumberOfPages(int numberOfPages) {
-        return new LibraryCard(this.author, this.title, this.yearOfPublishing, numberOfPages, this.section);
+        return new LibraryCard(this.author.clone(), this.title, this.yearOfPublishing, numberOfPages, this.section);
     }
 
     public LibraryCard setSection(Section section) {
-        return new LibraryCard(this.author, this.title, this.yearOfPublishing, this.numberOfPages, section);
+        return new LibraryCard(this.author.clone(), this.title, this.yearOfPublishing, this.numberOfPages, section);
     }
 }
