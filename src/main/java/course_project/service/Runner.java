@@ -10,6 +10,8 @@ public class Runner {
     public void run() {
         Player a, b, c;
         boolean win;
+        boolean enteredFirst = false;
+        boolean enteredSecond = false;
         Scanner readIt = new Scanner(System.in);
 
         Player player1 = new Player();
@@ -22,20 +24,30 @@ public class Runner {
         PlayerService playerServiceTwo = new PlayerService(player2, playerTwoBattlefieldService);
         System.out.println("Enter name of the first player");
         player1.setName(readIt.nextLine());
-        System.out.println("Choose ship placement mode: auto or manual");
-        if (readIt.nextLine().equalsIgnoreCase("auto")) {
-            playerOneBattlefieldService.autoShipPlacement(player1);
-        } else {
-            playerOneBattlefieldService.arrangement(player1, readIt);
+        while (!enteredFirst) {
+            System.out.println("Choose ship placement mode: auto or manual");
+            String modeFirst = readIt.nextLine();
+            if (modeFirst.equalsIgnoreCase("auto")) {
+                playerOneBattlefieldService.autoShipPlacement(player1);
+                enteredFirst = true;
+            } else if (modeFirst.equalsIgnoreCase("manual")) {
+                playerOneBattlefieldService.arrangement(player1, readIt);
+                enteredFirst = true;
+            }
         }
 
         System.out.println("Enter name of the second player");
         player2.setName(readIt.nextLine());
-        System.out.println("Choose ship placement mode: auto or manual");
-        if (readIt.nextLine().equalsIgnoreCase("auto")) {
-            playerTwoBattlefieldService.autoShipPlacement(player2);
-        } else {
-            playerTwoBattlefieldService.arrangement(player2, readIt);
+        while (!enteredSecond) {
+            System.out.println("Choose ship placement mode: auto or manual");
+            String modeSecond = readIt.nextLine();
+            if (modeSecond.equalsIgnoreCase("auto")) {
+                playerTwoBattlefieldService.autoShipPlacement(player2);
+                enteredSecond = true;
+            } else if (modeSecond.equalsIgnoreCase("manual")) {
+                playerTwoBattlefieldService.arrangement(player2, readIt);
+                enteredSecond = true;
+            }
         }
 
         int first = (int) (Math.random() * 2);
