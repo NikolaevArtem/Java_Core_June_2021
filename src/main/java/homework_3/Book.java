@@ -1,5 +1,7 @@
 package homework_3;
 
+import java.util.Arrays;
+
 public final class Book {
 
     private final String title;
@@ -9,15 +11,13 @@ public final class Book {
     public Book(String name, int age, String... authors) {
         this.title = name;
         this.year = age;
-        this.authors = authors;
+        this.authors = Arrays.copyOf(authors, authors.length);
     }
 
     public Book(String name, String... authors) {
         this.title = name;
         this.year = 0;
-        String[] copyAuthors = new String[authors.length];
-        System.arraycopy(authors, 0, copyAuthors, 0, authors.length);
-        this.authors = copyAuthors;
+        this.authors = Arrays.copyOf(authors, authors.length);
     }
 
     public Book(String name, int age) {
@@ -41,12 +41,10 @@ public final class Book {
     }
 
     public String[] getAuthors() {
-        String[] copyAuthors = new String[this.authors.length];
-        System.arraycopy(this.authors, 0, copyAuthors, 0, this.authors.length);
-        return copyAuthors;
+        return Arrays.copyOf(authors, authors.length);
     }
 
     public Book changeTitle(String title) {
-        return new Book(title, year, authors);
+        return new Book(title, year, Arrays.copyOf(authors, authors.length));
     }
 }
