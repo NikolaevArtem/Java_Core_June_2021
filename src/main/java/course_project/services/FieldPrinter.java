@@ -29,10 +29,13 @@ public class FieldPrinter {
         }
     }
 
-    public static void printFiled(Stream<SinglePartShip> attacker, Map<Boolean, List<SinglePartShip>> opponent) {
+    public static void printFiled(Stream<SinglePartShip> attacker,
+                                  Map<Boolean, List<SinglePartShip>> opponent,
+                                  Stream<SinglePartShip> damageList) {
         int[][] attackerField = new int[FIELD_CAPACITY][FIELD_CAPACITY];
         int[][] opponentField = new int[FIELD_CAPACITY][FIELD_CAPACITY];
         attacker.forEach(elem -> add(attackerField, elem, 1));
+        damageList.forEach(elem -> add(attackerField, elem, -1));
         opponent.entrySet().forEach(elem -> add(opponentField, elem));
 
         System.out.printf("%-51s", "your field");
@@ -61,6 +64,8 @@ public class FieldPrinter {
         for (int j = 0; j < FIELD_CAPACITY; j++) {
             if (field[i][j] == 1) {
                 System.out.printf("%13s", ANSI_GREEN + "x" + ANSI_RESET);
+            } else if (field[i][j] == -1) {
+                System.out.printf("%13s", ANSI_CYAN + "o" + ANSI_RESET);
             } else {
                 System.out.printf("%4s", ".");
             }

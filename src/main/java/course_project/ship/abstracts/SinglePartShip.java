@@ -6,10 +6,12 @@ public class SinglePartShip {
     
     private Integer x;
     private Integer y;
+    private ShipStatus status;
 
     public SinglePartShip(Integer x, Integer y) {
         this.x = x;
         this.y = y;
+        status = ShipStatus.HEALTHY;
     }
 
     public Integer getX() {
@@ -26,6 +28,14 @@ public class SinglePartShip {
 
     public SinglePartShip setY(Integer y) {
         return new SinglePartShip(this.x, y);
+    }
+
+    public ShipStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ShipStatus status) {
+        this.status = status;
     }
 
     @Override

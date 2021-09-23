@@ -1,6 +1,7 @@
 package course_project.services;
 
-import course_project.ship.abstracts.TypeShip;
+import course_project.ship.abstracts.ShipStatus;
+import course_project.ship.abstracts.ShipType;
 import course_project.ship.models.Player;
 import course_project.ship.models.Ship;
 import course_project.ship.abstracts.SinglePartShip;
@@ -19,31 +20,36 @@ public final class PlayerController {
     }
 
     public static boolean destroyPartShip(Player player, SinglePartShip partShip) {
-        Map<String, List<Ship>> ships = player.getShips();
+        Map<String, List<Ship>> ships = player.getMapShips();
         Collection<List<Ship>> values = ships.values();
 
         for (List<Ship> next : values) {
             for (Ship next1 : next) {
                 if (next1.getList().contains(partShip)) {
-                    next1.getList().remove(partShip);
-                    return next1.getList().size() == 0;
+                    List<SinglePartShip> list = next1.getList();
+                    for (SinglePartShip singlePartShip : list) {
+                        if (singlePartShip.equals(partShip)) {
+                            singlePartShip.setStatus(ShipStatus.SANK);
+                        }
+                    }
+                    return list.stream().noneMatch(elem -> elem.getStatus().equals(ShipStatus.HEALTHY));
                 }
             }
         }
         return false;
     }
 
-    public static void initShipLists(Player gamer, TypeShip typeShip, int countOfDeck) {
+    public static void initShipLists(Player gamer, ShipType shipType, int countOfDeck) {
         for (int i = 0; i < countOfDeck; i++) {
             String coordinates = GameService.getNewCoordinates(i + 1, 5 - countOfDeck);
-            if (!addToList(gamer, typeShip, coordinates.split("\\s")[0], coordinates.split("\\s")[1], 5 - countOfDeck)) {
+            if (!addToList(gamer, shipType, coordinates.split("\\s")[0], coordinates.split("\\s")[1], 5 - countOfDeck)) {
                 System.out.println(ANSI_RED + "Что-то пошло не так, попробуйте еще раз" + ANSI_RESET);
                 i--;
             }
         }
     }
 
-    public static boolean addToList(Player gamer, TypeShip typeShip, String coordinates, String location, int countOfDeck) {
+    public static boolean addToList(Player gamer, ShipType shipType, String coordinates, String location, int countOfDeck) {
         List<SinglePartShip> tempList = new ArrayList<>();
         SinglePartShip partShip = new SinglePartShip(coordinates.charAt(0) - 64, new Integer(coordinates.substring(1)));
         for (int i = 0; i < countOfDeck; i++) {
@@ -66,7 +72,7 @@ public final class PlayerController {
                 partShip = partShip.setX(partShip.getX() + 1);
             }
         }
-        gamer.getShips().get(typeShip.getType()).add(new Ship(tempList));
+        gamer.getMapShips().get(shipType.getType()).add(new Ship(tempList));
         return true;
     }
 

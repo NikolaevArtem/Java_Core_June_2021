@@ -1,6 +1,6 @@
 package course_project.ship.abstracts;
 
-public enum TypeShip {
+public enum ShipType {
 
     SINGLE_DECK ("SingleDeckShip", 4),
     DOUBLE_DECK ("DoubleDeckShip", 3),
@@ -10,7 +10,7 @@ public enum TypeShip {
     private String type;
     private int count;
 
-    TypeShip(String type, int count) {
+    ShipType(String type, int count) {
         this.type = type;
         this.count = count;
     }
@@ -19,12 +19,12 @@ public enum TypeShip {
         return type;
     }
 
-    public static TypeShip getType(int n) {
+    public static ShipType getType(int n) {
         switch (n) {
-            case 1: return TypeShip.SINGLE_DECK;
-            case 2: return TypeShip.DOUBLE_DECK;
-            case 3: return TypeShip.THREE_DECK;
-            case 4: return TypeShip.FOUR_DECK;
+            case 1: return ShipType.SINGLE_DECK;
+            case 2: return ShipType.DOUBLE_DECK;
+            case 3: return ShipType.THREE_DECK;
+            case 4: return ShipType.FOUR_DECK;
         }
         return null;
     }
