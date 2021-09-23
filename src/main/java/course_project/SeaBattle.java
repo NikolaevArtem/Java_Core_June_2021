@@ -2,7 +2,6 @@ package course_project;
 
 import lombok.Data;
 import java.util.Collections;
-import java.util.Locale;
 import java.util.Scanner;
 import java.util.TreeMap;
 
@@ -39,7 +38,7 @@ public class SeaBattle {
             game.fillFields();
 
         } else if ("y".equals(replay)) {
-            System.out.println("Thank you. The game is started only for testing (no random placement).\n");
+            System.out.println("\nThank you. The game is started only for testing (no random placement).\n");
             Thread.sleep(4000);
             game.service = new SeaBattleTestService(game.getPlayer1(), game.getPlayer2());
 
