@@ -110,7 +110,7 @@ public class RandomCharsTableTest extends UnitBase {
 
         StringBuilder result = new StringBuilder();
 
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < width; i++) {
             for (int j  = 0; j < getOutputLines()[i].length();j++) {
                 char c = getOutputLines()[i].charAt(j);
                 int num = (int) c;
@@ -125,9 +125,9 @@ public class RandomCharsTableTest extends UnitBase {
         String strRes = result.toString();
         strRes = (isEven ? "Even" : "Odd") + " letters - " + strRes.substring(0,strRes.length()-2);
         if (length < 3) {
-            assertEquals(strRes, getOutputLines()[length+1]);
-        } else {
             assertEquals(strRes, getOutputLines()[length]);
+        } else {
+            assertEquals(strRes, getOutputLines()[length-1]);
         }
     }
 }
