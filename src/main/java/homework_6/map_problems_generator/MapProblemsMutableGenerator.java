@@ -1,27 +1,22 @@
 package homework_6.map_problems_generator;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class MapProblemsMutableGenerator {
 
-    private int a;
+    private String someInt;
 
-    public MapProblemsMutableGenerator(int a) {
-        this.a = a;
+    public MapProblemsMutableGenerator(String someInt) {
+        this.someInt = someInt;
     }
 
-    public int getA() {
-        return a;
-    }
-
-    public void setA(int a) {
-        this.a = a;
+    public void setSomeString(String someInt) {
+        this.someInt = someInt;
     }
 
     @Override
     public String toString() {
-        return String.valueOf(a);
+        return String.valueOf(someInt);
     }
 
     @Override
@@ -29,11 +24,11 @@ public class MapProblemsMutableGenerator {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MapProblemsMutableGenerator that = (MapProblemsMutableGenerator) o;
-        return a == that.a;
+        return someInt == that.someInt;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(a);
+        return Objects.hash(someInt);
     }
 }
