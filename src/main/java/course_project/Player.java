@@ -46,14 +46,15 @@ public class Player {
     }
 
     int[] makeShot() {
-        String shot = null;
+        String shot = "";
         boolean shotFired = false;
         int[] shotCell = new int[]{};
         System.out.println(this.name + ", enter the coordinates of the shot.\n");
 
         while (!shotFired) {
             shot = scanner.nextLine();
-            if (shot == null) {
+            if (shot == null || "".equals(shot)) {
+                System.out.println("Error! You entered the wrong coordinates! Try again.\n");
                 continue;
             }
             shotCell = Field.stringToCell(shot);
