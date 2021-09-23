@@ -1,41 +1,36 @@
 package homework_6.map_problems_generator;
 
-public class MapProblemsCollisionGenerator<F1, F2>{
-    private F1 f1;
-    private F2 f2;
+import java.util.Objects;
 
-    public MapProblemsCollisionGenerator(F1 f1, F2 f2) {
-        this.f1 = f1;
-        this.f2 = f2;
+public class MapProblemsCollisionGenerator {
+
+    private Integer countCollision = 0;
+    private StringBuilder key;
+
+    public MapProblemsCollisionGenerator(StringBuilder key) {
+        this.key = key;
     }
 
-    public F1 getF1() {
-        return f1;
+    public void setKey(StringBuilder key) {
+        this.key = key;
     }
 
-    public F2 getF2() {
-        return f2;
-    }
-
-    public void setF1(F1 f1) {
-        this.f1 = f1;
-    }
-
-    public void setF2(F2 f2) {
-        this.f2 = f2;
+    public Integer getCountCollision()
+    {
+        return countCollision;
     }
 
     @Override
     public boolean equals(Object o) {
+        countCollision++;
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MapProblemsCollisionGenerator<?, ?> that = (MapProblemsCollisionGenerator<?, ?>) o;
-        return f1.equals(that.f1) &&
-                f2.equals(that.f2);
+        MapProblemsCollisionGenerator that = (MapProblemsCollisionGenerator) o;
+        return key.equals(that.key);
     }
 
     @Override
-    public final int hashCode() {
+    public int hashCode() {
         return 1;
     }
 }

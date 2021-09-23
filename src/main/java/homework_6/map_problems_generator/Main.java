@@ -4,19 +4,38 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
-        HashMap<MapProblemsCollisionGenerator<String, String>, String> container_problems_coll_gen = new HashMap<>();
-        container_problems_coll_gen.put(new MapProblemsCollisionGenerator<>("one", "one"), "one");
-        container_problems_coll_gen.put(new MapProblemsCollisionGenerator<>("two", "two"), "two");
+        HashMap<MapProblemsMutableGenerator, String> container_mutable_gen = new HashMap<>();
 
-        String resultTwo_1 = container_problems_coll_gen.get(new MapProblemsCollisionGenerator<>("two", "two"));
+        MapProblemsMutableGenerator generator_one = new MapProblemsMutableGenerator(new StringBuilder("one"));
+        MapProblemsMutableGenerator generator_two = new MapProblemsMutableGenerator(new StringBuilder("two"));
+        container_mutable_gen.put(generator_one, "one");
+        container_mutable_gen.put(generator_two, "two");
+
+        String resultTwo_valid = container_mutable_gen.get(generator_two);
+
+        System.out.println("resultTwo_valid = " + resultTwo_valid);
+
+        generator_two.setKey(new StringBuilder("collision"));
+
+        String resultTwo_invalid = container_mutable_gen.get(generator_two);
+
+        System.out.println("resultTwo_invalid = " + resultTwo_invalid);
 
 
+        HashMap<MapProblemsCollisionGenerator, String> container_problems_coll_gen = new HashMap<>();
 
-        HashMap<MapProblemsMutableGenerator<String>, String> container_mutable_gen = new HashMap<>();
-        container_mutable_gen.put(new MapProblemsMutableGenerator<>("one"), "one");
-        container_mutable_gen.put(new MapProblemsMutableGenerator<>("two"), "two");
+        MapProblemsCollisionGenerator one_collision_gen = new MapProblemsCollisionGenerator(new StringBuilder("one"));
+        MapProblemsCollisionGenerator two_collision_gen = new MapProblemsCollisionGenerator(new StringBuilder("two"));
+        MapProblemsCollisionGenerator three_collision_gen = new MapProblemsCollisionGenerator(new StringBuilder("three"));
 
-        String resultTwo_2 = container_mutable_gen.get(new MapProblemsMutableGenerator<>("two"));
+
+        container_problems_coll_gen.put(one_collision_gen, "one");
+        container_problems_coll_gen.put(two_collision_gen, "two");
+        container_problems_coll_gen.put(three_collision_gen, "three");
+
+        System.out.println("Count of collision in one_collision_gen = " + one_collision_gen.getCountCollision());
+        System.out.println("Count of collision in two_collision_gen = " + two_collision_gen.getCountCollision());
+        System.out.println("Count of collision in three_collision_gen = " + three_collision_gen.getCountCollision());
     }
 
 }
