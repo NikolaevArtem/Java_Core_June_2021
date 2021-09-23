@@ -57,7 +57,7 @@ public class MoveGenerator {
         if (x != 0 && userField.getCellStatus(x - 1, y) == CellStatus.NOT_VISITED) {
             return new Move(x - 1, y);
         }
-        x = Math.max(y, lastHit.get(lastHit.size() - 1).getX());
+        x = Math.max(x, lastHit.get(lastHit.size() - 1).getX());
         return new Move(x + 1, y);
     }
 

@@ -25,6 +25,6 @@ public class Move {
 
     @Override
     public String toString() {
-        return String.valueOf((char) (x + 65)) + (y + 1);
+        return (char) (x + 65) + "" + (y + 1);
     }
 }
