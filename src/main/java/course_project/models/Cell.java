@@ -6,6 +6,8 @@
 package course_project.models;
 
 
+import java.util.Objects;
+
 public class Cell {
     private char letter;
     private int digit;
@@ -45,7 +47,7 @@ public class Cell {
 
     @Override
     public int hashCode() {
-        return 1;
+        return Objects.hash(letter, digit, beaten);
     }
 
     @Override
