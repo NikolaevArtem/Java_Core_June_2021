@@ -1,5 +1,7 @@
 package course_project.sea_battle.players;
 
+import course_project.sea_battle.input_readers.InputConsoleReader;
+import course_project.sea_battle.input_readers.InputFileReader;
 import course_project.sea_battle.playground.CellData;
 import course_project.sea_battle.playground.CellStatus;
 import course_project.sea_battle.ships.Ship;
@@ -16,10 +18,17 @@ import java.io.IOException;
 @Getter
 public abstract class Player {
     private Playground playground;
-    private InputReader inputReader;
+    private final InputReader inputReader;
+    private final InputConsoleReader inputConsoleReader;
 
     public Player(InputReader inputReader) {
         this.inputReader = inputReader;
+        this.inputConsoleReader = null;
+    }
+
+    public Player(InputFileReader inputFileReader, InputConsoleReader inputConsoleReader) {
+        this.inputReader = inputFileReader;
+        this.inputConsoleReader = inputConsoleReader;
     }
 
     public abstract void setShips() throws IOException, WrongInputException;

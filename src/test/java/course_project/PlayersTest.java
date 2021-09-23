@@ -16,7 +16,7 @@ public class PlayersTest extends UnitBase {
 
     @Test
     void whenComputerSetsShips_thenSetCorrectNumberOfOccupiedCells() throws IOException, WrongInputException {
-        ComputerPlayer pc = new ComputerPlayer(new InputFileReader());
+        ComputerPlayer pc = new ComputerPlayer(new InputFileReader("computer_ships_sets"));
         pc.setShips();
 
         long occupiedCellsCount = Arrays.stream(pc.getPlayground()

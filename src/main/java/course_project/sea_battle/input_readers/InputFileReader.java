@@ -10,9 +10,9 @@ public class InputFileReader extends InputReader {
     private final int NUMBER_OF_COMPUTER_SHIPS_SETS = 3;
     private final BufferedReader br;
 
-    public InputFileReader() throws FileNotFoundException {
+    public InputFileReader(String pack) throws FileNotFoundException {
         super("Can't set computers ships. Check resource folder for sets text files.");
-        br = new BufferedReader(new FileReader("src/main/resources/course_project/computer_ships_sets/" + getFileName()));
+        br = new BufferedReader(new FileReader("src/main/resources/course_project/" + pack + "/" + getFileName()));
     }
 
     @Override

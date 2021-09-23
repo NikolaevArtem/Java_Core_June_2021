@@ -1,6 +1,7 @@
 package course_project.sea_battle;
 
 import course_project.sea_battle.players.ComputerPlayer;
+import course_project.sea_battle.players.HumanPlayer;
 import course_project.sea_battle.players.Player;
 import course_project.sea_battle.playground.CellData;
 import course_project.sea_battle.utils.ShotResultCode;
@@ -18,10 +19,9 @@ public class Gameplay {
     }
 
     public void setShips() throws IOException, WrongInputException, InterruptedException {
-        System.out.println(player.getPlayground().toStringMine());
         player.setShips();
 
-        System.out.println("Setting ships for computer...\n");
+        System.out.println("Setting ships for computer and you...\n");
         computer.setShips();
 
         //imitating AI thinking while setting ships
@@ -35,7 +35,7 @@ public class Gameplay {
         System.out.println(player.getPlayground().toStringMine());
     }
 
-    public Player getWinner() throws IOException, WrongInputException {
+    public Player getWinner() throws IOException, WrongInputException, InterruptedException {
         while (true) {
             makeMove(player, computer);
             if (computer.isLoser()) {
@@ -50,18 +50,23 @@ public class Gameplay {
         }
     }
 
-    private void makeMove(Player p1, Player p2) throws IOException, WrongInputException {
+    private void makeMove(Player p1, Player p2) throws IOException, WrongInputException, InterruptedException {
         while (true) {
+            if (p1 instanceof HumanPlayer) {
+                printPlaygrounds();
+            }
             System.out.println("\n======= " + p1.toStringWhose() + " MOVE =======");
 
             CellData cellData = p1.makeMove();
             ShotResultCode code = p2.checkOwnField(cellData);
 
-            printPlaygrounds();
             if (p1 instanceof ComputerPlayer) {
                 System.out.println("Computer made a move: " + cellData);
+                System.out.println(code);
+                Thread.sleep(2000);
+            } else {
+                System.out.println(code);
             }
-            System.out.println(code);
 
             if (code == ShotResultCode.MISS || p2.isLoser()) {
                 break;
