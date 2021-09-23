@@ -39,7 +39,7 @@ public class ComputerField extends Field {
                     x--;
                     continue;
                 }
-                if (x + 1 < 10 && x + 1 != prevX && table[x - 1][y].getStatus() == CellStatus.VISITED && table[x + 1][y].hadShip()) {
+                if (x + 1 < 10 && x + 1 != prevX && table[x + 1][y].getStatus() == CellStatus.VISITED && table[x + 1][y].hadShip()) {
                     prevX = x;
                     x++;
                     continue;
