@@ -1,12 +1,10 @@
 package base;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+
+import java.io.*;
+
 
 public abstract class UnitBase {
 
@@ -57,17 +55,5 @@ public abstract class UnitBase {
     System.out.println(mockedOut);
     System.setOut(new PrintStream(mockedOut));
   }
-
-//  @Test
-//  void example() {
-//    setInput("2");
-//
-//    new PyramidPrinter().run();
-//    printOut();
-//    removeFromOutput("Please input number"):
-//
-//    assertEquals("x", getOutputLines()[0]);
-//    assertEquals("xx", getOutputLines()[1]);
-//  }
 
 }
