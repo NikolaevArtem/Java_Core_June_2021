@@ -38,7 +38,7 @@ public class MapProblemsCollisionGenerator {
 
     @Override
     public int hashCode() {
-        return problemNumber;
+        return 0;
     }
 
     @Override

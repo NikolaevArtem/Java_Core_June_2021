@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Field;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 public class SingletonTest {
 
@@ -22,6 +23,6 @@ public class SingletonTest {
         Singleton s1 = Singleton.getInstance();
         Singleton s2 = Singleton.getInstance();
 
-        assertEquals(s1,s2);
+        assertSame(s1,s2);
     }
 }
