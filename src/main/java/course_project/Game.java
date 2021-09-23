@@ -14,11 +14,10 @@ public class Game {
                 "Shoot and hit enemy ships. If you shoot successfully, you can shoot again, and the enemy misses a turn. \n" +
                         "The game continues until one of the players (you or computer) shoot all the enemy ships. \n");
 
-        Player human = new Player();    //oshibka tut
+        Player human = new Player();
         Player comp = new Player();
 
         human.printField(comp);
-        comp.printField(human);
 
         battle(human, comp);
     }

@@ -57,7 +57,7 @@ public class GameField {
                 }
             }
         } else {
-            for (int i = x-1; i < x+2; i++) {                             //HERE
+            for (int i = x-1; i < x+2; i++) {
                 for (int j = y-1; j < y+num+1; j++) {
                     if (cells[i][j] == CellStatus.SHIP) return false;
                 }
