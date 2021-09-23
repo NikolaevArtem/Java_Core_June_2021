@@ -6,7 +6,6 @@ public class MapProblemsCollisionGenerator {
 
     private final String name;
     private final int id;
-
     public MapProblemsCollisionGenerator(int id, String name) {
         this.id = id;
         this.name = name;

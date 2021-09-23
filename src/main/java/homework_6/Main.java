@@ -5,7 +5,6 @@ import java.util.HashMap;
 public class Main {
 
     public static void main(String[] args) {
-
         HashMap<MapProblemsCollisionGenerator, String> map = new HashMap<>();
         MapProblemsCollisionGenerator k1 = new MapProblemsCollisionGenerator(1, "firstKey");
         MapProblemsCollisionGenerator k2 = new MapProblemsCollisionGenerator(2, "secondKey");

@@ -41,7 +41,7 @@ public final class ImmutableClass {
     public StringBuilder getStringBuilder() {
         return new StringBuilder(stringBuilder);
     }
-    private ImmutableClass createNewObj() {
+    public ImmutableClass createNewObj() {
         return new ImmutableClass();
     }
 
