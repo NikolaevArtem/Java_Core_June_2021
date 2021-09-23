@@ -36,6 +36,9 @@ public class Strike {
 
             System.out.println(strStrike);
             strikes.add(tmpUserCell);
+            if ("Bingo!".equals(strStrike) || "Ship is sunked!".equals(strStrike)) {
+                return false;
+            }
             return true;
         } else {
             System.out.println("You have already striked this cell.");

@@ -85,10 +85,11 @@ public class UserThread implements Runnable {
                 char x = line.charAt(1);
 
                 if (!userStrikes.makeStrike(y, x, ships)) {
+                    printUserStrikes();
                     continue;
+                } else {
+                    printUserStrikes();
                 }
-
-                printUserStrikes();
 
             } else {
                 System.out.println("Out of field!");
