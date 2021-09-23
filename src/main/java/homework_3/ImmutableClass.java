@@ -14,13 +14,6 @@ public final class ImmutableClass {
     private final Character three;
     private final String[] names;
 
-    public ImmutableClass(int one, String two, String[] names) {
-        this.one = one;
-        this.two = two;
-        this.three = 'A';
-        this.names = names;
-    }
-
     public ImmutableClass(int one, String two, Character three, String[] names) {
         this.one = one;
         this.two = two;
@@ -48,9 +41,15 @@ public final class ImmutableClass {
             return new ImmutableClass(one, getTwo(), getThree(), getNames());
     }
 
-    public ImmutableClass getImmutableClass(Character a) {
-        if (a != null) {
-            return new ImmutableClass(getOne(), getTwo(), a, getNames());
+    public ImmutableClass getImmutableClass(Character someChar) {
+        if (someChar != null) {
+            return new ImmutableClass(getOne(), getTwo(), someChar, getNames());
+        } else return new ImmutableClass(getOne(), getTwo(), getThree(), getNames());
+    }
+
+    public ImmutableClass getImmutableClass(String[] str) {
+        if (str != null) {
+            return new ImmutableClass(getOne(), getTwo(), getThree(), str);
         } else return new ImmutableClass(getOne(), getTwo(), getThree(), getNames());
     }
 }
