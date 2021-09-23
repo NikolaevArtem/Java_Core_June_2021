@@ -1,9 +1,28 @@
 # Java Core June 2021
 
-## *Nikolaev Artem*
+## *Maria Voronko*
 
 | Number | Solution  | Short description
 | --- | --- | --- |
-| HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/master/src/main/java/homework_1) | The app that reads input arguments and prints them, until "error" argument |
+| HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_1/HomeWork1.java) | The app that reads input arguments and prints them, until "error" argument. |
+| HW2 | [Traffic Light](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_2/traffic_light) | The app that reads a number of seconds from the beginning of the day and prints traffic light color at that moment. |
+| HW2 | [Pyramid Printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_2/pyramid_printer/PyramidPrinter.java) | The app that reads pyramid size and prints pyramid of 'x' of given size. |
+| HW2 | [Random Chars Table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_2/random_chars_table/RandomCharsTable.java) | The app that prints a table of random chars and finds odd or even letters in it. |
+| HW2 | [Tests 2](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/test/java/homework_2) | Tests for homework 2. |
+| HW3 | [Immutable Class](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_3/ImmutableCat.java) | To create an immutable class and write its requirements in comments. |
+| HW4 | [Custom File Reader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_4/custom_file_reader) | The app that reads data from file and prints it to the console. |
+| HW4 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_4/singleton) | Singleton design pattern implementation. |
+| HW4 | [Custom Annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_4/custom_annotation) | Annotation. |
+| HW4 | [Tests 4](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/test/java/homework_4) | Tests for homework 4. |
+| HW5 | [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_5/custom_regex_mathcer) | The app that checks if input string matches pattern. |
+| HW5 | [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_5/power_of_number) | The app that calculates a number in a power using recursion. |
+| HW5 | [Tests 5](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/test/java/homework_5) | Tests for homework 5. |
+| HW6 | [MapProblemsCollisionGenerator & MapProblemMutableGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_6) | Classes that create problems in HashMap. |
+| HW7 | [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/homework_7) | The functional interface with an abstract method that turns a Kitten to a Cat. |
+| HW7 | [Tests 7](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/test/java/homework_7) | Tests for homework 7. |
+| Course Project | [Sea Battle](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/main/java/course_project) | The app tht plays Sea Battle game with user. |
+| Course Project | [Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/MariaVoronko/src/test/java/course_project) | Tests for Sea Battle. |
+
+[Link to CodingBat](https://codingbat.com/done?user=mari.waranko@gmail.com&tag=3702089539)
 
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
