@@ -52,13 +52,22 @@ public class UserThread implements Runnable {
                     int y = Character.getNumericValue(message.charAt(0));
                     char x = message.charAt(1);
 
-                    strikes.makeStrike(y, x, userShips);
+                    if (!strikes.makeStrike(y, x, userShips)) {
+                        printComputerStrikes();
+                        try {
+                            exchanger.exchange("computerTurn");
+                        } catch (InterruptedException ex) {
+                            System.out.println(ex.getMessage());
+                            break;
+                        }
+                        continue;
+                    } else {
+                        printComputerStrikes();
+                    }
 
                 } else {
                     System.out.println("Out of field!");
                 }
-
-                printComputerStrikes();
             }
 
             System.out.println("Enter the cell in format [int+char]: ");
