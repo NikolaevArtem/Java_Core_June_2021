@@ -22,11 +22,21 @@ public class Runner {
         PlayerService playerServiceTwo = new PlayerService(player2, playerTwoBattlefieldService);
         System.out.println("Enter name of the first player");
         player1.setName(readIt.nextLine());
+        System.out.println("Choose ship placement mode: auto or manual");
+        if (readIt.nextLine().equalsIgnoreCase("auto")) {
+            playerOneBattlefieldService.autoShipPlacement(player1);
+        } else {
+            playerOneBattlefieldService.arrangement(player1, readIt);
+        }
+
         System.out.println("Enter name of the second player");
         player2.setName(readIt.nextLine());
-
-        playerOneBattlefieldService.arrangement(player1, readIt);
-        playerTwoBattlefieldService.arrangement(player2, readIt);
+        System.out.println("Choose ship placement mode: auto or manual");
+        if (readIt.nextLine().equalsIgnoreCase("auto")) {
+            playerTwoBattlefieldService.autoShipPlacement(player2);
+        } else {
+            playerTwoBattlefieldService.arrangement(player2, readIt);
+        }
 
         int first = (int) (Math.random() * 2);
         if (first == 0) {
@@ -56,5 +66,6 @@ public class Runner {
 
         readIt.close();
     }
+
 }
 

@@ -8,10 +8,7 @@ import course_project.model.Designation;
 import course_project.model.Player;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class BattleFieldService {
 
@@ -36,6 +33,37 @@ public class BattleFieldService {
                 System.out.print((j == grid[i].length - 1) ? (grid[i][j] + "\n") : grid[i][j] + "\t");
             }
         }
+    }
+
+    public void autoShipPlacement(Player player) {
+        String fourDecker = "A1;A2;A3;A4";
+        String threeDeckerFirst = "C1;C2;C3";
+        String threeDeckerSecond = "C5;C6;C7";
+        String twoDeckerFirst = "E1;E2";
+        String twoDeckerSecond = "E4;E5";
+        String twoDeckerThird = "E7;E8";
+        String oneDeckerFirst = "G1";
+        String oneDeckerSecond = "G3";
+        String oneDeckerThird = "G5";
+        String oneDeckerFourth = "G7";
+
+        try {
+            putShip(player, fourDecker, Designation.FOUR_DECKER);
+            putShip(player, threeDeckerFirst, Designation.THREE_DECKER);
+            putShip(player, threeDeckerSecond, Designation.THREE_DECKER);
+            putShip(player, twoDeckerFirst, Designation.TWO_DECKER);
+            putShip(player, twoDeckerSecond, Designation.TWO_DECKER);
+            putShip(player, twoDeckerThird, Designation.TWO_DECKER);
+            putShip(player, oneDeckerFirst, Designation.ONE_DECKER);
+            putShip(player, oneDeckerSecond, Designation.ONE_DECKER);
+            putShip(player, oneDeckerThird, Designation.ONE_DECKER);
+            putShip(player, oneDeckerFourth, Designation.ONE_DECKER);
+        } catch (IOException | CoordinatesNumber | PlaceNotFree | InvalidShip e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Fields with all ships: ");
+        print(player.getField());
+        System.out.println("\n\n");
     }
 
     public void arrangement(Player player, Scanner readIt) {
@@ -218,7 +246,7 @@ public class BattleFieldService {
             }
 
             digitalCoords[i][0] = Character.getNumericValue(shipCoordsArray[i].charAt(1));
-            digitalCoords[i][1] = shipCoordsArray[i].charAt(0) - 64;
+            digitalCoords[i][1] = shipCoordsArray[i].toLowerCase().charAt(0) - 96;
         }
 
         if (!isValid(digitalCoords)) {

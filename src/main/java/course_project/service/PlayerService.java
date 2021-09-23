@@ -37,7 +37,7 @@ public class PlayerService {
             }
 
             int x = Character.getNumericValue(strCoord.charAt(1));
-            int y = strCoord.charAt(0) - 64;
+            int y = strCoord.toLowerCase().charAt(0) - 96;
 
             if (enemy.getGrid()[x][y] == Designation.SHIP) {
 
@@ -57,10 +57,10 @@ public class PlayerService {
 
                 if (battleFieldService.isDead(enemy.getField(), x, y)) {
                     System.out.println("Ship totally destroyed!");
-                    enemy.setShipsAmount(shipAmount--);
+                    enemy.setShipsAmount(--shipAmount);
                 }
 
-                if (enemy.getShipsAmount() == 0) {
+                if (enemy.getShipsAmount() < 0) {
                     System.out.println("Congratulations to player " + currentPlayer + "!");
                     return false;
                 } else {
@@ -82,7 +82,7 @@ public class PlayerService {
         }
         System.out.println(currentPlayer.getName() + ", your turn is over. Press Enter to pass the turn to another player");
         readIt.nextLine();
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n");
         return true;
     }
 
