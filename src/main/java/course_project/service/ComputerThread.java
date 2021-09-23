@@ -19,7 +19,28 @@ public class ComputerThread implements Runnable {
 
     public void run() {
 
+        boolean computerTurn = false;
+
         while (true) {
+            if (computerTurn) {
+                while (true) {
+                    Cell cell = new Cell();
+                    cell.setDigit(random.nextInt(SeaBattle.FIELD_SIZE));
+                    cell.setLetter((char) (random.nextInt(SeaBattle.FIELD_SIZE) + 'a'));
+                    if (!usedCells.contains(cell)) {
+                        message = String.valueOf(cell.getDigit()) + String.valueOf(cell.getLetter());
+                        usedCells.add(cell);
+                        try {
+                            message = exchanger.exchange(message);
+                        } catch (InterruptedException ex) {
+                            System.out.println(ex.getMessage());
+                            break;
+                        }
+                        computerTurn = false;
+                        break;
+                    }
+                }
+            }
 
             try {
                 message = exchanger.exchange(message);
@@ -29,24 +50,17 @@ public class ComputerThread implements Runnable {
             }
 
             if ("computerTurn".equals(message)) {
+                computerTurn = true;
+            }
 
-                Cell cell = new Cell();
-                cell.setDigit(random.nextInt(SeaBattle.FIELD_SIZE));
-                cell.setLetter((char) (random.nextInt(SeaBattle.FIELD_SIZE) + 'a'));
-                if (!usedCells.contains(cell)) {
-                    message = String.valueOf(cell.getDigit()) + String.valueOf(cell.getLetter());
-                    try {
-                        message = exchanger.exchange(message);
-                    } catch (InterruptedException ex) {
-                        System.out.println(ex.getMessage());
-                        break;
-                    }
-                    usedCells.add(cell);
-                }
-            } else if ("finished".equals(message)) {
+            if ("finished".equals(message)) {
                 break;
             }
         }
     }
+
+
+
+
 
 }
