@@ -10,6 +10,7 @@ import lombok.SneakyThrows;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static course_project.sea_battle.utils.Constants.*;
 import static course_project.sea_battle.view.BoardPrinter.showBoards;
 
 public class InputShooterReader extends InputReader {
@@ -18,13 +19,6 @@ public class InputShooterReader extends InputReader {
     private Shot shot;
     private Ship currentShip;
     private Random random = new Random();
-
-    private static final String MAKESHOT = ", make your shot in format: [A6] or [b1]";
-    private static final String INPUTERROR = "Input should be like this: [A7] or [b2]. Try again!";
-    private static final String CHECKED = "Cell is checked. Make another shot!";
-    private static final String KILLALL = ", you destroyed all enemy ships. Congratulations!";
-    private static final String NEXTMOVE = "Press ENTER to finish your move";
-    private static final String COMPUTERMOVE = "Computer is thinking...";
 
     public InputShooterReader(Scanner scanner) {
         this.scanner = scanner;
@@ -73,7 +67,7 @@ public class InputShooterReader extends InputReader {
             x = Integer.parseInt(input.substring(1)) - 1;
             return true;
         } else {
-            System.out.println(INPUTERROR);
+            System.out.println(INPUTSHOTERROR);
             return false;
         }
     }
@@ -181,7 +175,7 @@ public class InputShooterReader extends InputReader {
             }
             if (enemy.countShips() == 0) {
                 System.out.println(me.getName() + KILLALL);
-                printBigSpace(!me.isComputer() && !enemy.isComputer());
+                printBigSpaceInShooter(!me.isComputer() && !enemy.isComputer());
                 return false;
             } else {
                 if (!me.isComputer()) {
@@ -206,18 +200,10 @@ public class InputShooterReader extends InputReader {
             } else {
                 showBoards(enemy);
             }
-            printBigSpace(!me.isComputer() && !enemy.isComputer());
+            printBigSpaceInShooter(!me.isComputer() && !enemy.isComputer());
             return false;
         }
         return true;
-    }
-
-    public void printBigSpace(boolean hasSence) {
-        if (hasSence) {
-            System.out.println(NEXTMOVE);
-            readLine();
-            System.out.println("\n\n\n\n\n\n\n\n\n\n");
-        }
     }
 
 }

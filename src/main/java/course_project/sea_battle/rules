@@ -1,5 +1,5 @@
 GENERAL
-2 game modes are available: Player vs Player and Player vs Computer (very easy).
+2 gameController modes are available: Player vs Player and Player vs Computer (very easy).
 Each player has 10 ships: 1*4deck, 2*3, 3*2, 4*1.
 
 SHIP PLACEMENT

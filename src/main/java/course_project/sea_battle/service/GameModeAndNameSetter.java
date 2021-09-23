@@ -4,11 +4,11 @@ import course_project.sea_battle.model.Player;
 import course_project.sea_battle.service.inputs.InputReader;
 import lombok.SneakyThrows;
 
+import static course_project.sea_battle.utils.Constants.*;
+
 public class GameModeAndNameSetter {
     private final InputReader inputReader;
-    private static final String SHOOSEGAMEMODE = "Please, choose game mode:\n1: player vs player\n2: player vs computer";
-    private static final String PL1 = "Player 1, please, input your name:";
-    private static final String PL2 = "Player 2, please, input your name:";
+
     private int gameMode;
 
     public GameModeAndNameSetter(InputReader inputReader) {

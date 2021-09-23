@@ -10,13 +10,10 @@ import lombok.SneakyThrows;
 import java.util.List;
 
 import static course_project.sea_battle.view.BoardPrinter.showBoards;
+import static course_project.sea_battle.utils.Constants.*;
 
 public class ShipPlacer {
     private final InputShipReader inputShipReader;
-    private static final String PLACED = "Ship is placed!";
-    private static final String CHOOSESHIPPLACEMENTMODE = ", please, choose ship placement mode:\n1: manual\n2: automatic";
-    private static final String NEXTMOVE = "Press ENTER to finish your move";
-    private static final String DONE = "\nAll ships are placed!";
     private int shipPlacementMode;
 
     public ShipPlacer(InputShipReader inputShipReader) {
@@ -58,7 +55,9 @@ public class ShipPlacer {
             showBoards(player1);
             Thread.sleep(200);
         }
-        if (!player1.isComputer() && !player2.isComputer()) {printBigSpace();}
+        if (!player1.isComputer() && !player2.isComputer()) {
+            inputShipReader.printBigSpace();
+        }
     }
 
     public void defineShipPlacementMode(Player player) {
@@ -74,12 +73,6 @@ public class ShipPlacer {
                 }
             }
         }
-    }
-
-    public void printBigSpace() {
-        System.out.println(NEXTMOVE);
-        inputShipReader.readLine();
-        System.out.println("\n\n\n\n\n\n\n\n\n\n");
     }
 
 }

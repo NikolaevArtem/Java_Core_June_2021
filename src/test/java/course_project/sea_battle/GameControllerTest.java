@@ -1,6 +1,7 @@
 package course_project.sea_battle;
 
 import base.UnitBase;
+import course_project.sea_battle.controller.GameController;
 import course_project.sea_battle.model.Player;
 import course_project.sea_battle.model.Point;
 import course_project.sea_battle.model.Ship;
@@ -16,7 +17,7 @@ import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GameTest extends UnitBase {
+class GameControllerTest extends UnitBase {
 
     private static final String INPUTSHIPERROR = "Input should be like this: [A7 h] or [B2 h]. Try again!";
     private static final String OUTOFBOARD = "Impossible to place ship here because it is out of board!";
@@ -30,11 +31,11 @@ class GameTest extends UnitBase {
                 "Vera\n";
         setInput(input);
 
-        Game game = new Game();
-        game.setUpNames();
+        GameController gameController = new GameController();
+        gameController.setUpNames();
 
-        Player player1 = game.getPlayer1();
-        Player player2 = game.getPlayer2();
+        Player player1 = gameController.getPlayer1();
+        Player player2 = gameController.getPlayer2();
 
         assertEquals("Tom", player1.getName());
         assertEquals("Vera", player2.getName());
@@ -68,11 +69,11 @@ class GameTest extends UnitBase {
                 "\n";
         setInput(input);
 
-        Game game = new Game();
-        game.setUpShips();
+        GameController gameController = new GameController();
+        gameController.setUpShips();
 
-        long numOfShips1 = game.getPlayer1().countShips();
-        long numOfShips2 = game.getPlayer2().countShips();
+        long numOfShips1 = gameController.getPlayer1().countShips();
+        long numOfShips2 = gameController.getPlayer2().countShips();
 
         assertEquals(10, numOfShips1);
         assertEquals(10, numOfShips2);
@@ -110,11 +111,11 @@ class GameTest extends UnitBase {
                 "\n";
         setInput(input);
 
-        Game game = new Game();
-        game.setUpShips();
+        GameController gameController = new GameController();
+        gameController.setUpShips();
 
-        long numOfShips1 = game.getPlayer1().countShips();
-        long numOfShips2 = game.getPlayer2().countShips();
+        long numOfShips1 = gameController.getPlayer1().countShips();
+        long numOfShips2 = gameController.getPlayer2().countShips();
 
         assertEquals(10, numOfShips1);
         assertEquals(10, numOfShips2);
@@ -128,11 +129,11 @@ class GameTest extends UnitBase {
                 "\n";
         setInput(input);
 
-        Game game = new Game();
-        game.setUpShips();
+        GameController gameController = new GameController();
+        gameController.setUpShips();
 
-        long numOfShips1 = game.getPlayer1().countShips();
-        long numOfShips2 = game.getPlayer2().countShips();
+        long numOfShips1 = gameController.getPlayer1().countShips();
+        long numOfShips2 = gameController.getPlayer2().countShips();
 
         assertEquals(10, numOfShips1);
         assertEquals(10, numOfShips2);
@@ -176,25 +177,25 @@ class GameTest extends UnitBase {
         coordinates.add(new Point(9, 9));
         Ship ship2 = new Ship(coordinates2);
 
-        Game game = new Game();
-        game.getPlayer1().getMyShips().add(ship);
-        game.getPlayer2().getMyShips().add(ship2);
+        GameController gameController = new GameController();
+        gameController.getPlayer1().getMyShips().add(ship);
+        gameController.getPlayer2().getMyShips().add(ship2);
 
-        game.getPlayer1().getMyBoard().placeShip(ship);
-        game.getPlayer2().getMyBoard().placeShip(ship2);
+        gameController.getPlayer1().getMyBoard().placeShip(ship);
+        gameController.getPlayer2().getMyBoard().placeShip(ship2);
 
-        int numOfPlayer1AllShips = game.getPlayer1().getMyShips().size();
-        int numOfPlayer2AllShips = game.getPlayer1().getMyShips().size();
+        int numOfPlayer1AllShips = gameController.getPlayer1().getMyShips().size();
+        int numOfPlayer2AllShips = gameController.getPlayer1().getMyShips().size();
 
         assertEquals(1, numOfPlayer1AllShips);
         assertEquals(1, numOfPlayer2AllShips);
 
-        game.play();
+        gameController.play();
 
-        long numOfPlayer1AliveShips = game.getPlayer1().getMyShips().stream()
+        long numOfPlayer1AliveShips = gameController.getPlayer1().getMyShips().stream()
                 .filter(Ship::isAlive)
                 .count();
-        long numOfPlayer2AliveShips = game.getPlayer2().getMyShips().stream()
+        long numOfPlayer2AliveShips = gameController.getPlayer2().getMyShips().stream()
                 .filter(Ship::isAlive)
                 .count();
 
@@ -204,31 +205,31 @@ class GameTest extends UnitBase {
 
     @Test
     void testDefineWinner() {
-        Game game = new Game();
-        Player player1 = game.getPlayer1();
-        Player player2 = game.getPlayer2();
+        GameController gameController = new GameController();
+        Player player1 = gameController.getPlayer1();
+        Player player2 = gameController.getPlayer2();
         player1.setName("Tom");
         player2.setName("Vera");
 
         Ship ship = new Ship(Arrays.asList(new Point(1, 1)));
-        List<Ship> tomShips = game.getPlayer1().getMyShips();
+        List<Ship> tomShips = gameController.getPlayer1().getMyShips();
         tomShips.add(ship);
 
-        game.defineWinner();
+        gameController.defineWinner();
 
         assertEquals(GAMEOVER + "Tom!", getOutput());
         removeFromOutput(GAMEOVER + "Tom!");
 
-        List<Ship> veraShips = game.getPlayer2().getMyShips();
+        List<Ship> veraShips = gameController.getPlayer2().getMyShips();
         veraShips.add(ship);
         tomShips.remove(0);
 
-        game.defineWinner();
+        gameController.defineWinner();
         assertEquals(GAMEOVER + "Vera!", getOutput());
         removeFromOutput(GAMEOVER + "Vera!");
 
         veraShips.remove(0);
-        game.defineWinner();
+        gameController.defineWinner();
         assertEquals(TIE, getOutput());
     }
 

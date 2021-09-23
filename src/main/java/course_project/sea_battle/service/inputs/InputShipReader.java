@@ -5,6 +5,8 @@ import course_project.sea_battle.model.Point;
 
 import java.util.*;
 
+import static course_project.sea_battle.utils.Constants.*;
+
 public class InputShipReader extends InputReader {
     private int x;
     private int y;
@@ -12,10 +14,6 @@ public class InputShipReader extends InputReader {
 
     private String position;
     private List<Point> coordinates;
-
-    private static final String INPUTERROR = "Input should be like this: [A7 h] or [B2 h]. Try again!";
-    private static final String OUTOFBOARD = "Impossible to place ship here because it is out of board!";
-    private static final String SHIPSCROSS = "Impossible to place ship here because ship crosses with another one!";
 
     public InputShipReader(Scanner scanner) {
         this.scanner = scanner;
@@ -51,7 +49,7 @@ public class InputShipReader extends InputReader {
             position = coords[1].toLowerCase();
             return true;
         } else {
-            System.out.println(INPUTERROR);
+            System.out.println(INPUTSHIPERROR);
             return false;
         }
     }

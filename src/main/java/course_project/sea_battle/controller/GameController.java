@@ -1,4 +1,4 @@
-package course_project.sea_battle;
+package course_project.sea_battle.controller;
 
 import course_project.sea_battle.boards.MyBoard;
 import course_project.sea_battle.model.Player;
@@ -10,7 +10,7 @@ import course_project.sea_battle.service.ShipPlacer;
 
 import java.util.Scanner;
 
-public class Game extends Thread {
+public class GameController extends Thread {
     private static final String TIE = "Game over. It's a TIE!";
     private static final String GAMEOVER = "Game over. The winner is: ";
 
@@ -20,7 +20,7 @@ public class Game extends Thread {
     private Player player1;
     private Player player2;
 
-    public Game() {
+    public GameController() {
         this.player1 = new Player(new MyBoard(), new MyBoard());
         this.player2 = new Player(new MyBoard(), new MyBoard());
     }
