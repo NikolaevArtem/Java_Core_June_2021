@@ -24,6 +24,17 @@ public class ComputerThread implements Runnable {
         while (true) {
             if (computerTurn) {
                 while (true) {
+
+                    if (usedCells.size() == 100) {
+                        try {
+                            message = exchanger.exchange("finished");
+                        } catch (InterruptedException ex) {
+                            System.out.println(ex.getMessage());
+                            break;
+                        }
+                        break;
+                    }
+
                     Cell cell = new Cell();
                     cell.setDigit(random.nextInt(SeaBattle.FIELD_SIZE));
                     cell.setLetter((char) (random.nextInt(SeaBattle.FIELD_SIZE) + 'a'));
