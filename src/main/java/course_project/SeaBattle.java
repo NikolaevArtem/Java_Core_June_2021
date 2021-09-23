@@ -2,6 +2,7 @@ package course_project;
 
 import lombok.Data;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.TreeMap;
 
@@ -16,6 +17,7 @@ public class SeaBattle {
     private static Scanner scanner = new Scanner(System.in);
     private Player player1;
     private Player player2;
+    private SeaBattleTestService service = null;
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Player1, enter your name.");
@@ -23,9 +25,34 @@ public class SeaBattle {
         System.out.println("\nPlayer2, enter your name.");
         String playerName2 = scanner.nextLine();
 
-        System.out.println("Thank you. The game is started.\n");
+        System.out.println("Do you want an auto-alignment of ships? (Y/N)\n");
+        String replay = scanner.nextLine().toLowerCase();
+        if (!"y".equals(replay) && !"n".equals((replay))) {
+            System.out.println("The game is canselled. Goodbye!\n");
+            scanner.close();
+            return;
+        }
+
         SeaBattle game = new SeaBattle(playerName1, playerName2);
-        game.fillFields();
+        if ("n".equals(replay)) {
+            System.out.println("Thank you. The game is started.\n");
+            game.fillFields();
+
+        } else if ("y".equals(replay)) {
+            System.out.println("Thank you. The game is started only for testing (no random placement).\n");
+            Thread.sleep(4000);
+            game.service = new SeaBattleTestService(game.getPlayer1(), game.getPlayer2());
+
+            System.out.println(game.getPlayer1().getName() + ", here is your field.\n");
+            game.getPlayer1().printField(true);
+            Thread.sleep(4000);
+            clearScreen();
+
+            System.out.println(game.getPlayer2().getName() + ", here is your field.\n");
+            game.getPlayer2().printField(true);
+            Thread.sleep(4000);
+            clearScreen();
+        }
 
         System.out.println("Ships are drawn. Let's start shooting.\n");
         Player winner = game.makeShots();

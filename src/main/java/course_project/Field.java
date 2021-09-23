@@ -1,6 +1,8 @@
 package course_project;
 
 import lombok.Data;
+import lombok.Value;
+
 import java.util.*;
 
 @Data
@@ -180,6 +182,12 @@ public class Field {
             }
         }
         return adjacentCells;
+    }
+
+    public void drawTestShips(int[][][] data) {
+        for (int[][] arr : data) {
+            drawShip(arr[0][0], arr[1], arr[2]);
+        }
     }
 
     private void drawShip(int shipLength, int[] beginningCell, int[] endCell) {
