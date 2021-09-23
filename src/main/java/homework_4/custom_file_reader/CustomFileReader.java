@@ -71,7 +71,7 @@ public class CustomFileReader {
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 Stream<String> lines = bufferedReader.lines();
         ) {
-            lines.forEach(System.out::println);
+            lines.forEach(x -> System.out.println(x.replaceAll("[,.]", "")));
         } catch (IOException e) {
             throw new IllegalArgumentException("IO Exception: " + e.getMessage());
         }
@@ -93,7 +93,7 @@ public class CustomFileReader {
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
                 Stream<String> lines = bufferedReader.lines();
         ) {
-            lines.forEach(System.out::println);
+            lines.forEach(x -> System.out.println(x.replaceAll("[,.]", "")));
         } catch (Exception e) {
             throw new IllegalArgumentException("Exception: " + e.getMessage());
         }
@@ -117,7 +117,7 @@ public class CustomFileReader {
                 );
                 Stream<String> lines = bufferedReader.lines();
         ) {
-            lines.forEach(System.out::println);
+            lines.forEach(x -> System.out.println(x.replaceAll("[,.]", "")));
         } catch (IOException e) {
             throw new IllegalArgumentException("IO Exception: " + e.getMessage());
         }
