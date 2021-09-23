@@ -10,9 +10,9 @@ import course_project.sea_battle.service.ShipPlacer;
 
 import java.util.Scanner;
 
+import static course_project.sea_battle.utils.Constants.*;
+
 public class GameController extends Thread {
-    private static final String TIE = "Game over. It's a TIE!";
-    private static final String GAMEOVER = "Game over. The winner is: ";
 
     private final Scanner scanner = new Scanner(System.in);
     private final InputShipReader inputShipReader = new InputShipReader(scanner);

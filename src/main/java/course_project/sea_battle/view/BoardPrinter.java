@@ -1,17 +1,10 @@
 package course_project.sea_battle.view;
 
-
 import course_project.sea_battle.model.Player;
 
-public class BoardPrinter {
-    private static final String RED = "\u001B[31m";
-    private static final String GREEN = "\u001B[32m";
-    private static final String RESET = "\u001B[0m";
-    private static final String CYAN = "\u001B[36m";
+import static course_project.sea_battle.utils.Constants.*;
 
-    private static final String MISS = GREEN + "0" + RESET;
-    private static final String HIT = RED + "X" + RESET;
-    private static final String WAVE = CYAN + "~" + RESET;
+public class BoardPrinter {
 
     public static synchronized void showBoards(Player player) {
         int[][] myField = player.getMyBoard().getBoard();
