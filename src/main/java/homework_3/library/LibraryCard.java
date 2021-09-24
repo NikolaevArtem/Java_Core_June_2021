@@ -85,23 +85,12 @@ public final class LibraryCard {
                 + getSection() + ")";
     }
 
-    public LibraryCard setAuthor(Author author) {
-        return new LibraryCard(author, this.title, (Calendar) this.yearOfPublishing.clone(), this.numberOfPages, this.section);
+    public Author getAuthor() {
+        return author.clone();
     }
 
-    public LibraryCard setTitle(String title) {
-        return new LibraryCard(this.author.clone(), title, (Calendar) this.yearOfPublishing.clone(), this.numberOfPages, this.section);
+    public Calendar getYearOfPublishing() {
+        return (Calendar) yearOfPublishing.clone();
     }
 
-    public LibraryCard setYearOfPublishing(GregorianCalendar yearOfPublishing) {
-        return new LibraryCard(this.author.clone(), this.title, this.yearOfPublishing, this.numberOfPages, this.section);
-    }
-
-    public LibraryCard setNumberOfPages(int numberOfPages) {
-        return new LibraryCard(this.author.clone(), this.title, (Calendar) this.yearOfPublishing.clone(), numberOfPages, this.section);
-    }
-
-    public LibraryCard setSection(Section section) {
-        return new LibraryCard(this.author.clone(), this.title, (Calendar) this.yearOfPublishing.clone(), this.numberOfPages, section);
-    }
 }
