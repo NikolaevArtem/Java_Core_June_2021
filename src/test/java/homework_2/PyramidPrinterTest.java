@@ -39,7 +39,7 @@ public class PyramidPrinterTest extends UnitBase {
         new PyramidPrinter().run();
         printOut();
         removeFromOutput("Введите данные:");
-        assertEquals("Only integer!", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class PyramidPrinterTest extends UnitBase {
         new PyramidPrinter().run();
         printOut();
         removeFromOutput("Введите данные:");
-        assertEquals("Use positive number", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
     @Test
     public void testPyramidWithDoubleArg() {
@@ -56,7 +56,7 @@ public class PyramidPrinterTest extends UnitBase {
         new PyramidPrinter().run();
         printOut();
         removeFromOutput("Введите данные:");
-        assertEquals("Only integer!", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
     @Test
     public void testPyramidWithoutArg() {
@@ -64,7 +64,7 @@ public class PyramidPrinterTest extends UnitBase {
         new PyramidPrinter().run();
         printOut();
         removeFromOutput("Введите данные:");
-        assertEquals("Only integer!", getOutputLines()[0]);
+        assertEquals("Only 1 non-negative integer is allowed as passed parameter", getOutputLines()[0]);
     }
 
 }
