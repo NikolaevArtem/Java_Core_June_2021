@@ -1,0 +1,21 @@
+Following are the requirements for immutable class:
+
+1. Mark your class final,
+2. Mark all the fields private,
+3. Mark all fields final as well,
+4. Provide an argument constructor with all initialization logic,
+5. Initialize all mutable fields by deep copying,
+6. Do not provide setters for your fields,
+7. Return a deep copy of mutable fields from the getters.
+
+OR IN OTHER WORDS
+
+1. The class must be declared as final (So that child classes can’t be created)
+2. Data members in the class must be declared as private (So that direct access is not allowed)
+3. Data members in the class must be declared as final
+   (So that we can’t change the value of it after object creation)
+4. A parameterized constructor should initialize all the fields performing a deep copy
+   (So that data members can’t be modified with object reference)
+5. Deep Copy of objects should be performed in the getter methods
+   (To return a copy rather than returning the actual object reference)
+6. No setters (To not have the option to change the value of the instance variable)

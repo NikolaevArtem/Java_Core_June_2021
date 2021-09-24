@@ -1,9 +1,33 @@
 # Java Core June 2021
 
-## *Nikolaev Artem*
+## *Khlebnikov Evgeniy*
 
 | Number | Solution  | Short description
 | --- | --- | --- |
-| HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/master/src/main/java/homework_1) | The app that reads input arguments and prints them, until "error" argument |
+| HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_1) | The app that reads input arguments and prints them, until "error" argument |
+| HW2 - 1 | [Traffic Light](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_2/traffic_light) | The app that reads the time from the console (seconds) and displays the traffic light color (GREEN in green, YELLOW in yellow, RED in red) on the command line |
+| HW2 - 1 Test | [Traffic Light Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/test/java/homework_2/traffic_light) | Traffic Light Test |
+| HW2 - 2 | [Pyramid Printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_2/pyramid_printer) | The app that reads the number once from the command line, and prints the pyramid of "x" according to the positive integer entered. Quits after first printing |
+| HW2 - 2 Test | [Pyramid Printer Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/test/java/homework_2/pyramid_printer) | Pyramid Printer Test |
+| HW2 - 3 | [Random Chars Table](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_2/random_chars_table) | The app that reads length, width, strategy from the console generates the table and prints even/odd letters |
+| HW2 - 3 Test | [Random Chars Table Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/test/java/homework_2/random_chars_table) | Random Chars Table Test |
+| HW3 | [ImmutableClass](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_3) | The Immutable Class An immutable class is created. Requirements for an immutable class have been added to a separate * .tht file in the homework_3 package.|
+| HW4 - 1 | [ CustomFileReader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_4/custom_file_reader) | CustomFileReader Class  |
+| HW4 - 1 Test | [ CustomFileReader Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/test/java/homework_4/custom_file_reader) | CustomFileReader Class Test |
+| HW4 - 2 | [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_4/singleton) | Singleton Class. The Singleton class (thread-safe version) is created. Double checked locking was used in order to check whether the variable has already been initialized, if the another thread acquired the lock first, it may have already done the initialization. |
+| HW4 - 2 Test | [Singleton Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/test/java/homework_4/singleton) | Singleton Class Test. |
+| HW4 - 3 | [Custom Annotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_4/custom_annotation) | Custom annotation. |
+| HW4 - 3 Test| [Custom Annotation Test](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/test/java/homework_4/custom_annotation) | Custom Annotation Test. |
+| HW5 - 1| [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_5/custom_regex_matcher) | CustomRegexMatcher. |
+| HW5 - 1 Test| [CustomRegexMatcherTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/test/java/homework_5/custom_regex_matcher) | CustomRegexMatcherTest. |
+| HW5 - 2| [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_5/power_of_number) | PowerOfNumber. |
+| HW5 - 2| [PowerOfNumberTest](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/test/java/homework_5/power_of_number) | PowerOfNumber. |
+| HW6| [MapProblemsGenerator](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/KhlebnikovEvgeniy/src/main/java/homework_6/map_problems_generator) | MapProblemsGenerator. |
+| HW7| [KittenToCatFunction](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/KhlebnikovEvgeniy/src/main/java/homework_7) | KittenToCatFunction. |
+
+
+| Title | Link  | Short description
+| --- | --- | --- |
+| CodingBat | [CodingBat Code Practice](https://codingbat.com/done?user=khebnikove@gmail.com&tag=2964520102) | CodingBat khebnikove@gmail.com Done Page |
 
 [Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
