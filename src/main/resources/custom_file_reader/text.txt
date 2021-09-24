@@ -1,0 +1,3 @@
+This, text. should be, output. to the console.
+without, commas. and,
+without, dots.
