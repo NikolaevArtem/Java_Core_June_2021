@@ -14,39 +14,45 @@ public class InReader {
     private final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     public Coordinates readCoordinates() {
-        String[] strings = verifyInput(readInput());
-        int x = -1;
-        int y = -1;
-        if (strings[0].length() >= 2) {
-            int [] coord = parseToCoord(strings[0]);
+        Coordinates result;
+        String input = readInput();
+
+        if(StringIsFine(input)) {
+            int x;
+            int y;
+            int[] coord = parseToCoord(input);
             x = coord[0];
             y = coord[1];
-        }
-        else {
+            result = new Coordinates(x, y);
+            return result;
+        } else {
             printer.printInputError();
-            readInput();
         }
-
-        return new Coordinates(x,y);
+        return readCoordinates();
     }
 
-    public List<Coordinates> getCoordinatesByDestination(Coordinates start, int size){
+    public List<Coordinates> getCoordinatesByDestination(Coordinates start, int size, String destination){
         List<Coordinates> result = new ArrayList<>();
-        for (int i = 1; i <= size; i++){
-            String input =  readInput();
-            String[] strings = verifyInput(input);
-            int x = -1;
-            int y = -1;
-            if (strings[0].length() >= 2) {
-                int [] coord = parseToCoord(strings[0]);
-                x = coord[0];
-                y = coord[1];
-            } else {
-                printer.printInputError();
-                readInput();
+        int startX = start.getX();
+        int startY = start.getY();
+
+        for (int i = 0; i < size; i++){
+            switch (destination) {
+                case "up" :
+                    result.add(new Coordinates(startX - i, startY));
+                    break;
+                case "down" :
+                    result.add(new Coordinates(startX + i, startY));
+                    break;
+                case "left" :
+                    result.add(new Coordinates(startX, startY - i));
+                    break;
+                case "right" :
+                    result.add(new Coordinates(startX, startY + i));
+                    break;
             }
-            result.add(new Coordinates(x, y));
         }
+
         return result;
     }
 
@@ -73,14 +79,18 @@ public class InReader {
         return input;
     }
 
-    private String[] verifyInput(String str){
-        if (str == null && !str.matches("[a-jA-J]([1-9]|10) (up|down|left|right)")){
-            printer.printInputError();
-            readInput();
-        }
-        return str.split(" ");
+    private boolean StringIsFine(String str){
+        return str.matches("[a-jA-J]([1-9]|10)") && (str.length() == 2 || str.length() == 3);
     }
 
+    public String getDestination(){
+        String result = readInput().toLowerCase(Locale.ROOT).trim();
+        if(!result.matches("up") && !result.matches("down") && !result.matches("right") && !result.matches("left")){
+            System.out.println("Wrong destination input, try again!");
+            result = getDestination();
+        }
+    return result;
+    }
 
     public boolean getMode() {
         String mode = readInput();

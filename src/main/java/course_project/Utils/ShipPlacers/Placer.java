@@ -13,7 +13,7 @@ public interface Placer {
 
     default boolean isValidCoordinatesOfPoint(List<Coordinates> listShips, List<Coordinates> listAdjusted,Coordinates point) {
         return !listShips.contains(point) && !listAdjusted.contains(point) &&
-                point.getY() >= 0 && point.getY() <= 9 && point.getX() >= 0 && point.getX() <= 9;
+                (point.getY() >= 0 && point.getY() <= 9) && (point.getX() >= 0 && point.getX() <= 9);
     }
 
     default boolean isValidCoordinatesOfList(List<Coordinates> listShips, List<Coordinates> listAdjusted,List<Coordinates> coordinates) {

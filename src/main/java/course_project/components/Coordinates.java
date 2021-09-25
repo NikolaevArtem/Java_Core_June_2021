@@ -6,8 +6,8 @@ import java.util.Objects;
 
 public class Coordinates {
 
-    public final int x;
-    public final int y;
+    private final int x;
+    private final int y;
 
     public Coordinates(int row, int column) {
         this.x = row;

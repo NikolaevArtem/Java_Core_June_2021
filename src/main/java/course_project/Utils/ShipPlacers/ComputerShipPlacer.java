@@ -18,6 +18,14 @@ public class ComputerShipPlacer implements Placer {
     private final List<Coordinates> notAllowed = new ArrayList<>();
     private List<Ship> allShips = new ArrayList<>(10);
 
+    public List<Coordinates> getAllShipsCoordinates() {
+        return allShipsCoordinates;
+    }
+
+    public List<Ship> getAllShips() {
+        return allShips;
+    }
+
     private List<Ship> createAllShips() {
 
         for (ShipType type : ShipType.values()
@@ -32,6 +40,7 @@ public class ComputerShipPlacer implements Placer {
                 Ship ship = new Ship(type, coordinates);
 
                 allShips.add(ship);
+                ship.setHealth(type.getSize());
                 allShipsCoordinates.addAll(coordinates);
                 fillForbiddenCoordinates(coordinates, notAllowed);
             }
@@ -44,7 +53,7 @@ public class ComputerShipPlacer implements Placer {
         allShips = createAllShips();
         for (Ship ship : allShips
         ) {
-            computerField.place(ship);
+            computerField.placeShip(ship);
         }
 
         return computerField;

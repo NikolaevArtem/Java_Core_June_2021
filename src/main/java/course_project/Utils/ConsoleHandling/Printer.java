@@ -1,9 +1,15 @@
 package course_project.Utils.ConsoleHandling;
 
+import ConsoleColors.ConsoleColors;
 import course_project.components.Field;
+import course_project.components.Ship;
 import course_project.enums.ShipType;
 
+import java.util.List;
+import java.util.stream.IntStream;
+
 public class Printer {
+
 
     public void printGreeting() {
         String GREETING = "Welcome to Sea Battle, stranger!";
@@ -12,7 +18,8 @@ public class Printer {
 
     public void printAskHowFill() {
         String ASK_HOW_TO_FILL = "How Would you like to place your ships? " +
-                "Please, enter \" man \" to place them manually or just press enter to place them automatically";
+                "Please, enter \" anything \" to place them manually or just press enter to place them automatically \n" +
+                ConsoleColors.RED + "Bear in mind, that any input will be counted like manual mode!" + ConsoleColors.RESET ;
         System.out.println(ASK_HOW_TO_FILL);
     }
 
@@ -63,7 +70,7 @@ public class Printer {
     }
 
     public void askShipHead() {
-        String ASK_PLACE_SHIP_HEAD = "Insert ship head coordinates, use header letter and a row number, like A 1 or c 4";
+        String ASK_PLACE_SHIP_HEAD = "Insert ship head coordinates, insert column and row, like A1 or c4";
         System.out.println(ASK_PLACE_SHIP_HEAD);
     }
 
@@ -83,7 +90,7 @@ public class Printer {
     }
 
     public void printSep() {
-        String SEPARATOR = "-----------------------------";
+        String SEPARATOR = "---------------------------------";
         System.out.println(SEPARATOR);
     }
 
@@ -101,10 +108,25 @@ public class Printer {
         String PLACED = "Correctly placed : ";
         System.out.println(PLACED + type.getType());
     }
+    public void compMoves() {
+        String COMP_MOVES = "Now is a computer move: ";
+        System.out.println(COMP_MOVES);
+    }
+    public void playerMoves() {
+        String PLAYER_MOVES = "Now is your move: ";
+        System.out.println(PLAYER_MOVES);
+    }
 
-    public void printYouField(Field field) {
+    public void askWhereToShoot() {
+        String ASK_WHERE_TO_SHOOT = "Insert shot coordinates, insert column and row, like A1 or c4";
+        System.out.println(ASK_WHERE_TO_SHOOT);
+    }
+
+    public void printOpenField(Field field) {
         printHeader();
-        int[][] toPrint = field.getField();
+        int[][] rawMatrix = field.getField();
+        int [][] toPrint = turnMatrix(rawMatrix);
+
         int rowNumber = 1;
         for (int[] row : toPrint
         ) {
@@ -126,11 +148,19 @@ public class Printer {
         }
     }
 
-    public void printEnemyField(Field field) {
+    public void printHiddenField(Field field) {
         printHeader();
-        int[][] toPrint = field.getField();
+        int[][] rawMatrix = field.getField();
+        int [][] toPrint = turnMatrix(rawMatrix);
+        int rowNumber = 1;
         for (int[] row : toPrint
         ) {
+            if (rowNumber < 10) {
+                System.out.print(rowNumber + "  ");
+            }
+            else {
+                System.out.print(rowNumber + " ");
+            }
             for (int i : row
             ) {
                 if (i == 0 || i == '#') {
@@ -140,7 +170,16 @@ public class Printer {
                 System.out.print(" " + (char) i + " ");
             }
             System.out.println();
+            ++rowNumber;
         }
     }
-
+    private int[][] turnMatrix(int[][] rawMatrix) {
+        int[][]result = new int[10][10];
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                result[i][j] = rawMatrix[j][i];
+            }
+        }
+        return result;
+    }
 }

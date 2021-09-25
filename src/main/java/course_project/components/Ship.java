@@ -9,21 +9,19 @@ public class Ship {
     private final List<Coordinates> coordinates;
     public ShipType type;
     private int health;
-    private final int size;
     private boolean alive = true;
 
 
     public Ship(ShipType type, List<Coordinates> coordinates){
-        this.size = type.getSize();
-        this.health = size;
-        this.coordinates = new ArrayList<>(coordinates);
         this.type = type;
+        this.coordinates = new ArrayList<>(coordinates);
 
     }
 
     public List<Coordinates> getCoordinates() {
         return new ArrayList<>(coordinates);
     }
+
     public void gotShot() {
         health--;
         if (health == 0) {
@@ -31,18 +29,16 @@ public class Ship {
         }
     }
 
-    public ShipType getType() {
-        return this.type;
-    }
-
-    public int getSize() {
-        return size;
-    }
 
     public boolean isAlive() {
         return alive;
     }
 
+    public void setHealth(int health) {
+        this.health = health;
+    }
 
-
+    public int getHealth() {
+        return health;
+    }
 }
