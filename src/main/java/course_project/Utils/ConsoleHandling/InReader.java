@@ -17,7 +17,7 @@ public class InReader {
         Coordinates result;
         String input = readInput();
 
-        if(StringIsFine(input)) {
+        if (StringIsFine(input)) {
             int x;
             int y;
             int[] coord = parseToCoord(input);
@@ -31,23 +31,23 @@ public class InReader {
         return readCoordinates();
     }
 
-    public List<Coordinates> getCoordinatesByDestination(Coordinates start, int size, String destination){
+    public List<Coordinates> getCoordinatesByDestination(Coordinates start, int size, String destination) {
         List<Coordinates> result = new ArrayList<>();
         int startX = start.getX();
         int startY = start.getY();
-
-        for (int i = 0; i < size; i++){
+        //destinations are inverted, only case names
+        for (int i = 0; i < size; i++) {
             switch (destination) {
-                case "up" :
+                case "left":
                     result.add(new Coordinates(startX - i, startY));
                     break;
-                case "down" :
+                case "right":
                     result.add(new Coordinates(startX + i, startY));
                     break;
-                case "left" :
+                case "up":
                     result.add(new Coordinates(startX, startY - i));
                     break;
-                case "right" :
+                case "down":
                     result.add(new Coordinates(startX, startY + i));
                     break;
             }
@@ -59,7 +59,7 @@ public class InReader {
     private int[] parseToCoord(String string) {
         int[] result = new int[2];
         int first = string.toUpperCase(Locale.ROOT).charAt(0) - 65;
-        int second = Integer.parseInt(string.substring(1)) -1;
+        int second = Integer.parseInt(string.substring(1)) - 1;
         result[0] = first;
         result[1] = second;
 
@@ -67,7 +67,7 @@ public class InReader {
     }
 
 
-    private String readInput(){
+    private String readInput() {
         String input = "";
         {
             try {
@@ -79,17 +79,17 @@ public class InReader {
         return input;
     }
 
-    private boolean StringIsFine(String str){
+    private boolean StringIsFine(String str) {
         return str.matches("[a-jA-J]([1-9]|10)") && (str.length() == 2 || str.length() == 3);
     }
 
-    public String getDestination(){
+    public String getDestination() {
         String result = readInput().toLowerCase(Locale.ROOT).trim();
-        if(!result.matches("up") && !result.matches("down") && !result.matches("right") && !result.matches("left")){
+        if (!result.matches("up") && !result.matches("down") && !result.matches("right") && !result.matches("left")) {
             System.out.println("Wrong destination input, try again!");
             result = getDestination();
         }
-    return result;
+        return result;
     }
 
     public boolean getMode() {

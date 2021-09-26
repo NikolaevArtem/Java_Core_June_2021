@@ -10,7 +10,6 @@ import course_project.enums.ShipType;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class PlayerShipPlacer implements Placer {
 
@@ -29,6 +28,7 @@ public class PlayerShipPlacer implements Placer {
         return playerShips;
     }
 
+    // field auto creating in the auto case, no reader send in method
     @Override
     public Field placeShips() {
         playerField = computerShipPlacer.placeShips();
@@ -62,17 +62,17 @@ public class PlayerShipPlacer implements Placer {
         return playerField;
     }
 
-    private Ship createShip(ShipType type,InReader reader) {
+    private Ship createShip(ShipType type, InReader reader) {
         Ship ship;
         int size = type.getSize();
 
-                List<Coordinates> coordinates;
-                printer.printPlacing(type);
-                coordinates = new ArrayList<>(getShipCoordinates(size, reader));
-                ship = new Ship(type, coordinates);
-                printer.printPlaced(type);
-                allShipsCoordinates.addAll(coordinates);
-                fillForbiddenCoordinates(coordinates, notAllowed);
+        List<Coordinates> coordinates;
+        printer.printPlacing(type);
+        coordinates = new ArrayList<>(getShipCoordinates(size, reader));
+        ship = new Ship(type.getCount(), type, type.getSize(), coordinates);
+        printer.printPlaced(type);
+        allShipsCoordinates.addAll(coordinates);
+        fillForbiddenCoordinates(coordinates, notAllowed);
 
         return ship;
     }
@@ -97,7 +97,7 @@ public class PlayerShipPlacer implements Placer {
         do {
             printer.askShipHead();
             firstDeck = reader.readCoordinates();
-            if (!isValidCoordinatesOfPoint(allShipsCoordinates, notAllowed, firstDeck)){
+            if (!isValidCoordinatesOfPoint(allShipsCoordinates, notAllowed, firstDeck)) {
                 printer.printInputError();
                 printer.printSep();
             }
@@ -114,7 +114,7 @@ public class PlayerShipPlacer implements Placer {
 
         coordinatesList = reader.getCoordinatesByDestination(start, size, destination);
 
-        if(isValidCoordinatesOfList(allShipsCoordinates, notAllowed, coordinatesList)){
+        if (isValidCoordinatesOfList(allShipsCoordinates, notAllowed, coordinatesList)) {
             return coordinatesList;
         }
         System.out.println("Can not fill the ship in there, try again!");

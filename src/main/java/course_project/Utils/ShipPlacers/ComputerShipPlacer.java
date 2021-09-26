@@ -32,15 +32,15 @@ public class ComputerShipPlacer implements Placer {
         ) {
             for (int i = 1; i <= type.getCount(); i++) {
                 List<Coordinates> coordinates;
-
+                int size = type.getSize();
                 do {
-                    coordinates = new ArrayList<>(generateShipCoordinates(i));
+                    coordinates = new ArrayList<>(generateShipCoordinates(size));
                 } while (!isValidCoordinatesOfList(allShipsCoordinates, notAllowed, coordinates));
 
-                Ship ship = new Ship(type, coordinates);
+                Ship ship = new Ship(i, type, type.getSize(), coordinates);
 
                 allShips.add(ship);
-                ship.setHealth(type.getSize());
+                ship.setHealth(coordinates.size());
                 allShipsCoordinates.addAll(coordinates);
                 fillForbiddenCoordinates(coordinates, notAllowed);
             }

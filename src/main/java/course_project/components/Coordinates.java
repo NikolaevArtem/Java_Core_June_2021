@@ -1,9 +1,5 @@
 package course_project.components;
 
-import course_project.SeaBattle;
-
-import java.util.Objects;
-
 public class Coordinates {
 
     private final int x;
@@ -14,8 +10,6 @@ public class Coordinates {
         this.y = column;
     }
 
-
-
     public int getX() {
         return x;
     }
@@ -24,11 +18,12 @@ public class Coordinates {
         return y;
     }
 
+    // For print A1 C7 etc.
     @Override
     public String toString() {
         return "Coordinates{" +
-                "x=" + x +
-                ", y=" + y +
+                "x=" + (char) (x + 65) +
+                ", y=" + (y + 1) +
                 '}';
     }
 

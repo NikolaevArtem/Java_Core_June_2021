@@ -5,9 +5,6 @@ import course_project.components.Field;
 import course_project.components.Ship;
 import course_project.enums.ShipType;
 
-import java.util.List;
-import java.util.stream.IntStream;
-
 public class Printer {
 
 
@@ -29,7 +26,7 @@ public class Printer {
         System.out.println(HEADER);
     }
 
-    public void printYuoMiss() {
+    public void printYouMiss() {
         String YOU_MISS = "Oh no, you missed  :(";
         System.out.println(YOU_MISS);
     }
@@ -49,13 +46,13 @@ public class Printer {
         System.out.println(YOU_WAS_HIT);
     }
 
-    public void printDestroyed() {
-        String DESTROYED = "Ship destroyed, did you that explosion? Huge, ain't it?";
+    public void printDestroyed(Ship ship) {
+        String DESTROYED = "Ship " + ship.getType() + " at " + ship.getCoordinates() + " is destroyed, did you see that explosion? Huge, ain't it?";
         System.out.println(DESTROYED);
     }
 
     public void printWin() {
-        String WON = "Oh yes, you is a winner! Never doubt it.";
+        String WON = "Oh yes, you are a winner! Never doubt it.";
         System.out.println(WON);
     }
 
@@ -80,7 +77,8 @@ public class Printer {
     }
 
     public void printAskContinue() {
-        String ASK_CONTINUE = "How about one more game?";
+        String ASK_CONTINUE = "How about one more game?" + "Please, enter \" anything \" to play one more time or just press enter to exit \n" +
+                ConsoleColors.RED + "Bear in mind, that any input will be counted like continue mode!" + ConsoleColors.RESET;
         System.out.println(ASK_CONTINUE);
     }
 

@@ -26,7 +26,7 @@ public class SeaBattle {
     private final InReader reader = new InReader();
     private final List<Coordinates> allCompShoots = new ArrayList<>();
 
-    public void play(){
+    public void play() {
         printer.printGreeting();
 
         start();
@@ -34,15 +34,23 @@ public class SeaBattle {
             makeMoves();
         }
 
-        printer.printGoodbye();
+        printer.printAskContinue();
+        boolean exitGame = reader.getMode();
+        if (exitGame) {
+            printer.printGoodbye();
+        }
+        else {
+
+            new SeaBattle().play();
+        }
     }
 
     public void start() {
         printer.printAskHowFill();
         boolean auto = reader.getMode();
-        if(!auto){
+        if (!auto) {
             playerField = plPlacer.placeShips(reader);
-        }  else {
+        } else {
             playerField = plPlacer.placeShips(); //this line does place Ships with ComputerShipPlacer automatically
         }
 
@@ -57,92 +65,123 @@ public class SeaBattle {
         System.out.println("Here is yours Playing field :");
         printer.printOpenField(playerField);
         System.out.println("And here is yours opponent Playing field :");
-        printer.printOpenField(computerField);
+        printer.printHiddenField(computerField);
+        printer.printSep();
+        printer.printSep();
+        printer.printSep();
+        waitASecond();
     }
 
     private void makeMoves(
     ) {
-            playerMove(computerField, computerShipsCoordinates);
-            dealWithShips(compShips);
-        System.out.println("And here is yours opponent Playing field :");
-        printer.printOpenField(computerField);
-        System.out.println(compShips.size());
-
+        playerMove(computerField, computerShipsCoordinates);
         computerMove(playerField, playersShipsCoordinates);
-        dealWithShips(playerShips);
-        System.out.println("Here is yours Playing field :");
-            printer.printOpenField(playerField);
-        System.out.println(playerShips.size());
-
-
     }
 
     public void playerMove(Field computerField, List<Coordinates> computerShipsCoordinates) {
+
         printer.playerMoves();
+        System.out.println("And here is yours opponent Playing field :");
+        printer.printHiddenField(computerField);
+
         printer.askWhereToShoot();
         Coordinates playerShoot = reader.readCoordinates();
-        if (computerShipsCoordinates.contains(playerShoot)){
+        if (computerShipsCoordinates.contains(playerShoot)) {
             computerField.placeHit(playerShoot);
             for (Ship compShip : compShips
             ) {
                 if (compShip.getCoordinates().contains(playerShoot)) {
                     compShip.gotShot();
+                    printer.printYouHit();
                 }
             }
+            dealWithShips(compShips);
+            playerMove(computerField, computerShipsCoordinates);      //one more turn after hit
         } else {
             computerField.placeMiss(playerShoot);
+            printer.printYouMiss();
+            printer.printSep();
         }
+
     }
 
     private void computerMove(Field playerField, List<Coordinates> playersShipsCoordinates) {
         printer.compMoves();
+        waitASecond();
+        System.out.println("Here is yours Playing field :");
+        printer.printOpenField(playerField);
 
         Coordinates compShoot = getCompShot();
 
-        if (!allCompShoots.contains(compShoot)){        //not to shot same coordinate again
+        if (!allCompShoots.contains(compShoot)) {        //not to shot same coordinate again
             allCompShoots.add(compShoot);
         } else {
             compShoot = getCompShot();
         }
-        System.out.println((char)(compShoot.getX() + 65) + "" + (compShoot.getY() + 1));
-        if (playersShipsCoordinates.contains(compShoot)){
+        printer.printShoot();
+        System.out.println((char) (compShoot.getX() + 65) + "" + (compShoot.getY() + 1));
+        if (playersShipsCoordinates.contains(compShoot)) {
 
             playerField.placeHit(compShoot);
             for (Ship plShip : playerShips
             ) {
-                if (plShip.getCoordinates().contains(compShoot)){   // todo pull out ship by coordinates
-                    plShip.gotShot();                               //todo next shot logic
+                if (plShip.getCoordinates().contains(compShoot)) {
+                    plShip.gotShot();
+                    printer.printYouWasHit();
+                    waitASecond();
+
                 }
             }
+            dealWithShips(playerShips);
+            waitASecond();
+            computerMove(playerField, playersShipsCoordinates);         //one more turn after hit
         } else {
             playerField.placeMiss(compShoot);
+            printer.printPCMiss();
+            printer.printSep();
+            waitASecond();
+        }
+    }
+
+    private void waitASecond() {
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
     private void dealWithShips(List<Ship> ships) {
-        ships.removeIf(ship -> !ship.isAlive());
-        for (Ship s:ships
-             ) {
-            System.out.print(s.getHealth() + " ");
+        Ship destroyed = null;
+        for (Ship ship : ships
+        ) {
+            if (!ship.isAlive()) {
+                destroyed = ship;
+            }
         }
+        if (destroyed != null) {
+            printer.printDestroyed(destroyed);
+            ships.remove(destroyed);
+        }
+
     }
 
     private boolean shipsDestroyed(List<Ship> playerShips, List<Ship> compShips) {
-        if (playerShips.isEmpty()){
+        if (playerShips.isEmpty()) {
             printer.printLose();
             return true;
         }
-        if (compShips.isEmpty()){
+        if (compShips.isEmpty()) {
             printer.printWin();
             return true;
         }
         return false;
     }
 
-    private Coordinates getCompShot (){
+    private Coordinates getCompShot() {
         int x = random.nextInt(10);
         int y = random.nextInt(10);
-        return new Coordinates(x,y);
+        return new Coordinates(x, y);
     }
 
 }
