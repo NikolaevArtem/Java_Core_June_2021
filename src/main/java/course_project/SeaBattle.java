@@ -40,7 +40,8 @@ public class SeaBattle {
             printer.printGoodbye();
         }
         else {
-
+            cPlacer.cleanField();
+            plPlacer.cleanField();
             new SeaBattle().play();
         }
     }

@@ -18,6 +18,7 @@ public class Ship {
         this.count = count;
         this.type = type;
         this.size = size;
+        this.health = size;
         this.coordinates = new ArrayList<>(coordinates);
 
     }
@@ -57,7 +58,4 @@ public class Ship {
         this.health = health;
     }
 
-    public int getHealth() {
-        return health;
-    }
 }

@@ -39,7 +39,6 @@ public class ComputerShipPlacer implements Placer {
                 Ship ship = new Ship(i, type, type.getSize(), coordinates);
 
                 allShips.add(ship);
-                ship.setHealth(coordinates.size());
                 allShipsCoordinates.addAll(coordinates);
                 fillForbiddenCoordinates(coordinates, notAllowed);
             }

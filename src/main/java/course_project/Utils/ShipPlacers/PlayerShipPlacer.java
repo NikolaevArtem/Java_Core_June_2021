@@ -51,7 +51,6 @@ public class PlayerShipPlacer implements Placer {
             for (int i = 1; i <= type.getCount(); i++) {
                 ship = createShip(type, reader);
                 playerShips.add(ship);
-                ship.setHealth(type.getSize());
                 playerField.placeShip(ship);
                 printer.printOpenField(playerField);
                 printer.printSep();
