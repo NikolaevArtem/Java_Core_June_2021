@@ -16,7 +16,7 @@ public class Printer {
     public void printAskHowFill() {
         String ASK_HOW_TO_FILL = "How Would you like to place your ships? " +
                 "Please, enter \" anything \" to place them manually or just press enter to place them automatically \n" +
-                ConsoleColors.RED + "Bear in mind, that any input will be counted like manual mode!" + ConsoleColors.RESET ;
+                ConsoleColors.RED + "Bear in mind, that any input will be counted like manual mode!" + ConsoleColors.RESET;
         System.out.println(ASK_HOW_TO_FILL);
     }
 
@@ -106,10 +106,12 @@ public class Printer {
         String PLACED = "Correctly placed : ";
         System.out.println(PLACED + type.getType());
     }
+
     public void compMoves() {
         String COMP_MOVES = "Now is a computer move: ";
         System.out.println(COMP_MOVES);
     }
+
     public void playerMoves() {
         String PLAYER_MOVES = "Now is your move: ";
         System.out.println(PLAYER_MOVES);
@@ -123,15 +125,14 @@ public class Printer {
     public void printOpenField(Field field) {
         printHeader();
         int[][] rawMatrix = field.getField();
-        int [][] toPrint = turnMatrix(rawMatrix);
+        int[][] toPrint = turnMatrix(rawMatrix);
 
         int rowNumber = 1;
         for (int[] row : toPrint
         ) {
             if (rowNumber < 10) {
                 System.out.print(rowNumber + "  ");
-            }
-            else {
+            } else {
                 System.out.print(rowNumber + " ");
             }
             for (int i : row
@@ -149,14 +150,13 @@ public class Printer {
     public void printHiddenField(Field field) {
         printHeader();
         int[][] rawMatrix = field.getField();
-        int [][] toPrint = turnMatrix(rawMatrix);
+        int[][] toPrint = turnMatrix(rawMatrix);
         int rowNumber = 1;
         for (int[] row : toPrint
         ) {
             if (rowNumber < 10) {
                 System.out.print(rowNumber + "  ");
-            }
-            else {
+            } else {
                 System.out.print(rowNumber + " ");
             }
             for (int i : row
@@ -171,8 +171,9 @@ public class Printer {
             ++rowNumber;
         }
     }
+
     private int[][] turnMatrix(int[][] rawMatrix) {
-        int[][]result = new int[10][10];
+        int[][] result = new int[10][10];
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 result[i][j] = rawMatrix[j][i];

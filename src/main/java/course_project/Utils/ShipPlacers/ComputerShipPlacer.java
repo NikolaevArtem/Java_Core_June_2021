@@ -6,7 +6,6 @@ import course_project.components.Field;
 import course_project.components.Ship;
 import course_project.enums.ShipType;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -89,7 +88,6 @@ public class ComputerShipPlacer implements Placer {
         while (!isValidCoordinatesOfPoint(allShipsCoordinates, notAllowed, firstDeck));
         return firstDeck;
     }
-
 
 
     private ArrayList<Coordinates> createRest(Coordinates start, int size) {

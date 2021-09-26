@@ -9,23 +9,25 @@ import java.util.List;
 
 public interface Placer {
     Field placeShips();
+
     Field placeShips(InReader reader);
 
-    default boolean isValidCoordinatesOfPoint(List<Coordinates> listShips, List<Coordinates> listAdjusted,Coordinates point) {
+    default boolean isValidCoordinatesOfPoint(List<Coordinates> listShips, List<Coordinates> listAdjusted, Coordinates point) {
         return !listShips.contains(point) && !listAdjusted.contains(point) &&
                 (point.getY() >= 0 && point.getY() <= 9) && (point.getX() >= 0 && point.getX() <= 9);
     }
 
-    default boolean isValidCoordinatesOfList(List<Coordinates> listShips, List<Coordinates> listAdjusted,List<Coordinates> coordinates) {
+    default boolean isValidCoordinatesOfList(List<Coordinates> listShips, List<Coordinates> listAdjusted, List<Coordinates> coordinates) {
         for (Coordinates point : coordinates
         ) {
-            if(!isValidCoordinatesOfPoint(listShips, listAdjusted, point)){
+            if (!isValidCoordinatesOfPoint(listShips, listAdjusted, point)) {
                 return false;
             }
         }
         return true;
     }
-    default List<Coordinates> fillForbiddenCoordinates(List<Coordinates> shipCoordinates, List<Coordinates> notAllowed ) {
+
+    default List<Coordinates> fillForbiddenCoordinates(List<Coordinates> shipCoordinates, List<Coordinates> notAllowed) {
         for (Coordinates coord : shipCoordinates
         ) {
             int x = coord.getX();
