@@ -94,6 +94,6 @@ public class InReader {
 
     public boolean getMode() {
         String mode = readInput();
-        return mode.isEmpty();
+        return mode == null || mode.isEmpty();
     }
 }
