@@ -1,9 +1,24 @@
 # Java Core June 2021
 
-## *Nikolaev Artem*
+## *Vaschenko Dmitriy*
 
 | Number | Solution  | Short description
 | --- | --- | --- |
-| HW1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/master/src/main/java/homework_1) | The app that reads input arguments and prints them, until "error" argument |
+| Course project|[Sea battle](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/course_project)| Sea battle realisation, fight VS computer
+| HW 1 | [Console printer](https://github.com/NikolaevArtem/Java_Core_June_2021/blob/feature/DmitriyVaschenko/src/main/java/homework_1/ConsolePrinter.java) | The app that reads input arguments and prints them, until "error" argument |
+| HW 2_1 | [Traffic Light](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_2/traffic_light) | Traffic Light app, the simple one. |
+| HW 2_2 | [Pyramid printer](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_2/pyramid_printer) | The Pyramid printer, prints triangles only, btw. |
+| HW 2_3| [RandomCharsTable](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_2/random_chars_table) | Random chars table, prints table with chars and then sorts them by even or odd.
+| HW 3, Immutable Class Example| [ImutableClassExample](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_3) | Immutable class.
+| HW 4_1| [CustomAnnotation](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_4/custom_annotation)| Annotation for JSON Serialization 
+| HW 4_2| [CustomFileReader](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_4/custom_file_reader) | File Reader which removes all full stops and comas from TXT file 
+| HW 4_3| [Singleton](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_4/singleton)| Three singleton classes
+| HW 5_1| [CustomRegexMatcher](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_5/custom_regex_matcher)| App is checking if input matches moderate password
+| HW 5_2| [PowerOfNumber](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_5/power_of_number)|Recursively counts given degree of a given number 
+| HW 6  |[Map problems](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_6)| Map collision generation and Map with mutable key
+| HW 7  |[Kitten to Cat function](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/main/java/homework_7)| Functional interface to map kittens into cats
+| Tests|[Tests](https://github.com/NikolaevArtem/Java_Core_June_2021/tree/feature/DmitriyVaschenko/src/test/java/homework) | Tests for homework
 
-[Link to markdown giude](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+[Link to CodingBat](https://codingbat.com/done?user=dvaschenko33@gmail.com&tag=4651459890)
+
+[Link to markdown guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)

@@ -1,0 +1,42 @@
+package course_project.components;
+
+public class Coordinates {
+
+    private final int x;
+    private final int y;
+
+    public Coordinates(int row, int column) {
+        this.x = row;
+        this.y = column;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    // For print A1 C7 etc.
+    @Override
+    public String toString() {
+        return "Coordinates{" +
+                "x=" + (char) (x + 65) +
+                ", y=" + (y + 1) +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Coordinates that = (Coordinates) o;
+        return x == that.x && y == that.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+}
