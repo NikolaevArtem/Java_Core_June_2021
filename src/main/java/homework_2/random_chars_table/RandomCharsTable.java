@@ -6,59 +6,61 @@ import java.util.Scanner;
 public class RandomCharsTable {
     protected static final int MIN_ASCII_CODE = 65;
     protected static final int MAX_ASCII_CODE = 90;
+    protected static final String ERR_MSG = "Passed parameters should match the format [positive integer] [positive integer] [even|odd]";
+    int cols = 0; int rows = 0;
+    String strategy = "";
+    boolean exceptionWasThrown;
 
     public void run(){
-
         System.out.println("Enter the dimensions of matrix and required strategy : two integers and required strategy - even|odd, delimiter - space character))");
+        readAndValidateInput();
+        if (exceptionWasThrown) {
+            System.out.println(ERR_MSG);
+        } else {
+            int [][] matrix = createCharsTable(cols, rows);
+            printCharsTable(matrix, strategy);
+        }
 
-        Scanner scanner = new Scanner(System.in);
-        String inString = scanner.nextLine();
-        String tempStr = "";
-        char c;
-        int cols =0; int rows =0;
-        String strategy = "";
-        int paramCount=0;
-                // parse of input procedure
-        try {
-            for (int i = 0; i < inString.length(); i++) {
-                c = inString.charAt(i);
-                if (c != ' ') {//|| i == inString.length() - 1)
-                    tempStr = tempStr + c;
-                }
-                else {
-                    if(paramCount == 0) {
-                        cols = Integer.parseInt(tempStr);
-                        paramCount++;
-                        tempStr = "";
-                        continue;
+    }
+
+    protected void readAndValidateInput (){
+        try (Scanner scanner = new Scanner(System.in)) {
+            int paramCount = 0;
+            String tempStr = "";
+            String inString = scanner.nextLine();
+            if (inString.matches("\\d+\\s\\d+\\s[odevn]{3,4}")){
+                for (int i = 0; i < inString.length(); i++) {
+                    char c = inString.charAt(i);
+                    if (c != ' ') {
+                        tempStr = tempStr + c;
                     }
-                    if(paramCount == 1) {
-                        rows = Integer.parseInt(tempStr);
-                        paramCount++;
-                        tempStr = "";
-                        continue;
+                    else {
+                        if (paramCount == 0) {
+                            cols = Integer.parseInt(tempStr);
+                            paramCount++;
+                            tempStr = "";
+                            continue;
+                        }
+                        if (paramCount == 1) {
+                            rows = Integer.parseInt(tempStr);
+                            paramCount++;
+                            tempStr = "";
+                        }
                     }
                 }
+            }
+            else {
+                throw new IllegalArgumentException();
             }
             strategy = tempStr;
-            if ((!strategy.equals("even") && !strategy.equals("odd")) || cols <=0 || rows <= 0){
-                throw new Exception();
+            if ((!strategy.equals("even") && !strategy.equals("odd")) || cols <= 0 || rows <= 0) {
+                throw new IllegalArgumentException();
             }
-        } catch (Exception e) {
-            System.out.println("Passed parameters should match the format [positive integer] [positive integer] [even|odd]");
-            return;
+        } catch (RuntimeException e) {
+            exceptionWasThrown = true;
         }
-        //adding finally block (28.07.2021)
-        finally {
-            scanner.close();
-        }
-        // if everything valid with input - create and print result
-        int [][] matrix = createCharsTable(cols, rows);
-        printCharsTable(matrix, strategy);
-    }//end of run;
 
-
-
+    }
 
     public int[][] createCharsTable(int col, int row){
         int [][] matrix = new int[col][row];
@@ -67,16 +69,16 @@ public class RandomCharsTable {
                 matrix [i][j] = rnd(MIN_ASCII_CODE, MAX_ASCII_CODE);
             }
         }
-//        System.out.println(matrix.length + " " + matrix[0].length);
         return matrix;
+
     }
 
     public void printCharsTable (int[][] matrix, String strategy){
-       String tempStr = "";
+       String tempStr;
        boolean evStrat = strategy.equals("even");
        String stratHeader = (evStrat) ? "Even letters - " : "Odd letters - ";
        String stratRes = "";
-       for (int i = 0; i < matrix.length; i++ ){
+       for (int i = 0; i < matrix.length; i++ ) {
            tempStr = "";
            for (int j = 0; j < matrix[0].length; j++){
                tempStr = tempStr + (char) matrix[i][j] + "|";
@@ -89,13 +91,15 @@ public class RandomCharsTable {
            }
            System.out.println("|" + tempStr);
        }
-       stratRes = (stratRes.length() >1) ? stratRes.substring(0, stratRes.length()-1) : stratRes;
+       stratRes = (stratRes.length() > 1) ? stratRes.substring(0, stratRes.length() - 1) : stratRes;
         System.out.println(stratHeader + stratRes);
+
     }
 
-    public static int rnd(int min, int max)
-    {
+    public static int rnd(int min, int max) {
         max -= min;
         return (int) (Math.random() * ++max) + min;
+
     }
+
 }

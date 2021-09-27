@@ -5,4 +5,5 @@ public class Main {
         new PyramidPrinter().run();
 
     }
+
 }

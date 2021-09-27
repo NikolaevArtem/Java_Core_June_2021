@@ -8,27 +8,33 @@ public class TrafficLight {
     protected static final String GREEN_COLOUR = "\u001B[32m";
     protected static final String YELLOW_COLOUR = "\u001B[33m";
     protected static final String RESET_COLOUR = "\u001B[0m";
+    protected static final String ERR_MSG = "Only 1 non-negative integer is allowed as passed parameter! Please, try again";
+    int seconds;
+    boolean exceptionWasThrown;
 
     public void run(){
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the time (valid range is from 0 to 86399 ):");
-        int seconds = 0;
-        //reading the value of seconds
-        try {
-            seconds = scanner.nextInt();
-            if (seconds < 0) {
-                throw new Exception();
-            }
+        readAndValidateInput();
+        if (exceptionWasThrown) {
+            System.out.println(ERR_MSG);
+        } else {
             showingTrafficLightColor(seconds);
         }
-        catch (Exception e){
-            System.out.println("Only 1 non-negative integer is allowed as passed parameter! Please, try again");
-            return;
+
+    }
+
+    protected void readAndValidateInput () throws RuntimeException {
+        try (Scanner scanner = new Scanner(System.in)) {
+            String s = scanner.nextLine();
+            if (!s.matches("\\d+")) {
+                throw new RuntimeException();
+            }
+            else seconds = Integer.parseInt(s);
         }
-        //adding finally block (28.07.2021)
-        finally {
-            scanner.close();
+        catch (RuntimeException e){
+            exceptionWasThrown = true;
         }
+
     }
 
     protected void showingTrafficLightColor(int sec){
@@ -51,8 +57,7 @@ public class TrafficLight {
             res = RED_COLOUR + "RED" + RESET_COLOUR;
         }
         System.out.println(res);
+
     }
-
-
 
 }

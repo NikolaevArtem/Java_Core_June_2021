@@ -33,8 +33,6 @@ public class RandomCharsTableTest extends UnitBase {
         }
 
     }
-
-
     private boolean isValidCharTableDelimiters(String str, Character delimiterChar){
         for (int i = 0; i < str.length(); i = i + 2) {
             if (str.charAt(i) != delimiterChar) {
@@ -55,7 +53,6 @@ public class RandomCharsTableTest extends UnitBase {
                 return false;
             }
             currStr = currStr.replaceAll( "\\|+","");
-//            if ( ((cols * 2) + 1 != currStr.length())){
             if ( (cols  != currStr.length())){
                 return false;
             }
@@ -68,9 +65,7 @@ public class RandomCharsTableTest extends UnitBase {
         return true;
 
     }
-
     private boolean isValidLastStringForEven(String str){
-//        str = str.replaceAll("(Even letters - )|(,\\s+)", "");
         str = str.replaceAll("(Even letters -)|(\\s+)|(,+)", "");
         for (char c : str.toCharArray()) {
             if (oddLetters.contains(c)){
@@ -80,7 +75,6 @@ public class RandomCharsTableTest extends UnitBase {
         return true;
 
     }
-
     private boolean isValidLastStringForOdd(String str){
         str = str.replaceAll("(Odd letters -)|(\\s+)|(,+)", "");
         for (char c : str.toCharArray()) {
@@ -98,7 +92,6 @@ public class RandomCharsTableTest extends UnitBase {
         randomCharsTable.run();
         printOut();
         removeFromOutput(GREET);
-//        assertTrue(isValidCharTableDelimiters(getOutputLines()[1], '|'));
         assertTrue(isValidCharTable(getOutputLines(), 2, 2));
         assertTrue(isValidLastStringForEven(getOutputLines()[getOutputLines().length-1]));
 
